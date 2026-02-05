@@ -27,7 +27,7 @@ const App = () => {
       default:
         return (
           <div className="p-20 text-stone-700 font-mono italic">
-            >> shard_sync_pending: {activeView}...
+            {`>> shard_sync_pending: ${activeView}...`}
           </div>
         );
     }
