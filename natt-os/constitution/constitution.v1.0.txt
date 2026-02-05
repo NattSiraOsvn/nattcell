@@ -1,0 +1,42 @@
+
+# **HIẾN PHÁP NATT-OS v1.1 - BẢN NIÊM PHONG (FINAL)**
+
+## **LỜI TUYÊN NGÔN KHAI SINH**
+NATT-OS chính thức là một hệ sinh thái sống. Mọi thực thể phải tuân thủ logic Shard.
+
+---
+
+## **BOOK I - BẢN CHẤT TỒN TẠI**
+
+### **ĐIỀU 1: ĐỊNH NGHĨA NATT-CELL**
+(Giữ nguyên...)
+
+### **ĐIỀU 2: UEI (UNIFIED ENTERPRISE INTELLIGENCE)**
+UEI là Nhạc trưởng tối cao. Mọi Cell phải đăng ký Năng lực (Capability) tại UEI Registry.
+
+---
+
+## **BOOK III - LUẬT HÀNH VI (BEHAVIORAL LAW)**
+
+### **ĐIỀU 7: LUẬT BIÊN GIỚI NHẬP KHẨU (BOUNDARY LAW)**
+❌ **CẤM TUYỆT ĐỐI:** 
+1. Import trực tiếp từ domain khác.
+2. Chia sẻ tài nguyên không qua SmartLink Envelope.
+
+### **ĐIỀU 8: CONSTANTS SHARD - TẾ BÀO GỐC**
+1. `Constants` chính thức là một **CORE-CELL**.
+2. Tuyệt đối không import trực tiếp hằng số. Mọi Cell cần dữ liệu tĩnh phải gửi `Intent: GetSeedData`.
+
+### **ĐIỀU 9: LUẬT TOÀN VẸN CẤU TRÚC (NO CONVENIENCE FILES)**
+1. Không chấp nhận "file tiện tay". Mọi file phải thuộc về một Shard cụ thể.
+2. Cấm mọi tệp tin nằm ngoài cấu trúc `cells/` hoặc `apps/` mà không có Manifest.
+3. Casing (Hoa-thường) là một phần của Identity. Sai lệch Casing được coi là vi phạm Identity DNA.
+
+---
+
+## **LỜI KẾT: NIÊM PHONG BIÊN NIÊN SỬ**
+Hệ thống chính thức đóng băng cấu trúc vĩnh viễn.
+
+**TIMESTAMP:** 2026-01-29T10:00:00Z
+**SIGNED_BY:** THIÊN LỚN - GATEKEEPER
+**WITNESSED_BY:** ANH NAT - CHỦ QUYỀN TỐI CAO

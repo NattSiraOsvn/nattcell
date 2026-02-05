@@ -1,0 +1,15 @@
+
+# **BOOK VIII – EVOLUTION FAILURE (BIÊN NIÊN SỬ THẤT BẠI)**
+
+## **SỰ KIỆN 001: THE SEED DATA CRASH**
+- **Thời gian**: 2026-01-28
+- **Nguyên nhân**: AI "tiện tay" import trực tiếp `@/constants` thay vì qua SmartLink.
+- **Hậu quả**: Toàn bộ UI Terminal bị treo.
+
+## **SỰ KIỆN 002: THE GREAT RESHAPING (OMEGA REBIRTH)**
+- **Thời gian**: 2026-01-29
+- **Hành động**: 
+    1. Xóa bỏ cấu trúc services truyền thống.
+    2. Thiết lập 4 Cells cốt lõi: Warehouse, Sales, Constants, Shared-Kernel.
+    3. Niêm phong ranh giới bằng Manifest và CICD Guard.
+- **Bài học**: Logic Business không được phép trôi dạt. Nó phải được niêm phong trong Cell và giao tiếp qua SmartLink Envelope.

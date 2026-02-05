@@ -1,0 +1,8 @@
+{
+  "name": "natt-os: absolute lowercase sovereign",
+  "description": "chủ quyền tuyệt đối: anh nat. trạng thái: penance_mode_active.",
+  "version": "6.2.1",
+  "owner": "anh_nat",
+  "status": "penance_mode_72h",
+  "integrity_lock": "absolute_lowercase_enforced"
+}

@@ -1,0 +1,24 @@
+
+{
+  "id": "cell:shared-kernel",
+  "type": "UEI-CELL",
+  "status": "ENFORCED",
+  "identity": {
+    "adn_id": "0xNAT-2026-SUPREME-SK",
+    "version": "1.1.0",
+    "owner": "ANH_NAT",
+    "registry_signature": "SIG_BY_MASTER_NAT_2026"
+  },
+  "constitution": {
+    "applied_books": ["ALL"],
+    "gatekeeper_contact": "THIEN_LON_UNDER_NAT",
+    "lockdown_level": "STRICT"
+  },
+  "capabilities": [
+    { "id": "capability:shared:types", "intent": "GetDefinitions" }
+  ],
+  "immune_integration": {
+    "audit_enabled": true,
+    "raw_access": false
+  }
+}

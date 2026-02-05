@@ -1,0 +1,38 @@
+
+{
+  "cell_manifest_version": "1.0",
+  "id": "cell:warehouse",
+  "name": "Warehouse Management",
+  "type": "CORE-CELL",
+  "status": "ENFORCED",
+  "identity": {
+    "adn_id": "WH-001",
+    "version": "1.1.0",
+    "owner": "ANH_NAT",
+    "registry_signature": "SIG_BY_MASTER_NAT_2026"
+  },
+  "capabilities": [
+    {
+      "id": "capability:warehouse:stock:check:v1",
+      "intent": "StockCheck",
+      "qos": {
+        "timeout_ms": 1000,
+        "retry_count": 2,
+        "security_level": "MEDIUM"
+      }
+    },
+    {
+      "id": "capability:warehouse:inventory:stats:v1",
+      "intent": "GetInventoryStats",
+      "qos": {
+        "timeout_ms": 2000,
+        "retry_count": 3
+      }
+    }
+  ],
+  "ports": {
+    "ingress": "smartlink://cell/warehouse/in",
+    "egress": "smartlink://cell/warehouse/out",
+    "supported_protocols": ["SMARTLINK_V1"]
+  }
+}

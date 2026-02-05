@@ -1,0 +1,26 @@
+
+{
+  "meta": {
+    "version": "1.0.0",
+    "locked_by": "BOI_BOI",
+    "timestamp": "2026-01-29T12:00:00Z",
+    "status": "ENFORCED"
+  },
+  "structure_rules": {
+    "root_level": {
+      "allowed_directories": ["src", "public", "scripts", "natt-os", "database", "docs"],
+      "forbidden_directories": ["components", "services", "utils", "hooks"]
+    },
+    "cell_architecture": {
+      "base_path": "src/cells",
+      "naming_convention": "kebab-case",
+      "required_files": ["manifest.json"],
+      "service_file_pattern": "^[a-z0-9-]+\\.service\\.ts$"
+    },
+    "file_casing": {
+      "enforce_lowercase_services": true,
+      "description": "All service files inside cells MUST be lowercase to prevent Linux build errors."
+    }
+  },
+  "enforcement_action": "AUTO_PURGE_ON_VIOLATION"
+}

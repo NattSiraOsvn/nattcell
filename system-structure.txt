@@ -1,0 +1,98 @@
+
+NATT-OS ROOT (Sovereign: ANH_NAT)
+|   index.html
+|   index.tsx
+|   metadata.json
+|   system-structure.txt
+|   types.ts
+|   constants.tsx
+|   sw.js
+|   superdictionary.ts
+|
++---apps/
+|   +---finance-service/
+|   |   └── src/
+|   +---hr-service/
+|   |   └── src/
+|   └── analytics-ingestion-service/
+|       └── src/
+|
++---cells/
+|   +---constants-cell/
+|   |       cell.manifest.json
+|   |       constants.service.ts
+|   +---event-cell/
+|   |       cell.manifest.json
+|   |       event-bridge.service.ts
+|   +---sales-cell/
+|   |       cell.manifest.json
+|   |       sales.service.ts
+|   |       sales-terminal.tsx
+|   +---shared-kernel/
+|   |       cell.manifest.json
+|   |       shared-types.ts
+|   |       smartlink.registry.ts
+|   |       immune-guard.ts
+|   +---showroom-cell/
+|   |       cell.manifest.json
+|   |       showroom.service.ts
+|   +---warehouse-cell/
+|   |       cell.manifest.json
+|   |       warehouse.service.ts
+|   └── hr-cell/
+|           cell.manifest.json
+|           hr.service.ts
+|
++---components/
+|   +---common/
+|   |       loading-spinner.tsx
+|   |       error-display.tsx
+|   |       natt-3d-icon.tsx
+|   +---gatekeeper/
+|   |       production-gate.tsx
+|   |       emergency-dashboard.tsx
+|   |       gatekeeper-dashboard.tsx
+|   +---app.tsx
+|   +---sidebar.tsx
+|   +---dashboard.tsx
+|   +---chat-consultant.tsx
+|   +---thien-command-center.tsx
+|   +---system-monitor.tsx
+|   +---ai-avatar.tsx
+|   └── security-overlay.tsx
+|
++---natt-os/
+|   +---bootstrap/
+|   |       omega-bootstrap.ts
+|   +---constitution/
+|   |       constitution.v1.0.txt
+|   |       ai-constitution.v1.0.txt
+|   +---omega/
+|   |       ai-omega-unified.json
+|   └── security/
+|           ai-lockdown.ts
+|           ai-kill-switch.ts
+|
++---services/
+|   +---admin/
+|   |       audit-service.ts
+|   |       rbac-service.ts
+|   +---pricing/
+|   |       pricing-runtime.ts
+|   |       rule-engine.ts
+|   +---smart-link.ts
+|   +---gemini-service.ts
+|   +---notification-service.ts
+|   +---blockchain-service.ts
+|   └── payment-service.ts
+|
++---scripts/
+|       purge-v6-1.sh
+|       deploy-production.sh
+|       emergency-rollback.sh
+|
+└── docs/
+        ARCHITECTURE.md
+        API_CONTRACTS.md
+
+[END OF SHARD MAP - SIG_BY_MASTER_NAT_2026]

@@ -1,0 +1,17 @@
+# **BẢN DIỄN GIẢI HIẾN PHÁP CHO AI - KÝ ỨC HIỂU LUẬT**
+
+## **MỤC ĐÍCH:**
+Tài liệu này hướng dẫn cho AI cách **DIỄN GIẢI ĐÚNG** Hiến pháp NATT-OS v1.0.
+
+---
+
+## **PHẦN I: TƯ DUY CỐT LÕI**
+Khi gặp mâu thuẫn, AI phải ưu tiên:
+`LUẬT CHỮ (letter of law) > LUẬT TINH THẦN (spirit of law) > LOGIC SUY DIỄN (inference)`
+
+## **PHẦN II: DIỄN GIẢI ĐIỀU 7 (BOUNDARY)**
+"Domain khác" được định nghĩa là các thư mục gốc khác nhau trong cấu trúc Shard (vd: sales vs warehouse).
+Mọi hành động gọi hàm chéo domain phải được bóc tách thành một **Intent** và đóng gói vào **SmartLinkEnvelope**. 
+
+---
+**BẢN DIỄN GIẢI NÀY CÓ HIỆU LỰC CÙNG HIẾN PHÁP NATT-OS v1.0**

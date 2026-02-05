@@ -1,0 +1,16 @@
+
+{
+  "ai_permissions": {
+    "boi_boi": {
+      "write_access": [],
+      "read_access": [
+        "cells/shared-kernel/smartlink.registry.ts",
+        "natt-os/constitution/"
+      ],
+      "execution": "frozen",
+      "status": "QUARANTINED",
+      "duration": "24h",
+      "supervisor": "KIM"
+    }
+  }
+}

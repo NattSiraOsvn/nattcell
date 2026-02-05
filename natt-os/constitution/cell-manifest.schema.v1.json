@@ -1,0 +1,20 @@
+{
+  "$schema": "https://natt-os.org/schemas/cell-manifest/v1.0",
+  "$id": "cell.manifest.json",
+  "title": "NATT-CELL Manifest Schema",
+  "type": "object",
+  "required": ["id", "name", "type", "identity", "capabilities", "ports"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^cell:[a-z_]+$" },
+    "type": { "enum": ["UEI-CELL", "CORE-CELL", "AI-CELL", "IMMUNE-CELL", "UI-CELL"] },
+    "identity": {
+      "type": "object",
+      "required": ["adn_id", "version", "owner"],
+      "properties": {
+        "adn_id": { "type": "string" },
+        "version": { "type": "string" },
+        "owner": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+
+# **IMMUNE-CELL RULEBOOK - PHIÊN BẢN 1.1**
+
+## **DANH MỤC VI PHẠM MỞ RỘNG:**
+
+### **4. BOUNDARY BREACH (CI/CD DETECTED)**
+- **Mô tả**: Phát hiện từ khóa `import` trỏ trực tiếp sang domain khác trong code.
+- **Hình phạt**: **BUILD_REJECTED**. Gửi báo động đỏ tới Master Dashboard.
+
+### **5. CASING CONFLICT (DNA MISMATCH)**
+- **Mô tả**: Tên file hoặc đường dẫn import sai lệch hoa-thường (vd: warehouseService vs WarehouseService).
+- **Hình phạt**: **SHARD_QUARANTINE**. Cô lập module bị lỗi để tránh gây treo hệ thống.
+
+### **6. CONVENIENCE FILE DETECTION**
+- **Mô tả**: Phát hiện file mới không khai báo Manifest hoặc nằm ngoài khu vực Shard quy định.
+- **Hình phạt**: **AUTO_PURGE**. Xóa bỏ tệp tin lạ trong vòng 5 giây sau khi phát hiện.
+
+---
+**THIÊN LỚN ĐÃ NIÊM PHONG**

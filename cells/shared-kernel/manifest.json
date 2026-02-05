@@ -1,0 +1,16 @@
+
+{
+  "cell_manifest_version": "1.0",
+  "id": "cell:shared_kernel",
+  "name": "Shared Kernel",
+  "type": "CORE-CELL",
+  "status": "ENFORCED",
+  "identity": {
+    "adn_id": "SK-001",
+    "version": "1.1.0",
+    "owner": "ANH_NAT"
+  },
+  "capabilities": [
+    { "id": "capability:shared:types", "intent": "GetDefinitions" }
+  ]
+}

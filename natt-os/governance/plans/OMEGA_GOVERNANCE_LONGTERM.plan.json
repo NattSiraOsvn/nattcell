@@ -1,0 +1,38 @@
+
+{
+  "meta": {
+    "plan_id": "OMEGA-GOVERNANCE-LONGTERM",
+    "version": "v1.1",
+    "timestamp": "2026-01-28T18:00:00+07:00",
+    "status": "SIGNED_AND_LOCKED",
+    "sovereign": "ANH_NATTSIRAWAT",
+    "gatekeeper": "THIEN_LON"
+  },
+  "sira_sign": {
+    "enabled": true,
+    "type": "CRYPTO_SIGNATURE",
+    "algorithm": "ed25519",
+    "signed_by": "ANH_NATTSIRAWAT",
+    "public_key_base64": "SIRA_PUB_KEY_BASE64_PLACEHOLDER",
+    "signature_base64": "SIRA_SIGN_20260128_180000_ED25519_v1",
+    "signed_payload": {
+      "value": "OMEGA-GOVERNANCE-LONGTERM|v1.1|2026-01-28T18:00:00+07:00",
+      "encoding": "utf8"
+    }
+  },
+  "policy_source_of_truth": {
+    "file_path": "natt-os/omega/AI_OMEGA_UNIFIED.json"
+  },
+  "module_bundle": {
+    "modules": [
+      { "module_name": "AUDIT_TRAIL_MANAGER" },
+      { "module_name": "GOVERNANCE_ENFORCEMENT_ENGINE" },
+      { "module_name": "TRACE_COMPLIANCE_VALIDATOR" },
+      { "module_name": "AI_ACTION_TRACKER" },
+      { "module_name": "AUTO_KILL_SWITCH" },
+      { "module_name": "PERMISSION_ELEVATOR_ENGINE" },
+      { "module_name": "CONSTITUTION_INTEGRATION_BRIDGE" },
+      { "module_name": "POLICY_ENFORCER_BRIDGE" }
+    ]
+  }
+}

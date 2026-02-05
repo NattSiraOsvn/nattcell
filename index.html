@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>natt-os: absolute lowercase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --midnight: #050505;
+            --gold: #ffd700;
+        }
+        body {
+            margin: 0; padding: 0;
+            background: var(--midnight);
+            color: #ffffff;
+            font-family: 'plus jakarta sans', sans-serif;
+            overflow: hidden;
+            width: 100vw; height: 100vh;
+            text-transform: lowercase;
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #ffd700 0%, #ffc107 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        * { text-transform: lowercase !important; }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0?exports=useState:usestate,useEffect:useeffect,useMemo:usememo,useCallback:usecallback,createElement:create_element,StrictMode:strict_mode",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client?exports=createRoot:create_root",
+    "lucide-react": "https://esm.sh/lucide-react@0.469.0?exports=Shield:shield,Activity:activity,Database:database,Lock:lock,Layers:layers,Fingerprint:fingerprint,Bell:bell,CircleCheck:circle_check",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.39.0",
+    "recharts": "https://esm.sh/recharts@^3.7.0",
+    "xlsx": "https://esm.sh/xlsx@^0.18.5",
+    "framer-motion": "https://esm.sh/framer-motion@^12.29.2",
+    "uuid": "https://esm.sh/uuid@^13.0.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

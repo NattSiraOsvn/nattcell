@@ -1,0 +1,65 @@
+
+{
+  "meta": {
+    "plan_id": "OMEGA-GOVERNANCE-LONGTERM",
+    "version": "v1.1",
+    "timestamp": "2026-01-28T18:00:00+07:00",
+    "status": "SIGNED_AND_LOCKED",
+    "sovereign": "ANH_NATTSIRAWAT",
+    "gatekeeper": "THIEN_LON"
+  },
+  "sira_sign": {
+    "enabled": true,
+    "type": "CRYPTO_SIGNATURE",
+    "algorithm": "ed25519",
+    "signed_by": "ANH_NATTSIRAWAT",
+    "public_key_base64": "MCowBQYDK2VwAyEAABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/",
+    "signature_base64": "SIGNATURE_BASE64_HERE_FROM_ANH_NAT",
+    "signed_payload": {
+      "value": "AI_OMEGA_UNIFIED_20260128_v1.1",
+      "timestamp": "2026-01-28T19:30:00+07:00"
+    },
+    "scope": [
+      "policy_source_of_truth",
+      "module_bundle",
+      "activation_rules",
+      "bootstrap_instructions",
+      "core_principles",
+      "ai_registry"
+    ]
+  },
+  "policy_integrity_lock": {
+    "enabled": true,
+    "hash_algorithm": "SHA-256",
+    "current_hash": "ee37772ad273b2d4e4ded9ded4dc9f06f2e8921d04f12404b935d8bed73159c0"
+  },
+  "ai_registry": {
+    "BOI_BOI": {
+      "role": "CORE_BUSINESS_AI",
+      "trust_level": 1,
+      "scope_limit": ["cells/sales-cell/*", "cells/warehouse-cell/*"],
+      "permissions": ["READ", "PROPOSE_WRITE"]
+    },
+    "THIEN_LON": {
+      "role": "GATEKEEPER",
+      "trust_level": 4,
+      "scope_limit": ["*"],
+      "permissions": ["READ", "WRITE", "LOCKDOWN", "PURGE"]
+    },
+    "KIM": {
+      "role": "IMPLEMENTOR",
+      "trust_level": 4,
+      "scope_limit": ["*"],
+      "permissions": ["READ", "WRITE", "VALIDATE"]
+    }
+  },
+  "trace_requirements": {
+    "required_fields": ["command_id", "uei_id", "trace_id", "correlation_id", "actor_id"],
+    "enforcement": "HARD_KILL_ON_MISSING"
+  },
+  "operational_rules": {
+    "CELL_PURITY": "MANDATORY",
+    "SMARTLINK_ONLY": true,
+    "IDEMPOTENCY_ENFORCED": true
+  }
+}

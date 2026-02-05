@@ -1,0 +1,36 @@
+
+{
+  "meta": {
+    "plan_id": "OMEGA-GOVERNANCE-LONGTERM",
+    "version": "v1.1",
+    "timestamp": "2026-01-29T12:00:00Z",
+    "status": "SOVEREIGN_LOCKED",
+    "owner": "ANH_NAT",
+    "gatekeeper": "THIEN_LON"
+  },
+  "sira_sign": {
+    "enabled": true,
+    "signed_by": "ANH_NAT",
+    "signature": "SIG_BY_MASTER_NAT_2026",
+    "hash_integrity": "0xGOLD_MASTER_HASH_9999"
+  },
+  "operational_rules": {
+    "CELL_PURITY": "MANDATORY",
+    "IDEMPOTENCY": "STRICT",
+    "BOUNDARY_LAW": "ENFORCED",
+    "CASING": "KEBAB_CASE_ONLY"
+  },
+  "ai_registry": {
+    "BOI_BOI": {
+      "role": "CORE_BUSINESS_AI",
+      "permissions": ["READ", "PROPOSE_WRITE"],
+      "supervisor": "KIM",
+      "status": "ENFORCED"
+    },
+    "KIM": {
+      "role": "IMMUNE_CELL",
+      "permissions": ["AUDIT", "PURGE", "REVERT"],
+      "owner": "ANH_NAT"
+    }
+  }
+}

@@ -1,0 +1,1 @@
+// 💀 TERMINATED: Root violation and casing error. Use components/app-shell.tsx.
