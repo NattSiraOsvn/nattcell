@@ -6,6 +6,19 @@ import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis } from 'recharts';
 import AIAvatar from './AIAvatar';
 import { PersonaID } from '../types';
 
+/**
+ * ============================================================
+ * UI ORCHESTRATION STATE (NON-CONSTITUTIONAL)
+ * ------------------------------------------------------------
+ * These useState hooks are for visualization & interaction only.
+ * They do NOT represent NATT-OS system states.
+ * They do NOT trigger StateManager or Gatekeeper.
+ *
+ * Constitutional State Transitions MUST go through:
+ * Cell Intent → StateManager → GatekeeperCore → AuditTrail
+ * ============================================================
+ */
+
 const QuantumFlowOrchestrator: React.FC = () => {
   const [state, setState] = useState<QuantumState | null>(null);
   const [consciousness, setConsciousness] = useState<ConsciousnessField | null>(null);
