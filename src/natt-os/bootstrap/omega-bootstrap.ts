@@ -1,5 +1,5 @@
 
-import { AuditProvider } from '../../services/admin/audit-service';
+import { AuditProvider } from '@/services/admin/audit-service';
 
 // 🔱 CHỦ QUYỀN TỐI CAO: ANH NAT
 const MASTER_SIGNATURE = 'SIG_BY_MASTER_NAT_2026';

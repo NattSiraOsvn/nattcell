@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { RBACProvider } from '../services/rbacService';
+import { RBACProvider } from '../services/rbacservice';
 import { RBACRole, RBACPermission, UserRole, Permission, ModuleID, PersonaID } from '../types';
-import { RBACGuard } from '../services/authService';
-import AIAvatar from './AIAvatar';
+import { RBACGuard } from '../services/authservice';
+import AIAvatar from './aiavatar';
 
 const RBACManager: React.FC = () => {
   const [selectedRole, setSelectedRole] = useState<UserRole>(UserRole.ADMIN);

@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { TeamPerformance, PersonaID } from '../types';
-import { AnalyticsProvider } from '../services/analytics/AnalyticsAPI';
-import GovernanceKPIBoard from './analytics/GovernanceKPIBoard.tsx';
-import AIAvatar from './AIAvatar';
+import { TeamPerformance, PersonaID } from '@/types';
+import { AnalyticsProvider } from '@/services/analytics/analyticsapi';
+import GovernanceKPIBoard from './analytics/governancekpiboard.tsx';
+import AIAvatar from './aiavatar';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend

@@ -1,6 +1,6 @@
 
-import { EventBridgeProvider } from '../event-cell/event-bridge.service';
-import { SmartLinkEnvelope } from '../shared-kernel/shared.types';
+import { EventBridgeProvider } from '@/event-cell/event-bridge.service';
+import { SmartLinkEnvelope } from '@/shared-kernel/shared.types';
 
 class SalesService {
   private static instance: SalesService;

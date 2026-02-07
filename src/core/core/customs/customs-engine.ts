@@ -2,9 +2,9 @@
 import React, { useState, useRef } from 'react';
 // 🛠️ Fixed: Import casing for Types
 import { CustomsDeclaration, CustomsDeclarationItem, PersonaID, ActionPlan } from '../types';
-import { CustomsRobotEngine } from '../services/customsService';
-import { NotifyBus } from '../services/notificationService';
-import AIAvatar from './AIAvatar';
+import { CustomsRobotEngine } from '../services/customsservice';
+import { NotifyBus } from '../services/notificationservice';
+import AIAvatar from './aiavatar';
 
 type ExtendedDeclaration = CustomsDeclaration & { actionPlans: ActionPlan[] };
 

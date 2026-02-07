@@ -2,9 +2,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 // 🛠️ Fixed: Import casing for Types
 import { SyncJob, SyncConflictStrategy, SyncLog, ConflictResolutionMethod, DataPoint } from '../types';
-import OfflineService from '../services/offlineService';
+import OfflineService from '../services/offlineservice';
 import superdictionary from '../superdictionary';
-import { ConflictEngine } from '../services/conflict/ConflictResolver';
+import { ConflictEngine } from '../services/conflict/conflictresolver';
 
 const DataSyncEngine: React.FC = () => {
   const [isConnected, setIsConnected] = useState(true);

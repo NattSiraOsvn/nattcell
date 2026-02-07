@@ -1,7 +1,7 @@
 
-import { Certification, PersonaID } from '../../types.ts';
-import { ShardingService } from '../blockchainService.ts';
-import { NotifyBus } from '../notificationService.ts';
+import { Certification, PersonaID } from '@/types.ts';
+import { ShardingService } from '@/blockchainservice.ts';
+import { NotifyBus } from '@/notificationservice.ts';
 
 class CertificationService {
   private static instance: CertificationService;

@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { QuantumBrain } from '../services/quantumEngine';
+import { QuantumBrain } from '../services/quantumengine';
 import { QuantumState, ConsciousnessField, QuantumEvent } from '../types';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis } from 'recharts';
-import AIAvatar from './AIAvatar';
+import AIAvatar from './aiavatar';
 import { PersonaID } from '../types';
 
 /**

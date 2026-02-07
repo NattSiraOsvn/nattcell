@@ -1,5 +1,5 @@
 
-import { Event } from '../types';
+import { Event } from '@/types';
 
 export interface TraceSpan {
   id: string;

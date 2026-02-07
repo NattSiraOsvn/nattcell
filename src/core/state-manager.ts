@@ -1,6 +1,6 @@
-import { StateChange } from '../types';
+import { StateChange } from '@/types';
 import { CONSTITUTIONAL_ROADLOAD_ID } 
-  from '../../governance/gatekeeper/constitutional';
+  from '@/governance/gatekeeper/constitutional';
 
 /**
  * ============================================================

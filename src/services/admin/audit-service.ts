@@ -1,7 +1,7 @@
 
-import { AuditRecord, AuditChainHead } from '../../types';
-import { AuditChainContract } from '../../core/audit/AuditChainContract';
-import { OmegaLockdown } from '../../core/audit/OmegaLockdown';
+import { AuditRecord, AuditChainHead } from '@/types';
+import { AuditChainContract } from '@/core/audit/auditchaincontract';
+import { OmegaLockdown } from '@/core/audit/omegalockdown';
 
 /**
  * 📜 IMMUTABLE AUDIT SERVICE - PRODUCTION GRADE

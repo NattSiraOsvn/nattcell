@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { ViewType, UserRole, PersonaID } from '../types';
-import AIAvatar from './AIAvatar';
+import { ViewType, UserRole, PersonaID } from '@/types';
+import AIAvatar from './aiavatar';
 
 interface Props {
   view: ViewType;

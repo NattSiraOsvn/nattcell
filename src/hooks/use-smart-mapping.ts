@@ -1,9 +1,13 @@
+/**
+ * 👑 NATT-OS GOLD MASTER: SMART MAPPING HOOK
+ * AUTHORIZED BY: ANH_NAT (SOVEREIGN)
+ * STATUS: 100% TYPE-SAFE | THE FINAL PIECE
+ */
 
 import { useState, useEffect, useCallback } from 'react';
-// Fix: Corrected relative import path
-import { SmartLinkMappingEngine } from '../services/mapping/SmartLinkMappingEngine';
-// Fix: Corrected relative import path to root types.ts
-import { AccountingMappingRule, SalesEvent, AccountingEntry, RealTimeUpdate } from '../types';
+// 🛠️ FIX: Đồng bộ kebab-case với hệ thống (Điều 11)
+import { SmartLinkMappingEngine } from '@/services/mapping/smart-link-mapping-engine';
+import { AccountingMappingRule, SalesEvent, AccountingEntry, RealTimeUpdate } from '@/types';
 
 export const useSmartMapping = () => {
   const [mappingEngine] = useState(() => SmartLinkMappingEngine.getInstance());
@@ -12,7 +16,7 @@ export const useSmartMapping = () => {
   const [error, setError] = useState<string | null>(null);
   const [realTimeUpdates, setRealTimeUpdates] = useState<RealTimeUpdate[]>([]);
 
-  // Load initial rules
+  // 1. Load danh mục luật từ Engine
   useEffect(() => {
     const loadRules = () => {
       try {
@@ -27,10 +31,37 @@ export const useSmartMapping = () => {
 
     loadRules();
 
-    // Subscribe to rule updates
+    // 2. Đăng ký lắng nghe cập nhật (Event Subscription)
     const handleRuleAdded = (rule: AccountingMappingRule) => {
       setRules(prev => [...prev, rule]);
     };
 
     const handleRuleUpdated = (updatedRule: AccountingMappingRule) => {
-      setRules(prev => prev.map(rule =>
+      // 🛠️ FIX: Hoàn thiện logic cập nhật luật theo ID
+      setRules(prev => prev.map(rule => rule.id === updatedRule.id ? updatedRule : rule));
+    };
+
+    mappingEngine.on('ruleAdded', handleRuleAdded);
+    mappingEngine.on('ruleUpdated', handleRuleUpdated);
+
+    // Giao thức dọn dẹp ADN sau khi Unmount
+    return () => {
+      mappingEngine.off('ruleAdded', handleRuleAdded);
+      mappingEngine.off('ruleUpdated', handleRuleUpdated);
+    };
+  }, [mappingEngine]);
+
+  // 3. Hàm thực thi Mapping (Traceable Action)
+  const mapEvent = useCallback(async (event: SalesEvent): Promise<AccountingEntry[]> => {
+    return await mappingEngine.autoMapSalesEvent(event);
+  }, [mappingEngine]);
+
+  return {
+    rules,
+    isLoading,
+    error,
+    realTimeUpdates,
+    mapEvent,
+    refreshRules: () => setRules(mappingEngine.getMappingRules())
+  };
+};

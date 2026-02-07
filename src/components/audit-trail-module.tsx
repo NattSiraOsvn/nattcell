@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
-import { ActionLog, UserRole, PersonaID } from '../types';
-import AIAvatar from './AIAvatar';
-import { ShardingService } from '../services/blockchainService';
+import { ActionLog, UserRole, PersonaID } from '@/types';
+import AIAvatar from './aiavatar';
+import { ShardingService } from '@/services/blockchainservice';
 import { Copy, Check, ChevronDown, ChevronRight, Hash, Activity, ShieldCheck } from 'lucide-react';
 
 interface AuditTrailModuleProps {

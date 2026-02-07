@@ -7,20 +7,20 @@ import {
   Terminal, MessageSquare, Monitor, Send, Menu, ShieldAlert
 } from 'lucide-react';
 import { GoogleGenAI } from "@google/genai";
-import { ViewType, UserRole, PersonaID, PositionType, Department } from '../types.ts';
+import { ViewType, UserRole, PersonaID, PositionType, Department } from '@/types.ts';
 // FIX: Using kebab-case file names as per Article 11 and provided file components/dynamic-module-renderer.tsx
 import DynamicModuleRenderer from './dynamic-module-renderer.tsx';
 // FIX: Using kebab-case file name as per Article 11
 import AIAvatar from './ai-avatar.tsx';
 
 // 🛠️ UI ENGINE IMPORTS
-import { HapticEngine } from '../haptic/HapticEngine.ts';
-import { PhysicsEngine } from '../physics/PhysicsEngine.ts';
-import { useMotionSensor } from '../motion/useMotionSensor.ts';
-import { useContextualUI } from '../context/useContextualUI.ts';
-import { useStaggeredAnimation } from '../animation/useStaggeredAnimation.ts';
-import { DataPoint3D } from '../data-3d/DataPoint3D.tsx';
-import { UIRuntimeProvider } from '../core/UIRuntime.tsx';
+import { HapticEngine } from '@/haptic/hapticengine.ts';
+import { PhysicsEngine } from '@/physics/physicsengine.ts';
+import { useMotionSensor } from '@/motion/usemotionsensor.ts';
+import { useContextualUI } from '@/context/usecontextualui.ts';
+import { useStaggeredAnimation } from '@/animation/usestaggeredanimation.ts';
+import { DataPoint3D } from '@/data-3d/datapoint3d.tsx';
+import { UIRuntimeProvider } from '@/core/uiruntime.tsx';
 
 /**
  * 🛠️ NATT-OS QUANTUM RUNTIME v8.0

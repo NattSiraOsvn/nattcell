@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
-import { UserPosition, UserRole, PersonaID } from '../types';
-import AIAvatar from './AIAvatar.tsx';
+import { UserPosition, UserRole, PersonaID } from '@/types';
+import AIAvatar from './aiavatar.tsx';
 
 interface PersonalSphereProps {
   currentRole: UserRole;

@@ -1,6 +1,6 @@
 
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { OverlayType, ManifestationConfig } from '../../core/signals/types';
+import { OverlayType, ManifestationConfig } from '@/core/signals/types';
 
 interface QuantumContextType {
   overlayConfig: ManifestationConfig;

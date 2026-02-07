@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShowroomBranch } from '../../types/showroom';
+import { ShowroomBranch } from '@/types/showroom';
 import { MapPin, UserCheck } from 'lucide-react';
 
 export const BranchContextPanel: React.FC<{ branch: ShowroomBranch }> = ({ branch }) => {

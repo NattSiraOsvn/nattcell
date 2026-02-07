@@ -1,6 +1,6 @@
 
-import { AuditProvider } from '../../services/admin/AuditService';
-import { ProductionEnforcer } from './ProductionEnforcer';
+import { AuditProvider } from '../../services/admin/auditservice';
+import { ProductionEnforcer } from './productionenforcer';
 
 export interface LegalCompliance {
   gdprCompliant: boolean;

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShowroomProduct } from '../../types/showroom';
+import { ShowroomProduct } from '@/types/showroom';
 
 export const RelatedProducts: React.FC<{ products: ShowroomProduct[] }> = ({ products }) => {
   return (

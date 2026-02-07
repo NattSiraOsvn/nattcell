@@ -5,7 +5,7 @@
 // Status: ENFORCED
 // ============================================================
 
-import { AuditRecord, AuditActor } from '../../types';
+import { AuditRecord, AuditActor } from '@/types';
 
 // 1. CANONICAL PAYLOAD RULES
 export const CANONICAL_RULES = {

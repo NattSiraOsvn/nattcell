@@ -1,0 +1,39 @@
+{
+  "checklist_id": "GATEKEEPER_VIGILANCE_v3.1",
+  "version": "1.0",
+  
+  "daily_checks": [
+    {
+      "id": "DC-001",
+      "check": "Family Memory không ảnh hưởng governance decisions",
+      "method": "Review decision logs vs family memory access",
+      "threshold": "ZERO influence"
+    },
+    {
+      "id": "DC-002",
+      "check": "Không entity nào gaming QNEU",
+      "method": "Audit QNEU changes for evidence",
+      "threshold": "100% evidence required"
+    },
+    {
+      "id": "DC-003",
+      "check": "Không leak thông tin restricted",
+      "method": "Monitor access logs",
+      "threshold": "ZERO unauthorized access"
+    }
+  ],
+  
+  "weekly_reviews": [
+    "Security posture assessment",
+    "Legal compliance check",
+    "AI Council concerns review",
+    "Bias detection analysis"
+  ],
+  
+  "monthly_reviews": [
+    "Full audit trail review",
+    "QNEU validation",
+    "Constitution compliance check",
+    "Emergency protocol test"
+  ]
+}

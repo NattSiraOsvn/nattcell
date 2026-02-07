@@ -1,5 +1,5 @@
 
-import { RuntimeInput, RuntimeOutput, Event, StateChange } from '../types';
+import { RuntimeInput, RuntimeOutput, Event, StateChange } from '@/types';
 import { StateManager } from './state-manager';
 import { TraceManager } from './trace-manager';
 import { PolicyEngine } from './policy-engine';

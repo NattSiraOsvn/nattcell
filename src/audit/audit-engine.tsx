@@ -1,8 +1,8 @@
 
 import React, { useState, useMemo } from 'react';
 import { ActionLog, UserRole, PersonaID } from '../types';
-import AIAvatar from './AIAvatar';
-import { ShardingService } from '../services/blockchainService';
+import AIAvatar from './aiavatar';
+import { ShardingService } from '../services/blockchainservice';
 
 interface AuditTrailModuleProps {
   actionLogs: ActionLog[];

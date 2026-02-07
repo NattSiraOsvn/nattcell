@@ -1,7 +1,7 @@
 
 import { GoogleGenAI } from "@google/genai";
 import { FileMetadata, IngestStatus } from '../../../types';
-import { Ingestion } from '../../ingestion/IngestionService';
+import { Ingestion } from '../../ingestion/ingestionservice';
 
 export class AICoreProcessor {
   async process(metadata: FileMetadata, fileContent: string): Promise<any> {

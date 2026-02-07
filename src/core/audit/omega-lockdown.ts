@@ -5,7 +5,7 @@
 // Status: ENFORCED
 // ============================================================
 
-import { IntegrityScanner } from './IntegrityScanner';
+import { IntegrityScanner } from './integrityscanner';
 
 export class OmegaLockdown {
     

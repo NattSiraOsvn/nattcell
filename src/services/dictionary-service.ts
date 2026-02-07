@@ -1,5 +1,5 @@
 
-import { DictionaryVersion } from '../types';
+import { DictionaryVersion } from '@/types';
 
 export class DictionaryService {
   private static instance: DictionaryService;

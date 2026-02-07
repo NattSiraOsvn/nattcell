@@ -1,8 +1,8 @@
 
 import React, { useState, useMemo } from 'react';
-import { Product, BusinessMetrics } from '../types';
-import { PRODUCT_SEED_DATA } from '../constants';
-import { PaymentEngine, PaymentResponse } from '../services/paymentService';
+import { Product, BusinessMetrics } from '@/types';
+import { PRODUCT_SEED_DATA } from '@/constants';
+import { PaymentEngine, PaymentResponse } from '@/services/paymentservice';
 
 interface SalesCRMProps {
   logAction: (action: string, details: string, undoData?: any) => void;

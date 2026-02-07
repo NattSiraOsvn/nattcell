@@ -1,7 +1,7 @@
 
 import React from 'react';
-import { ShowroomProduct } from '../../types/showroom';
-import { getPrimaryMedia } from '../../utils/validateProductMedia';
+import { ShowroomProduct } from '@/types/showroom';
+import { getPrimaryMedia } from '@/utils/validateproductmedia';
 
 export const HeroMediaBlock: React.FC<{ product: ShowroomProduct }> = ({ product }) => {
   const primary = getPrimaryMedia(product.media);

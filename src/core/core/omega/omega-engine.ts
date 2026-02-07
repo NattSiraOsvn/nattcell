@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from 'react';
 // 🛠️ Fixed: Import casing for Types
 import { IngestStatus, FileMetadata, PersonaID } from '../types';
-import { Ingestion } from '../core/ingestion/IngestionService';
-import { QuantumBuffer } from '../services/quantumBufferService';
-import { DocumentParserLayer } from '../services/parser/DocumentParserLayer';
-import AIAvatar from './AIAvatar';
+import { Ingestion } from '../core/ingestion/ingestionservice';
+import { QuantumBuffer } from '../services/quantumbufferservice';
+import { DocumentParserLayer } from '../services/parser/documentparserlayer';
+import AIAvatar from './aiavatar';
 
 const OmegaProcessor: React.FC = () => {
   const [isWorkerActive, setIsWorkerActive] = useState(false);

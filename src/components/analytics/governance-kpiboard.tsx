@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { GovernanceKPI } from '../../types';
-import { AnalyticsProvider } from '../../services/analytics/AnalyticsAPI';
+import { GovernanceKPI } from '@/types';
+import { AnalyticsProvider } from '@/services/analytics/analyticsapi';
 import { TrendingUp, TrendingDown, AlertCircle, CheckCircle2, ShieldAlert } from 'lucide-react';
 
 const GovernanceKPIBoard: React.FC = () => {

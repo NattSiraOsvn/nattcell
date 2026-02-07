@@ -1,5 +1,5 @@
 
-import { GovernanceKPI, TeamPerformance, BusinessMetrics } from '../../types';
+import { GovernanceKPI, TeamPerformance, BusinessMetrics } from '@/types';
 
 /**
  * 📊 ANALYTICS API (TEAM 4 - BĂNG)

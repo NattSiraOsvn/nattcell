@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect } from 'react';
-import { ShowroomAPI } from '../../services/showroom/api';
-import { ShowroomProduct } from '../../types/showroom';
-import { HeroMediaBlock } from './HeroMediaBlock';
-import { BranchContextPanel } from './BranchContextPanel';
-import { SpecificationBlock } from './SpecificationBlock';
-import { ExperienceTrustBlock } from './ExperienceTrustBlock';
-import { RelatedProducts } from './RelatedProducts';
-import { OwnerVault } from './OwnerVault';
-import { ReservationModal } from './ReservationModal';
-import LoadingSpinner from '../common/LoadingSpinner';
+import { ShowroomAPI } from '@/services/showroom/api';
+import { ShowroomProduct } from '@/types/showroom';
+import { HeroMediaBlock } from './heromediablock';
+import { BranchContextPanel } from './branchcontextpanel';
+import { SpecificationBlock } from './specificationblock';
+import { ExperienceTrustBlock } from './experiencetrustblock';
+import { RelatedProducts } from './relatedproducts';
+import { OwnerVault } from './ownervault';
+import { ReservationModal } from './reservationmodal';
+import LoadingSpinner from '@/common/loadingspinner';
 
 const ProductPage: React.FC = () => {
   const [product, setProduct] = useState<ShowroomProduct | null>(null);

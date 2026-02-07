@@ -1,6 +1,6 @@
 
-import { HUDMetric, Department, ActionLog } from '../types';
-import { getCell } from '../../cells/shared-kernel/smartlink.registry';
+import { HUDMetric, Department, ActionLog } from '@/types';
+import { getCell } from '@/cells/shared-kernel/smartlink.registry';
 
 /**
  * 📊 DASHBOARD SERVICE - REGISTRY-BASED

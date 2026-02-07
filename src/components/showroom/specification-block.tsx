@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ShowroomSpec } from '../../types/showroom';
+import { ShowroomSpec } from '@/types/showroom';
 
 export const SpecificationBlock: React.FC<{ specs: ShowroomSpec[] }> = ({ specs }) => {
   return (

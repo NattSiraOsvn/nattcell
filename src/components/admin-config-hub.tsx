@@ -1,17 +1,17 @@
 
 import React, { useState, useEffect } from 'react';
-import { Utilities, AIScoringConfig, DetectedContext } from '../services/documentAI';
-import ModuleRegistry, { MODULE_REGISTRY } from '../services/moduleRegistry';
-import { UserRole, ModuleConfig, PersonaID, OperationRecord, DictionaryVersion } from '../types';
+import { Utilities, AIScoringConfig, DetectedContext } from '@/services/documentai';
+import ModuleRegistry, { MODULE_REGISTRY } from '@/services/moduleregistry';
+import { UserRole, ModuleConfig, PersonaID, OperationRecord, DictionaryVersion } from '@/types';
 import { 
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, 
   ResponsiveContainer, Tooltip
 } from 'recharts';
-import AIAvatar from './AIAvatar';
-import { RecoverySystem } from '../services/recoveryEngine';
-import ApprovalDashboard from './approval/ApprovalDashboard';
-import { DictApproval, ChangeProposal } from '../services/dictionaryApprovalService';
-import { DictService } from '../services/dictionaryService';
+import AIAvatar from './aiavatar';
+import { RecoverySystem } from '@/services/recoveryengine';
+import ApprovalDashboard from './approval/approvaldashboard';
+import { DictApproval, ChangeProposal } from '@/services/dictionaryapprovalservice';
+import { DictService } from '@/services/dictionaryservice';
 
 const AdminConfigHub: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'matrix' | 'modules' | 'core' | 'approval' | 'recovery' | 'versions'>('matrix');

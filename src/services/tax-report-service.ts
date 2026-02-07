@@ -1,5 +1,5 @@
 
-import { BankTransaction, VATReport, PITReport, EmployeePayroll, VATEntry, TaxCalculationResult } from '../types';
+import { BankTransaction, VATReport, PITReport, EmployeePayroll, VATEntry, TaxCalculationResult } from '@/types';
 
 export class TaxReportService {
   /**

@@ -1,5 +1,5 @@
 
-import { ShowroomMedia } from '../types/showroom';
+import { ShowroomMedia } from '@/types/showroom';
 
 export const validateProductMedia = (mediaList: ShowroomMedia[]): boolean => {
   return mediaList && mediaList.length > 0;

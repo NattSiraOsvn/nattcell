@@ -2,7 +2,7 @@ import {
   AccountingEntry,
   AccountingMappingRule,
   SalesEvent
-} from '../../types';
+} from '@/types';
 
 // Simple Event Emitter implementation for browser environment
 class SimpleEventEmitter {

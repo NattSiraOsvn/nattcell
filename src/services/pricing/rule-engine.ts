@@ -1,5 +1,5 @@
 
-import { QuoteRequest, LaborRuleResult } from '../../types';
+import { QuoteRequest, LaborRuleResult } from '@/types';
 
 /**
  * ⚛️ RULE ENGINE - OMEGA PRICING (SOURCE: Ba_ng_Gia__2025.xlsx)

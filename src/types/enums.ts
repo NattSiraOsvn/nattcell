@@ -26,4 +26,4 @@ export {
   PositionType,
   ConflictResolutionMethod,
   SealingLevel
-} from '../types';
+} from '@/types';

@@ -1,7 +1,7 @@
 
-import { AlertLevel, FraudCheckResult } from '../types';
-import { NotifyBus } from './notificationService';
-import { PersonaID } from '../types';
+import { AlertLevel, FraudCheckResult } from '@/types';
+import { NotifyBus } from './notificationservice';
+import { PersonaID } from '@/types';
 
 // DỮ LIỆU LỊCH SỬ THU ĐỔI (Mock Database)
 // identityHash giả lập là hash của CCCD hoặc Khuôn mặt khách hàng cũ

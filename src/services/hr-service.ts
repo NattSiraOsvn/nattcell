@@ -3,7 +3,7 @@ import {
     Department, DetailedPersonnel, 
     HRDepartment, HRPosition, HRAttendance, 
     PositionType, UserRole
-} from '../types';
+} from '@/types';
 
 /**
  * 🛡️ @RequirePermission Stub Decorator Simulation

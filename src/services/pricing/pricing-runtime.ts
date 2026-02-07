@@ -1,7 +1,7 @@
 
-import { QuoteRequest, QuoteResult } from '../../types';
+import { QuoteRequest, QuoteResult } from '@/types';
 import { evaluateRules } from './rule-engine';
-import { ShardingService } from '../blockchainService';
+import { ShardingService } from '@/blockchainservice';
 
 /**
  * 💎 PRICING RUNTIME v1.0 (PRODUCTION)

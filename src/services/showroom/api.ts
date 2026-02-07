@@ -1,5 +1,5 @@
 
-import { ShowroomProduct } from '../../types/showroom';
+import { ShowroomProduct } from '@/types/showroom';
 
 export class ShowroomService {
   private static instance: ShowroomService;

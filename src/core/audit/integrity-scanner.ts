@@ -5,9 +5,9 @@
 // Status: ENFORCED
 // ============================================================
 
-import { AuditChainContract } from './AuditChainContract';
-import { AuditRecord, IntegrityState, ScannerState } from '../../types';
-import { AuditService } from '../../services/admin/AuditService'; // Access DB layer
+import { AuditChainContract } from './auditchaincontract';
+import { AuditRecord, IntegrityState, ScannerState } from '@/types';
+import { AuditService } from '@/services/admin/auditservice'; // Access DB layer
 
 export class IntegrityScanner {
   private static instance: IntegrityScanner;

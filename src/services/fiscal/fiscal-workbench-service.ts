@@ -1,9 +1,9 @@
 
-import { InvoiceProjection, FiscalLineItem, FiscalTotals, InvoiceIdentity } from '../../types/fiscal_contracts';
-import { XmlCanonicalizer } from '../../utils/xmlCanonicalizer';
-import { ShardingService } from '../blockchainService';
-import { AuditProvider } from '../admin/AuditService';
-import { OmegaLockdown } from '../../core/audit/OmegaLockdown';
+import { InvoiceProjection, FiscalLineItem, FiscalTotals, InvoiceIdentity } from '@/types/fiscal_contracts';
+import { XmlCanonicalizer } from '@/utils/xmlcanonicalizer';
+import { ShardingService } from '@/blockchainservice';
+import { AuditProvider } from '@/admin/auditservice';
+import { OmegaLockdown } from '@/core/audit/omegalockdown';
 
 // Helper for Decimal String Math (Fix 1)
 // In a real app, use 'decimal.js' or 'big.js'. Here we implement a safe wrapper.

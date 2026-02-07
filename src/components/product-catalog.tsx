@@ -1,16 +1,16 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
-import { Product, CustomizationRequest, BusinessMetrics, UserPosition } from '../types';
-import ProductCard from './ProductCard';
-import ProductDetailModal from './ProductDetailModal';
-import CustomizationRequestModal from './CustomizationRequest';
-import FilterPanel from './FilterPanel';
-import AIAvatar from './AIAvatar';
-import { PersonaID } from '../types';
-import { PaymentEngine, PaymentResponse } from '../services/paymentService';
-import { ShowroomAPI } from '../services/showroom/api'; // ✅ INTEGRATED: Use Shared API
-import { ShowroomProduct } from '../types/showroom';
-import LoadingSpinner from './common/LoadingSpinner';
+import { Product, CustomizationRequest, BusinessMetrics, UserPosition } from '@/types';
+import ProductCard from './productcard';
+import ProductDetailModal from './productdetailmodal';
+import CustomizationRequestModal from './customizationrequest';
+import FilterPanel from './filterpanel';
+import AIAvatar from './aiavatar';
+import { PersonaID } from '@/types';
+import { PaymentEngine, PaymentResponse } from '@/services/paymentservice';
+import { ShowroomAPI } from '@/services/showroom/api'; // ✅ INTEGRATED: Use Shared API
+import { ShowroomProduct } from '@/types/showroom';
+import LoadingSpinner from './common/loadingspinner';
 
 interface ProductCatalogProps {
   logAction: (action: string, details: string) => void;

@@ -5,8 +5,8 @@
  */
 import React from 'react';
 // Fixed: Changed named import to default import to match the default export in src/cells/sales-cell/SalesTerminal.tsx
-import SaleTerminal from '../cells/sales-cell/SalesTerminal';
-import { UserRole, UserPosition, BusinessMetrics, PositionType, Department } from '../types';
+import SaleTerminal from '@/cells/sales-cell/salesterminal';
+import { UserRole, UserPosition, BusinessMetrics, PositionType, Department } from '@/types';
 
 interface SalesCRMProps {
   logAction: (action: string, details: string, undoData?: any) => void;

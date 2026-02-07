@@ -1,5 +1,5 @@
 
-import { OperationRecord, Checkpoint } from '../types';
+import { OperationRecord, Checkpoint } from '@/types';
 
 /**
  * NATT-OS RECOVERY ENGINE v5.2

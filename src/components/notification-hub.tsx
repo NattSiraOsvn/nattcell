@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { PersonaID } from '../types';
-import AIAvatar from './AIAvatar';
+import { PersonaID } from '@/types';
+import AIAvatar from './aiavatar';
 import { Archive, Pin, ArrowRight } from 'lucide-react';
 
 export type NotificationType = 'ORDER' | 'NEWS' | 'RISK' | 'SYSTEM';
