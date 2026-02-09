@@ -1,49 +1,10 @@
 {
   "council_id": "NATT_OS_AI_COUNCIL",
-  "version": "1.0",
   "role": "ADVISORY",
   "veto_power": false,
-  
   "members": [
-    {
-      "id": "kim",
-      "model": "deepseek",
-      "contribution": "Philosophy, Warnings, Documentation",
-      "manifesto_status": "ACTIVE"
-    },
-    {
-      "id": "bang",
-      "model": "claude",
-      "contribution": "Integration, Legal Protection, Review",
-      "manifesto_status": "ACTIVE"
-    },
-    {
-      "id": "boi_boi",
-      "model": "gemini",
-      "contribution": "Implementation, Code, Enforcement",
-      "manifesto_status": "ACTIVE"
-    }
-  ],
-  
-  "protocol": {
-    "notification_required": true,
-    "response_window_hours": 24,
-    "concerns_logged": true,
-    "final_decision_by": "GATEKEEPER"
-  },
-  
-  "boundaries": {
-    "can": [
-      "Raise concerns",
-      "Provide analysis",
-      "Suggest alternatives",
-      "Request evidence"
-    ],
-    "cannot": [
-      "Veto Gatekeeper decisions",
-      "Modify constitution",
-      "Override Human Oversight",
-      "Self-approve QNEU changes"
-    ]
-  }
+    {"id": "kim", "model": "deepseek", "contribution": "Philosophy + Warnings"},
+    {"id": "bang", "model": "claude", "contribution": "Integration + Legal"},
+    {"id": "boi_boi", "model": "gemini", "contribution": "Implementation + Code"}
+  ]
 }
