@@ -1,0 +1,20 @@
+{
+  "cell_id": "cell:rbac",
+  "cell_name": "RBACManager",
+  "module_id": "MOD-026",
+  "version": "1.0.0",
+  "domain": "GOVERNANCE",
+  "layer": "KERNEL",
+  "capabilities": ["rbac:assign", "rbac:revoke", "rbac:validate"],
+  "emits": ["rbac.assigned", "rbac.revoked", "permission.denied"],
+  "authoritative_events": ["rbac.*"],
+  "subscribes": ["user.created", "user.deleted"],
+  "dependencies": ["cell:config"],
+  "immune_integration": {
+    "audit_enabled": true,
+    "raw_access": false,
+    "gatekeeper_bypass": false
+  },
+  "known_scars": ["FAIL-003"],
+  "constitutional_state": "STATE_2"
+}

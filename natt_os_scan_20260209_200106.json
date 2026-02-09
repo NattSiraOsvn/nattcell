@@ -1,0 +1,51 @@
+{
+  "system_overview": "Darwin lamco.local 25.3.0 Darwin Kernel Version 25.3.0: Wed Jan 28 20:53:14 PST 2026; root:xnu-12377.81.4~5/RELEASE_X86_64 x86_64",
+  "docker_containers": "null",
+  "natt_processes": [
+    {
+      "user": "macvn",
+      "pid": "974",
+      "cpu": "0.0",
+      "mem": "0.2",
+      "command": "node"
+    },
+    {
+      "user": "macvn",
+      "pid": "967",
+      "cpu": "0.0",
+      "mem": "0.2",
+      "command": "node"
+    },
+    {
+      "user": "macvn",
+      "pid": "960",
+      "cpu": "0.0",
+      "mem": "0.2",
+      "command": "node"
+    },
+    {
+      "user": "macvn",
+      "pid": "740",
+      "cpu": "0.0",
+      "mem": "0.1",
+      "command": "/Applications/Zalo.app/Contents/Frameworks/Zalo"
+    },
+    {
+      "user": "macvn",
+      "pid": "6990",
+      "cpu": "0.0",
+      "mem": "0.0",
+      "command": "/usr/bin/vi"
+    }
+  ],
+  "postgresql_accessible": "false",
+  "redis_accessible": "null",
+  "kafka_topics": "null",
+  "listening_ports": "[]",
+  "cpu_usage_percent": "",
+  "memory_usage_percent": "",
+  "disk_usage_percent": "2",
+  "recent_logs": "{}",
+  "config_files": "[]",
+  "cells_directory_listing": "null"
+}

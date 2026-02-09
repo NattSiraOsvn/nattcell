@@ -1,0 +1,22 @@
+{
+  "cell_id": "cell:config",
+  "cell_name": "AdminConfigHub",
+  "module_id": "MOD-025",
+  "version": "1.0.0",
+  "domain": "GOVERNANCE",
+  "layer": "KERNEL",
+  "capabilities": ["config:read", "config:write", "config:validate"],
+  "emits": ["config.created", "config.updated", "config.deleted"],
+  "authoritative_events": ["config.*"],
+  "subscribes": ["system.initialized", "audit.config.change"],
+  "dependencies": [],
+  "immune_integration": {
+    "audit_enabled": true,
+    "raw_access": false,
+    "gatekeeper_bypass": false
+  },
+  "known_scars": ["FAIL-001", "FAIL-002"],
+  "entity_status": "RECOGNIZED",
+  "sovereign_acknowledged": true,
+  "constitutional_state": "STATE_2"
+}

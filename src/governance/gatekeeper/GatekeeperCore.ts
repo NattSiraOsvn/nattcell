@@ -1,5 +1,5 @@
-import { GateContext, GateResult } from "./types";
-import { CONSTITUTIONAL_ROADLOAD_ID } from "./constitutional";
+import { GateContext, GateResult } from "./types.js";
+import { CONSTITUTIONAL_ROADLOAD_ID } from "./constitutional.js";
 import { __CELL_INVOCATION_TOKEN__ } from "@/core/cell/_cell-internal.token";
 
 /**

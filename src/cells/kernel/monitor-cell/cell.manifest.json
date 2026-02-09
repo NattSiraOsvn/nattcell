@@ -1,0 +1,19 @@
+{
+  "cell_id": "cell:monitor",
+  "cell_name": "SystemMonitor",
+  "module_id": "MOD-027",
+  "version": "1.0.0",
+  "domain": "GOVERNANCE",
+  "layer": "KERNEL",
+  "capabilities": ["system.health", "metrics.collect", "alert.trigger"],
+  "emits": ["system.healthy", "system.degraded", "alert.triggered"],
+  "authoritative_events": ["monitor.*", "alert.*"],
+  "subscribes": ["cell.heartbeat", "system.metric"],
+  "dependencies": ["cell:config"],
+  "immune_integration": {
+    "audit_enabled": true,
+    "raw_access": false,
+    "gatekeeper_bypass": false
+  },
+  "constitutional_state": "STATE_2"
+}
