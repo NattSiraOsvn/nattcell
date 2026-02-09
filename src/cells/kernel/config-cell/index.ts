@@ -1,14 +1,14 @@
-export { ConfigService } from './config.service';
-export type { ConfigEntry } from './config.service';
+/**
+ * config-cell - Kernel Cell #1
+ * System Configuration Management
+ */
 
-// Singleton instance
-import { ConfigService } from './config.service';
-export const configService = ConfigService.getInstance();
-
-// Cell initialization
-export function initializeConfigCell(): void {
-  console.log('🔧 Config cell initialized');
-  // Load initial config from persistence
-  // Register with EventBus
-  // Setup audit hooks
-}
+export * from './domain/entities';
+export * from './domain/services';
+export * from './application/use-cases';
+export * from './application/services';
+export * from './interface';
+export * from './ports';
+export * from './infrastructure/repositories';
+export * from './infrastructure/adapters';
+export { getConfigCell } from './interface/ConfigCell';
