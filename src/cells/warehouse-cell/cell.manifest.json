@@ -1,7 +1,0 @@
-{
-  "constitutionalAdn": { "identity": "warehouse-cell", "capability": [], "boundary": "isolated", "trace": "audit", "confidence": 0.0, "smartlink": "disabled", "lifecycle": "quarantined" },
-  "cell": "warehouse-cell",
-  "status": "QUARANTINED",
-  "layer": "infrastructure",
-  "wave": 2
-}

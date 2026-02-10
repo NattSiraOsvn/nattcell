@@ -1,0 +1,197 @@
+[
+  {
+    "id": "warehouse-cell",
+    "path": "src/cells/warehouse-cell",
+    "hash": "382e470f0a7b834df0d9fd60de4d218523a433e356352c2c3bef42459d49469a",
+    "status": "QUARANTINED",
+    "layer": "unknown",
+    "wave": 0,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "constants-cell",
+    "path": "src/cells/constants-cell",
+    "hash": "8b3ddc86284561bba4205b95e6dd2c0a67026f54e89b76d6487b636ce4e7d712",
+    "status": "ACTIVE",
+    "layer": "unknown",
+    "wave": 0,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "hr-cell",
+    "path": "src/cells/hr-cell",
+    "hash": "2245da2b2f7fb101646910bad0ab3387552f393639355354c36c22770d187c60",
+    "status": "ACTIVE",
+    "layer": "unknown",
+    "wave": 0,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "event-cell",
+    "path": "src/cells/event-cell",
+    "hash": "0e03d9c1c2c9140b2b304a703ff41fc7aaae026a18c4dc49f01b6438c00855d2",
+    "status": "ACTIVE",
+    "layer": "unknown",
+    "wave": 0,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "sales-cell",
+    "path": "src/cells/sales-cell",
+    "hash": "6b3df1bfd14a15413faaefcd22bc0ee40ab4da7aabc8eb3eaae225b7053ccb54",
+    "status": "ACTIVE",
+    "layer": "unknown",
+    "wave": 0,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "shared-contracts-cell",
+    "path": "src/cells/infrastructure/shared-contracts-cell",
+    "hash": "ce46b24ce91e606cfbb124f183f793fd1efd4e881e5feaaa90f2afe8e8335a31",
+    "status": "ACTIVE",
+    "layer": "infrastructure",
+    "wave": 2,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "smartlink-cell",
+    "path": "src/cells/infrastructure/smartlink-cell",
+    "hash": "3f8b0b775bbdbe9bb82638ae4cdd00516280d1d0e0bf9b2b026eb762a5ddb7fb",
+    "status": "ACTIVE",
+    "layer": "infrastructure",
+    "wave": 2,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "sync-cell",
+    "path": "src/cells/infrastructure/sync-cell",
+    "hash": "3d3fd76285238ccc16af22e5cd027be7aea6b8d7d76c40dde8e28792b24a54aa",
+    "status": "ACTIVE",
+    "layer": "infrastructure",
+    "wave": 2,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "showroom-cell",
+    "path": "src/cells/showroom-cell",
+    "hash": "b33ca9a6e7a1bc821a20fec4bf9f23566135c99e31c8121697b712a6956fba45",
+    "status": "ACTIVE",
+    "layer": "unknown",
+    "wave": 0,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "audit-cell",
+    "path": "src/cells/kernel/audit-cell",
+    "hash": "5def6772dc1e4adf28a1db20fd9a771e38e475b66a483c011032f560e95395b2",
+    "status": "ACTIVE",
+    "layer": "kernel",
+    "wave": 1,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "monitor-cell",
+    "path": "src/cells/kernel/monitor-cell",
+    "hash": "6da7c8b172a1f3c6eec76254b37014ec5456ff7d6afc69f1bdec4dd154faa3f5",
+    "status": "ACTIVE",
+    "layer": "kernel",
+    "wave": 1,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "config-cell",
+    "path": "src/cells/kernel/config-cell",
+    "hash": "491041c4cf5d6bd4c4d1d3e9b4de71e4f290c48fac4403b2940d23a7f4b044b9",
+    "status": "ACTIVE",
+    "layer": "kernel",
+    "wave": 1,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "rbac-cell",
+    "path": "src/cells/kernel/rbac-cell",
+    "hash": "02d10683b0a32231160bc971bffd1b632064ab737d2d9635c01745d35bb852b6",
+    "status": "ACTIVE",
+    "layer": "kernel",
+    "wave": 1,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+,
+  {
+    "id": "security-cell",
+    "path": "src/cells/kernel/security-cell",
+    "hash": "ead1d43901ca4e93f5c15a304269281bc78c337ecadb53a4d1b752e7f8588f18",
+    "status": "ACTIVE",
+    "layer": "kernel",
+    "wave": 1,
+    "hasManifest": true,
+    "validation": {
+      "has5Layer": true,
+      "lastValidated": "2026-02-11T02:39:35+07:00"
+    }
+  }
+]

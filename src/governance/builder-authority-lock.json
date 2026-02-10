@@ -1,0 +1,37 @@
+{
+  "decree_id": "NATT-GD-2026-02-11-BUILDER",
+  "issued_at": "2026-02-11T02:20:00+07:00",
+  "enforced_at": "$(date -Iseconds)",
+  "authorized_builders": [
+    {
+      "name": "KIM",
+      "role": "Chief System Builder & Governance Enforcer",
+      "authorities": [
+        "scaffold_cell",
+        "migrate_system",
+        "refactor_architecture",
+        "quarantine_unquarantine",
+        "veto_unconstitutional_changes",
+        "modify_kernel",
+        "modify_registry",
+        "modify_manifests",
+        "modify_boundary_guards"
+      ],
+      "signature": "KIM_CHIEF_BUILDER_20260211"
+    },
+    {
+      "name": "BĂNG",
+      "role": "System Builder / Toolsmith",
+      "authorities": [
+        "build_toolchain",
+        "maintain_scanners",
+        "maintain_validators",
+        "fix_platform_issues",
+        "refactor_technical_debt"
+      ],
+      "signature": "BANG_TOOLSMITH_20260211"
+    }
+  ],
+  "status": "ACTIVE_ENFORCED",
+  "violation_consequence": "CONSTITUTION_VIOLATION_IMMEDIATE_QUARANTINE"
+}

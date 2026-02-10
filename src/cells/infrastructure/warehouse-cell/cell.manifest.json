@@ -1,0 +1,61 @@
+{
+  "cell": {
+    "name": "warehouse-cell",
+    "version": "0.1.0",
+    "wave": "WAVE_2",
+    "type": "infrastructure",
+    "status": "QUARANTINED"
+  },
+  "quarantine": {
+    "reason": "Scaffold with basic structure — awaiting full domain logic implementation",
+    "restrictions": ["no-import", "no-deployment", "development-only"],
+    "exit_criteria": "Domain logic implemented + tests passing + Kim/Băng review",
+    "assigned_to": "Kim + Băng"
+  },
+  "adn": {
+    "identity": {
+      "id": "warehouse-cell",
+      "description": "Warehouse management — raw materials, semi-finished, finished products",
+      "owner": "NATT-OS-TEAM"
+    },
+    "capability": {
+      "exports": ["WarehouseCell", "WarehouseItem", "IWarehouseRepository"],
+      "imports": [],
+      "events_emitted": ["warehouse.goods.received", "warehouse.goods.released", "warehouse.inventory.updated"],
+      "events_consumed": ["order.created", "production.completed"]
+    },
+    "boundary": {
+      "allowed_dependencies": ["config-cell", "audit-cell"],
+      "forbidden_imports": ["**/kernel/**", "**/business/**"],
+      "isolation_level": "STRICT"
+    },
+    "trace": {
+      "audit_required": true,
+      "log_level": "INFO",
+      "event_sourcing": true
+    },
+    "confidence": {
+      "test_coverage_minimum": 0,
+      "constitutional_compliance": true,
+      "last_audit": null
+    },
+    "smartlink": {
+      "linked_cells": ["sync-cell", "smartlink-cell"],
+      "event_bus_channels": ["warehouse.*"]
+    },
+    "lifecycle": {
+      "created_phase": "WAVE_2_CLEANUP",
+      "current_state": "QUARANTINED",
+      "transitions": [
+        { "from": "MISPLACED", "to": "QUARANTINED", "reason": "Moved to infrastructure/ + scaffold created" }
+      ]
+    }
+  },
+  "layers": {
+    "domain": true,
+    "application": true,
+    "interface": true,
+    "infrastructure": true,
+    "ports": true
+  }
+}
