@@ -1,0 +1,1 @@
+export { RBACEventEmitterAdapter } from './RBACEventEmitterAdapter';

@@ -1,19 +1,15 @@
 {
   "cell_id": "cell:security",
-  "cell_name": "SecurityOverlay",
-  "module_id": "MOD-029",
+  "cell_name": "security-cell",
   "version": "1.0.0",
-  "domain": "GOVERNANCE",
-  "layer": "KERNEL",
-  "capabilities": ["threat.detect", "access.control", "encryption.manage"],
-  "emits": ["threat.detected", "access.denied", "security.breach"],
+  "description": "Kernel cell for threat detection and security management",
+  "domain": "SYSTEM",
+  "layer": 0,
+  "layer_name": "KERNEL",
+  "capabilities": ["THREAT_DETECT", "LOCKDOWN_MANAGE", "ACCESS_CONTROL"],
+  "emits": ["security.threat.detected", "security.lockdown.initiated", "security.lockdown.lifted"],
   "authoritative_events": ["security.*"],
-  "subscribes": ["login.attempt", "api.request"],
-  "dependencies": ["cell:config", "cell:rbac"],
-  "immune_integration": {
-    "audit_enabled": true,
-    "raw_access": false,
-    "gatekeeper_bypass": false
-  },
-  "constitutional_state": "STATE_2"
+  "dependencies": ["cell:config", "cell:audit"],
+  "constitutional_state": "STATE_1",
+  "approved_by": "GATEKEEPER"
 }

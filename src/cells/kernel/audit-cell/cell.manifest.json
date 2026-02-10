@@ -1,19 +1,16 @@
 {
   "cell_id": "cell:audit",
-  "cell_name": "AuditTrailModule",
-  "module_id": "MOD-028",
+  "cell_name": "audit-cell",
   "version": "1.0.0",
-  "domain": "GOVERNANCE",
-  "layer": "KERNEL",
-  "capabilities": ["audit.log", "audit.query", "audit.export"],
-  "emits": ["audit.logged", "audit.exported"],
+  "description": "Kernel cell for immutable audit trail with chain verification",
+  "domain": "SYSTEM",
+  "layer": 0,
+  "layer_name": "KERNEL",
+  "capabilities": ["AUDIT_LOG", "CHAIN_VERIFY", "INTEGRITY_CHECK"],
+  "emits": ["audit.entry.created", "audit.chain.verified", "audit.integrity.alert"],
   "authoritative_events": ["audit.*"],
-  "subscribes": ["*"], // Subscribes to all events for audit trail
+  "subscribes": ["*"],
   "dependencies": ["cell:config"],
-  "immune_integration": {
-    "audit_enabled": true,
-    "raw_access": false,
-    "gatekeeper_bypass": false
-  },
-  "constitutional_state": "STATE_2"
+  "constitutional_state": "STATE_1",
+  "approved_by": "GATEKEEPER"
 }

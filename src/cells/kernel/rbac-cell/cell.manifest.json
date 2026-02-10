@@ -1,20 +1,16 @@
 {
   "cell_id": "cell:rbac",
-  "cell_name": "RBACManager",
-  "module_id": "MOD-026",
+  "cell_name": "rbac-cell",
   "version": "1.0.0",
-  "domain": "GOVERNANCE",
-  "layer": "KERNEL",
-  "capabilities": ["rbac:assign", "rbac:revoke", "rbac:validate"],
-  "emits": ["rbac.assigned", "rbac.revoked", "permission.denied"],
+  "description": "Kernel cell for Role-Based Access Control",
+  "domain": "SYSTEM",
+  "layer": 0,
+  "layer_name": "KERNEL",
+  "capabilities": ["RBAC_CHECK", "ROLE_ASSIGN", "ROLE_REVOKE", "PERMISSION_MANAGE"],
+  "emits": ["rbac.role.assigned", "rbac.role.revoked", "rbac.permission.granted", "rbac.access.denied"],
   "authoritative_events": ["rbac.*"],
-  "subscribes": ["user.created", "user.deleted"],
+  "subscribes": ["system.bootstrap", "system.shutdown"],
   "dependencies": ["cell:config"],
-  "immune_integration": {
-    "audit_enabled": true,
-    "raw_access": false,
-    "gatekeeper_bypass": false
-  },
-  "known_scars": ["FAIL-003"],
-  "constitutional_state": "STATE_2"
+  "constitutional_state": "STATE_1",
+  "approved_by": "GATEKEEPER"
 }
