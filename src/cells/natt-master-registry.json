@@ -1,0 +1,240 @@
+{
+    "meta": {
+        "name": "NATT-OS Master Cell Registry",
+        "version": "2.0.0",
+        "description": "Single source of truth \u2014 generated from FILESYSTEM scan",
+        "canonical_root": "src/cells",
+        "constitutional_version": "v3.1",
+        "principles": {
+            "source_of_truth": "FILESYSTEM > MEMORY FILE > AUDIT REPORT",
+            "7_adn_layers": "Metadata in cell.manifest.json (Identity, Capability, Boundary, Trace, Confidence, SmartLink, Lifecycle)",
+            "5_folder_layers": "Implementation anatomy (domain, application, interface, infrastructure, ports)",
+            "relationship": "7-ADN = ontological contract (constitutional), 5-folder = organ structure (implementation)"
+        }
+    },
+    "wave_0_foundation": {
+        "status": "COMPLETE",
+        "components": {
+            "constitution": {
+                "path": "natt-os/constitution",
+                "status": "DEPLOYED",
+                "version": "v3.1"
+            },
+            "eda_contracts": {
+                "path": "src/contracts",
+                "status": "DEPLOYED"
+            },
+            "logger": {
+                "path": "apps/shared/logger.ts",
+                "status": "DEPLOYED"
+            }
+        }
+    },
+    "wave_1_kernel": {
+        "status": "COMPLETE",
+        "cells": {
+            "audit-cell": {
+                "path": "src/cells/kernel/audit-cell/",
+                "ts_files": 19,
+                "layers": 5,
+                "manifest": true,
+                "status": "COMPLETE"
+            },
+            "config-cell": {
+                "path": "src/cells/kernel/config-cell/",
+                "ts_files": 27,
+                "layers": 5,
+                "manifest": true,
+                "status": "COMPLETE"
+            },
+            "monitor-cell": {
+                "path": "src/cells/kernel/monitor-cell/",
+                "ts_files": 20,
+                "layers": 5,
+                "manifest": true,
+                "status": "COMPLETE"
+            },
+            "rbac-cell": {
+                "path": "src/cells/kernel/rbac-cell/",
+                "ts_files": 22,
+                "layers": 5,
+                "manifest": true,
+                "status": "COMPLETE"
+            },
+            "security-cell": {
+                "path": "src/cells/kernel/security-cell/",
+                "ts_files": 18,
+                "layers": 5,
+                "manifest": true,
+                "status": "COMPLETE"
+            }
+        }
+    },
+    "wave_2_infrastructure": {
+        "status": "IN_PROGRESS",
+        "cells": {
+            "shared-contracts-cell": {
+                "path": "src/cells/infrastructure/shared-contracts-cell/",
+                "ts_files": 5,
+                "layers": 1,
+                "manifest": true,
+                "status": "ACTIVE"
+            },
+            "smartlink-cell": {
+                "path": "src/cells/infrastructure/smartlink-cell/",
+                "ts_files": 19,
+                "layers": 5,
+                "manifest": true,
+                "status": "ACTIVE"
+            },
+            "sync-cell": {
+                "path": "src/cells/infrastructure/sync-cell/",
+                "ts_files": 19,
+                "layers": 5,
+                "manifest": true,
+                "status": "ACTIVE"
+            },
+            "warehouse-cell": {
+                "path": "src/cells/infrastructure/warehouse-cell/",
+                "ts_files": 15,
+                "layers": 5,
+                "manifest": true,
+                "status": "QUARANTINED"
+            },
+            "api-cell": {
+                "status": "NEVER_EXISTED",
+                "note": "No git history \u2014 correcting Kim kmf.json error"
+            }
+        }
+    },
+    "wave_3_business": {
+        "status": "SCAFFOLDED",
+        "cells": {
+            "buyback-cell": {
+                "path": "src/cells/business/buyback-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3.5",
+                "status": "SCAFFOLDED"
+            },
+            "customer-cell": {
+                "path": "src/cells/business/customer-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3",
+                "status": "SCAFFOLDED"
+            },
+            "inventory-cell": {
+                "path": "src/cells/business/inventory-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3",
+                "status": "SCAFFOLDED"
+            },
+            "order-cell": {
+                "path": "src/cells/business/order-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3",
+                "status": "SCAFFOLDED"
+            },
+            "pricing-cell": {
+                "path": "src/cells/business/pricing-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3",
+                "status": "SCAFFOLDED"
+            },
+            "promotion-cell": {
+                "path": "src/cells/business/promotion-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3",
+                "status": "SCAFFOLDED"
+            },
+            "sales-cell": {
+                "path": "src/cells/business/sales-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3",
+                "status": "SCAFFOLDED"
+            },
+            "showroom-cell": {
+                "path": "src/cells/business/showroom-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3",
+                "status": "SCAFFOLDED"
+            },
+            "warranty-cell": {
+                "path": "src/cells/business/warranty-cell/",
+                "ts_files": 4,
+                "layers": 0,
+                "manifest": true,
+                "wave": "WAVE_3.5",
+                "status": "SCAFFOLDED"
+            }
+        }
+    },
+    "legacy": {
+        "hr-cell": {
+            "status": "DELETED",
+            "commit": "406935e",
+            "reason": "Pre-Wave 3 finalization"
+        },
+        "event-cell": {
+            "status": "DELETED",
+            "commit": "406935e",
+            "reason": "Pre-Wave 3 finalization"
+        },
+        "constants-cell": {
+            "status": "DELETED",
+            "commit": "406935e",
+            "reason": "Pre-Wave 3 finalization"
+        },
+        "old-sales-cell": {
+            "status": "DELETED",
+            "note": "Replaced by Wave 3 sales-cell"
+        },
+        "old-showroom-cell": {
+            "status": "DELETED",
+            "note": "Replaced by Wave 3 showroom-cell"
+        }
+    },
+    "summary": {
+        "total_cells": 18,
+        "total_ts_files": 201,
+        "total_manifests": 18,
+        "breakdown": {
+            "kernel": {
+                "cells": 5,
+                "ts_files": 107,
+                "status": "COMPLETE"
+            },
+            "infrastructure": {
+                "cells": 4,
+                "ts_files": 58,
+                "status": "IN_PROGRESS"
+            },
+            "business_wave3": {
+                "cells": 7,
+                "ts_files": 28,
+                "status": "SCAFFOLDED"
+            },
+            "business_wave35": {
+                "cells": 2,
+                "ts_files": 8,
+                "status": "SCAFFOLDED",
+                "domain": "jewelry_gold_luxury"
+            }
+        }
+    }
+}
