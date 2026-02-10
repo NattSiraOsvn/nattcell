@@ -1,0 +1,19 @@
+{
+  "cell": "buyback-cell",
+  "wave": "WAVE_3.5",
+  "enforcement": "ACTIVE",
+  "allowed_dependencies": [
+    "shared-contracts-cell",
+    "smartlink-cell"
+  ],
+  "forbidden_dependencies": [
+    "kernel/*",
+    "governance/*",
+    "infrastructure/*",
+    "sales-cell",
+    "order-cell"
+  ],
+  "cross_business_import": "FORBIDDEN",
+  "violation_action": "QUARANTINE_IMMEDIATE",
+  "notes": "Buyback communicates with sales/order/inventory ONLY via EDA events through shared-contracts-cell. No circular dependency allowed."
+}
