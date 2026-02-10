@@ -1,0 +1,1 @@
+export { SmartLinkEventEmitterAdapter } from './SmartLinkEventEmitterAdapter';
