@@ -1,0 +1,1 @@
+export { SyncEventEmitterAdapter } from './SyncEventEmitterAdapter';

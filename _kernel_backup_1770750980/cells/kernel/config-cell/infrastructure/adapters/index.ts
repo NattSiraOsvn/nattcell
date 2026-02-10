@@ -1,0 +1,1 @@
+export { ConfigEventEmitterAdapter } from './ConfigEventEmitterAdapter';

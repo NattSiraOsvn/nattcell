@@ -1,1 +1,3 @@
-export * from './warehouse.service';
+// warehouse-cell Entry Point
+export * from './interface';
+export * from './ports';

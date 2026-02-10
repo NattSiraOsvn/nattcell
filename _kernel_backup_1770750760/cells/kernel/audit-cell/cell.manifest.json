@@ -1,0 +1,16 @@
+{
+  "cell_id": "cell:audit",
+  "cell_name": "audit-cell",
+  "version": "1.0.0",
+  "description": "Kernel cell for immutable audit trail with chain verification",
+  "domain": "SYSTEM",
+  "layer": 0,
+  "layer_name": "KERNEL",
+  "capabilities": ["AUDIT_LOG", "CHAIN_VERIFY", "INTEGRITY_CHECK"],
+  "emits": ["audit.entry.created", "audit.chain.verified", "audit.integrity.alert"],
+  "authoritative_events": ["audit.*"],
+  "subscribes": ["*"],
+  "dependencies": ["cell:config"],
+  "constitutional_state": "STATE_1",
+  "approved_by": "GATEKEEPER"
+}

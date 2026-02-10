@@ -1,25 +1,7 @@
-
 {
-  "id": "cell:warehouse",
-  "type": "CORE-CELL",
-  "status": "ENFORCED",
-  "identity": {
-    "adn_id": "0xNAT-2026-SUPREME-WH",
-    "version": "1.1.0",
-    "owner": "ANH_NAT",
-    "registry_signature": "SIG_BY_MASTER_NAT_2026"
-  },
-  "constitution": {
-    "applied_books": ["ALL"],
-    "gatekeeper_contact": "THIEN_LON_UNDER_NAT",
-    "lockdown_level": "STRICT"
-  },
-  "capabilities": [
-    { "id": "capability:warehouse:stock:check", "intent": "StockCheck" },
-    { "id": "capability:warehouse:inventory:stats", "intent": "GetInventoryStats" }
-  ],
-  "immune_integration": {
-    "audit_enabled": true,
-    "raw_access": false
-  }
+  "constitutionalAdn": { "identity": "warehouse-cell", "capability": [], "boundary": "isolated", "trace": "audit", "confidence": 0.0, "smartlink": "disabled", "lifecycle": "quarantined" },
+  "cell": "warehouse-cell",
+  "status": "QUARANTINED",
+  "layer": "infrastructure",
+  "wave": 2
 }

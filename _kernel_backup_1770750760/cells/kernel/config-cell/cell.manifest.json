@@ -1,0 +1,39 @@
+{
+  "cell_id": "cell:config",
+  "cell_name": "config-cell",
+  "version": "1.0.0",
+  "description": "Kernel cell responsible for system configuration management",
+  "domain": "SYSTEM",
+  "layer": 0,
+  "layer_name": "KERNEL",
+  "capabilities": [
+    "CONFIG_READ",
+    "CONFIG_WRITE",
+    "CONFIG_VALIDATE",
+    "CONFIG_SNAPSHOT",
+    "CONFIG_ROLLBACK"
+  ],
+  "emits": [
+    "config.updated",
+    "config.snapshot.created",
+    "config.validated",
+    "config.rollback"
+  ],
+  "authoritative_events": [
+    "config.*"
+  ],
+  "subscribes": [
+    "system.bootstrap",
+    "system.shutdown"
+  ],
+  "dependencies": [],
+  "immune_integration": {
+    "audit_enabled": true,
+    "raw_access": true,
+    "gatekeeper_bypass": false
+  },
+  "constitutional_state": "STATE_1",
+  "min_state_required": "STATE_1",
+  "created_at": "2026-02-10T00:00:00Z",
+  "approved_by": "GATEKEEPER"
+}

@@ -1,7 +1,3 @@
-export * from './domain/entities';
-export * from './domain/services';
-export * from './application/use-cases';
-export * from './application/services';
+// smartlink-cell Entry Point
 export * from './interface';
 export * from './ports';
-export { getSmartLinkCell } from './interface/SmartLinkCell';

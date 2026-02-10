@@ -1,0 +1,1 @@
+export { AuditEventEmitterAdapter } from './AuditEventEmitterAdapter';

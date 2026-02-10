@@ -1,7 +1,3 @@
-export * from './domain/entities';
-export * from './domain/services';
-export * from './application/use-cases';
-export * from './application/services';
+// sync-cell Entry Point
 export * from './interface';
 export * from './ports';
-export { getSyncCell } from './interface/SyncCell';

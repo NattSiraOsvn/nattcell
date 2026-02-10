@@ -1,0 +1,11 @@
+{
+  "cell_manifest_version": "1.0",
+  "cell_id": "cell:hr",
+  "name": "hr-cell",
+  "version": "0.1.0",
+  "phase": "stub",
+  "ui_policy": "STATIC_ONLY",
+  "contracts": {
+    "intents": ["HRQuery", "HRGetEmployee", "HRListEmployees"]
+  }
+}

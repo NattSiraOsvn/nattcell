@@ -1,0 +1,1 @@
+export { InMemoryConfigRepository } from './InMemoryConfigRepository';

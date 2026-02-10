@@ -1,0 +1,15 @@
+{
+  "constitutionalAdn": {
+    "identity": "shared-contracts-cell",
+    "capability": ["type-definitions"],
+    "boundary": "types-only",
+    "trace": "version-tracked",
+    "confidence": 1.0,
+    "smartlink": "imported-by-all",
+    "lifecycle": "stable"
+  },
+  "cell": "shared-contracts-cell",
+  "status": "ACTIVE",
+  "layer": "infrastructure",
+  "wave": 2
+}

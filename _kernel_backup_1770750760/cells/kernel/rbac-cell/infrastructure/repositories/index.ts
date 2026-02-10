@@ -1,0 +1,1 @@
+export { InMemoryRBACRepository } from './InMemoryRBACRepository';

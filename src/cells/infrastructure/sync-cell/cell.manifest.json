@@ -1,15 +1,15 @@
 {
-  "cell_id": "cell:sync",
-  "cell_name": "sync-cell",
-  "version": "1.0.0",
-  "description": "Infrastructure cell for data synchronization between sources",
-  "domain": "INFRASTRUCTURE",
-  "layer": 1,
-  "layer_name": "INFRASTRUCTURE",
-  "capabilities": ["SYNC_EXECUTE", "SYNC_SCHEDULE", "SYNC_MONITOR"],
-  "emits": ["sync.started", "sync.completed", "sync.failed", "sync.progress"],
-  "authoritative_events": ["sync.*"],
-  "dependencies": ["cell:config", "cell:audit", "cell:monitor"],
-  "constitutional_state": "STATE_1",
-  "approved_by": "GATEKEEPER"
+  "constitutionalAdn": {
+    "identity": "sync-cell",
+    "capability": [],
+    "boundary": "strict",
+    "trace": "audit",
+    "confidence": 0.5,
+    "smartlink": "event-bus",
+    "lifecycle": "active"
+  },
+  "cell": "sync-cell",
+  "status": "ACTIVE",
+  "layer": "infrastructure",
+  "wave": 2
 }

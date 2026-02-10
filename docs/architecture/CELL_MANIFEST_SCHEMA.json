@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NATT-OS Cell Manifest v1.0",
+  "type": "object",
+  "required": ["constitutionalAdn", "cell", "status", "layer"],
+  "properties": {
+    "constitutionalAdn": {
+      "type": "object",
+      "required": ["identity", "capability", "boundary", "lifecycle"],
+      "properties": {
+        "identity": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+        "capability": { "type": "array", "items": { "type": "string" } },
+        "boundary": { "type": "string", "enum": ["STRICT", "OPEN", "ISOLATED"] },
+        "trace": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "smartlink": { "type": "string" },
+        "lifecycle": { "type": "string", "enum": ["BOOTSTRAP", "ACTIVE", "STABLE", "DEPRECATED", "QUARANTINED"] }
+      }
+    },
+    "cell": { "type": "string" },
+    "status": { "type": "string", "enum": ["ACTIVE", "PASSIVE", "LOCKED", "QUARANTINED"] },
+    "layer": { "type": "string", "enum": ["kernel", "infrastructure", "core", "feature"] },
+    "wave": { "type": "integer" }
+  }
+}

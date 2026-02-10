@@ -1,15 +1,15 @@
 {
-  "cell_id": "cell:security",
-  "cell_name": "security-cell",
-  "version": "1.0.0",
-  "description": "Kernel cell for threat detection and security management",
-  "domain": "SYSTEM",
-  "layer": 0,
-  "layer_name": "KERNEL",
-  "capabilities": ["THREAT_DETECT", "LOCKDOWN_MANAGE", "ACCESS_CONTROL"],
-  "emits": ["security.threat.detected", "security.lockdown.initiated", "security.lockdown.lifted"],
-  "authoritative_events": ["security.*"],
-  "dependencies": ["cell:config", "cell:audit"],
-  "constitutional_state": "STATE_1",
-  "approved_by": "GATEKEEPER"
+  "constitutionalAdn": {
+    "identity": "security-cell",
+    "capability": [],
+    "boundary": "strict",
+    "trace": "audit",
+    "confidence": 0.5,
+    "smartlink": "event-bus",
+    "lifecycle": "active"
+  },
+  "cell": "security-cell",
+  "status": "ACTIVE",
+  "layer": "infrastructure",
+  "wave": 2
 }

@@ -1,16 +1,15 @@
 {
-  "cell_id": "cell:rbac",
-  "cell_name": "rbac-cell",
-  "version": "1.0.0",
-  "description": "Kernel cell for Role-Based Access Control",
-  "domain": "SYSTEM",
-  "layer": 0,
-  "layer_name": "KERNEL",
-  "capabilities": ["RBAC_CHECK", "ROLE_ASSIGN", "ROLE_REVOKE", "PERMISSION_MANAGE"],
-  "emits": ["rbac.role.assigned", "rbac.role.revoked", "rbac.permission.granted", "rbac.access.denied"],
-  "authoritative_events": ["rbac.*"],
-  "subscribes": ["system.bootstrap", "system.shutdown"],
-  "dependencies": ["cell:config"],
-  "constitutional_state": "STATE_1",
-  "approved_by": "GATEKEEPER"
+  "constitutionalAdn": {
+    "identity": "rbac-cell",
+    "capability": [],
+    "boundary": "strict",
+    "trace": "audit",
+    "confidence": 0.5,
+    "smartlink": "event-bus",
+    "lifecycle": "active"
+  },
+  "cell": "rbac-cell",
+  "status": "ACTIVE",
+  "layer": "infrastructure",
+  "wave": 2
 }
