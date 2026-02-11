@@ -6,11 +6,10 @@
     "trace": "audit",
     "confidence": 0.5,
     "smartlink": "event-bus",
-    "lifecycle": "ENFORCED"
+    "lifecycle": "active"
   },
   "cell": "config-cell",
   "status": "ACTIVE",
-  "layer": "foundation_governance",
-  "wave": 0,
-  "governance_level": "IMMUTABLE_EXCEPT_GATEKEEPER"
+  "layer": "infrastructure",
+  "wave": 2
 }

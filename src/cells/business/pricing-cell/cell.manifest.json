@@ -1,59 +1,57 @@
 {
-  "cell": {
-    "name": "pricing-cell",
-    "version": "1.0.0",
-    "wave": "WAVE_3",
-    "type": "business",
-    "status": "SCAFFOLDED"
-  },
+  "cell_id": "pricing-cell",
+  "version": "2.0.0",
+  "wave": "3",
+  "layer": "business",
+  "status": "ACTIVE",
   "adn": {
     "identity": {
-      "id": "pricing-cell",
-      "description": "Price policy, gold market feed, margin rules",
-      "owner": "NATT-OS-TEAM"
+      "name": "Pricing Cell",
+      "domain": "Pricing & Cost Calculation",
+      "description": "Tâm Luxury jewelry pricing engine — gold prices, labor costs, markup tiers, full product pricing"
     },
     "capability": {
-      "exports": ["pricingCell"],
-      "imports": [],
-      "events_emitted": ["pricing.price.changed", "pricing.policy.updated"],
-      "events_consumed": ["promotion.campaign.activated"]
+      "primary": ["calculateProductPrice", "updateGoldMarketPrice", "determineLaborCost"],
+      "secondary": ["priceHistory", "markupManagement", "customQuoteDetection"]
     },
     "boundary": {
-      "allowed_dependencies": ["shared-contracts-cell", "smartlink-cell"],
-      "forbidden_imports": ["**/kernel/**", "**/governance/**", "**/infrastructure/**"],
-      "cross_business_import": "FORBIDDEN",
-      "isolation_level": "STRICT"
+      "owns": ["gold_prices", "markup_tiers", "labor_formulas", "product_pricing"],
+      "forbidden_imports": ["sales-cell", "order-cell", "customer-cell", "showroom-cell", "promotion-cell", "buyback-cell", "warranty-cell", "inventory-cell"],
+      "communicates_via": "shared-contracts-cell + EDA events"
     },
     "trace": {
-      "audit_required": true,
-      "log_level": "INFO",
-      "event_sourcing": true
+      "events_emitted": [
+        "pricing.gold.market.updated",
+        "pricing.product.calculated",
+        "pricing.markup.changed",
+        "pricing.custom_quote.required"
+      ],
+      "events_consumed": [
+        "external.gold.price.updated",
+        "inventory.material.received"
+      ]
     },
     "confidence": {
-      "test_coverage_minimum": 0,
-      "constitutional_compliance": true,
-      "last_audit": null
+      "labor_formulas": "VERIFIED — extracted from Bảng Giá 2025 Excel (4049-char formula)",
+      "gold_prices": "BASELINE — needs daily market update",
+      "markup_tiers": "VERIFIED — 3 tiers (15%, 20%, 30%) from SaleTerminal v2 review"
     },
     "smartlink": {
-      "linked_cells": [],
-      "event_bus_channels": ["pricing.*"]
+      "depends_on": [],
+      "depended_by": ["sales-cell", "order-cell", "buyback-cell", "warranty-cell", "promotion-cell"]
     },
     "lifecycle": {
-      "created_phase": "WAVE_3_SCAFFOLD",
-      "current_state": "SCAFFOLDED",
-      "transitions": [
-        { "from": "NONE", "to": "SCAFFOLDED", "reason": "Wave 3 business cell initialization by Kim" }
-      ]
+      "created_at": "2026-02-10",
+      "scaffolded_at": "2026-02-10",
+      "implemented_at": "2026-02-11",
+      "implemented_by": "Băng (Data Steward & Architect)",
+      "approved_by": "Anh Natt (Gatekeeper)"
     }
   },
-  "layers": {
-    "note": "Business cells use flat structure at scaffold phase. Will migrate to 5-layer when implementing domain logic.",
-    "current_structure": "FLAT",
+  "structure": {
+    "current_structure": "5_LAYER",
     "target_structure": "5_LAYER",
-    "domain": false,
-    "application": false,
-    "interface": false,
-    "infrastructure": false,
-    "ports": false
+    "layers": ["domain", "application", "interface", "infrastructure", "ports"],
+    "migration_status": "COMPLETE — upgraded from FLAT scaffold"
   }
 }

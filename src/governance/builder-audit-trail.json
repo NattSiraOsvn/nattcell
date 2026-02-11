@@ -44,8 +44,26 @@
       "constitutional_check": "PASS",
       "boundary_enforced": true,
       "hash": "wave3_business_scaffold_1770754900049"
+    },
+    {
+      "timestamp": "2026-02-10T23:53:41.312Z",
+      "builder": "THIÊN",
+      "action": "KERNEL_RECLASSIFICATION_METADATA_ONLY",
+      "details": "Reclassified kernel manifests (metadata-only): wave=0, layer=foundation_governance, lifecycle=ENFORCED, governance_level=IMMUTABLE_EXCEPT_GATEKEEPER. TS untouched.",
+      "files_affected": [
+        "src/cells/kernel/audit-cell/cell.manifest.json",
+        "src/cells/kernel/config-cell/cell.manifest.json",
+        "src/cells/kernel/monitor-cell/cell.manifest.json",
+        "src/cells/kernel/rbac-cell/cell.manifest.json",
+        "src/cells/kernel/security-cell/cell.manifest.json"
+      ],
+      "constitutional_check": "PASS",
+      "boundary_enforced": true,
+      "scope": "metadata_only",
+      "code_impact": "ZERO",
+      "hash": "kernel_reclass_meta_1770767621313"
     }
   ],
-  "total_entries": 3,
-  "last_updated": "2026-02-10T20:21:40.048Z"
+  "total_entries": 4,
+  "last_updated": "2026-02-10T23:53:41.312Z"
 }

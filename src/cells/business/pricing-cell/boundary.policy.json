@@ -1,17 +1,21 @@
 {
-  "cell": "pricing-cell",
-  "wave": "WAVE_3",
-  "enforcement": "ACTIVE",
-  "allowed_dependencies": [
-    "shared-contracts-cell",
-    "smartlink-cell"
-  ],
-  "forbidden_dependencies": [
-    "kernel/*",
-    "governance/*",
-    "infrastructure/*"
-  ],
-  "cross_business_import": "FORBIDDEN",
-  "violation_action": "QUARANTINE_IMMEDIATE",
-  "notes": "Business cells communicate ONLY through shared-contracts-cell and EDA events. Direct import between business cells is constitutionally forbidden."
+  "cell_id": "pricing-cell",
+  "version": "2.0.0",
+  "rules": {
+    "cross_business_import": "FORBIDDEN",
+    "kernel_import": "FORBIDDEN",
+    "infrastructure_import": "FORBIDDEN",
+    "communication_channel": "shared-contracts-cell + EDA events ONLY",
+    "violation_action": "QUARANTINE_IMMEDIATE"
+  },
+  "data_ownership": {
+    "owns": ["gold_market_prices", "labor_cost_formulas", "markup_tier_config", "product_pricing_calculations"],
+    "reads_from": [],
+    "writes_to": []
+  },
+  "audit_requirements": {
+    "every_price_calculation": "MUST emit pricing.product.calculated event",
+    "gold_price_update": "MUST emit pricing.gold.market.updated event",
+    "custom_quote": "MUST emit pricing.custom_quote.required event"
+  }
 }
