@@ -1,17 +1,15 @@
 {
-  "cell": "inventory-cell",
-  "wave": "WAVE_3",
-  "enforcement": "ACTIVE",
-  "allowed_dependencies": [
-    "shared-contracts-cell",
-    "smartlink-cell"
-  ],
-  "forbidden_dependencies": [
-    "kernel/*",
-    "governance/*",
-    "infrastructure/*"
-  ],
-  "cross_business_import": "FORBIDDEN",
-  "violation_action": "QUARANTINE_IMMEDIATE",
-  "notes": "Business cells communicate ONLY through shared-contracts-cell and EDA events. Direct import between business cells is constitutionally forbidden."
+  "cell_id": "inventory-cell",
+  "boundary_rules": {
+    "cross_business_import": "FORBIDDEN",
+    "communication_method": "shared-contracts-cell + EDA events ONLY",
+    "direct_db_access": "FORBIDDEN — use repository interface",
+    "cross_branch_transfer": "REQUIRES_GATEKEEPER_APPROVAL"
+  },
+  "audit_requirements": {
+    "every_status_change": true,
+    "every_reservation": true,
+    "every_deduction": true,
+    "principle": "no audit = doesn't exist"
+  }
 }

@@ -1,59 +1,66 @@
 {
-  "cell": {
-    "name": "inventory-cell",
-    "version": "1.0.0",
-    "wave": "WAVE_3",
-    "type": "business",
-    "status": "SCAFFOLDED"
-  },
+  "cell_id": "inventory-cell",
+  "version": "2.0.0",
+  "wave": "3",
+  "layer": "business",
+  "status": "ACTIVE",
   "adn": {
     "identity": {
-      "id": "inventory-cell",
-      "description": "Stock management — raw, semi-finished, finished",
-      "owner": "NATT-OS-TEAM"
+      "name": "Inventory Cell",
+      "domain": "Inventory & Stock Management",
+      "description": "Tâm Luxury jewelry inventory — stock tracking, reservations, branch management, serial number tracking"
     },
     "capability": {
-      "exports": ["inventoryCell"],
-      "imports": [],
-      "events_emitted": ["inventory.stock.updated", "inventory.low.alert"],
-      "events_consumed": ["warehouse.goods.received", "order.completed"]
+      "primary": ["checkAvailability", "reserveItem", "deductItem", "releaseReservation"],
+      "secondary": ["stockAlerts", "crossBranchTransfer", "expiredReservationCleanup", "systemOverview"]
     },
     "boundary": {
-      "allowed_dependencies": ["shared-contracts-cell", "smartlink-cell"],
-      "forbidden_imports": ["**/kernel/**", "**/governance/**", "**/infrastructure/**"],
-      "cross_business_import": "FORBIDDEN",
-      "isolation_level": "STRICT"
+      "owns": ["inventory_items", "stock_levels", "reservations", "location_assignments"],
+      "forbidden_imports": ["sales-cell", "order-cell", "customer-cell", "showroom-cell", "promotion-cell", "buyback-cell", "warranty-cell", "pricing-cell"],
+      "communicates_via": "shared-contracts-cell + EDA events"
     },
     "trace": {
-      "audit_required": true,
-      "log_level": "INFO",
-      "event_sourcing": true
+      "events_emitted": [
+        "inventory.item.received",
+        "inventory.item.reserved",
+        "inventory.reservation.released",
+        "inventory.item.sold",
+        "inventory.item.transferred",
+        "inventory.cross_branch.transfer_requested",
+        "inventory.item.maintenance",
+        "inventory.stock.alert",
+        "inventory.reservation.expired"
+      ],
+      "events_consumed": [
+        "pricing.product.calculated",
+        "order.confirmed",
+        "buyback.item.received",
+        "warranty.repair.requested"
+      ]
     },
     "confidence": {
-      "test_coverage_minimum": 0,
-      "constitutional_compliance": true,
-      "last_audit": null
+      "item_statuses": "VERIFIED — 7 states with validated transition matrix",
+      "locations": "VERIFIED — 7 locations across HN/HCM branches",
+      "reservation_rules": "VERIFIED — 3 tiers (STANDARD/VIP/VVIP) with deposit logic",
+      "stock_alerts": "VERIFIED — 4 alert types with configurable thresholds"
     },
     "smartlink": {
-      "linked_cells": [],
-      "event_bus_channels": ["inventory.*"]
+      "depends_on": ["pricing-cell"],
+      "depended_by": ["sales-cell", "order-cell", "buyback-cell", "warranty-cell", "showroom-cell"]
     },
     "lifecycle": {
-      "created_phase": "WAVE_3_SCAFFOLD",
-      "current_state": "SCAFFOLDED",
-      "transitions": [
-        { "from": "NONE", "to": "SCAFFOLDED", "reason": "Wave 3 business cell initialization by Kim" }
-      ]
+      "created_at": "2026-02-11",
+      "scaffolded_at": "2026-02-11",
+      "implemented_at": "2026-02-12",
+      "implemented_by": "Thiên (Chief Architect)",
+      "port_base_by": "Bối Bối (Toolsmith)",
+      "approved_by": "Anh Natt (Gatekeeper)"
     }
   },
-  "layers": {
-    "note": "Business cells use flat structure at scaffold phase. Will migrate to 5-layer when implementing domain logic.",
-    "current_structure": "FLAT",
+  "structure": {
+    "current_structure": "5_LAYER",
     "target_structure": "5_LAYER",
-    "domain": false,
-    "application": false,
-    "interface": false,
-    "infrastructure": false,
-    "ports": false
+    "layers": ["domain", "application", "interface", "infrastructure", "ports"],
+    "migration_status": "COMPLETE — upgraded from FLAT scaffold"
   }
 }
