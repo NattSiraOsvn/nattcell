@@ -62,25 +62,8 @@
       "scope": "metadata_only",
       "code_impact": "ZERO",
       "hash": "kernel_reclass_meta_1770767621313"
-    },
-    {
-      "timestamp": "2026-02-11T00:11:21.342Z",
-      "builder": "THIÊN",
-      "action": "KERNEL_CORE_PHASE1_FREEZE_AND_GUARD",
-      "details": "Kernel Phase 1 implemented (additive): guardrails doc, kernel public surface lockfile, boundary scan script, boundary_guard marker. No kernel TS logic changed except additive marker.",
-      "files_affected": [
-        "src/governance/KERNEL_PHASE1_GUARDRAILS.md",
-        "src/governance/kernel.contracts.lock.json",
-        "scripts/kernel_phase1_scan.mjs",
-        "src/kernel/boundary_guard.ts"
-      ],
-      "constitutional_check": "PASS",
-      "boundary_enforced": true,
-      "scope": "kernel_core_phase1_additive",
-      "code_impact": "LOW (additive tooling only)",
-      "hash": "kernel_phase1_1770768681343"
     }
   ],
-  "total_entries": 5,
-  "last_updated": "2026-02-11T00:11:21.342Z"
+  "total_entries": 4,
+  "last_updated": "2026-02-10T23:53:41.312Z"
 }

@@ -1,9 +1,9 @@
-import { BaseEvent } from '../../../contracts/events/base-event';
-import { AuditService } from '../../infrastructure/audit-cell/audit.service';
+import { BaseEvent } from ../../../contracts/events/base-event;
+import { AuditPort, AuditRecord } from ../audit-cell/ports/audit.port;
 
 export interface ConfigEntry {
   key: string;
-  value: any;
+  value: unknown;
   version: number;
   createdBy: string;
   createdAt: number;
@@ -16,88 +16,70 @@ export interface ConfigEntry {
 }
 
 export class ConfigService {
-  private static instance: ConfigService;
-  private configStore: Map<string, ConfigEntry> = new Map();
-  private auditService: AuditService;
+  private configStore = new Map<string, ConfigEntry>();
 
-  private constructor() {
-    this.auditService = AuditService.getInstance();
-  }
+  constructor(private readonly auditPort: AuditPort) {}
 
-  static getInstance(): ConfigService {
-    if (!ConfigService.instance) {
-      ConfigService.instance = new ConfigService();
-    }
-    return ConfigService.instance;
-  }
-
-  async set(key: string, value: any, actor: string, requiresApproval = false): Promise<void> {
+  async set(
+    key: string,
+    value: unknown,
+    actor: string,
+    requiresApproval = false
+  ): Promise<void> {
     const existing = this.configStore.get(key);
-    const newVersion = existing ? existing.version + 1 : 1;
-    
+    const version = existing ? existing.version + 1 : 1;
+
     const entry: ConfigEntry = {
       key,
       value,
-      version: newVersion,
+      version,
       createdBy: actor,
       createdAt: Date.now(),
       updatedAt: Date.now(),
       metadata: {
         requiresGatekeeperApproval: requiresApproval,
         auditRequired: true,
-        encryptionRequired: key.includes('secret') || key.includes('password')
-      }
+        encryptionRequired:
+          key.includes("secret") || key.includes("password"),
+      },
     };
 
-    // Audit before setting
-    await this.auditService.log({
-      action: 'config.set',
-      resource: `config:${key}`,
-      actorId: actor,
-      details: { key, version: newVersion, requiresApproval }
-    });
+    const record: AuditRecord = {
+      record_id: crypto.randomUUID(),
+      timestamp: new Date().toISOString(),
+      actor: { persona_id: "SYSTEM_AUTO", user_id: actor },
+      action: "CONFIG_SET",
+      scope: { cell: "config-cell", layer: "kernel" },
+      payload: { key, version, requiresApproval },
+    };
 
+    await this.auditPort.append(record);
     this.configStore.set(key, entry);
-
-    // Emit event
-    this.emitConfigUpdated(key, newVersion, actor);
+    this.emitConfigUpdated(key, version, actor);
   }
 
   async get(key: string): Promise<ConfigEntry | null> {
-    const entry = this.configStore.get(key);
-    
-    if (entry) {
-      await this.auditService.log({
-        action: 'config.get',
-        resource: `config:${key}`,
-        actorId: 'system',
-        details: { key }
-      });
-    }
-    
-    return entry || null;
+    return this.configStore.get(key) ?? null;
   }
 
-  async getAll(): Promise<ConfigEntry[]> {
+  getAll(): ConfigEntry[] {
     return Array.from(this.configStore.values());
   }
 
   private emitConfigUpdated(key: string, version: number, actor: string) {
     const event: BaseEvent = {
-      event_id: `evt_${Date.now()}_config_update_${key}`,
-      event_type: 'config.updated',
-      event_version: '1.0.0',
-      source_cell: 'cell:config',
-      source_module: 'AdminConfigHub',
-      actor: { persona: 'SYSTEM', user_id: actor },
-      domain: 'GOVERNANCE',
+      event_id: `evt_${Date.now()}_${key}`,
+      event_type: "config.updated",
+      event_version: "1.0.0",
+      source_cell: "cell:config",
+      source_module: "ConfigService",
+      actor: { persona: "SYSTEM", user_id: actor },
+      domain: "GOVERNANCE",
       timestamp: Date.now(),
       correlation_id: `config_${key}_${version}`,
-      payload: { key, version, updatedBy: actor },
-      audit_required: true
+      payload: { key, version },
+      audit_required: true,
     };
-    
-    // In production, this would go to EventBus
-    console.log('📡 Event emitted:', event.event_type, event.event_id);
+    console.log("📡", event.event_type, event.event_id);
   }
 }

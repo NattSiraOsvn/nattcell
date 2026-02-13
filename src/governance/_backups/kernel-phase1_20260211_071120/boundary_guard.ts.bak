@@ -31,10 +31,3 @@ export class SecurityKernel {
         return true;
     }
 }
-
-// === KERNEL_PHASE1_LOCK (additive) ===
-// Phase 1 enforcement relies on filesystem scan + lockfile:
-// - scripts/kernel_phase1_scan.mjs
-// - src/governance/kernel.contracts.lock.json
-// NOTE: This file is intentionally additive only.
-export const KERNEL_PHASE1_LOCK = "src/governance/kernel.contracts.lock.json";

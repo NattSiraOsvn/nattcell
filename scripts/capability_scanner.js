@@ -2,13 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// Lấy __dirname trong ES Module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const CELLS_DIR = path.join(path.resolve(), 'src/cells');
 
-console.log(`\n🔍 [NATT-OS] CAPABILITY SCANNER (Mode: DRY-RUN)`);
+console.log(`\n🔍 [NATT-OS] CAPABILITY SCANNER v1.2 (Deep Scan)`);
 console.log(`=================================================`);
 
 if (!fs.existsSync(CELLS_DIR)) {
@@ -16,40 +14,49 @@ if (!fs.existsSync(CELLS_DIR)) {
     process.exit(1);
 }
 
-// Hàm quét đệ quy tìm file ports/index.ts
+function scanRecursive(dir) {
+    let results = [];
+    const list = fs.readdirSync(dir);
+    list.forEach(file => {
+        const filePath = path.join(dir, file);
+        const stat = fs.statSync(filePath);
+        if (stat && stat.isDirectory()) {
+            results = results.concat(scanRecursive(filePath));
+        } else {
+            // Chỉ quét file .ts trong thư mục ports
+            if (filePath.includes('/ports/') && filePath.endsWith('.ts')) {
+                results.push(filePath);
+            }
+        }
+    });
+    return results;
+}
+
 function scanCells() {
-    const cells = fs.readdirSync(CELLS_DIR);
+    // Quét đệ quy tìm tất cả file .ts trong ports
+    const portFiles = scanRecursive(CELLS_DIR);
     let totalCaps = 0;
 
-    cells.forEach(cell => {
-        const cellPath = path.join(CELLS_DIR, cell);
-        if (!fs.statSync(cellPath).isDirectory()) return;
-        if (cell.startsWith('_')) return; // Bỏ qua _legacy
-
-        const portFile = path.join(cellPath, 'ports', 'index.ts');
+    portFiles.forEach(file => {
+        const content = fs.readFileSync(file, 'utf-8');
+        const cellName = file.split('/src/cells/')[1].split('/')[1]; // Lấy tên cell
         
-        if (fs.existsSync(portFile)) {
-            const content = fs.readFileSync(portFile, 'utf-8');
-            
-            // Regex tìm method name hoặc interface props
-            // VD: getName(), execute: () => void
-            const methodRegex = /([a-z][a-zA-Z0-9]+)\s*[\(:]/g;
-            const matches = [...content.matchAll(methodRegex)];
-            
-            const caps = matches.map(m => m[1])
-                                .filter(c => c !== 'constructor' && c !== 'super');
-            
-            if (caps.length > 0) {
-                console.log(`✅ [${cell.padEnd(20)}] Detected: ${caps.join(', ')}`);
-                totalCaps += caps.length;
-            } else {
-                console.log(`ℹ️  [${cell.padEnd(20)}] No capabilities detected yet.`);
-            }
+        // Regex tìm tên method trong interface
+        // VD: checkAvailability(req...
+        const methodRegex = /([a-z][a-zA-Z0-9]+)\s*\(/g;
+        const matches = [...content.matchAll(methodRegex)];
+        
+        const caps = matches.map(m => m[1])
+                            .filter(c => c !== 'constructor' && c !== 'super' && c !== 'if' && c !== 'for' && c !== 'switch');
+        
+        if (caps.length > 0) {
+            console.log(`✅ [${cellName.padEnd(20)}] Detected: ${[...new Set(caps)].join(', ')}`);
+            totalCaps += new Set(caps).size;
         }
     });
 
     console.log(`=================================================`);
-    console.log(`🏁 Scan Complete. Total Potential Capabilities: ${totalCaps}`);
+    console.log(`🏁 Scan Complete. Total Capabilities: ${totalCaps}`);
 }
 
 scanCells();

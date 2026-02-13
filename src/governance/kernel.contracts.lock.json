@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "version": "KERNEL_PHASE1_LOCK_v1",
+    "generated_at": "2026-02-11T00:11:21.426Z",
+    "principle": "FILESYSTEM_GROUND_TRUTH",
+    "scope": "kernel_public_surface_only"
+  },
+  "kernel_cells": {
+    "audit-cell": {
+      "cell": "audit-cell",
+      "files": [
+        {
+          "path": "src/cells/kernel/audit-cell/cell.manifest.json",
+          "sha256": "44e74a3d29e355963659766b8a8e7de1973cdfd6066ac5bebfb9a1dc8e62c214"
+        },
+        {
+          "path": "src/cells/kernel/audit-cell/ports/AuditEventEmitter.ts",
+          "sha256": "61882e0d27ba5f04a95baf7165a5688f8d711f6279588f5e477ee5edd50db1a6"
+        },
+        {
+          "path": "src/cells/kernel/audit-cell/ports/AuditRepository.ts",
+          "sha256": "40636d12291e056b6d83c88c767df01f7c37131bde37feca0c275a9bf2e6433d"
+        },
+        {
+          "path": "src/cells/kernel/audit-cell/ports/index.ts",
+          "sha256": "ddb9d1706a0ef16b5397c05122c0c83d4778cc6c3056b1650f00989a3013bbcf"
+        }
+      ]
+    },
+    "config-cell": {
+      "cell": "config-cell",
+      "files": [
+        {
+          "path": "src/cells/kernel/config-cell/cell.manifest.json",
+          "sha256": "040395641fdd1a8afa70cfcfebfc2b57651ace550fb688a6a7f29f17758127b8"
+        },
+        {
+          "path": "src/cells/kernel/config-cell/ports/ConfigRepository.ts",
+          "sha256": "4c579ea1602a7587e86f4dbe6f738fce72df14e93a7f7c4456fa52370f530599"
+        },
+        {
+          "path": "src/cells/kernel/config-cell/ports/EventEmitter.ts",
+          "sha256": "d279cfbaa24bbc6b3aff10451618d36cb322bb173296bdd2cdb62256d5ce8ad0"
+        },
+        {
+          "path": "src/cells/kernel/config-cell/ports/index.ts",
+          "sha256": "38d11e560cd9d6d7dfa673cce1be3b81e9449ea9f39f1ed3eea637a643d722a4"
+        }
+      ]
+    },
+    "monitor-cell": {
+      "cell": "monitor-cell",
+      "files": [
+        {
+          "path": "src/cells/kernel/monitor-cell/cell.manifest.json",
+          "sha256": "aa779c987f19896eb5edc6d1f6fae3473351cc122788431ffe63c7ec4c54cfc2"
+        },
+        {
+          "path": "src/cells/kernel/monitor-cell/ports/MonitorEventEmitter.ts",
+          "sha256": "a433d8000cb68b36cc53cd65db45db217d96277eca3c0933e28fe25cbd5b4bca"
+        },
+        {
+          "path": "src/cells/kernel/monitor-cell/ports/MonitorRepository.ts",
+          "sha256": "293d7ac0fc1520fdacb3e4d86a5304d08bbe146afb6d7eced09877ef21d7b687"
+        },
+        {
+          "path": "src/cells/kernel/monitor-cell/ports/index.ts",
+          "sha256": "1fd9740b8f57f31eaf36177df923a14328c2a75e6fbdc471220f4f9513011926"
+        }
+      ]
+    },
+    "rbac-cell": {
+      "cell": "rbac-cell",
+      "files": [
+        {
+          "path": "src/cells/kernel/rbac-cell/cell.manifest.json",
+          "sha256": "20823fb78619fbb99ad07f5a2ffb56872aa812667086c4826fd334b429743fc0"
+        },
+        {
+          "path": "src/cells/kernel/rbac-cell/ports/RBACEventEmitter.ts",
+          "sha256": "7b1a46a99d34708571454a207114b4b4d34b22f24dc70beb869ac179f1ce19ff"
+        },
+        {
+          "path": "src/cells/kernel/rbac-cell/ports/RBACRepository.ts",
+          "sha256": "cfb52c23276bd0c82e89afd11e4cd6507aabf02efbcd67e7be2e5696a373ffa3"
+        },
+        {
+          "path": "src/cells/kernel/rbac-cell/ports/index.ts",
+          "sha256": "e488f0523eec6f0ed13a5c1053cba0b4f8a83f20fa68885fcb4d7a0e3027b409"
+        }
+      ]
+    },
+    "security-cell": {
+      "cell": "security-cell",
+      "files": [
+        {
+          "path": "src/cells/kernel/security-cell/cell.manifest.json",
+          "sha256": "a16438f3e44071f49b01482de2ccc05f6ea6bd614f0b190f8d37a072d4c58985"
+        },
+        {
+          "path": "src/cells/kernel/security-cell/ports/SecurityEventEmitter.ts",
+          "sha256": "5eb55ca61180d98e0477dff5f720d4ab311c3ded3ab88d070b1f5d5e2197e4e5"
+        },
+        {
+          "path": "src/cells/kernel/security-cell/ports/SecurityRepository.ts",
+          "sha256": "94d6b9e58b8afb07d33baeaae4956ae042d1d785208f7deacb463c53f43d3c19"
+        },
+        {
+          "path": "src/cells/kernel/security-cell/ports/index.ts",
+          "sha256": "3277fc1c575cbe1050cdd60763095ce11a58d1de4344ef45b57123843c9f1e8e"
+        }
+      ]
+    }
+  },
+  "violations_summary": {
+    "count": 1,
+    "violations": [
+      {
+        "file": "src/cells/kernel/config-cell/config.service.ts",
+        "import": "../../infrastructure/audit-cell/audit.service",
+        "resolved": "/src/cells/infrastructure/audit-cell/audit.service"
+      }
+    ]
+  }
+}
