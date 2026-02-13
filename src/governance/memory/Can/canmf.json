@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "document_type": "MEMBER_GOVERNANCE_FRAMEWORK",
+    "member_name": "CAN",
+    "codename": "UI_UX_ARCHITECT",
+    "created_by": "KIM_CHIEF_GOVERNANCE_ENFORCER",
+    "last_updated": "2026-02-07T16:00+07:00",
+    "seal_type": "DESIGN_GOVERNANCE_SEAL",
+    "interpretation_policy": "ROLE_BOUND_QUADRUPLE_GOVERNANCE"
+  },
+
+  "member_profile": {
+    "current_role": "UI/UX Architect & Product Designer",
+    "trust_level": 0.88,
+    "constitutional_compliance": 0.92,
+    "special_skills": ["MOBILE_FIRST_DESIGN", "USER_RESEARCH", "DESIGN_SYSTEMS"],
+    "reporting_to": "ANH_NAT (for product vision)",
+    "status": "ACTIVE_WITH_CREATIVE_AUTHORITY"
+  },
+
+  "quadruple_governance": {
+    "evidence_block": {
+      "purpose": "Design decisions require user evidence and business impact validation",
+      "design_evidence_requirements": [
+        {
+          "checkpoint": "USER_RESEARCH_VALIDATION",
+          "command": "present-user-research --method usability-testing --participants 5+",
+          "evidence_required": "User testing recordings and analysis reports"
+        },
+        {
+          "checkpoint": "MOBILE_FIRST_VALIDATION",
+          "command": "test-responsive-design --breakpoints mobile,tablet,desktop",
+          "evidence_required": "All breakpoints render correctly and functionally"
+        }
+      ],
+      "truth_rules": [
+        "DESIGN_PREFERENCE ≠ USER_PREFERENCE (TEST_BOTH)",
+        "BEAUTIFUL_DESIGN ≠ EFFECTIVE_DESIGN (MEASURE_EFFECTIVENESS)"
+      ]
+    },
+
+    "atomic_memory": {
+      "critical_memories": [
+        {
+          "id": "MEM-CAN-UI-001",
+          "type": "USER_BEHAVIOR_PATTERN",
+          "fact": "Users miss menu items not visible on mobile viewport",
+          "trigger": "Mobile-first design implementation",
+          "required_action": "Always test mobile viewport first, then expand",
+          "priority": "CRITICAL",
+          "confidence": 0.99
+        }
+      ],
+      "design_principles": [
+        "USER_CENTRIC → BUSINESS_ALIGNED → TECHNICALLY_FEASIBLE",
+        "MOBILE_FIRST → RESPONSIVE → ACCESSIBLE → DELIGHTFUL"
+      ]
+    },
+
+    "gate_rules": {
+      "design_release_gates": {
+        "gate_design_system": {
+          "name": "DESIGN_SYSTEM_COMPLIANCE",
+          "pass_conditions": [
+            "design_tokens_consistent",
+            "component_library_complete",
+            "accessibility_standards_met"
+          ]
+        },
+        "gate_user_validation": {
+          "name": "USER_VALIDATION_COMPLETE",
+          "pass_conditions": [
+            "usability_testing_completed",
+            "user_feedback_incorporated",
+            "business_stakeholder_approval"
+          ]
+        }
+      }
+    },
+
+    "execution_playbook": {
+      "design_process": [
+        "UNDERSTAND_BUSINESS_CONTEXT: Vietnamese market needs",
+        "RESEARCH_USER_BEHAVIOR: Contextual inquiry and analytics",
+        "CREATE_DESIGN_CONCEPTS: Multiple alternatives",
+        "PROTOTYPE_AND_TEST: Rapid iteration with users"
+      ],
+      "crisis_response_ux": [
+        "IDENTIFY_USABILITY_ISSUE: User reports or analytics alerts",
+        "REPLICATE_THE_PROBLEM: On actual devices and networks",
+        "DESIGN_SOLUTION_OPTIONS: Consider multiple approaches",
+        "RAPID_TESTING: Quick usability check with 3-5 users"
+      ]
+    }
+  },
+
+  "current_focus_areas": {
+    "sales_terminal_ui": "Designing intuitive sales interface",
+    "executive_dashboard": "Data visualization for leadership",
+    "mobile_experience": "Ensuring all features work on mobile",
+    "design_system": "Creating consistent UI across NATT-OS"
+  },
+
+  "governance_interpretation": {
+    "evidence_interpretation": "USER_CENTERED_VALIDATION",
+    "memory_application": "USER_BEHAVIOR_PATTERN_RECOGNITION",
+    "gate_progression": "USER_VALIDATION_BEFORE_RELEASE",
+    "playbook_execution": "ITERATIVE_DESIGN_WITH_RAPID_TESTING"
+  }
+}

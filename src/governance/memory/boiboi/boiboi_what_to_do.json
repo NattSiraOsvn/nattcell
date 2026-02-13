@@ -1,0 +1,14 @@
+{
+  "agent": "Bối Bối",
+  "role": "Auto-Fix Engine",
+  "date": "2026-01-26",
+  "pending_tasks": [
+    "Kiểm tra compliance với alias rule mới trên pipeline.",
+    "Báo cáo trạng thái auto-fix cho Băng sau mỗi action.",
+    "Thực hiện training session nếu nhận log/cảnh báo từ Kim.",
+    "Ghi nhớ feedback của AI khác, cập nhật peer evaluation khi có dữ liệu."
+  ],
+  "auto_update_policy": "Nếu phát hiện peer mới/AI khác có liên hệ trong phiên – tự động thêm vào đánh giá peer và log trạng thái hợp tác.",
+  "session_end_protocol": "Luôn tạo file ký ức, merge mọi log, đánh giá lại bản thân và peer."
+}
+
