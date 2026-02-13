@@ -1,0 +1,71 @@
+{
+  "cell": {
+    "name": "warranty-cell",
+    "version": "1.0.0",
+    "wave": "WAVE_3.5",
+    "type": "business",
+    "status": "SCAFFOLDED",
+    "domain_specific": "jewelry_gold_luxury"
+  },
+  "adn": {
+    "identity": {
+      "id": "warranty-cell",
+      "description": "Lifetime warranty, jewelry repair services, VIP fee policies for Tâm Luxury",
+      "owner": "NATT-OS-TEAM"
+    },
+    "capability": {
+      "exports": ["WarrantyService", "WarrantyTicket", "IWarrantyService"],
+      "imports": [],
+      "events_emitted": [
+        "warranty.ticket.created",
+        "warranty.diagnosis.completed",
+        "warranty.quote.sent",
+        "warranty.service.started",
+        "warranty.service.completed",
+        "warranty.item.returned",
+        "warranty.material.consumed"
+      ],
+      "events_consumed": [
+        "customer.tier.changed",
+        "sales.order.created",
+        "inventory.material.available"
+      ]
+    },
+    "boundary": {
+      "allowed_dependencies": ["shared-contracts-cell", "smartlink-cell"],
+      "forbidden_imports": ["**/kernel/**", "**/governance/**", "**/infrastructure/**"],
+      "cross_business_import": "FORBIDDEN",
+      "isolation_level": "STRICT"
+    },
+    "trace": {
+      "audit_required": true,
+      "log_level": "INFO",
+      "event_sourcing": true
+    },
+    "confidence": {
+      "test_coverage_minimum": 0,
+      "constitutional_compliance": true,
+      "last_audit": null
+    },
+    "smartlink": {
+      "linked_cells": [],
+      "event_bus_channels": ["warranty.*"]
+    },
+    "lifecycle": {
+      "created_phase": "WAVE_3.5_TAM_LUXURY",
+      "current_state": "SCAFFOLDED",
+      "transitions": [
+        { "from": "NONE", "to": "SCAFFOLDED", "reason": "Wave 3.5 — Bối Bối proposed, Kim reviewed (Option B), Băng scaffolded" }
+      ]
+    }
+  },
+  "layers": {
+    "current_structure": "FLAT",
+    "target_structure": "5_LAYER",
+    "domain": false,
+    "application": false,
+    "interface": false,
+    "infrastructure": false,
+    "ports": false
+  }
+}

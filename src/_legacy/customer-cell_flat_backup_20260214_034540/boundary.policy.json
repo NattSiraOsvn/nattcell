@@ -1,0 +1,17 @@
+{
+  "cell": "customer-cell",
+  "wave": "WAVE_3",
+  "enforcement": "ACTIVE",
+  "allowed_dependencies": [
+    "shared-contracts-cell",
+    "smartlink-cell"
+  ],
+  "forbidden_dependencies": [
+    "kernel/*",
+    "governance/*",
+    "infrastructure/*"
+  ],
+  "cross_business_import": "FORBIDDEN",
+  "violation_action": "QUARANTINE_IMMEDIATE",
+  "notes": "Business cells communicate ONLY through shared-contracts-cell and EDA events. Direct import between business cells is constitutionally forbidden."
+}

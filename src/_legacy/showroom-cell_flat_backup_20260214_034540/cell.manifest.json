@@ -1,0 +1,59 @@
+{
+  "cell": {
+    "name": "showroom-cell",
+    "version": "1.0.0",
+    "wave": "WAVE_3",
+    "type": "business",
+    "status": "SCAFFOLDED"
+  },
+  "adn": {
+    "identity": {
+      "id": "showroom-cell",
+      "description": "Display stock management and customer experience",
+      "owner": "NATT-OS-TEAM"
+    },
+    "capability": {
+      "exports": ["showroomCell"],
+      "imports": [],
+      "events_emitted": ["showroom.display.updated", "showroom.transfer.requested"],
+      "events_consumed": ["inventory.stock.updated", "sales.order.created"]
+    },
+    "boundary": {
+      "allowed_dependencies": ["shared-contracts-cell", "smartlink-cell"],
+      "forbidden_imports": ["**/kernel/**", "**/governance/**", "**/infrastructure/**"],
+      "cross_business_import": "FORBIDDEN",
+      "isolation_level": "STRICT"
+    },
+    "trace": {
+      "audit_required": true,
+      "log_level": "INFO",
+      "event_sourcing": true
+    },
+    "confidence": {
+      "test_coverage_minimum": 0,
+      "constitutional_compliance": true,
+      "last_audit": null
+    },
+    "smartlink": {
+      "linked_cells": [],
+      "event_bus_channels": ["showroom.*"]
+    },
+    "lifecycle": {
+      "created_phase": "WAVE_3_SCAFFOLD",
+      "current_state": "SCAFFOLDED",
+      "transitions": [
+        { "from": "NONE", "to": "SCAFFOLDED", "reason": "Wave 3 business cell initialization by Kim" }
+      ]
+    }
+  },
+  "layers": {
+    "note": "Business cells use flat structure at scaffold phase. Will migrate to 5-layer when implementing domain logic.",
+    "current_structure": "FLAT",
+    "target_structure": "5_LAYER",
+    "domain": false,
+    "application": false,
+    "interface": false,
+    "infrastructure": false,
+    "ports": false
+  }
+}
