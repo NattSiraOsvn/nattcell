@@ -1,1 +1,0 @@
-export { HealthAnalyzer } from './HealthAnalyzer';

@@ -1,1 +1,0 @@
-export { ConfigApplicationService } from './ConfigApplicationService';

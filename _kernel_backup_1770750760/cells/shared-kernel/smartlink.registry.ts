@@ -1,1 +1,0 @@
-// 💀 TERMINATED: Root violation. Use cells/shared-kernel/smartlink.registry.ts.

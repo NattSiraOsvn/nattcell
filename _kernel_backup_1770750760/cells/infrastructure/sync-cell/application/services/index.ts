@@ -1,1 +1,0 @@
-export { SyncApplicationService } from './SyncApplicationService';

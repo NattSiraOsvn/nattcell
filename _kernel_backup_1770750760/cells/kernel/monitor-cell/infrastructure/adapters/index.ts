@@ -1,1 +1,0 @@
-export { MonitorEventEmitterAdapter } from './MonitorEventEmitterAdapter';
