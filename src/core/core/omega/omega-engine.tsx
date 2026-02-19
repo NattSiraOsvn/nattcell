@@ -1,11 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
 // 🛠️ Fixed: Import casing for Types
-import { IngestStatus, FileMetadata, PersonaID } from '../types';
-import { Ingestion } from '../core/ingestion/ingestionservice';
-import { QuantumBuffer } from '../services/quantumbufferservice';
-import { DocumentParserLayer } from '../services/parser/documentparserlayer';
-import AIAvatar from './aiavatar';
+import { IngestStatus, FileMetadata, PersonaID } from '../../../types';
+import { IngestionService } from '../ingestion/ingestion-service';
+import { IngestionService as Ingestion } from '../ingestion/ingestion-service';
+import { QuantumBuffer } from '../../../services/quantumbufferservice';
+import { DocumentParserLayer } from '../../../services/parser/documentparserlayer';
+
+
+const ingestion = IngestionService.getInstance();
 
 const OmegaProcessor: React.FC = () => {
   const [isWorkerActive, setIsWorkerActive] = useState(false);
@@ -14,16 +17,17 @@ const OmegaProcessor: React.FC = () => {
 
   useEffect(() => {
     // WORKER LOOP: Lắng nghe QuantumBuffer
-    const unsubscribe = QuantumBuffer.subscribe(async (queue) => {
+    const { unsubscribe } = QuantumBuffer.subscribe();
+    const processQueue = async (queue: any[]) => {
        const ingestTask = queue.find(t => t.type === 'MEDIA_INGEST' && !isWorkerActive);
        
        if (ingestTask && !isWorkerActive) {
           await processBackgroundMedia(ingestTask);
        }
-    });
+    };
 
-    setHistory(Ingestion.getHistory());
-    const historyInterval = setInterval(() => setHistory(Ingestion.getHistory()), 3000);
+    setHistory(ingestion.getHistory());
+    const historyInterval = setInterval(() => setHistory(ingestion.getHistory()), 3000);
 
     return () => {
       unsubscribe();
@@ -41,13 +45,13 @@ const OmegaProcessor: React.FC = () => {
        console.log(`[WORKER] Bóc tách Media 19TB: ${task.payload.fileName}`);
        
        // 1. Đăng ký Shard
-       const meta = await Ingestion.validateAndRegister(fileBlob);
+       const meta = await ingestion.validateAndRegister(fileBlob);
        
        // 2. Chạy Deep OCR/Parser
        await DocumentParserLayer.executeHeavyParse(fileBlob);
        
        // 3. Commit
-       Ingestion.updateStatus(meta.id, IngestStatus.COMMITTED, { confidence: 0.98, context: 'MEDIA_VAULT' });
+       ingestion.updateStatus(meta.id, IngestStatus.COMMITTED, { confidence: 0.98, context: 'MEDIA_VAULT' });
        
     } catch (err) {
        console.error("[WORKER] Shard Process Failed:", err);
@@ -114,7 +118,7 @@ const OmegaProcessor: React.FC = () => {
 
          <div className="space-y-8">
             <div className="ai-panel p-8 border-indigo-500/30 bg-indigo-500/5 flex flex-col items-center text-center">
-               <AIAvatar personaId={PersonaID.PHIEU} size="lg" isThinking={isWorkerActive} />
+               <div className="w-12 h-12 rounded-full bg-indigo-900 flex items-center justify-center text-white text-xs font-bold">{isWorkerActive ? "..." : "PH"}</div>
                <h4 className="ai-sub-headline text-indigo-400 mt-6 mb-4">Phiêu: Background Work</h4>
                <p className="text-[12px] text-gray-400 italic leading-relaxed">
                   "Thưa Anh Natt, Phiêu đã tách riêng luồng xử lý ảnh 4K và tệp Excel 19TB. Anh cứ tiếp tục thao tác Terminal, Phiêu sẽ âm thầm bóc tách và thông báo khi Shard dữ liệu đã sẵn sàng."
