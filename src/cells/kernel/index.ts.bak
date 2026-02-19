@@ -1,4 +1,3 @@
-import { ConstitutionalState } from "../../types";
 // Kernel Cells Exports
 export * from './config-cell';
 export * from './rbac-cell';
@@ -24,7 +23,7 @@ export async function initializeKernel(): Promise<void> {
   // Transition to STATE_2
   const { stateRegistry } = await import('../../core/state');
   await stateRegistry.transitionTo(
-    ConstitutionalState.ACTIVE,
+    'STATE_2',
     [
       'config-cell:initialized',
       'rbac-cell:initialized',

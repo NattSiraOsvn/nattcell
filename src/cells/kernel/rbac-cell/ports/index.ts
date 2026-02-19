@@ -1,3 +1,3 @@
-export { RBACRepository } from './RBACRepository';
-export { RBACEventEmitter } from './RBACEventEmitter';
+export type { RBACRepository } from './RBACRepository';
+export type { RBACEventEmitter } from './RBACEventEmitter';
 export * from './rbac-cell.contract';

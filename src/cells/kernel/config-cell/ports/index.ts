@@ -1,3 +1,3 @@
-export { ConfigRepository } from './ConfigRepository';
-export { ConfigEventEmitter } from './EventEmitter';
+export type { ConfigRepository } from './ConfigRepository';
+export type { ConfigEventEmitter } from './EventEmitter';
 export * from './config-cell.contract';

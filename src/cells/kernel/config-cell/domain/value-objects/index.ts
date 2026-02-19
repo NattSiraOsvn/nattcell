@@ -1,3 +1,3 @@
-export { ConfigKey } from './ConfigKey';
-export { ConfigValue, ConfigValueType } from './ConfigValue';
-export { ConfigMetadata, ConfigMetadataProps } from './ConfigMetadata';
+export type { ConfigKey } from './ConfigKey';
+export type { ConfigValue, ConfigValueType } from './ConfigValue';
+export type { ConfigMetadata, ConfigMetadataProps } from './ConfigMetadata';
