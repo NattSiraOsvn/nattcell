@@ -10,7 +10,6 @@
     "strictNullChecks": false,
 
     "skipLibCheck": true,
-    "allowImportingTsExtensions": true,
     "allowJs": true,
     "isolatedModules": true,
     "esModuleInterop": true,

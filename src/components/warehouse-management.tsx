@@ -167,7 +167,6 @@ const WarehouseManagement: React.FC<{ currentRole: UserRole }> = ({ currentRole 
       <footer className="mt-8 p-10 bg-indigo-500/5 border border-indigo-500/20 rounded-[3rem] flex flex-col lg:flex-row items-center gap-10 shadow-2xl relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-8 opacity-5 text-8xl grayscale group-hover:scale-110 transition-transform duration-1000">🧬</div>
           <div className="flex items-center gap-8 flex-1">
-             <AIAvatar personaId={PersonaID.BANG} size="lg" />
              <div>
                 <h4 className="text-xl font-bold text-white uppercase italic tracking-widest mb-2">Băng Reporting Shard</h4>
                 <p className="text-sm text-gray-400 italic leading-relaxed font-light max-w-3xl">

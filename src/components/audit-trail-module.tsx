@@ -247,7 +247,6 @@ const AuditTrailModule: React.FC<AuditTrailModuleProps> = ({ actionLogs, current
             <div className="ai-panel p-10 bg-amber-500/[0.03] border-amber-500/20 shadow-2xl relative overflow-hidden">
                <div className="absolute top-0 right-0 p-6 opacity-5 text-8xl">🛡️</div>
                <div className="flex items-center gap-4 mb-8">
-                  <AIAvatar personaId={PersonaID.THIEN} size="sm" isThinking={false} />
                   <h4 className="ai-sub-headline text-amber-500">Cố Vấn Giám Sát</h4>
                </div>
                <div className="bg-black/60 p-8 rounded-[2.5rem] border border-white/5 relative z-10 shadow-inner">

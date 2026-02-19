@@ -93,7 +93,6 @@ const NotificationHub: React.FC<NotificationHubProps> = ({ notifications, onClos
                      <div className="shrink-0 mt-1">
                         {n.persona ? (
                           <div className={isThinking ? 'animate-pulse' : ''}>
-                             <AIAvatar personaId={n.persona} size="sm" isThinking={false} />
                           </div>
                         ) : (
                           <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-xl ${

@@ -1,270 +1,70 @@
 // ============================================================
 // src/types.ts — NATT-OS Central Type Registry
-// Reconstructed by Băng & Kim
+// Reconstructed by Băng
 // ============================================================
 
-// --- Enums (const objects + types) ---
+export enum ConstitutionalState {
+  BOOTING = 'BOOTING',
+  ACTIVE = 'ACTIVE',
+  DEGRADED = 'DEGRADED',
+  LOCKDOWN = 'LOCKDOWN',
+  MAINTENANCE = 'MAINTENANCE',
+}
 
-export const ConstitutionalState = {
-  BOOTING: 'BOOTING',
-  ACTIVE: 'ACTIVE',
-  DEGRADED: 'DEGRADED',
-  LOCKDOWN: 'LOCKDOWN',
-  MAINTENANCE: 'MAINTENANCE',
-} as const;
-export type ConstitutionalState = typeof ConstitutionalState[keyof typeof ConstitutionalState];
+export enum IngestStatus {
+  PENDING = 'PENDING',
+  PROCESSING = 'PROCESSING',
+  COMMITTED = 'COMMITTED',
+  FAILED = 'FAILED',
+  QUARANTINED = 'QUARANTINED',
+}
 
-export const IngestStatus = {
-  PENDING: 'PENDING',
-  PROCESSING: 'PROCESSING',
-  COMMITTED: 'COMMITTED',
-  FAILED: 'FAILED',
-  QUARANTINED: 'QUARANTINED',
-} as const;
-export type IngestStatus = typeof IngestStatus[keyof typeof IngestStatus];
+export enum SyncConflictStrategy {
+  MERGE = 'MERGE',
+  SOURCE_WINS = 'SOURCE_WINS',
+  DESTINATION_WINS = 'DESTINATION_WINS',
+  MANUAL = 'MANUAL',
+  CRP = 'CRP',
+}
 
-export const SyncConflictStrategy = {
-  MERGE: 'MERGE',
-  SOURCE_WINS: 'SOURCE_WINS',
-  DESTINATION_WINS: 'DESTINATION_WINS',
-  MANUAL: 'MANUAL',
-  CRP: 'CRP',
-} as const;
-export type SyncConflictStrategy = typeof SyncConflictStrategy[keyof typeof SyncConflictStrategy];
+export enum AlertLevel {
+  INFO = 'INFO',
+  WARNING = 'WARNING',
+  CRITICAL = 'CRITICAL',
+  EMERGENCY = 'EMERGENCY',
+}
 
-export const AlertLevel = {
-  INFO: 'INFO',
-  WARNING: 'WARNING',
-  CRITICAL: 'CRITICAL',
-  EMERGENCY: 'EMERGENCY',
-} as const;
-export type AlertLevel = typeof AlertLevel[keyof typeof AlertLevel];
+export enum ModuleID {
+  SALES = 'SALES',
+  INVENTORY = 'INVENTORY',
+  WAREHOUSE = 'WAREHOUSE',
+  ACCOUNTING = 'ACCOUNTING',
+  HR = 'HR',
+  AUDIT = 'AUDIT',
+  CUSTOMS = 'CUSTOMS',
+  SHOWROOM = 'SHOWROOM',
+  ANALYTICS = 'ANALYTICS',
+  GOVERNANCE = 'GOVERNANCE',
+}
 
-export const ModuleID = {
-  SALES: 'SALES',
-  INVENTORY: 'INVENTORY',
-  WAREHOUSE: 'WAREHOUSE',
-  ACCOUNTING: 'ACCOUNTING',
-  HR: 'HR',
-  AUDIT: 'AUDIT',
-  CUSTOMS: 'CUSTOMS',
-  SHOWROOM: 'SHOWROOM',
-  ANALYTICS: 'ANALYTICS',
-  GOVERNANCE: 'GOVERNANCE',
-} as const;
-export type ModuleID = typeof ModuleID[keyof typeof ModuleID];
+export type PersonaID = 'THIEN' | 'CAN' | 'NA' | 'BANG' | 'BOI_BOI' | 'PHIEU' | 'KIM' | 'KRIS' | 'SYSTEM';
 
-export const PersonaID = {
-  THIEN: 'THIEN',
-  CAN: 'CAN',
-  NA: 'NA',
-  BANG: 'BANG',
-  BOI_BOI: 'BOI_BOI',
-  PHIEU: 'PHIEU',
-  KIM: 'KIM',
-  KRIS: 'KRIS',
-  SYSTEM: 'SYSTEM',
-} as const;
-export type PersonaID = typeof PersonaID[keyof typeof PersonaID];
+export type ViewType = 'DASHBOARD' | 'SALES' | 'INVENTORY' | 'WAREHOUSE' | 'AUDIT' | 'ANALYTICS' | 'CUSTOMS' | 'SHOWROOM' | 'HR' | 'SETTINGS' | 'GOVERNANCE' | 'FACTORY' | 'OMEGA';
 
-export const ViewType = {
-  DASHBOARD: 'DASHBOARD',
-  SALES: 'SALES',
-  INVENTORY: 'INVENTORY',
-  WAREHOUSE: 'WAREHOUSE',
-  AUDIT: 'AUDIT',
-  ANALYTICS: 'ANALYTICS',
-  CUSTOMS: 'CUSTOMS',
-  SHOWROOM: 'SHOWROOM',
-  HR: 'HR',
-  SETTINGS: 'SETTINGS',
-  GOVERNANCE: 'GOVERNANCE',
-  FACTORY: 'FACTORY',
-  OMEGA: 'OMEGA',
-} as const;
-export type ViewType = typeof ViewType[keyof typeof ViewType];
+export type UserRole = 'ADMIN' | 'MANAGER' | 'SALES_STAFF' | 'WAREHOUSE_STAFF' | 'ACCOUNTANT' | 'AUDITOR' | 'VIEWER';
 
-export const UserRole = {
-  ADMIN: 'ADMIN',
-  MANAGER: 'MANAGER',
-  SALES_STAFF: 'SALES_STAFF',
-  WAREHOUSE_STAFF: 'WAREHOUSE_STAFF',
-  ACCOUNTANT: 'ACCOUNTANT',
-  AUDITOR: 'AUDITOR',
-  VIEWER: 'VIEWER',
-} as const;
-export type UserRole = typeof UserRole[keyof typeof UserRole];
+export enum PositionType {
+  DIRECTOR = 'DIRECTOR',
+  MANAGER = 'MANAGER',
+  SENIOR_STAFF = 'SENIOR_STAFF',
+  STAFF = 'STAFF',
+  INTERN = 'INTERN',
+  COLLABORATOR = 'COLLABORATOR',
+}
 
-export const PositionType = {
-  DIRECTOR: 'DIRECTOR',
-  MANAGER: 'MANAGER',
-  SENIOR_STAFF: 'SENIOR_STAFF',
-  STAFF: 'STAFF',
-  INTERN: 'INTERN',
-  COLLABORATOR: 'COLLABORATOR',
-} as const;
-export type PositionType = typeof PositionType[keyof typeof PositionType];
+export type Department = 'SALES' | 'PRODUCTION' | 'WAREHOUSE' | 'ACCOUNTING' | 'HR' | 'IT' | 'LEGAL';
 
-export const Department = {
-  SALES: 'SALES',
-  PRODUCTION: 'PRODUCTION',
-  WAREHOUSE: 'WAREHOUSE',
-  ACCOUNTING: 'ACCOUNTING',
-  HR: 'HR',
-  IT: 'IT',
-  LEGAL: 'LEGAL',
-} as const;
-export type Department = typeof Department[keyof typeof Department];
-
-export const Domain = {
-  SALES: 'SALES',
-  INVENTORY: 'INVENTORY',
-  WAREHOUSE: 'WAREHOUSE',
-  ACCOUNTING: 'ACCOUNTING',
-  HR: 'HR',
-  AUDIT: 'AUDIT',
-  GOVERNANCE: 'GOVERNANCE',
-  CUSTOMS: 'CUSTOMS',
-  PRODUCTION: 'PRODUCTION',
-  SHOWROOM: 'SHOWROOM',
-} as const;
-export type Domain = typeof Domain[keyof typeof Domain];
-
-export const ApprovalStatus = {
-  PENDING: 'PENDING',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED',
-  ESCALATED: 'ESCALATED',
-} as const;
-export type ApprovalStatus = typeof ApprovalStatus[keyof typeof ApprovalStatus];
-
-export const StockStatus = {
-  IN_STOCK: 'IN_STOCK',
-  LOW_STOCK: 'LOW_STOCK',
-  OUT_OF_STOCK: 'OUT_OF_STOCK',
-  RESERVED: 'RESERVED',
-} as const;
-export type StockStatus = typeof StockStatus[keyof typeof StockStatus];
-
-export const WarehouseLocation = {
-  HCM_HEADQUARTER: 'HCM_HEADQUARTER',
-  HN_BRANCH: 'HN_BRANCH',
-  MAIN_VAULT: 'MAIN_VAULT',
-  SHOWROOM_FLOOR: 'SHOWROOM_FLOOR',
-} as const;
-export type WarehouseLocation = typeof WarehouseLocation[keyof typeof WarehouseLocation];
-
-export const EInvoiceStatus = {
-  DRAFT: 'DRAFT',
-  ISSUED: 'ISSUED',
-  CANCELLED: 'CANCELLED',
-  REPLACED: 'REPLACED',
-} as const;
-export type EInvoiceStatus = typeof EInvoiceStatus[keyof typeof EInvoiceStatus];
-
-export const OrderStatus = {
-  DRAFT: 'DRAFT',
-  CONFIRMED: 'CONFIRMED',
-  PROCESSING: 'PROCESSING',
-  READY: 'READY',
-  COMPLETED: 'COMPLETED',
-  CANCELLED: 'CANCELLED',
-} as const;
-export type OrderStatus = typeof OrderStatus[keyof typeof OrderStatus];
-
-export const SalesChannel = {
-  IN_STORE: 'IN_STORE',
-  REFERRAL: 'REFERRAL',
-  ONLINE_INQUIRY: 'ONLINE_INQUIRY',
-  EVENT: 'EVENT',
-} as const;
-export type SalesChannel = typeof SalesChannel[keyof typeof SalesChannel];
-
-export const ProductType = {
-  RING: 'RING',
-  NECKLACE: 'NECKLACE',
-  BRACELET: 'BRACELET',
-  EARRING: 'EARRING',
-  PENDANT: 'PENDANT',
-  CUSTOM: 'CUSTOM',
-} as const;
-export type ProductType = typeof ProductType[keyof typeof ProductType];
-
-export const PolicyStatus = {
-  DRAFT: 'DRAFT',
-  ACTIVE: 'ACTIVE',
-  EXPIRED: 'EXPIRED',
-  REVOKED: 'REVOKED',
-} as const;
-export type PolicyStatus = typeof PolicyStatus[keyof typeof PolicyStatus];
-
-export const PolicyType = {
-  INTERNAL: 'INTERNAL',
-  REGULATORY: 'REGULATORY',
-  CONTRACTUAL: 'CONTRACTUAL',
-  OPERATIONAL: 'OPERATIONAL',
-} as const;
-export type PolicyType = typeof PolicyType[keyof typeof PolicyType];
-
-export const ComplianceRequestType = {
-  AUDIT: 'AUDIT',
-  CERTIFICATION: 'CERTIFICATION',
-  INSPECTION: 'INSPECTION',
-  REVIEW: 'REVIEW',
-} as const;
-export type ComplianceRequestType = typeof ComplianceRequestType[keyof typeof ComplianceRequestType];
-
-export const CertType = {
-  ISO: 'ISO',
-  KIMBERLEY: 'KIMBERLEY',
-  ORIGIN: 'ORIGIN',
-  QUALITY: 'QUALITY',
-  CUSTOMS: 'CUSTOMS',
-} as const;
-export type CertType = typeof CertType[keyof typeof CertType];
-
-export const RiskNodeStatus = {
-  CLEAR: 'CLEAR',
-  FLAGGED: 'FLAGGED',
-  BLOCKED: 'BLOCKED',
-  UNDER_REVIEW: 'UNDER_REVIEW',
-} as const;
-export type RiskNodeStatus = typeof RiskNodeStatus[keyof typeof RiskNodeStatus];
-
-export const FinanceStatus = {
-  PENDING: 'PENDING',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED',
-  PROCESSING: 'PROCESSING',
-  COMPLETED: 'COMPLETED',
-} as const;
-export type FinanceStatus = typeof FinanceStatus[keyof typeof FinanceStatus];
-
-export const TrainingStatus = {
-  NOT_STARTED: 'NOT_STARTED',
-  IN_PROGRESS: 'IN_PROGRESS',
-  COMPLETED: 'COMPLETED',
-  EXPIRED: 'EXPIRED',
-} as const;
-export type TrainingStatus = typeof TrainingStatus[keyof typeof TrainingStatus];
-
-export const HeatLevel = {
-  LOW: 'LOW',
-  MEDIUM: 'MEDIUM',
-  HIGH: 'HIGH',
-  CRITICAL: 'CRITICAL',
-} as const;
-export type HeatLevel = typeof HeatLevel[keyof typeof HeatLevel];
-
-export const SealingLevel = {
-  NONE: 'NONE',
-  SOFT: 'SOFT',
-  HARD: 'HARD',
-  CONSTITUTIONAL: 'CONSTITUTIONAL',
-} as const;
-export type SealingLevel = typeof SealingLevel[keyof typeof SealingLevel];
-
-// --- Interfaces (giữ nguyên) ---
+export type Domain = 'SALES' | 'INVENTORY' | 'WAREHOUSE' | 'ACCOUNTING' | 'HR' | 'AUDIT' | 'GOVERNANCE' | 'CUSTOMS' | 'PRODUCTION' | 'SHOWROOM';
 
 export interface BaseEvent<T = unknown> {
   event_id: string;
@@ -401,6 +201,8 @@ export interface Product {
   images?: string[];
 }
 
+export type StockStatus = 'IN_STOCK' | 'LOW_STOCK' | 'OUT_OF_STOCK' | 'RESERVED';
+
 export interface Movement {
   id: string;
   productId: string;
@@ -417,6 +219,13 @@ export interface Warehouse {
   location: string;
   branch: string;
   capacity: number;
+}
+
+export enum WarehouseLocation {
+  HCM_HEADQUARTER = 'HCM_HEADQUARTER',
+  HN_BRANCH = 'HN_BRANCH',
+  MAIN_VAULT = 'MAIN_VAULT',
+  SHOWROOM_FLOOR = 'SHOWROOM_FLOOR',
 }
 
 export interface WarehouseLocationDetail {
@@ -448,6 +257,8 @@ export interface ApprovalRequest {
   resolvedAt?: number;
   resolvedBy?: string;
 }
+
+export type ApprovalStatus = 'PENDING' | 'APPROVED' | 'REJECTED' | 'ESCALATED';
 
 export interface ApprovalTicket {
   id: string;
@@ -667,6 +478,8 @@ export interface EInvoiceItem {
   vatRate: number;
 }
 
+export type EInvoiceStatus = 'DRAFT' | 'ISSUED' | 'CANCELLED' | 'REPLACED';
+
 export interface EmployeePayroll {
   employeeId: string;
   employeeCode?: string;
@@ -858,7 +671,40 @@ export const VALID_TRANSITIONS: Record<string, string[]> = {
   FAILED: ['PROCESSING'],
 };
 
-// --- Sales Core Types ---
+// ─── MISSING TYPES (from enums.ts) ──────────────────────────
+
+export type PolicyStatus = 'DRAFT' | 'ACTIVE' | 'EXPIRED' | 'REVOKED';
+
+export type PolicyType = 'INTERNAL' | 'REGULATORY' | 'CONTRACTUAL' | 'OPERATIONAL';
+
+export type ComplianceRequestType = 'AUDIT' | 'CERTIFICATION' | 'INSPECTION' | 'REVIEW';
+
+export type CertType = 'ISO' | 'KIMBERLEY' | 'ORIGIN' | 'QUALITY' | 'CUSTOMS';
+
+export type RiskNodeStatus = 'CLEAR' | 'FLAGGED' | 'BLOCKED' | 'UNDER_REVIEW';
+
+export type FinanceStatus = 'PENDING' | 'APPROVED' | 'REJECTED' | 'PROCESSING' | 'COMPLETED';
+
+export type TrainingStatus = 'NOT_STARTED' | 'IN_PROGRESS' | 'COMPLETED' | 'EXPIRED';
+
+export type HeatLevel = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+
+export type SealingLevel = 'NONE' | 'SOFT' | 'HARD' | 'CONSTITUTIONAL';
+
+export enum OrderStatus {
+  DRAFT = 'DRAFT',
+  CONFIRMED = 'CONFIRMED',
+  PROCESSING = 'PROCESSING',
+  READY = 'READY',
+  COMPLETED = 'COMPLETED',
+  CANCELLED = 'CANCELLED',
+}
+
+export type SalesChannel = 'IN_STORE' | 'REFERRAL' | 'ONLINE_INQUIRY' | 'EVENT';
+
+export type ProductType = 'RING' | 'NECKLACE' | 'BRACELET' | 'EARRING' | 'PENDANT' | 'CUSTOM';
+
+// ─── SALES CORE TYPES ────────────────────────────────────────
 
 export interface OrderItem {
   productId: string;
@@ -935,7 +781,7 @@ export interface SalesOrder {
   updatedAt: number;
 }
 
-// --- Logistics / Payment ---
+// ─── LOGISTICS / PAYMENT ─────────────────────────────────────
 
 export interface LogisticsInfo {
   method: string;

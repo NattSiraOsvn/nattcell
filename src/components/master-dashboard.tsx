@@ -82,7 +82,6 @@ const MasterDashboard: React.FC<{ currentRole: UserRole, currentPosition: UserPo
 
       <div className="mt-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
          <div className="lg:col-span-4">
-            <AIAvatar personaId={PersonaID.THIEN} size="xl" />
          </div>
          <div className="lg:col-span-8 p-12 bg-white/[0.02] rounded-[48px] italic font-light text-stone-400 text-2xl border border-white/5 relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-8 opacity-5">

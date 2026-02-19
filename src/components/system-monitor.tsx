@@ -269,7 +269,6 @@ const SystemMonitor: React.FC<SystemMonitorProps> = () => {
 
         {/* AI ADVISORY */}
         <div className="ai-panel p-8 bg-black/40 border-amber-500/20 flex flex-col items-center text-center">
-          <AIAvatar personaId={PersonaID.PHIEU} size="lg" isThinking={isScanning} />
           <h4 className="ai-sub-headline text-amber-500 mt-6 mb-4">Phiêu: Chẩn đoán</h4>
           <p className="text-[12px] text-gray-400 italic leading-relaxed">
             {isScanning

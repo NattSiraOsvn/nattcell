@@ -76,7 +76,6 @@ const InternalLabViewer: React.FC<Props> = ({ view }) => {
          <div className="space-y-8">
             <div className="ai-panel p-8 bg-amber-500/5 border-amber-500/20 shadow-2xl">
                <div className="flex items-center gap-4 mb-6">
-                  <AIAvatar personaId={PersonaID.THIEN} size="sm" isThinking={isScanning} />
                   <h4 className="text-sm font-black text-amber-500 uppercase tracking-widest">Cố vấn Thiên Lab</h4>
                </div>
                <p className="text-[12px] text-gray-400 italic leading-relaxed font-light">

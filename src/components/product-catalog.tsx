@@ -241,7 +241,6 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ logAction, updateFinanc
              )}
           </div>
           <div className="space-y-8">
-             <div className="flex items-center gap-4 mb-2"><AIAvatar personaId={PersonaID.CAN} size="sm" /><h3 className="text-xl font-bold text-amber-500 uppercase italic tracking-widest">Thông tin Node Khách hàng</h3></div>
              <div className="space-y-6 bg-white/[0.02] p-10 rounded-[3rem] border border-amber-500/20">
                 <div className="space-y-2"><label className="text-[9px] font-black text-gray-500 uppercase ml-2">Họ tên *</label><input type="text" value={customerInfo.name} onChange={e => setCustomerInfo({...customerInfo, name: e.target.value.toUpperCase()})} className="w-full bg-black/60 border border-white/10 rounded-2xl p-5 text-white uppercase font-bold outline-none focus:border-amber-500 transition-all" placeholder="NGUYỄN VĂN A" /></div>
                 <div className="space-y-2"><label className="text-[9px] font-black text-gray-500 uppercase ml-2">Số điện thoại *</label><input type="text" value={customerInfo.phone} onChange={e => setCustomerInfo({...customerInfo, phone: e.target.value})} className="w-full bg-black/60 border border-white/10 rounded-2xl p-5 text-white font-mono outline-none focus:border-amber-500 transition-all" placeholder="0909xxxxxx" /></div>

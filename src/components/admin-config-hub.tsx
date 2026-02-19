@@ -112,7 +112,6 @@ const AdminConfigHub: React.FC = () => {
       <header className="p-8 border-b border-white/5 flex flex-col lg:flex-row justify-between items-end bg-black/40 backdrop-blur-xl shrink-0 gap-4">
         <div>
            <div className="flex items-center gap-4 mb-2">
-              <AIAvatar personaId={PersonaID.THIEN} size="sm" />
               <h2 className="ai-headline text-4xl italic uppercase tracking-tighter">Admin Core Hub</h2>
            </div>
            <p className="ai-sub-headline text-gray-500 font-black tracking-[0.3em] ml-1">System Configuration & Neural Tuning</p>

@@ -101,7 +101,6 @@ const UnifiedReportingHub: React.FC = () => {
                   </div>
 
                   <div className="ai-panel p-8 bg-black border-white/5 flex items-center gap-6 shadow-2xl">
-                      <AIAvatar personaId={PersonaID.THIEN} size="sm" />
                       <p className="text-[11px] text-gray-400 italic leading-relaxed font-light">
                          "Thưa Anh Natt, BĂNG đã bóc tách tải trọng của 4 Team. Hiện tại Team **Bối Bối** đang vận hành 85% công suất để xử lý đơn hàng Showroom. Team **KIM** đang ở trạng thái Standby để bảo vệ Shard an ninh."
                       </p>

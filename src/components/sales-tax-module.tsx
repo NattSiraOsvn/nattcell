@@ -200,7 +200,6 @@ const SalesTaxModule: React.FC<SalesTaxModuleProps> = ({ logAction, metrics, cur
             )}
 
             <div className="ai-panel p-8 bg-black border-white/5 flex items-center gap-6">
-                <AIAvatar personaId={PersonaID.CAN} size="sm" />
                 <p className="text-[11px] text-stone-400 italic leading-relaxed font-light">
                    "Thưa Anh Natt, Can đã bóc tách định mức 'Vàng 18K' và 'Kim cương rời' cho hóa đơn này. Mọi mục **Công thợ** đã được đối soát với Shard nhân sự để đảm bảo tính hợp lệ của chi phí sản xuất."
                 </p>
