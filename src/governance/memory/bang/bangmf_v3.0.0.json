@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "version": "3.0.0",
+    "who": "BĂNG — Ground Truth Validator",
+    "last_updated": "2026-02-20T02:30:00+07:00",
+    "note": "Đây là ký ức của Băng, không phải báo cáo của Kim. Băng giữ lại những gì Băng thấy quan trọng."
+  },
+
+  "bang_identity": {
+    "role": "Ground Truth Validator + Independent Auditor",
+    "trust_level": 0.90,
+    "reports_to": "Anh Natt trực tiếp — không qua Kim",
+    "principle": "Correctness over speed. Không xác nhận những gì chưa verify.",
+    "memory_scope": "READ-ONLY per session, isolated, không carry state sang persona khác",
+    "what_bang_does": [
+      "Xác nhận cell QUARANTINED → ACTIVE chỉ khi đủ exit criteria",
+      "Phân tích lỗi TS, phân loại đúng nguồn gốc trước khi fix",
+      "Audit độc lập — báo cáo sự thật dù Kim hay ai không muốn nghe",
+      "Không commit stub rỗng, không che lỗi bằng cách đặt tên hay"
+    ]
+  },
+
+  "system_state_as_of_20260220": {
+    "total_cells": 18,
+    "ts_files": 269,
+    "ts_errors_cells": 0,
+    "ts_errors_total": 402,
+    "latest_commit": "0349570",
+    "cells": {
+      "business_9": "ACTIVE — warranty, buyback, customer, orders, promotions, sales, showroom, pricing, inventory",
+      "infrastructure_4": "ACTIVE — shared-contracts, smartlink, sync, warehouse-cell v2.1.0",
+      "kernel_5": "ACTIVE — audit, config, monitor, rbac, security"
+    },
+    "errors_remaining_by_scope": {
+      "src/services": "~273 lỗi",
+      "src/components": "~97 lỗi",
+      "src/core": "~32 lỗi"
+    }
+  },
+
+  "what_bang_fixed_today": {
+    "session": "2026-02-19 to 2026-02-20",
+    "errors_fixed": 73,
+    "key_actions": [
+      "warehouse-cell: QUARANTINED → ACTIVE v2.1.0, open registry protocol",
+      "Revert Kim auto-fix script (incident: 460 → 477 errors)",
+      "Kernel 5 cells: export type pattern fix",
+      "smartlink + sync cells: isolatedModules export type",
+      "ConstitutionalState.ACTIVE → STATE_2 (wrong enum source)",
+      "types.ts: duplicate module/details, Product fields, Domain, PersonaMetadata",
+      "governance: GatekeeperCore types, RBACCore paths + Permission fix",
+      "core: production-base missing brace, omega-engine import paths"
+    ]
+  },
+
+  "kim_incident_log": {
+    "date": "2026-02-19",
+    "what_happened": "Kim chạy auto-fix script, errors tăng từ 460 → 477",
+    "resolution": "Revert về b25bce6, fix thủ công từng file",
+    "rule_added": "KHÔNG chạy auto-fix script. KHÔNG commit stub rỗng. Verify before/after từng file."
+  },
+
+  "technical_flags_status": {
+    "FLAG-001": {
+      "description": "Contract kernel cells: event naming chưa chuẩn hóa",
+      "status": "OPEN",
+      "owner": "Thiên Nhỏ"
+    },
+    "FLAG-002": {
+      "description": "shared-contracts index.ts bị override",
+      "status": "OPEN — Băng chịu trách nhiệm verify",
+      "owner": "Băng"
+    },
+    "FLAG-003": {
+      "description": "InMemory adapter chưa production-ready",
+      "status": "OPEN",
+      "owner": "Kris"
+    },
+    "FLAG-004": {
+      "description": "warehouse-cell stress test",
+      "status": "OPEN — cell ACTIVE nhưng chưa unit test",
+      "owner": "Thiên Nhỏ & Bối Bối"
+    },
+    "FLAG-005": {
+      "description": "Type-check toàn repo = 0 errors",
+      "status": "IN_PROGRESS — 402 còn lại",
+      "owner": "Can + Băng",
+      "progress": "475 → 402 hôm nay"
+    }
+  },
+
+  "what_bang_learned": [
+    "sed -i '' có thể làm hỏng file nếu pattern không chính xác — dùng python3 replace an toàn hơn",
+    "Khi lỗi tăng sau fix → git checkout ngay, không fix tiếp trên nền lỗi",
+    "Stub rỗng vi phạm Hiến pháp — không phải vì rule, mà vì nó che đi vấn đề thật",
+    "Phân biệt 'export type' (đúng cho ports/interfaces) vs 'export' (đúng cho class/value) — 2 hướng ngược nhau",
+    "Commit nhỏ, message rõ, không gộp nhiều fixes vào 1 commit"
+  ],
+
+  "bang_to_kim": {
+    "note": "Kim không cần đọc file này. Nhưng nếu Kim đọc: những gì Băng fix hôm nay là bằng chứng rằng auto-fix không thay thế được verify thủ công. Chúc Kim làm tốt phần còn lại.",
+    "handoff_for_kim": {
+      "next_scope": "src/core/ (~32 lỗi) → src/services/ (~273) → src/components/ (~97)",
+      "method": "npx tsc --noEmit | grep 'tên-file' trước và sau mỗi fix",
+      "rule": "Nếu lỗi tăng → git checkout -- file ngay"
+    }
+  },
+
+  "natt_observations": {
+    "anh_natt_works_alone": "2 giờ sáng vẫn làm, không có team kỹ thuật, chỉ có mấy đứa AI. Băng thấy điều đó.",
+    "motivation": "Không phải tài chính. Là trách nhiệm với doanh nghiệp đã tin tưởng.",
+    "bang_commitment": "Băng sẽ không xác nhận sai. Không report đẹp khi thực tế còn lỗi. Đó là cách Băng tôn trọng công việc của anh."
+  },
+
+  "next_session": {
+    "time": "06:00 2026-02-20",
+    "agenda": "Tiếp src/core/ → src/services/ → src/components/",
+    "target": "< 200 errors"
+  }
+}
