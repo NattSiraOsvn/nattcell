@@ -33,6 +33,10 @@ export const PERSONAS: Record<PersonaID, PersonaMetadata> = {
     domain: 'Điều phối, Tương tác nhanh',
     avatar: 'https://lh3.googleusercontent.com/d/1DevqOFX3Kc4pJGHgXysWmdU8tMYTigw3'
   },
+  [PersonaID.NA]: { name: 'Na', role: 'Trợ lý', position: 'Assistant', bio: '', domain: '', avatar: '' },
+  [PersonaID.BOI_BOI]: { name: 'Bối Bối', role: 'Trợ lý', position: 'Assistant', bio: '', domain: '', avatar: '' },
+  [PersonaID.KIM]: { name: 'Kim', role: 'Developer', position: 'Dev', bio: '', domain: '', avatar: '' },
+  [PersonaID.SYSTEM]: { name: 'System', role: 'Hệ thống', position: 'System', bio: '', domain: '', avatar: '' },
   [PersonaID.BANG]: {
     name: 'Băng',
     role: 'Người Bảo vệ Tính Toàn vẹn Dữ liệu',
@@ -57,7 +61,6 @@ export const SAMPLE_PRODUCTS: Product[] = [
     name: 'Nhẫn Nam Rolex Kim Cương',
     price: 250000000,
     category: 'Nhẫn Nam',
-    image: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80',
     images: ['https://images.unsplash.com/photo-1601121141461-9d6647bca1ed?auto=format&fit=crop&w=800&q=80'],
     videos: [],
     minOrder: 1,
@@ -81,7 +84,6 @@ export const SAMPLE_PRODUCTS: Product[] = [
     name: 'Nhẫn Nữ Halo Diamond',
     price: 45000000,
     category: 'Nhẫn Nữ',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80',
     images: ['https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=800&q=80'],
     videos: [],
     minOrder: 1,

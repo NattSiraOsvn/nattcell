@@ -127,6 +127,9 @@ export const Domain = {
   CUSTOMS: 'CUSTOMS',
   PRODUCTION: 'PRODUCTION',
   SHOWROOM: 'SHOWROOM',
+  SALES_TAX: 'SALES_TAX',
+  LEGAL: 'LEGAL',
+  IT: 'IT',
 } as const;
 export type Domain = typeof Domain[keyof typeof Domain];
 
@@ -143,6 +146,7 @@ export const StockStatus = {
   LOW_STOCK: 'LOW_STOCK',
   OUT_OF_STOCK: 'OUT_OF_STOCK',
   RESERVED: 'RESERVED',
+  AVAILABLE: 'AVAILABLE',
 } as const;
 export type StockStatus = typeof StockStatus[keyof typeof StockStatus];
 
@@ -409,6 +413,20 @@ export interface Product {
   status: StockStatus;
   serialNumber?: string;
   images?: string[];
+  videos?: string[];
+  minOrder?: number;
+  moqUnit?: string;
+  description?: string;
+  stock?: number;
+  isCustomizable?: boolean;
+  leadTime?: number;
+  supplier?: string | { id: string; maNhaCungCap: string; tenNhaCungCap: string; diaChi: string; maSoThue: string; [key: string]: any };
+  rating?: number;
+  reviews?: number;
+  tags?: string[];
+  specifications?: Record<string, string>;
+  isVerifiedSupplier?: boolean;
+  tradeAssurance?: boolean;
 }
 
 export interface Movement {
@@ -800,10 +818,8 @@ export interface OperationRecord {
   userPosition?: string;
   module?: string;
   hash?: string;
-  module?: string;
   timestamp: number;
   status: 'SUCCESS' | 'FAILURE' | 'PENDING';
-  details?: unknown;
 }
 
 export interface Checkpoint {
@@ -861,11 +877,15 @@ export interface UserPosition {
 }
 
 export interface PersonaMetadata {
-  id: PersonaID;
+  id?: PersonaID;
   name: string;
   role: string;
-  layer: string;
-  isActive: boolean;
+  layer?: string;
+  isActive?: boolean;
+  position?: string;
+  bio?: string;
+  domain?: string;
+  avatar?: string;
 }
 
 export const VALID_TRANSITIONS: Record<string, string[]> = {
