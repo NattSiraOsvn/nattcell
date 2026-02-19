@@ -15,3 +15,4 @@ export class ShardingService {
     }
   }
 }
+export default { ShardingService };

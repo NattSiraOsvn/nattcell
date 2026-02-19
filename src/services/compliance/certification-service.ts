@@ -31,7 +31,7 @@ class CertificationService {
         issuingBody: 'Gemological Institute of America',
         issueDate: now - (90 * 86400000),
         expiryDate: now + (15 * 86400000), // Sắp hết hạn trong 15 ngày
-        status: 'ACTIVE',
+        status: 'VALID',
         verificationStatus: 'VERIFIED',
         createdAt: now - (90 * 86400000),
         updatedAt: now - (90 * 86400000)
@@ -133,15 +133,15 @@ class CertificationService {
   async getStatistics() {
     return {
       total: this.certs.length,
-      active: this.certs.filter(c => c.status === 'ACTIVE').length,
+      active: this.certs.filter(c => c.status === 'VALID').length,
       expiringSoon: this.certs.filter(c => {
-          if (!c.expiryDate || c.status !== 'ACTIVE') return false;
+          if (!c.expiryDate || c.status !== 'VALID') return false;
           const diff = c.expiryDate - Date.now();
           return diff > 0 && diff < 30 * 86400000;
       }).length,
       expired: this.certs.filter(c => c.status === 'EXPIRED').length,
       pendingVerification: this.certs.filter(c => c.verificationStatus === 'PENDING').length,
-      activePercent: (this.certs.filter(c => c.status === 'ACTIVE').length / (this.certs.length || 1)) * 100
+      activePercent: (this.certs.filter(c => c.status === 'VALID').length / (this.certs.length || 1)) * 100
     };
   }
 }

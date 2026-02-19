@@ -1,7 +1,7 @@
 
 // src/services/dictionaryApprovalService.ts
 import { v4 as uuidv4 } from 'uuid';
-import SuperDictionary from '@/superdictionary'; 
+import SuperDictionary from '../superdictionary'; 
 import { NotifyBus } from './notificationservice';
 import { PersonaID, ApprovalStatus } from '@/types'; // Added ApprovalStatus
 

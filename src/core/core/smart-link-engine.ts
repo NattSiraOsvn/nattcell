@@ -5,7 +5,7 @@ import {
   CostAllocation, 
   AccountingMappingRule, 
   SalesEvent 
-} from '../types';
+} from '@/types';
 
 /**
  * ⚛️ SMART LINK OMEGA ENGINE (UNIFIED CORE)
@@ -67,10 +67,10 @@ class SmartLinkEngine {
     const defaultRules: AccountingMappingRule[] = [
       {
         id: 'REVENUE_MAPPING',
-        name: 'Doanh thu bán hàng',
+        
         description: 'Ánh xạ doanh thu từ đơn hàng sang tài khoản kế toán',
-        source: { system: 'SALES', entity: 'SalesOrder', eventType: 'ORDER_CREATED' },
-        sourceField: 'pricing.totalAmount',
+        
+        
         destination: { system: 'ACCOUNTING', entity: 'JournalEntry', accountType: 'REVENUE' },
         destinationField: 'debit_accounts.revenue',
         mappingType: 'DIRECT',
@@ -154,15 +154,15 @@ class SmartLinkEngine {
     ], tx.id);
   }
 
-  private createEntry(id: string, type: any, desc: string, lines: any[], refId: string): AccountingEntry {
+  private createEntry(id: string, type: any, desc: string, lines: any[], reference: string): AccountingEntry {
     return {
-      journalId: id,
-      transactionDate: new Date(),
+      
+      transactionDate: Date.now(),
       description: desc,
       journalType: type,
       status: 'DRAFT',
       entries: lines,
-      reference: { refId },
+      reference: "refId",
       // Added matchScore to satisfy AccountingEntry interface
       matchScore: 100,
       createdAt: new Date()

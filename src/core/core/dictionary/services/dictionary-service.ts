@@ -1,4 +1,4 @@
-import { DictionaryVersion } from '../../../types';
+import { DictionaryVersion } from '@/types';
 
 class DictionaryService {
   private static instance: DictionaryService;
@@ -14,7 +14,7 @@ class DictionaryService {
     const newVersion: DictionaryVersion = {
       id: `VER-${Date.now()}`,
       type,
-      version: this.versions.length + 1,
+      version: String(this.versions.length + 1),
       // Fixed: added required properties versionNumber and status
       versionNumber: this.versions.length + 1,
       status: 'ACTIVE',

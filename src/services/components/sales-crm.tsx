@@ -117,7 +117,7 @@ const SalesCRM: React.FC<SalesCRMProps> = ({ logAction, updateFinance, metrics }
             {PRODUCT_SEED_DATA.map(p => (
               <div key={p.id} className="ai-panel overflow-hidden flex flex-col group border-indigo-500/10">
                 <div className="relative h-72 overflow-hidden">
-                   <img src={p.image} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" alt={p.name} />
+                   <img src={p.images} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100" alt={p.name} />
                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
                    <div className="absolute top-4 right-4">
                       <span className="px-2 py-1 bg-black/60 border border-white/10 rounded text-[8px] font-black uppercase text-amber-500">Gold 18K</span>
@@ -247,7 +247,7 @@ const SalesCRM: React.FC<SalesCRMProps> = ({ logAction, updateFinance, metrics }
              <div className="flex-1 overflow-y-auto space-y-4 no-scrollbar">
                 {cart.map(item => (
                   <div key={item.product.id} className="flex gap-4 p-4 ai-panel border-white/5 bg-white/5 group hover:border-indigo-500/30 items-center">
-                     <img src={item.product.image} className="w-16 h-16 rounded-xl object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt="p" />
+                     <img src={item.product.images} className="w-16 h-16 rounded-xl object-cover opacity-80 group-hover:opacity-100 transition-opacity" alt="p" />
                      <div className="flex-1 min-w-0">
                         <p className="text-white font-bold text-xs tracking-tight truncate">{item.product.name}</p>
                         <p className="text-indigo-400 font-mono text-[10px] mt-1">{item.product.price.toLocaleString()} đ</p>

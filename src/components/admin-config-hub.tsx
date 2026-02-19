@@ -7,7 +7,6 @@ import {
   RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, 
   ResponsiveContainer, Tooltip
 } from 'recharts';
-import AIAvatar from './aiavatar';
 import { RecoverySystem } from '@/services/recoveryengine';
 import ApprovalDashboard from './approval/approvaldashboard';
 import { DictApproval, ChangeProposal } from '@/services/dictionaryapprovalservice';

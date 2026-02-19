@@ -1,13 +1,12 @@
-
 // ============================================================
 // ARTEFACT 3: INTEGRITY SCANNER (Fix 5 Implemented)
 // Owner: TEAM 4 (Băng)
 // Status: ENFORCED
 // ============================================================
 
-import { AuditChainContract } from './auditchaincontract';
+import { AuditChainContract } from './audit-chain-contract';
 import { AuditRecord, IntegrityState, ScannerState } from '@/types';
-import { AuditService } from '@/services/admin/auditservice'; // Access DB layer
+import { AuditService } from '@/services/admin/audit-service'; // Access DB layer
 
 export class IntegrityScanner {
   private static instance: IntegrityScanner;
@@ -20,22 +19,25 @@ export class IntegrityScanner {
     return IntegrityScanner.instance;
   }
 
-  // Fix 5: Load state from DB (Simulated)
+  // Load state from DB (Simulated)
   private async loadState(): Promise<ScannerState> {
-     // In prod, this queries audit_scanner_state table
      const raw = localStorage.getItem(`SCANNER_${this.SCANNER_ID}`);
      if (raw) return JSON.parse(raw);
      return {
          id: this.SCANNER_ID,
-         current_status: 'OK',
+         isActive: false,
+         lastScan: 0,
+         threatsFound: 0,
+         status: 'CLEAN',
          last_scan_time: 0,
          last_scan_head: 0,
          errors_found: 0,
-         is_locked_down: false
+         is_locked_down: false,
+         current_status: 'OK'
      };
   }
 
-  // Fix 5: Persist state to DB (Simulated)
+  // Persist state to DB (Simulated)
   private async saveState(state: ScannerState): Promise<void> {
       localStorage.setItem(`SCANNER_${this.SCANNER_ID}`, JSON.stringify(state));
   }
@@ -47,45 +49,53 @@ export class IntegrityScanner {
       const state = await this.loadState();
       const logs = AuditService.getInstance().getLogs(); // Fetch all logs (Mock DB)
       
-      // Filter by tenant/chain (Fix 1)
-      const chainLogs = logs.filter(l => l.tenant_id === tenantId && l.chain_id === chainId);
+      // Filter by tenant/chain
+      const chainLogs = logs.filter((l: any) => l.tenant_id === tenantId && l.chain_id === chainId);
       
-      // Sort by sequence (Fix 1)
-      chainLogs.sort((a, b) => a.sequence_number - b.sequence_number);
+      // Sort by sequence
+      chainLogs.sort((a: any, b: any) => a.sequence_number - b.sequence_number);
 
       let prevHash = '0000000000000000000000000000000000000000000000000000000000000000'; // GENESIS
       let errorCount = 0;
+      const violations: string[] = [];
 
       for (const record of chainLogs) {
           // Verify Links
           if (record.prev_hash !== prevHash) {
               console.error(`[AUDIT-SCAN] BROKEN CHAIN at Seq ${record.sequence_number}`);
               errorCount += 1;
+              violations.push(`Broken chain at seq ${record.sequence_number}`);
           }
           
-          // Verify Hash (Fix 2 Check)
+          // Verify Hash
           const calcHash = await AuditChainContract.computeEntryHash(record);
           if (calcHash !== record.entry_hash) {
               console.error(`[AUDIT-SCAN] TAMPERED RECORD at Seq ${record.sequence_number}`);
               errorCount += 1;
+              violations.push(`Tampered record at seq ${record.sequence_number}`);
           }
           
           prevHash = record.entry_hash;
       }
 
-      state.last_scan_time = Date.now();
-      state.errors_found = errorCount;
-      state.current_status = errorCount > 0 ? 'TAMPERED' : 'OK';
-      
-      if (errorCount > 0) {
-          state.is_locked_down = true; // Trigger Lockdown
-      }
-
-      await this.saveState(state);
+      const newState: ScannerState = {
+          id: this.SCANNER_ID,
+          isActive: true,
+          lastScan: Date.now(),
+          threatsFound: errorCount,
+          status: errorCount > 0 ? 'THREAT_DETECTED' : 'CLEAN',
+          last_scan_time: Date.now(),
+          last_scan_head: 0, // chưa có giá trị cụ thể
+          errors_found: errorCount,
+          is_locked_down: errorCount > 0,
+          current_status: errorCount > 0 ? 'TAMPERED' : 'OK'
+      };
+      await this.saveState(newState);
       
       return {
-          isValid: state.current_status === 'OK',
-          brokenAt: state.current_status === 'TAMPERED' ? new Date().toISOString() : undefined
+          isValid: errorCount === 0,
+          lastChecked: Date.now(),
+          violations
       };
   }
   

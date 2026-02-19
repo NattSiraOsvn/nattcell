@@ -1,11 +1,10 @@
-
+import { IngestStatus, FileMetadata } from "../../../types";
 import { GoogleGenAI } from "@google/genai";
-import { FileMetadata, IngestStatus } from '../../../types';
-import { Ingestion } from '../../ingestion/ingestionservice';
+import { Ingestion } from "../../ingestion/ingestion-service";
 
 export class AICoreProcessor {
   async process(metadata: FileMetadata, fileContent: string): Promise<any> {
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
     Ingestion.updateStatus(metadata.id, IngestStatus.EXTRACTING);
 
     const model = 'gemini-3-flash-preview';
@@ -46,5 +45,3 @@ export class AICoreProcessor {
     return IngestStatus.PENDING_APPROVAL;
   }
 }
-
-export const AIProcessor = new AICoreProcessor();

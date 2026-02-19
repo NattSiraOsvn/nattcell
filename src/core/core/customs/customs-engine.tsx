@@ -1,10 +1,9 @@
 
 import React, { useState, useRef } from 'react';
 // 🛠️ Fixed: Import casing for Types
-import { CustomsDeclaration, CustomsDeclarationItem, PersonaID, ActionPlan } from '../types';
-import { CustomsRobotEngine } from '../services/customsservice';
-import { NotifyBus } from '../services/notificationservice';
-import AIAvatar from './aiavatar';
+import { CustomsDeclaration, CustomsDeclarationItem, PersonaID, ActionPlan } from '@/types';
+import { CustomsRobotEngine } from '@/services/customsservice';
+import { NotifyBus } from '@/services/notificationservice';
 
 type ExtendedDeclaration = CustomsDeclaration & { actionPlans: ActionPlan[] };
 
@@ -307,7 +306,6 @@ const CustomsIntelligence: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
          <div className="glass p-10 rounded-[3rem] border border-amber-500/20 bg-amber-500/5 shadow-2xl">
             <h4 className="text-[10px] text-amber-500 font-black uppercase tracking-widest mb-6 flex items-center gap-3">
-               <AIAvatar personaId={PersonaID.THIEN} size="sm" isThinking={false} />
                Logic Phân Tích (Thiên)
             </h4>
             <p className="text-[13px] text-gray-400 italic leading-relaxed font-light">

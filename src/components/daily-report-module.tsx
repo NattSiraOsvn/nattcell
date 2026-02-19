@@ -10,7 +10,6 @@ import {
   LearnedTemplate, PersonaID
 } from '@/types';
 import { LearningEngine } from '@/services/learningengine';
-import AIAvatar from './ai-avatar'; // Đã chuẩn hóa kebab-case
 
 interface DailyReportModuleProps {
   currentRole: UserRole;

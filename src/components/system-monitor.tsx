@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 // Import từ Shared Kernel (Điều 7)
 import { BusinessMetrics, PersonaID, OperationRecord } from '@/types';
-import AIAvatar from './ai-avatar'; // Đảm bảo tệp này đã đổi sang kebab-case
 import ThreatDetectionService, { SecurityThreat, SystemHealth } from '@/services/threatdetectionservice';
 import { RecoverySystem } from '@/services/recoveryengine';
 import { NotifyBus } from '@/services/notificationservice';

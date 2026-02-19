@@ -5,7 +5,6 @@ import ProductCard from './productcard';
 import ProductDetailModal from './productdetailmodal';
 import CustomizationRequestModal from './customizationrequest';
 import FilterPanel from './filterpanel';
-import AIAvatar from './aiavatar';
 import { PersonaID } from '@/types';
 import { PaymentEngine, PaymentResponse } from '@/services/paymentservice';
 import { ShowroomAPI } from '@/services/showroom/api'; // ✅ INTEGRATED: Use Shared API

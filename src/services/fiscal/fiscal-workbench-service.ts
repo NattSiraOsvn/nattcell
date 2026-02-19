@@ -3,7 +3,7 @@ import { InvoiceProjection, FiscalLineItem, FiscalTotals, InvoiceIdentity } from
 import { XmlCanonicalizer } from '@/utils/xmlcanonicalizer';
 import { ShardingService } from '@/blockchainservice';
 import { AuditProvider } from '@/admin/auditservice';
-import { OmegaLockdown } from '@/core/audit/omegalockdown';
+import { OmegaLockdown } from '../../core/audit/omegalockdown';
 
 // Helper for Decimal String Math (Fix 1)
 // In a real app, use 'decimal.js' or 'big.js'. Here we implement a safe wrapper.

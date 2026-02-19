@@ -12,7 +12,6 @@
  } from 'lucide-react';
  // Import từ Shared Kernel thay vì relative path để đúng Điều 7
  import { PersonaID, CellHealthState, CoordinationTask } from '@/cells/shared-kernel/shared.types';
- import AIAvatar from './ai-avatar'; // Đã đổi sang kebab-case
 
  const MonitoringDashboard: React.FC = () => {
    // 1. Quản lý trạng thái Tế bào (Health States)

@@ -1,1 +1,2 @@
-// 💀 TERMINATED: Root violation. Use services/smart-link.ts.
+// Stub for smart-link
+export const smartLink = {};

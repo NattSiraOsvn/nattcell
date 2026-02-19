@@ -11,7 +11,6 @@ import { ViewType, UserRole, PersonaID, PositionType, Department } from '@/types
 // FIX: Using kebab-case file names as per Article 11 and provided file components/dynamic-module-renderer.tsx
 import DynamicModuleRenderer from './dynamic-module-renderer.tsx';
 // FIX: Using kebab-case file name as per Article 11
-import AIAvatar from './ai-avatar.tsx';
 
 // 🛠️ UI ENGINE IMPORTS
 import { HapticEngine } from '@/haptic/hapticengine.ts';

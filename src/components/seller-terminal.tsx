@@ -3,7 +3,6 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { UserRole, UserPosition, PositionType, SellerReport, SellerIdentity, CustomerLead, PersonaID } from '@/types';
 import { SellerEngine } from '@/services/sellerengine';
 import { NotifyBus } from '@/services/notificationservice';
-import AIAvatar from './aiavatar';
 
 interface SellerTerminalProps {
   currentRole: UserRole;

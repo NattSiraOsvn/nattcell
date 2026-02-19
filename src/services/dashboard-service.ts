@@ -32,7 +32,7 @@ class DashboardService {
         name: 'DOANH THU CHỐT SHARD',
         value: totalRevenue || 449120,
         unit: 'VND',
-        trend: { direction: 'UP', percentage: 100, isPositive: true },
+        trend: 'UP',
         department: Department.SALES,
         icon: '💰'
       },
@@ -41,7 +41,7 @@ class DashboardService {
         name: 'TỒN KHO VÀNG',
         value: totalItems,
         unit: 'SP',
-        trend: { direction: 'STABLE', percentage: 0, isPositive: true },
+        trend: 'STABLE',
         department: Department.PRODUCTION,
         icon: '📦'
       }

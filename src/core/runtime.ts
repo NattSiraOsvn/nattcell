@@ -56,8 +56,8 @@ export class NATTOS_Runtime {
             correlationId: input.correlationId,
             tenantId: input.tenantId,
             payload: result,
-            occurredAt: new Date(),
-            recordedAt: new Date()
+            timestamp: Date.now(),
+            source: "runtime"
           } as Event);
 
           return result;
@@ -83,7 +83,7 @@ export class NATTOS_Runtime {
         tenantId: input.tenantId,
         correlationId: input.correlationId,
         success: false,
-        error: { code: 'RUNTIME_ERROR', message: error.message, timestamp: new Date() },
+        error: error.message || String(error),
         metadata: { tenantId: input.tenantId, processedAt: new Date(), processingMs: Date.now() - startTime, stateChanges: [], eventsPublished: [] }
       };
     }

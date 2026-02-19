@@ -290,11 +290,17 @@ export interface Event {
   payload: unknown;
   timestamp: number;
   source: string;
+  correlationId?: string;
+  tenantId?: string;
 }
 
 export interface EventEnvelope {
   event: BaseEvent;
   metadata: EventMetadata;
+
+  payload?: any;
+  event_id?: string;
+  trace?: any;
 }
 
 export interface EventMetadata {
@@ -307,6 +313,7 @@ export interface EventMetadata {
 export type EventHandler = (event: BaseEvent) => Promise<void>;
 
 export interface SalesEvent {
+  order?: any;
   id: string;
   type: string;
   saleId: string;
@@ -322,6 +329,12 @@ export interface AuditRecord {
   scope: { cell: string; layer: string };
   payload: unknown;
   integrity_hash?: string;
+  tenant_id: string;
+  chain_id: string;
+  sequence_number: number;
+  event_type: string;
+  payload_hash: string;
+  prev_hash: string;
 }
 
 export interface AuditActor {
@@ -346,6 +359,7 @@ export interface IntegrityState {
   isValid: boolean;
   lastChecked: number;
   violations: string[];
+  brokenAt?: string;
 }
 
 export interface ActionLog {
@@ -396,6 +410,10 @@ export interface StateChange {
   hash?: string;
   timestamp: number;
   reason?: string;
+
+  tenantId?: string;
+
+  entityType?: string;
 }
 
 export type StateRegistry = {
@@ -480,14 +498,27 @@ export interface ApprovalRequest {
   createdAt: number;
   resolvedAt?: number;
   resolvedBy?: string;
+
+  changeType?: string;
+  recordType?: string;
+  reason?: string;
+  priority?: string;
 }
 
 export interface ApprovalTicket {
+  requestedAt?: number;
   id: string;
   approvalRequestId: string;
   assignedTo: string;
   priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
   dueAt?: number;
+
+  request?: any;
+  approvedBy?: string;
+  approvedAt?: number;
+  rejectionReason?: string;
+
+  status?: string;
 }
 
 export interface SyncJob {
@@ -523,6 +554,7 @@ export interface DataPoint {
 }
 
 export interface FileMetadata {
+  context?: any;
   id: string;
   fileName: string;
   fileSize: number;
@@ -531,6 +563,7 @@ export interface FileMetadata {
   status: IngestStatus;
   shardId?: string;
   confidence?: number;
+  hash?: string;
 }
 
 export interface QuantumState {
@@ -592,6 +625,7 @@ export interface ActionPlan {
 }
 
 export interface AccountingEntry {
+  transactionDate?: number;
   id: string;
   type: 'DEBIT' | 'CREDIT';
   amount: number;
@@ -603,6 +637,7 @@ export interface AccountingEntry {
 }
 
 export interface AccountingMappingRule {
+  destination?: any;
   id: string;
   eventType: string;
   debitAccount: string;
@@ -611,6 +646,8 @@ export interface AccountingMappingRule {
 }
 
 export interface BankTransaction {
+  description?: string;
+  credit?: boolean;
   id: string;
   amount: number;
   currency: string;
@@ -717,12 +754,16 @@ export interface EmployeePayroll {
 }
 
 export interface TeamPerformance {
+  tasks_completed?: number;
+  total_tasks?: number;
   teamId: string;
   period: string;
   kpiScore: number;
   revenue: number;
   targets: Record<string, number>;
   actuals: Record<string, number>;
+
+  team_name?: string;
 }
 
 export interface LaborRuleResult {
@@ -757,10 +798,13 @@ export interface BusinessMetrics {
 }
 
 export interface GovernanceKPI {
+  kpi_name?: string;
   auditScore: number;
   complianceRate: number;
   riskLevel: AlertLevel;
   period: string;
+
+  kpi_id?: string;
 }
 
 export interface HUDMetric {
@@ -779,10 +823,16 @@ export interface RealTimeUpdate {
 }
 
 export interface ScannerState {
+  id: string;
   isActive: boolean;
   lastScan: number;
   threatsFound: number;
   status: 'CLEAN' | 'SCANNING' | 'THREAT_DETECTED';
+  last_scan_time: number;
+  last_scan_head: number;
+  errors_found: number;
+  is_locked_down: boolean;
+  current_status: string;
 }
 
 export interface FraudCheckResult {
@@ -790,6 +840,8 @@ export interface FraudCheckResult {
   riskScore: number;
   flags: string[];
   recommendation: 'APPROVE' | 'REVIEW' | 'REJECT';
+
+  allowed?: boolean;
 }
 
 export interface Certification {
@@ -798,7 +850,12 @@ export interface Certification {
   issuedBy: string;
   issuedAt: number;
   expiresAt?: number;
-  status: 'VALID' | 'EXPIRED' | 'REVOKED';
+  status: 'ACTIVE' | 'VALID' | 'EXPIRED' | 'REVOKED';
+
+  expiryDate?: number;
+  certificateNumber?: string;
+  title?: string;
+  verificationStatus?: string;
 }
 
 export interface ModuleConfig {
@@ -835,6 +892,14 @@ export interface DictionaryVersion {
   publishedAt: number;
   publishedBy: string;
   changeLog: string[];
+  id?: string;
+  isFrozen?: boolean;
+  type?: string;
+
+  versionNumber?: number;
+  termsCount?: number;
+  dictionaryId?: string;
+  data?: any;
 }
 
 export interface QuoteRequest {
@@ -916,6 +981,8 @@ export interface OrderItem {
 }
 
 export interface OrderPricing {
+  taxAmount?: number;
+  costOfGoods?: number;
   subtotal: number;
   basePriceTotal?: number;
   gdbPriceTotal: number;
@@ -995,4 +1062,28 @@ export interface PaymentInfo {
   currency: string;
   paidAt?: number;
   reference?: string;
+}
+
+
+export interface RuntimeInput {
+  spanId?: string;
+  identity?: any;
+  traceId?: string; operation: string; userId: string; domain: string; tenantId: string; correlationId: string; payload: any; }
+
+export interface RuntimeOutput { success: boolean; data?: any; error?: string; 
+  tenantId?: string;
+
+  correlationId?: string;
+}
+
+export interface RuntimeState {
+  lastTick?: number;
+  version?: string; status: string; }
+
+export interface TraceContext { spanId: string; traceId: string; }
+
+
+export interface CostAllocation {
+  costCenter: string;
+  amount: number;
 }

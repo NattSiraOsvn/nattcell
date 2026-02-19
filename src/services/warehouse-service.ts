@@ -4,4 +4,4 @@
  * DO NOT IMPLEMENT BUSINESS LOGIC HERE.
  * All Warehouse logic lives in: src/cells/warehouse-cell/warehouse.service.ts
  */
-export { WarehouseProvider } from '@/cells/warehouse-cell/warehouse.service';
+export { WarehouseProvider } from '@/cells/infrastructure/warehouse-cell/application/warehouse.service';

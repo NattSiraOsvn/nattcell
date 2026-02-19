@@ -1,0 +1,18 @@
+Các file cần kiểm tra và sửa lỗi TS1362 (dùng type làm value):
+- src/cells/infrastructure/smartlink-cell/application/services/SmartLinkApplicationService.ts (import LinkResolver)
+- src/cells/infrastructure/smartlink-cell/application/use-cases/CreateLinkUseCase.ts (import SmartLink)
+- src/cells/infrastructure/sync-cell/application/use-cases/StartSyncUseCase.ts (import SyncJob)
+- src/cells/kernel/audit-cell/application/services/AuditApplicationService.ts (import AuditChainService)
+- src/cells/kernel/audit-cell/application/use-cases/LogAuditUseCase.ts (import AuditEntry)
+- src/cells/kernel/config-cell/application/services/ConfigApplicationService.ts (import ConfigValidationService)
+- src/cells/kernel/config-cell/application/use-cases/CreateSnapshotUseCase.ts (import ConfigSnapshot)
+- src/cells/kernel/config-cell/application/use-cases/RollbackConfigUseCase.ts (import ConfigSnapshot)
+- src/cells/kernel/config-cell/application/use-cases/SetConfigUseCase.ts (import ConfigEntry)
+- src/cells/kernel/monitor-cell/application/use-cases/ReportHealthUseCase.ts (import HealthReport)
+- src/cells/kernel/monitor-cell/application/use-cases/TriggerAlertUseCase.ts (import Alert)
+- src/cells/kernel/rbac-cell/application/services/RBACApplicationService.ts (import RBACValidationService)
+- src/cells/kernel/rbac-cell/application/use-cases/AssignRoleUseCase.ts (import UserRole)
+- src/cells/kernel/rbac-cell/interface/RBACCell.ts (import Role)
+- src/cells/kernel/security-cell/application/use-cases/DetectThreatUseCase.ts (import ThreatEvent)
+
+Cách sửa: Nếu import là class/service, cần export nó dưới dạng value (bỏ 'export type'). Nếu là type, đổi import thành 'import type'.

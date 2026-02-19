@@ -3,7 +3,7 @@ import {
   RuntimeOutput, 
   RuntimeState, 
   TraceContext 
-} from '../../types';
+} from '@/types';
 
 /**
  * [A. KỶ LUẬT TRẠNG THÁI] - State Machine & Validation Service
@@ -179,7 +179,7 @@ export class NATTOS_Runtime {
         correlationId: input.correlationId, 
         ok: false, 
         success: false, 
-        error: { code: 'RUNTIME_ERROR', message: error.message, timestamp: new Date() }, 
+        error: JSON.stringify("error"), 
         trace: input.traceId,
         metadata: { tenantId: input.tenantId, processedAt: new Date(), processingMs: 0, stateChanges: [], eventsPublished: [] }
       };

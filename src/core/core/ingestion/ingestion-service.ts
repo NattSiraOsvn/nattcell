@@ -1,6 +1,5 @@
-
-import { FileMetadata, IngestStatus } from '../../types';
-import { ShardingService } from '../../services/blockchainservice';
+import { IngestStatus, FileMetadata } from "../../../types";
+import { ShardingService } from "@/services/blockchainservice";
 
 export class IngestionService {
   private static instance: IngestionService;
@@ -12,7 +11,7 @@ export class IngestionService {
   }
 
   async validateAndRegister(file: File): Promise<FileMetadata> {
-    const hash = ShardingService.generateShardHash({
+    const hash = await ShardingService.generateShardHash({
       name: file.name,
       size: file.size,
       lastModified: file.lastModified
@@ -49,5 +48,3 @@ export class IngestionService {
     return Array.from(this.fileRegistry.values()).sort((a, b) => b.uploadedAt - a.uploadedAt);
   }
 }
-
-export const Ingestion = IngestionService.getInstance();

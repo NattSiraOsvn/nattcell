@@ -1,7 +1,7 @@
 
 import { EventEnvelope, PersonaID } from '@/types';
-import { EventBridge } from '@/eventbridge';
-import { AuditProvider } from '@/admin/auditservice';
+import { EventBridge } from '../../eventbridge';
+import { AuditProvider } from '../../admin/auditservice';
 
 /**
  * 🧠 ANALYTICS SERVICE (TEAM 4 - BĂNG)

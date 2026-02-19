@@ -28,9 +28,9 @@ const AuditTrailModule: React.FC<AuditTrailModuleProps> = ({ actionLogs, current
     return ['ALL', ...Array.from(mods)];
   }, [actionLogs]);
 
-  const handleVerifyHash = (log: ActionLog) => {
+  const handleVerifyHash = async (log: ActionLog) => {
     // Re-calculate hash to verify integrity
-    const computedHash = ShardingService.generateShardHash({ 
+    const computedHash = await ShardingService.generateShardHash({ 
       action: log.action, 
       details: log.details, 
       timestamp: log.timestamp, 
