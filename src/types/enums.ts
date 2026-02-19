@@ -1,6 +1,6 @@
 
 // src/types/enums.ts
-export { 
+export type { 
   AlertLevel, 
   UserRole, 
   ViewType, 

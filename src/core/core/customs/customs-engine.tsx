@@ -312,16 +312,16 @@ const CustomsIntelligence: React.FC = () => {
             </h4>
             <p className="text-[13px] text-gray-400 italic leading-relaxed font-light">
               "Robot đã được nạp luật 3 tầng: 
-              1. Luồng Đỏ -> Báo Pháp chế. 
-              2. Mã HS 7102 -> Báo Phòng Kiểm định. 
-              3. Thuế > 500tr -> Báo CFO. 
+              1. Luồng Đỏ &#x2192; Báo Pháp chế. 
+              2. Mã HS 7102 &#x2192; Báo Phòng Kiểm định. 
+              3. Thuế &gt; 500tr &#x2192; Báo CFO. 
               Mọi hành động đều được đề xuất tự động để Anh duyệt lệnh nhanh nhất."
             </p>
          </div>
          <div className="glass p-10 rounded-[3rem] border border-blue-500/20 bg-blue-500/5 shadow-2xl">
             <h4 className="text-[10px] text-blue-400 font-black uppercase tracking-widest mb-6">Xác thực rủi ro (Kris)</h4>
             <p className="text-[13px] text-gray-400 italic leading-relaxed font-light">
-              "Thuật toán **Risk Assessment** đã quét 52 cột. Lưu ý các lô hàng có Risk Score > 80 (CRITICAL). Vui lòng kiểm tra kỹ chứng từ nguồn gốc (C/O, Kimberley) trước khi thông quan."
+              "Thuật toán **Risk Assessment** đã quét 52 cột. Lưu ý các lô hàng có Risk Score &gt; 80 (CRITICAL). Vui lòng kiểm tra kỹ chứng từ nguồn gốc (C/O, Kimberley) trước khi thông quan."
             </p>
          </div>
       </div>

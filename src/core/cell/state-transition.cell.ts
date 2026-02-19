@@ -7,7 +7,7 @@ import { GatekeeperCore } from "@/governance/gatekeeper/GatekeeperCore";
  * ============================================================
  */
 
-import { StateManager } from '@/state-manager";
+import { StateManager } from '@/state-manager';
 
 const stateManager = new StateManager();
 

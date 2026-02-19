@@ -1,9 +1,3 @@
-/**
- * NATT-OS SHARED CONTRACTS CELL - ENTRY POINT
- */
-export * from './domain/entities/eda-foundation';
-export * from './application/services/eda-guard.service';
-export * from './infrastructure/adapters/in-memory-eda.adapter';
-export * from './shared.types';
-export * from './smartlink.registry';
-export * from './ports';
+export * from './domain/contract.types';
+export * from './application/contract.registry';
+export * from './domain/entities/eda-foundation';  // nếu có OutboxEvent, IdempotencyKey

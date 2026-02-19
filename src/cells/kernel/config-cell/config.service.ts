@@ -1,5 +1,5 @@
-import { BaseEvent } from ../../../contracts/events/base-event;
-import { AuditPort, AuditRecord } from ../audit-cell/ports/audit.port;
+import { BaseEvent } from '../../../contracts/events/base-event';
+import { AuditPort, AuditRecord } from '../audit-cell/ports/audit.port';
 
 export interface ConfigEntry {
   key: string;
