@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { RBACProvider } from '../services/rbacservice';
-import { RBACRole, RBACPermission, UserRole, Permission, ModuleID, PersonaID } from '../types';
+import { RBACRole, RBACPermission, UserRole, Permission, ModuleID, PersonaID } from '../../types';
 import { RBACGuard } from '../services/authservice';
 import AIAvatar from './aiavatar';
 
@@ -9,7 +9,7 @@ const RBACManager: React.FC = () => {
   // Fixed: safely get values from enums
   const roles = (Object.keys(UserRole) as Array<keyof typeof UserRole>).map(k => UserRole[k]);
   const modules = (Object.keys(ModuleID) as Array<keyof typeof ModuleID>).map(k => ModuleID[k]);
-  const permissions = (Object.keys(Permission) as Array<keyof typeof Permission>).map(k => Permission[k]);
+  const permissions = ['read', 'write', 'delete', 'approve', 'audit'];
 
   const getMatrix = (role: UserRole) => RBACGuard.getPermissions(role);
 
@@ -68,7 +68,7 @@ const RBACManager: React.FC = () => {
                                   </div>
                                </td>
                                {permissions.map((p) => {
-                                  const hasP = rolePerms.includes(p as Permission);
+                                  const hasP = rolePerms[p as string] === true;
                                   return (
                                     <td key={p as string} className="p-8 text-center">
                                        <div className={`w-8 h-8 mx-auto rounded-xl flex items-center justify-center border-2 transition-all ${
