@@ -1,0 +1,25 @@
+{
+  "cellId": "warehouse-cell",
+  "layer": "infrastructure",
+  "version": "2.1.0",
+  "status": "ACTIVE",
+  "previousStatus": "QUARANTINED",
+  "liftedBy": "BĂNG — Ground Truth Validator",
+  "liftedAt": "2026-02-19",
+  "approvedBy": "Anh Natt (Gatekeeper)",
+  "description": "Quản lý kho vật tư, nguyên liệu, công cụ Tâm Luxury",
+  "domain": [
+    "warehouse.entity.ts",
+    "warehouse.engine.ts",
+    "warehouse-domain.service.ts",
+    "warehouse-category.registry.ts"
+  ],
+  "application": ["warehouse.service.ts"],
+  "contract": "warehouse.contract.ts",
+  "contractVersion": "2.1.0",
+  "emits": 10,
+  "consumes": 2,
+  "categoryProtocol": "OPEN_REGISTRY",
+  "seedCategories": 9,
+  "notes": "Open registry — người dùng tự thêm danh mục qua RegisterCategoryCommand"
+}
