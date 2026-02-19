@@ -20,6 +20,7 @@ export const SHOWROOM_CONTRACT: CellContract<
   ]
 > = {
   cellId: 'showroom-cell',
+  version: '2.1.0',
   emits: [
     'showroom.appointment.booked',
     'showroom.appointment.completed',

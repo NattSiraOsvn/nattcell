@@ -18,6 +18,7 @@ export const PROMOTION_CONTRACT: CellContract<
   ]
 > = {
   cellId: 'promotion-cell',
+  version: '2.1.0',
   emits: [
     'promotion.applied',
     'promotion.expired',

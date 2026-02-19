@@ -348,6 +348,11 @@ export interface ActionLog {
   id: string;
   action: string;
   actor: string;
+  userId?: string;
+  details?: string;
+  userPosition?: string;
+  module?: string;
+  hash?: string;
   timestamp: number;
   result: 'SUCCESS' | 'FAILURE' | 'PENDING';
 }
@@ -380,6 +385,11 @@ export interface StateChange {
   fromState: string;
   toState: string;
   actor: string;
+  userId?: string;
+  details?: string;
+  userPosition?: string;
+  module?: string;
+  hash?: string;
   timestamp: number;
   reason?: string;
 }
@@ -408,6 +418,11 @@ export interface Movement {
   quantity: number;
   timestamp: number;
   actor: string;
+  userId?: string;
+  details?: string;
+  userPosition?: string;
+  module?: string;
+  hash?: string;
   note?: string;
 }
 
@@ -780,6 +795,11 @@ export interface OperationRecord {
   id: string;
   operation: string;
   actor: string;
+  userId?: string;
+  details?: string;
+  userPosition?: string;
+  module?: string;
+  hash?: string;
   module?: string;
   timestamp: number;
   status: 'SUCCESS' | 'FAILURE' | 'PENDING';
@@ -872,6 +892,7 @@ export interface OrderItem {
   taxRate?: number;
   quantity: number;
   discount?: number;
+  depositVND?: number;
 }
 
 export interface OrderPricing {
@@ -882,6 +903,7 @@ export interface OrderPricing {
   tax: number;
   totalAmount: number;
   breakdown?: Record<string, number>;
+  depositVND?: number;
 }
 
 export interface CommissionInfo {

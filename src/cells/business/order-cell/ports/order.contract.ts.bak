@@ -21,6 +21,7 @@ export const ORDER_CONTRACT: CellContract<
   ]
 > = {
   cellId: 'order-cell',
+  version: '2.1.0',
   emits: [
     'order.created',
     'order.confirmed',

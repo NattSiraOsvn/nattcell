@@ -39,7 +39,6 @@ export class Order {
 
   get status(): OrderStatus { return this._status; }
   get paymentStatus(): PaymentStatus { return this._paymentStatus; }
-  get depositVND(): number { return this._depositVND; }
   get balanceVND(): number { return this._balanceVND; }
 
   transitionTo(s: OrderStatus) {

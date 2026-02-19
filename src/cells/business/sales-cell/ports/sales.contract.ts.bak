@@ -21,6 +21,7 @@ export const SALES_CONTRACT: CellContract<
   ]
 > = {
   cellId: 'sales-cell',
+  version: '2.1.0',
   emits: [
     'sales.initiated',
     'sales.completed',

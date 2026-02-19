@@ -19,6 +19,7 @@ export interface InventoryEvent {
   payload: Record<string, any>;
   metadata: {
     cellId: 'inventory-cell';
+    version: '2.0.0';
     auditTrail: string;  // Bắt buộc — Hiến pháp: no audit = doesn't exist
   };
 }
@@ -72,6 +73,7 @@ export const CONSUME_WARRANTY_REPAIR = 'warranty.repair.requested';
 
 export const INVENTORY_CONTRACT = {
   cellId: 'inventory-cell',
+  version: '2.0.0',
   emits: [
     EVENT_ITEM_RECEIVED,
     EVENT_ITEM_RESERVED,

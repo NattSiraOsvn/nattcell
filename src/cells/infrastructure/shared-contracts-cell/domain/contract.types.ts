@@ -10,3 +10,12 @@ export interface CellContract<
   emits: TEmit;
   consumes: TConsume;
 }
+
+export type DomainEvent = {
+  eventId: string;
+  eventType: string;
+  aggregateId: string;
+  aggregateType: string;
+  timestamp: number;
+  payload: any;
+};
