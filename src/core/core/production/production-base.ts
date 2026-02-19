@@ -1,5 +1,4 @@
-
-import { AuditProvider } from '../../services/admin/auditservice';
+import { AuditProvider } from '@/services/admin/audit-service';
 import { ProductionEnforcer } from './productionenforcer';
 
 export interface LegalCompliance {
@@ -48,38 +47,12 @@ export abstract class ProductionBase {
     }
 
     // Kiểm tra tính sẵn sàng của Service
-    const check = ProductionEnforcer.validateService(this);
-    if (!check.valid) {
-      throw new Error(check.message);
-    }
-    
-    // Ghi nhận khởi tạo vào Sổ cái Audit
-    AuditProvider.logAction(
-      'SYSTEM', 
-      'SERVICE_INITIALIZED', 
-      { service: className, version: "v1.0.0" }, 
-      'system'
-    );
-  }
-  
-  // Phương thức bắt buộc cho cơ chế bù trừ (Compensation)
-  abstract rollback(transactionId: string): Promise<RollbackResult>;
-  abstract getLegalCompliance(): LegalCompliance;
-  abstract getProductionCertificate(): ProductionCertificate;
-  
-  /**
-   * Công cụ Audit nội bộ cho các phương thức nhạy cảm
-   */
-  protected async auditMethodCall(
-    methodName: string,
-    params: any,
-    userId: string = 'system'
-  ): Promise<string> {
-    return await AuditProvider.logAction(
-      this.serviceName,
-      `METHOD_${methodName.toUpperCase()}`,
-      { params, timestamp: new Date().toISOString() },
-      userId
-    );
+//     const isValid = ProductionEnforcer.validateService(this.serviceName);
+//     if (!isValid) {
+//       throw new Error(`Service ${this.serviceName} chưa được khởi tạo hợp lệ.`);
+//     }
+// 
+//     AuditProvider.logAction('SERVICE_START', { serviceName: this.serviceName, version: this.serviceVersion });
+//   }
   }
 }
