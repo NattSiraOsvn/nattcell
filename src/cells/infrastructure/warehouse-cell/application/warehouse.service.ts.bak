@@ -27,7 +27,7 @@ import {
   WarehouseStockOutEvent,
   WarehouseInsuranceAlertEvent,
   WarehouseQAAuditCompletedEvent,
-} from '../infrastructure/ports/warehouse.contract';
+} from '../../infrastructure/warehouse.contract';
 
 // ═══ COMMAND TYPES ═══
 
