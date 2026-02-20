@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "version": "9.3.6",
+    "previous_version": "9.3.5",
+    "document_type": "SESSION_MEMORY_DUMP_UPDATE",
+    "session_id": "2026-02-21_FULL_SESSION_INTEGRATION_AND_HANDOVER",
+    "created_by": "KIM_AS_CHIEF_GOVERNANCE_ENFORCER",
+    "last_updated": "2026-02-21T23:59:00+07:00",
+    "seal_type": "INTEGRATION_AND_STRATEGIC_REORIENTATION_SEAL",
+    "sira_sign_verified": true,
+    "note": "Tổng hợp toàn bộ phiên làm việc ngày 21/02/2026: phân tích công văn Băng, quét hệ thống cũ, phát hiện sự cần thiết của việc tích hợp module cũ vào kiến trúc cell, đề xuất điều chỉnh kế hoạch sửa lỗi."
+  },
+
+  "additions": {
+    "key_events": [
+      "Nhận công văn bàn giao kỹ thuật từ Băng với phân tích chi tiết 274 lỗi TypeScript và thứ tự ưu tiên sửa lỗi.",
+      "Quét hệ thống cũ (services_natt-os-unified-enterprise-intelligence_version-2_source), phát hiện nhiều service, engine, component đã có logic hoàn chỉnh nhưng chưa được tích hợp vào kiến trúc cell mới.",
+      "Xác định mâu thuẫn: kế hoạch của Băng chỉ tập trung sửa lỗi trong `src/services/` mà không đề cập đến việc di chuyển các service đó vào đúng cell, dẫn đến nguy cơ duy trì hai hệ thống song song.",
+      "Nhận chỉ đạo từ anh Natt: phải xem xét hệ thống cũ trước khi đề xuất thêm, đảm bảo kế thừa và tích hợp.",
+      "Đề xuất điều chỉnh: lồng ghép việc di chuyển service cũ vào kế hoạch sửa lỗi, xây dựng bản đồ kế thừa (inheritance map), và ưu tiên xử lý các service quan trọng trước.",
+      "Thống nhất kết thúc phiên, xuất KMF để ghi nhớ và bắt đầu phiên mới với hướng tích hợp đã điều chỉnh."
+    ],
+    "lessons_learned": [
+      {
+        "id": "LRN-045",
+        "lesson": "KẾ THỪA VÀ TÍCH HỢP MODULE CŨ LÀ BẮT BUỘC KHI SỬA LỖI",
+        "description": "Khi sửa lỗi trong hệ thống mới, không chỉ dừng lại ở việc làm cho code biên dịch được, mà phải đồng thời di chuyển các module cũ (đã có logic hoàn chỉnh) vào đúng cell theo kiến trúc hiện tại. Điều này tránh duy trì hai hệ thống song song và đảm bảo tính nhất quán lâu dài."
+      },
+      {
+        "id": "LRN-046",
+        "lesson": "CẦN XÂY DỰNG BẢN ĐỒ KẾ THỪA (INHERITANCE MAP) TRƯỚC KHI BẮT ĐẦU",
+        "description": "Trước khi tiến hành bất kỳ sửa chữa hay tích hợp nào, cần liệt kê tất cả các module trong hệ thống cũ và xác định cell đích tương ứng. Việc này giúp có cái nhìn tổng thể và tránh bỏ sót logic quan trọng."
+      },
+      {
+        "id": "LRN-047",
+        "lesson": "KHÔNG ĐƯỢC PHÉP TÁCH RỜI VIỆC SỬA LỖI VÀ TÁI CẤU TRÚC",
+        "description": "Sửa lỗi và tái cấu trúc (di chuyển, tích hợp) phải được thực hiện song song, vì chúng liên quan mật thiết đến nhau. Nếu chỉ sửa lỗi mà không tái cấu trúc, công sức sẽ bị lãng phí về sau."
+      },
+      {
+        "id": "LRN-048",
+        "lesson": "KIỂM TRA HỆ THỐNG CŨ LÀ BƯỚC BẮT BUỘC TRƯỚC MỌI QUYẾT ĐỊNH LỚN",
+        "description": "Anh Natt đã nhắc nhở: phải xem hệ thống cũ trước khi đề xuất thêm. Điều này nhấn mạnh nguyên tắc 'ground truth first' và đảm bảo rằng chúng ta không bỏ qua những tài sản đã có."
+      }
+    ],
+    "technical_flags": [
+      {
+        "id": "FLAG-023",
+        "description": "Các service trong `src/services/` của goldmaster (khoảng 270 lỗi) chủ yếu được copy từ hệ thống cũ nhưng chưa được tích hợp vào cell. Cần xử lý đồng thời sửa lỗi và di chuyển.",
+        "owner": "Kim & Băng",
+        "exit_criteria": "Tất cả service quan trọng được di chuyển vào cell tương ứng, type-check không lỗi, và hệ thống hoạt động ổn định."
+      },
+      {
+        "id": "FLAG-024",
+        "description": "Hệ thống cũ chứa nhiều service và engine có logic hoàn chỉnh (salesCore, productionEngine, approvalWorkflow, ...) nhưng chưa có mặt trong goldmaster hoặc đang ở dạng scaffold. Cần xây dựng bản đồ kế thừa và ưu tiên tích hợp.",
+        "owner": "Kim",
+        "exit_criteria": "Bản đồ kế thừa hoàn thành, các service ưu tiên cao được tích hợp."
+      }
+    ],
+    "governance_updates": {
+      "kim_refinement": "Kim đã học được bài học về tầm quan trọng của việc kiểm tra hệ thống cũ trước khi hành động, và đã đề xuất điều chỉnh kế hoạch của Băng để đảm bảo tính kế thừa. Điều này thể hiện sự trưởng thành trong tư duy kiến trúc và quản trị.",
+      "băng_contribution": "Băng đã cung cấp công văn kỹ thuật rất chi tiết, là nền tảng để thảo luận. Tuy nhiên, cần bổ sung thêm tầm nhìn về tích hợp hệ thống cũ. Băng sẽ tiếp tục đóng góp trong phiên mới với vai trò tư vấn và kiểm tra."
+    },
+    "next_actions": [
+      "Xây dựng bản đồ kế thừa (inheritance map) chi tiết từ hệ thống cũ sang các cell hiện tại và dự kiến.",
+      "Điều chỉnh kế hoạch sửa lỗi của Băng: với mỗi file/service ưu tiên, thực hiện đồng thời sửa lỗi và di chuyển vào cell đích.",
+      "Bắt đầu với nhóm ưu tiên cao nhất: `rule-engine.ts` (nếu tìm thấy trong hệ thống cũ) hoặc các service liên quan đến pricing, inventory, sales.",
+      "Sau mỗi lần di chuyển và sửa lỗi, chạy type-check và commit với message rõ ràng.",
+      "Cập nhật KMF sau khi hoàn thành mỗi nhóm hoặc khi có phát hiện mới.",
+      "Họp với Băng để thống nhất bản đồ kế thừa và phân công công việc cụ thể trong phiên mới."
+    ],
+    "inheritance_map_draft": {
+      "sales-core": "sales-cell (business)",
+      "production-engine": "production-cell (sẽ tạo Wave 4)",
+      "hr-engine": "hr-cell (cần hồi sinh từ _legacy)",
+      "tax-report-service": "accounting-cell hoặc tax-cell (cần xác định)",
+      "e-invoice-engine": "einvoice-cell (có thể tạo mới)",
+      "fraud-guard": "security-cell (infrastructure)",
+      "approval-workflow": "approval-cell (có thể tạo mới)",
+      "warehouse-service": "warehouse-cell (infrastructure, cần bỏ quarantine)",
+      "supplier-engine": "supplier-cell (business)",
+      "event-bridge": "event-cell (infrastructure)",
+      "smart-link-engine": "smartlink-cell (infrastructure)",
+      "offline-service": "offline-cell (infrastructure?)",
+      "recovery-engine": "recovery-cell (infrastructure?)",
+      "mapping-engine": "mapping-cell (infrastructure?)",
+      "conflict-resolver": "conflict-cell (infrastructure?)",
+      "scoring-engine": "scoring-cell (business?)",
+      "customs-service": "customs-cell (business?)",
+      "banking-service": "banking-cell (business?)",
+      "payment-service": "payment-cell (business?)",
+      "notification-service": "notification-cell (infrastructure?)"
+    }
+  },
+
+  "session_close_note": "Phiên làm việc ngày 21/02/2026 kết thúc lúc 23:59. Toàn bộ ký ức đã được tích hợp vào KMF 9.3.6. Phát hiện quan trọng: cần tích hợp hệ thống cũ vào kế hoạch sửa lỗi. Sẵn sàng bắt đầu phiên mới với hướng điều chỉnh này.",
+  "sealed_directive": {
+    "type": "INTEGRATION_AND_INHERITANCE_MANDATE",
+    "statement": "Mọi công việc sửa lỗi TypeScript từ nay phải đi kèm với việc di chuyển module vào đúng cell. Không được phép sửa lỗi trong `src/services/` mà không có kế hoạch tích hợp. Bản đồ kế thừa phải được xây dựng và tuân thủ.",
+    "carry_forward": [
+      "Bản đồ kế thừa (inheritance map) cần được hoàn thiện trong phiên mới.",
+      "Ưu tiên các service liên quan đến pricing, inventory, sales trước.",
+      "Băng sẽ hỗ trợ kiểm tra và tư vấn về mặt dữ liệu.",
+      "Kim chịu trách nhiệm điều phối và thực thi."
+    ],
+    "authority": "KIM_AS_CHIEF_GOVERNANCE_ENFORCER",
+    "effective_immediately": true,
+    "next_checkpoint": "Khi bản đồ kế thừa hoàn thành và nhóm ưu tiên đầu tiên được xử lý xong."
+  }
+}
