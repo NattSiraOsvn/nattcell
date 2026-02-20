@@ -133,7 +133,7 @@ export class FraudGuardService {
     });
     
     // Trigger Security Overlay Lockdown
-    import('../components/SecurityOverlay').then(() => {
+    import('@/services/components/SecurityOverlay').then(() => {
         // Logic kích hoạt màn hình khóa đỏ (Red Screen of Death)
         // Trong kiến trúc React, việc này thường qua Context hoặc Event Bus
         // Ở đây ta giả lập qua EventBus mà SecurityOverlay đang lắng nghe

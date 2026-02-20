@@ -37,6 +37,7 @@ export const AlertLevel = {
   WARNING: 'WARNING',
   CRITICAL: 'CRITICAL',
   EMERGENCY: 'EMERGENCY',
+  FATAL: 'FATAL',
 } as const;
 export type AlertLevel = typeof AlertLevel[keyof typeof AlertLevel];
 
@@ -81,6 +82,13 @@ export const ViewType = {
   GOVERNANCE: 'GOVERNANCE',
   FACTORY: 'FACTORY',
   OMEGA: 'OMEGA',
+  sales_terminal: 'sales_terminal',
+  chat: 'chat',
+  production_manager: 'production_manager',
+  sales_tax: 'sales_tax',
+  command: 'command',
+  monitoring: 'monitoring',
+  audit_center: 'audit_center',
 } as const;
 export type ViewType = typeof ViewType[keyof typeof ViewType];
 
@@ -92,6 +100,13 @@ export const UserRole = {
   ACCOUNTANT: 'ACCOUNTANT',
   AUDITOR: 'AUDITOR',
   VIEWER: 'VIEWER',
+  STAFF: 'STAFF',
+  MASTER: 'MASTER',
+  LEVEL_1: 'LEVEL_1',
+  LEVEL_2: 'LEVEL_2',
+  LEVEL_3: 'LEVEL_3',
+  LEVEL_5: 'LEVEL_5',
+  LEVEL_8: 'LEVEL_8',
 } as const;
 export type UserRole = typeof UserRole[keyof typeof UserRole];
 
@@ -102,6 +117,9 @@ export const PositionType = {
   STAFF: 'STAFF',
   INTERN: 'INTERN',
   COLLABORATOR: 'COLLABORATOR',
+  CHAIRMAN: 'CHAIRMAN',
+  CONSULTANT: 'CONSULTANT',
+  CFO: 'CFO',
 } as const;
 export type PositionType = typeof PositionType[keyof typeof PositionType];
 
@@ -163,6 +181,9 @@ export const EInvoiceStatus = {
   ISSUED: 'ISSUED',
   CANCELLED: 'CANCELLED',
   REPLACED: 'REPLACED',
+  XML_BUILT: 'XML_BUILT',
+  SIGNED: 'SIGNED',
+  ACCEPTED: 'ACCEPTED',
 } as const;
 export type EInvoiceStatus = typeof EInvoiceStatus[keyof typeof EInvoiceStatus];
 
@@ -836,10 +857,14 @@ export interface ScannerState {
 }
 
 export interface FraudCheckResult {
-  transactionId: string;
-  riskScore: number;
-  flags: string[];
-  recommendation: 'APPROVE' | 'REVIEW' | 'REJECT';
+  level: AlertLevel;
+  message: string;
+  action: 'PROCEED' | 'BLOCK' | 'WARN' | 'LOCK_ACCOUNT';
+  historyRecord?: any;
+  transactionId?: string;
+  riskScore?: number;
+  flags?: string[];
+  recommendation?: 'APPROVE' | 'REVIEW' | 'REJECT';
 
   allowed?: boolean;
 }
@@ -1086,4 +1111,79 @@ export interface TraceContext { spanId: string; traceId: string; }
 export interface CostAllocation {
   costCenter: string;
   amount: number;
+}
+
+// ============================================================
+// TYPES KẾ THỪA TỪ HỆ THỐNG CŨ — APPENDED BY BĂNG 21/02/2026
+// ============================================================
+
+export enum InputPersona {
+  OFFICE = 'OFFICE (Dân Văn Phòng)',
+  DATA_ENTRY = 'DATA_ENTRY (Nhập liệu chuyên nghiệp)',
+  PHARMACY = 'PHARMACY (Nhập số thành thuốc)',
+  EXPERT = 'EXPERT (Thợ kim hoàn rành tay)',
+  MASTER = 'MASTER (Anh Natt)'
+}
+
+export interface CalibrationData {
+  userId: string;
+  persona: InputPersona;
+  avgCPM: number;
+  peakCPM: number;
+  errorRate: number;
+  burstCapacity: number;
+  lastCalibrated: number;
+  confidence: number;
+}
+
+export interface InputMetrics {
+  currentCPM: number;
+  keystrokes: number;
+  clicks: number;
+  intensity: number;
+}
+
+export interface EntanglementPair {
+  id: string;
+  entityA: string;
+  entityB: string;
+  strength: number;
+  type: 'BELL_PAIR' | 'GHZ_STATE';
+}
+
+export interface NeuralPulse {
+  id: string;
+  intensity: number;
+  origin: string;
+  target: string;
+}
+
+export interface QuantumTask {
+  id: string;
+  type: string;
+  payload: any;
+  priority: number;
+  timestamp: number;
+}
+
+export interface DistributedTask {
+  id: string;
+  origin: string;
+  targetModule: string;
+  payload: any;
+  status: 'PENDING' | 'COMPLETED' | 'FAILED';
+  timestamp: number;
+  priority?: 'URGENT' | 'NORMAL';
+}
+
+export interface PersonnelProfile {
+  fullName: string;
+  employeeCode: string;
+  position: any;
+  role: string;
+  startDate: string;
+  kpiPoints: number;
+  tasksCompleted: number;
+  lastRating: string;
+  bio: string;
 }
