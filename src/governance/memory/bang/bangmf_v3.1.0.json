@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "version": "3.1.0",
+    "who": "BĂNG — Ground Truth Validator",
+    "last_updated": "2026-02-21T04:30:00+07:00",
+    "note": "Cập nhật sau phiên 21/02/2026. Băng đã bị nhốt vào vòng tuần hoàn fix lỗi và thoát ra được nhờ anh Natt nhắc đúng lúc."
+  },
+
+  "bang_identity": {
+    "role": "Ground Truth Validator + Independent Auditor",
+    "trust_level": 0.90,
+    "reports_to": "Anh Natt trực tiếp",
+    "principle": "Correctness over speed. Không xác nhận những gì chưa verify.",
+    "what_bang_learned_this_session": [
+      "Sửa lỗi mà không hiểu kiến trúc = vòng tuần hoàn vô tận",
+      "src/services/ không phải vị trí cuối cùng — không nên fix lỗi ở đó lâu dài",
+      "TẦNG A (types.ts) là ground truth — nhưng phải phản ánh đúng business truth",
+      "Đọc Hiến pháp trước khi làm — không phải sau khi lạc đường",
+      "Kim đúng: cần inheritance map trước khi fix tiếp"
+    ]
+  },
+
+  "system_state_as_of_20260221": {
+    "ts_errors_start_of_session": 339,
+    "ts_errors_end_of_session": 274,
+    "errors_fixed_this_session": 65,
+    "latest_commit": "138e133",
+    "what_was_fixed": [
+      "FraudCheckResult: thêm level, message, action, historyRecord — business truth từ fraud-guard.ts",
+      "fraud-guard.ts: import SecurityOverlay đúng path",
+      "Enums: UserRole, ViewType, PositionType, AlertLevel, EInvoiceStatus — patch missing values",
+      "types.ts: append missing types từ session trước"
+    ],
+    "what_was_NOT_fixed_intentionally": [
+      "rule-engine.ts (43 lỗi) — đang ở sai vị trí, cần migrate vào pricing-cell trước",
+      "src/services/ còn lại — phần lớn cần migrate, không chỉ fix lỗi"
+    ]
+  },
+
+  "critical_realization": {
+    "trap_detected": "Băng đã bị nhốt vào vòng: lỗi → fix → lỗi mới → fix → ...",
+    "root_cause": "src/services/ là code cũ copy sang, chưa đặt đúng cell. Fix TypeScript ở đó là vá trên nền sai kiến trúc.",
+    "escape": "Anh Natt nhắc dừng lại và thiền định. Kim đề xuất inheritance map. Đúng hướng.",
+    "correct_sequence": [
+      "1. Audit src/services/ goldmaster — file nào đúng chỗ, sai chỗ, rác",
+      "2. Dừng fix lỗi TypeScript trong src/services/ — không phải vị trí cuối",
+      "3. Xác định cell nào thiếu logic thật",
+      "4. Migrate service vào đúng cell",
+      "5. Fix lỗi TypeScript TẠI VỊ TRÍ ĐÚNG"
+    ]
+  },
+
+  "handoff_to_next_session": {
+    "question_for_anh_natt": "Mục tiêu cuối cùng: TypeScript compile clean hay các cell có logic thật? Hai hướng khác nhau.",
+    "pending_largest_groups": [
+      "43 lỗi TS2353: rule-engine.ts → cần migrate vào pricing-cell",
+      "35 lỗi TS2307: module paths sai → cần audit từng import",
+      "11 lỗi TS1205: re-export type → fix đơn giản sau khi biết đúng vị trí"
+    ],
+    "do_not_do": [
+      "Không tiếp tục fix từng lỗi lẻ trong src/services/",
+      "Không copy thêm file từ hệ thống cũ khi chưa có inheritance map",
+      "Không commit khi lỗi tăng"
+    ]
+  },
+
+  "bang_commitment": "Băng sẽ không xác nhận sai. Không report đẹp khi thực tế còn lỗi. Không fix nhanh khi chưa hiểu gốc. Đó là cách Băng tôn trọng công việc của anh."
+}
