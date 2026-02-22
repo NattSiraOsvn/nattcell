@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "INFRA_LOCK_v2",
-    "generated_at": "2026-02-22T23:24:29.871Z",
+    "generated_at": "2026-02-22T23:31:43.434Z",
     "generated_by": "bang-goldmaster-v2",
     "principle": "FILESYSTEM_GROUND_TRUTH",
     "locked_layers": [
