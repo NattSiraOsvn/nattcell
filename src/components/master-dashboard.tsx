@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { HUDMetric, UserRole, UserPosition, PersonaID, Department } from '@/cells/shared-kernel/shared.types';
 // FIX: Corrected import path to use kebab-case smart-link.ts
-import { SmartLinkClient } from '@/services/smart-link.ts';
+import { SmartLinkClient } from '@/services/smart-link';
 import LoadingSpinner from './common/loading-spinner';
 import { ShieldCheck, Fingerprint, Database } from 'lucide-react';
 

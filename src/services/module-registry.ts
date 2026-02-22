@@ -1,5 +1,5 @@
 
-import { ViewType, UserRole, ModuleConfig } from '@/types.ts';
+import { ViewType, UserRole, ModuleConfig } from '@/types';
 
 export const MODULE_REGISTRY: Record<string, ModuleConfig> = {
   [ViewType.DASHBOARD]: { id: ViewType.DASHBOARD, title: 'TỔNG QUAN', icon: '🏠', group: 'CORE', allowedRoles: [UserRole.ADMIN, UserRole.ADMIN, UserRole.MANAGER], componentName: 'MasterDashboard', active: true },

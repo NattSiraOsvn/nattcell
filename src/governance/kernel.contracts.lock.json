@@ -1,9 +1,11 @@
 {
   "meta": {
     "version": "KERNEL_PHASE1_LOCK_v1",
-    "generated_at": "2026-02-11T00:11:21.426Z",
+    "generated_at": "2026-02-22T22:45:48.962Z",
     "principle": "FILESYSTEM_GROUND_TRUTH",
-    "scope": "kernel_public_surface_only"
+    "scope": "kernel_public_surface_only",
+    "regenerated_by": "bang-verify-scan",
+    "reason": "script-6-batch-fix applied"
   },
   "kernel_cells": {
     "audit-cell": {
@@ -23,7 +25,7 @@
         },
         {
           "path": "src/cells/kernel/audit-cell/ports/index.ts",
-          "sha256": "ddb9d1706a0ef16b5397c05122c0c83d4778cc6c3056b1650f00989a3013bbcf"
+          "sha256": "27d081bf6e0650ce25c2af2b5ebd48d723b17e088b9b0b5e21c59349e5d13c47"
         }
       ]
     },
@@ -44,7 +46,7 @@
         },
         {
           "path": "src/cells/kernel/config-cell/ports/index.ts",
-          "sha256": "38d11e560cd9d6d7dfa673cce1be3b81e9449ea9f39f1ed3eea637a643d722a4"
+          "sha256": "0e21908cc9410f8729d035b1b29b6ad0ff8416f6d4f2b2a4b3c07ec42391148b"
         }
       ]
     },
@@ -65,7 +67,7 @@
         },
         {
           "path": "src/cells/kernel/monitor-cell/ports/index.ts",
-          "sha256": "1fd9740b8f57f31eaf36177df923a14328c2a75e6fbdc471220f4f9513011926"
+          "sha256": "272d74fee4bb885a9cc1bd7bae17e68d9dc7ee05e6a2f0c04870be1ba92cbebc"
         }
       ]
     },
@@ -86,7 +88,7 @@
         },
         {
           "path": "src/cells/kernel/rbac-cell/ports/index.ts",
-          "sha256": "e488f0523eec6f0ed13a5c1053cba0b4f8a83f20fa68885fcb4d7a0e3027b409"
+          "sha256": "469affc96c8b9c7aa80d87d95bd75da9e53748babce54170ec95914d38603d95"
         }
       ]
     },
@@ -99,15 +101,15 @@
         },
         {
           "path": "src/cells/kernel/security-cell/ports/SecurityEventEmitter.ts",
-          "sha256": "5eb55ca61180d98e0477dff5f720d4ab311c3ded3ab88d070b1f5d5e2197e4e5"
+          "sha256": "c25ae1bac29500fd45a74699cf0764a37a8645b2a67691a35e5aee5da4a6f2db"
         },
         {
           "path": "src/cells/kernel/security-cell/ports/SecurityRepository.ts",
-          "sha256": "94d6b9e58b8afb07d33baeaae4956ae042d1d785208f7deacb463c53f43d3c19"
+          "sha256": "dff6e17613d6d061470155015056d6adb5918a1b01a370039f42364644c2dbee"
         },
         {
           "path": "src/cells/kernel/security-cell/ports/index.ts",
-          "sha256": "3277fc1c575cbe1050cdd60763095ce11a58d1de4344ef45b57123843c9f1e8e"
+          "sha256": "c6b574f48cdac083f4b47e57756371c18429ad5dac747764d83b595433a65199"
         }
       ]
     }

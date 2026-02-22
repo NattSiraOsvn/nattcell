@@ -1,7 +1,7 @@
 
-import { Certification, PersonaID } from '@/types.ts';
+import { Certification, PersonaID } from '@/types';
 // TODO: import ShardingService fromts';
-import { NotifyBus } from '@/notificationservice.ts';
+import { NotifyBus } from '@/notificationservice';
 
 class CertificationService {
   private static instance: CertificationService;

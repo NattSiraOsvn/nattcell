@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { UserRole, PersonaID, Warehouse, Movement, StockStatus, WarehouseLocation } from '@/types.ts';
+import { UserRole, PersonaID, Warehouse, Movement, StockStatus, WarehouseLocation } from '@/types';
 // FIX: Corrected import path to use kebab-case smart-link.ts
-import { SmartLinkClient } from '@/services/smart-link.ts';
+import { SmartLinkClient } from '@/services/smart-link';
 import { WarehouseProvider } from '@/cells/infrastructure/warehouse-cell/application/warehouse.service';
 import { MapPin, Box, ArrowRightLeft, TrendingUp, ShieldCheck, Database, LayoutGrid, RotateCcw } from 'lucide-react';
 

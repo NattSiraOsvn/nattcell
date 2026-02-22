@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { EInvoice, EInvoiceStatus, BusinessMetrics, UserRole, PersonaID, EInvoiceItem } from '@/types.ts';
-import { EInvoiceEngine } from '@/services/einvoiceservice.ts';
-import { NotifyBus } from '@/services/notificationservice.ts';
+import { EInvoice, EInvoiceStatus, BusinessMetrics, UserRole, PersonaID, EInvoiceItem } from '@/types';
+import { EInvoiceEngine } from '@/services/einvoiceservice';
+import { NotifyBus } from '@/services/notificationservice';
 import { FileCode, ShieldCheck, Send, CheckCircle2, Receipt, Cpu, Database, ChevronRight, Zap } from 'lucide-react';
 
 interface SalesTaxModuleProps {

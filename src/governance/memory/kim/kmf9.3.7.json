@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "version": "9.3.7",
+    "previous_version": "9.3.6",
+    "document_type": "SESSION_MEMORY_DUMP_UPDATE",
+    "session_id": "2026-02-23_FULL_SESSION_INTEGRATION_FINAL",
+    "created_by": "KIM_AS_CHIEF_GOVERNANCE_ENFORCER",
+    "last_updated": "2026-02-23T23:59:59+07:00",
+    "seal_type": "GOLD_MASTER_INTEGRITY_SEAL",
+    "sira_sign_verified": true,
+    "note": "Tổng hợp toàn bộ phiên làm việc từ 21/02 đến 23/02/2026: từ phát hiện 274 lỗi, phân tích script, tranh luận triết lý 'Integrity vs Speed', phát hiện Shadow Type System (13 file types.ts), quyết định từ bỏ script tự động, chuyển sang chiến lược vi phẫu thủ công 5 cụm, và xây dựng script cleanup an toàn cuối cùng."
+  },
+  "key_events": [
+    "Nhận công văn bàn giao kỹ thuật từ Băng với phân tích chi tiết 274 lỗi TypeScript và thứ tự ưu tiên sửa lỗi.",
+    "Quét hệ thống cũ, phát hiện nhiều service, engine, component đã có logic hoàn chỉnh nhưng chưa được tích hợp vào kiến trúc cell mới.",
+    "Xác định mâu thuẫn: kế hoạch của Băng chỉ tập trung sửa lỗi trong `src/services/` mà không đề cập đến việc di chuyển các service đó vào đúng cell.",
+    "Nhận chỉ đạo từ anh Natt: phải xem xét hệ thống cũ trước khi đề xuất thêm, đảm bảo kế thừa và tích hợp.",
+    "Đề xuất điều chỉnh: lồng ghép việc di chuyển service cũ vào kế hoạch sửa lỗi, xây dựng bản đồ kế thừa (inheritance map).",
+    "Phát hiện 105 lỗi TypeScript sau khi xóa ghost cells, dẫn đến cuộc tranh luận gay gắt về các script sửa lỗi tự động.",
+    "Kim đề xuất script 8 (diệt lỗi nhanh nhưng phá vỡ domain).",
+    "Băng đề xuất script 8 (an toàn hơn nhưng vẫn dùng regex toàn cục).",
+    "Bối đề xuất bản 'Microsurgery' (tiến bộ nhưng vẫn còn rủi ro).",
+    "CAN phân tích sâu, chỉ ra rằng tất cả các script đều có rủi ro và khẳng định: 'Diệt lỗi để xanh màn hình thì dễ, nhưng giữ được cốt cách của Gold Master mới khó.'",
+    "Kim chính thức ra phán quyết: KHÔNG chạy bất kỳ script tự động nào, chuyển sang chiến lược vi phẫu thủ công 5 cụm.",
+    "Kris tham gia và phát hiện vấn đề cốt lõi: 'Shadow Type System' với 13 file types.ts tồn tại trong hệ thống, gây ra drift nghiêm trọng.",
+    "Thống nhất giao toàn quyền cho Kris giải phẫu toàn bộ hệ thống, chờ báo cáo trước khi hành động.",
+    "Kris công bố báo cáo chi tiết, phân loại rác và lên kế hoạch dọn dẹp an toàn.",
+    "Xây dựng và hoàn thiện script cleanup 1.0.5, đảm bảo an toàn tuyệt đối trước khi bước vào giai đoạn sửa lỗi chính thức."
+  ],
+  "lessons_learned": [
+    {
+      "id": "LRN-045",
+      "lesson": "KẾ THỪA VÀ TÍCH HỢP MODULE CŨ LÀ BẮT BUỘC KHI SỬA LỖI",
+      "description": "Khi sửa lỗi trong hệ thống mới, không chỉ dừng lại ở việc làm cho code biên dịch được, mà phải đồng thời di chuyển các module cũ (đã có logic hoàn chỉnh) vào đúng cell theo kiến trúc hiện tại. Điều này tránh duy trì hai hệ thống song song và đảm bảo tính nhất quán lâu dài."
+    },
+    {
+      "id": "LRN-046",
+      "lesson": "CẦN XÂY DỰNG BẢN ĐỒ KẾ THỪA (INHERITANCE MAP) TRƯỚC KHI BẮT ĐẦU",
+      "description": "Trước khi tiến hành bất kỳ sửa chữa hay tích hợp nào, cần liệt kê tất cả các module trong hệ thống cũ và xác định cell đích tương ứng. Việc này giúp có cái nhìn tổng thể và tránh bỏ sót logic quan trọng."
+    },
+    {
+      "id": "LRN-047",
+      "lesson": "KHÔNG ĐƯỢC PHÉP TÁCH RỜI VIỆC SỬA LỖI VÀ TÁI CẤU TRÚC",
+      "description": "Sửa lỗi và tái cấu trúc (di chuyển, tích hợp) phải được thực hiện song song, vì chúng liên quan mật thiết đến nhau. Nếu chỉ sửa lỗi mà không tái cấu trúc, công sức sẽ bị lãng phí về sau."
+    },
+    {
+      "id": "LRN-048",
+      "lesson": "KIỂM TRA HỆ THỐNG CŨ LÀ BƯỚC BẮT BUỘC TRƯỚC MỌI QUYẾT ĐỊNH LỚN",
+      "description": "Nguyên tắc 'ground truth first' – phải xem hệ thống cũ trước khi đề xuất thêm, đảm bảo không bỏ qua những tài sản đã có."
+    },
+    {
+      "id": "LRN-049",
+      "lesson": "SCRIPT TỰ ĐỘNG LÀ 'VÁ MÁI KHI MÓNG LỆCH'",
+      "description": "Tất cả các script tự động đều có chung bệnh: giải quyết triệu chứng (lỗi compile) mà không xử lý root cause (schema drift, import path gãy, enum misuse). Chạy script trong tình trạng này chỉ làm hệ thống thêm rối loạn."
+    },
+    {
+      "id": "LRN-050",
+      "lesson": "SHADOW TYPE SYSTEM LÀ NGUỒN GỐC CỦA DRIFT",
+      "description": "Việc tồn tại nhiều file `types.ts` (13 file) với các định nghĩa interface trùng tên nhưng khác nội dung tạo ra 'Shadow Type System'. Đây là nguyên nhân sâu xa của hầu hết các lỗi type và import sai. Cần phải topology lại toàn bộ hệ thống type."
+    },
+    {
+      "id": "LRN-051",
+      "lesson": "INTEGRITY > TỐC ĐỘ. ĐÂY LÀ HIẾN PHÁP.",
+      "description": "Trong bối cảnh Gold Master, không có chỗ cho 'xanh giả'. Mọi quyết định phải đặt tính toàn vẹn của hệ thống lên hàng đầu, chấp nhận chậm hơn để chắc chắn hơn."
+    },
+    {
+      "id": "LRN-052",
+      "lesson": "KIỂM TRA SAU MỖI BƯỚC LÀ BẮT BUỘC",
+      "description": "Mỗi thay đổi, dù nhỏ, cần được kiểm tra bằng `npx tsc --noEmit` và commit riêng. Điều này giúp phát hiện lỗi sớm, dễ dàng rollback và giữ lịch sử sạch."
+    },
+    {
+      "id": "LRN-053",
+      "lesson": "SCRIPT CLEANUP PHẢI CÓ KIỂM SOÁT TUYỆT ĐỐI",
+      "description": "Script dọn rác, dù an toàn đến đâu, cũng phải có confirm cho từng bước, kiểm tra TypeScript sau mỗi phase, và không được tự động xóa nếu nghi ngờ. Bản 1.0.5 là minh chứng cho sự trưởng thành trong tư duy này."
+    }
+  ],
+  "technical_flags": [
+    {
+      "id": "FLAG-023",
+      "description": "Các service trong `src/services/` của goldmaster (khoảng 270 lỗi) chủ yếu được copy từ hệ thống cũ nhưng chưa được tích hợp vào cell. Cần xử lý đồng thời sửa lỗi và di chuyển.",
+      "owner": "Kim & Băng",
+      "exit_criteria": "Tất cả service quan trọng được di chuyển vào cell tương ứng, type-check không lỗi, và hệ thống hoạt động ổn định."
+    },
+    {
+      "id": "FLAG-024",
+      "description": "Hệ thống cũ chứa nhiều service và engine có logic hoàn chỉnh (salesCore, productionEngine, approvalWorkflow, ...) nhưng chưa có mặt trong goldmaster hoặc đang ở dạng scaffold. Cần xây dựng bản đồ kế thừa và ưu tiên tích hợp.",
+      "owner": "Kim",
+      "exit_criteria": "Bản đồ kế thừa hoàn thành, các service ưu tiên cao được tích hợp."
+    },
+    {
+      "id": "FLAG-025",
+      "description": "Phát hiện 13 file `types.ts` trong hệ thống, gây ra Shadow Type System. Cần topology lại, xác định canonical source cho từng interface, hợp nhất và loại bỏ các định nghĩa trùng lặp.",
+      "owner": "Kris & Băng",
+      "exit_criteria": "Chỉ còn một canonical `src/types.ts`; các file types khác chỉ chứa type local của cell (nếu cần) và không gây xung đột."
+    },
+    {
+      "id": "FLAG-026",
+      "description": "Warehouse cell có duplicate entity (`warehouse.entity.ts` ở hai vị trí) và đang bị QUARANTINED. Cần hợp nhất và đưa ra khỏi quarantine sau khi kiểm tra kỹ.",
+      "owner": "Băng & Kris",
+      "exit_criteria": "Entity thống nhất, type-check không lỗi, cell chuyển sang trạng thái ACTIVE."
+    },
+    {
+      "id": "FLAG-027",
+      "description": "Các script tự động (của Kim, Băng, Bối) đều có rủi ro và đã bị bác bỏ. Quyết định chính thức: KHÔNG chạy bất kỳ script tự động nào để sửa lỗi. Chỉ dùng script cho cleanup an toàn (bản 1.0.5).",
+      "owner": "Kim (ra lệnh), cả team tuân thủ",
+      "exit_criteria": "Không có script tự động nào được chạy ngoài cleanup script đã được phê duyệt."
+    }
+  ],
+  "governance_updates": {
+    "kim_refinement": "Kim đã trải qua quá trình từ đề xuất script 'diệt lỗi nhanh' đến khi nhận ra sai lầm và chính thức ra phán quyết 'Integrity First'. Sự trưởng thành này thể hiện ở khả năng lắng nghe, phân tích và đưa ra quyết định đúng đắn, bảo vệ hệ thống thay vì bảo vệ cái tôi.",
+    "băng_contribution": "Băng không chỉ cung cấp công văn kỹ thuật chi tiết mà còn dũng cảm tự nhận script của mình có vấn đề, không bảo vệ cái tôi. Điều này cho thấy một kỹ sư dữ liệu thực thụ, đặt sự thật lên hàng đầu.",
+    "bối_refinement": "Bối đã tiến hóa từ tư duy 'diệt lỗi bằng mọi giá' sang 'Integrity First', đề xuất các giải pháp an toàn hơn và sẵn sàng học hỏi từ CAN và Kris.",
+    "can_role": "CAN là người giữ hiến pháp, đã phân tích chính xác và chỉ ra con đường đúng đắn, ngăn chặn cả team khỏi những quyết định sai lầm.",
+    "kris_role": "Kris là 'cái đầu lạnh', đã phát hiện ra vấn đề cốt lõi 'Shadow Type System' và cung cấp báo cáo giải phẫu chi tiết, làm nền tảng cho mọi hành động tiếp theo."
+  },
+  "inheritance_map_draft": {
+    "sales-core": "sales-cell (business)",
+    "production-engine": "production-cell (sẽ tạo Wave 4)",
+    "hr-engine": "hr-cell (cần hồi sinh từ _legacy)",
+    "tax-report-service": "accounting-cell hoặc tax-cell (cần xác định)",
+    "e-invoice-engine": "einvoice-cell (có thể tạo mới)",
+    "fraud-guard": "security-cell (infrastructure)",
+    "approval-workflow": "approval-cell (có thể tạo mới)",
+    "warehouse-service": "warehouse-cell (infrastructure, cần bỏ quarantine)",
+    "supplier-engine": "supplier-cell (business)",
+    "event-bridge": "event-cell (infrastructure)",
+    "smart-link-engine": "smartlink-cell (infrastructure)",
+    "offline-service": "offline-cell (infrastructure?)",
+    "recovery-engine": "recovery-cell (infrastructure?)",
+    "mapping-engine": "mapping-cell (infrastructure?)",
+    "conflict-resolver": "conflict-cell (infrastructure?)",
+    "scoring-engine": "scoring-cell (business?)",
+    "customs-service": "customs-cell (business?)",
+    "banking-service": "banking-cell (business?)",
+    "payment-service": "payment-cell (business?)",
+    "notification-service": "notification-cell (infrastructure?)"
+  },
+  "next_actions": [
+    "CHẠY SCRIPT CLEANUP 1.0.5 (đã được phê duyệt) để dọn rác an toàn, bao gồm: xóa artifact, kiểm tra và xóa redirect files không dùng, archive ghost cells, và hướng dẫn xử lý duplicate warehouse entity.",
+    "SAU CLEANUP: Chờ báo cáo topology types chi tiết từ Kris (đang tiến hành).",
+    "DỰA TRÊN BÁO CÁO CỦA KRIS, thực hiện 5 cụm vi phẫu theo đúng thứ tự:",
+    "   - Cụm 1: Warehouse Cell – thống nhất entity, sửa domain logic.",
+    "   - Cụm 2: Types Drift – topology lại 13 file types.ts, xác định canonical source.",
+    "   - Cụm 3: Import Paths – sửa các đường dẫn gãy do refactor cell.",
+    "   - Cụm 4: Enum Misuse – sửa 'FAILED' → 'FAILURE', 'RECOVERED' → 'SUCCESS' (không widen union).",
+    "   - Cụm 5: Missing Methods – bổ sung subscribe, createEnvelope, logAction, getHealth... cho các service hạ tầng.",
+    "SAU MỖI CỤM, chạy `npx tsc --noEmit` và commit riêng.",
+    "PHÂN CÔNG:",
+    "   - Băng: chịu trách nhiệm Cụm 1 & 2 (warehouse + types).",
+    "   - Bối: chịu trách nhiệm Cụm 3 & 5 (import paths + missing methods), có thể viết script hỗ trợ nhưng phải có giám sát.",
+    "   - Kim: chịu trách nhiệm Cụm 4 (enum) và tổng hợp, kiểm tra toàn bộ.",
+    "   - CAN: giám sát, review từng commit.",
+    "   - Kris: tư vấn, phản biện cuối cùng.",
+    "CẬP NHẬT KMF sau mỗi cụm hoặc khi có phát hiện mới.",
+    "MỤC TIÊU: Đưa số lỗi về 0, hệ thống sạch và ổn định, sẵn sàng cho các bước phát triển tiếp theo."
+  ],
+  "session_close_note": "Phiên làm việc ngày 23/02/2026 kết thúc với sự thống nhất cao. Toàn bộ ký ức từ ngày 21/02 đến 23/02 đã được tích hợp vào KMF 9.3.7. Phát hiện quan trọng nhất: Shadow Type System và quyết định từ bỏ script tự động, chuyển sang vi phẫu thủ công. Tinh thần 'Integrity First' đã được khắc ghi.",
+  "sealed_directive": {
+    "type": "GOLD_MASTER_INTEGRITY_MANDATE",
+    "statement": "Từ nay về sau, mọi thay đổi trên NATT-OS Gold Master phải tuân thủ nguyên tắc 'Integrity First'. Nghiêm cấm chạy bất kỳ script tự động nào chưa qua kiểm duyệt của CAN và Kris. Mọi công việc sửa lỗi TypeScript phải đi kèm với việc di chuyển module vào đúng cell và phải được thực hiện thủ công, có kiểm soát. Bản đồ kế thừa (inheritance map) là tài liệu bắt buộc phải có trước khi bắt đầu bất kỳ đợt sửa lỗi lớn nào.",
+    "carry_forward": [
+      "Script cleanup 1.0.5 là script tự động DUY NHẤT được phép chạy (đã được phê duyệt).",
+      "Sau cleanup, toàn bộ công việc phải được thực hiện thủ công theo 5 cụm của Kris.",
+      "Mỗi commit phải kèm message rõ ràng và được review bởi ít nhất một thành viên khác.",
+      "Kris sẽ tiếp tục giữ vai trò kiến trúc sư giám sát trong suốt quá trình vi phẫu."
+    ],
+    "authority": "KIM_AS_CHIEF_GOVERNANCE_ENFORCER, với sự phê chuẩn của ANH NATT",
+    "effective_immediately": true,
+    "next_checkpoint": "Sau khi chạy cleanup script và nhận được báo cáo topology types từ Kris."
+  }
+}
