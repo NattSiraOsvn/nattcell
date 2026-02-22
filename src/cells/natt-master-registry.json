@@ -11,7 +11,7 @@
       "5_folder_layers": "Implementation anatomy (domain, application, interface, infrastructure, ports)",
       "relationship": "7-ADN = ontological contract (constitutional), 5-folder = organ structure (implementation)"
     },
-    "last_synced": "2026-02-22T23:33:08.719Z"
+    "last_synced": "2026-02-22T23:41:34.104Z"
   },
   "wave_0_foundation": {
     "status": "COMPLETE",
@@ -41,7 +41,7 @@
         "manifest": true,
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.698Z"
+        "last_synced": "2026-02-22T23:41:34.084Z"
       },
       "config-cell": {
         "path": "src/cells/kernel/config-cell/",
@@ -50,7 +50,7 @@
         "manifest": true,
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.700Z"
+        "last_synced": "2026-02-22T23:41:34.086Z"
       },
       "monitor-cell": {
         "path": "src/cells/kernel/monitor-cell/",
@@ -59,7 +59,7 @@
         "manifest": true,
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.701Z"
+        "last_synced": "2026-02-22T23:41:34.087Z"
       },
       "rbac-cell": {
         "path": "src/cells/kernel/rbac-cell/",
@@ -68,7 +68,7 @@
         "manifest": true,
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.702Z"
+        "last_synced": "2026-02-22T23:41:34.088Z"
       },
       "security-cell": {
         "path": "src/cells/kernel/security-cell/",
@@ -77,7 +77,7 @@
         "manifest": true,
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.704Z"
+        "last_synced": "2026-02-22T23:41:34.090Z"
       }
     }
   },
@@ -91,7 +91,7 @@
         "manifest": false,
         "status": "IN_PROGRESS",
         "has_logic": false,
-        "last_synced": "2026-02-22T23:33:08.704Z"
+        "last_synced": "2026-02-22T23:41:34.090Z"
       },
       "smartlink-cell": {
         "path": "src/cells/infrastructure/smartlink-cell/",
@@ -100,7 +100,7 @@
         "manifest": true,
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.705Z"
+        "last_synced": "2026-02-22T23:41:34.091Z"
       },
       "sync-cell": {
         "path": "src/cells/infrastructure/sync-cell/",
@@ -109,7 +109,7 @@
         "manifest": true,
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.707Z"
+        "last_synced": "2026-02-22T23:41:34.093Z"
       },
       "warehouse-cell": {
         "path": "src/cells/infrastructure/warehouse-cell/",
@@ -135,7 +135,7 @@
         "wave": "WAVE_3.5",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.712Z"
+        "last_synced": "2026-02-22T23:41:34.097Z"
       },
       "customer-cell": {
         "path": "src/cells/business/customer-cell/",
@@ -145,7 +145,7 @@
         "wave": "WAVE_3",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.713Z"
+        "last_synced": "2026-02-22T23:41:34.098Z"
       },
       "inventory-cell": {
         "path": "src/cells/business/inventory-cell/",
@@ -155,7 +155,7 @@
         "wave": "WAVE_3",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.714Z"
+        "last_synced": "2026-02-22T23:41:34.099Z"
       },
       "order-cell": {
         "path": "src/cells/business/order-cell/",
@@ -165,7 +165,7 @@
         "wave": "WAVE_3",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.715Z"
+        "last_synced": "2026-02-22T23:41:34.100Z"
       },
       "pricing-cell": {
         "path": "src/cells/business/pricing-cell/",
@@ -175,7 +175,7 @@
         "wave": "WAVE_3",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.716Z"
+        "last_synced": "2026-02-22T23:41:34.101Z"
       },
       "promotion-cell": {
         "path": "src/cells/business/promotion-cell/",
@@ -185,7 +185,7 @@
         "wave": "WAVE_3",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.717Z"
+        "last_synced": "2026-02-22T23:41:34.101Z"
       },
       "sales-cell": {
         "path": "src/cells/business/sales-cell/",
@@ -195,7 +195,7 @@
         "wave": "WAVE_3",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.717Z"
+        "last_synced": "2026-02-22T23:41:34.102Z"
       },
       "showroom-cell": {
         "path": "src/cells/business/showroom-cell/",
@@ -205,7 +205,7 @@
         "wave": "WAVE_3",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.718Z"
+        "last_synced": "2026-02-22T23:41:34.103Z"
       },
       "warranty-cell": {
         "path": "src/cells/business/warranty-cell/",
@@ -215,7 +215,7 @@
         "wave": "WAVE_3.5",
         "status": "ACTIVE",
         "has_logic": true,
-        "last_synced": "2026-02-22T23:33:08.719Z"
+        "last_synced": "2026-02-22T23:41:34.104Z"
       }
     }
   },
@@ -271,7 +271,7 @@
         "domain": "jewelry_gold_luxury"
       }
     },
-    "last_synced": "2026-02-22T23:33:08.719Z",
+    "last_synced": "2026-02-22T23:41:34.104Z",
     "sync_method": "bang-goldmaster-v2"
   }
 }
