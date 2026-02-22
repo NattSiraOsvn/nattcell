@@ -1,9 +1,14 @@
 export class OfflineService {
-  static sync() { localStorage.setItem(key, JSON.stringify(value)); return Promise.resolve(); }
-}
+  static sync() {
+    return Promise.resolve();
+  }
 
-export class OfflineService {
   static saveData(key: string, value: any): Promise<void> {
-    localStorage.setItem(key, JSON.stringify(value)); return Promise.resolve();
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+      return Promise.resolve();
+    } catch (error) {
+      return Promise.reject(error);
+    }
   }
 }

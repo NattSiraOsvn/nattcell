@@ -1,1 +1,2 @@
-export { AuditEntry, AuditEntryProps } from './AuditEntry';
+export { AuditEntry } from './AuditEntry';
+export type { AuditEntryProps } from './AuditEntry';

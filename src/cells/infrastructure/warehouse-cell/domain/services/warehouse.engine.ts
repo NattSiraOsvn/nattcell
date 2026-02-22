@@ -48,7 +48,7 @@ export class WarehouseEngine {
 
   // ─── Category auto-suggest ───
 
-  static suggestMinThreshold(categoryCode: string, registry: WarehouseCategoryRegistry): number {
+  static suggestMinTHReshold(categoryCode: string, registry: WarehouseCategoryRegistry): number {
     const cat = registry.findByCode(categoryCode);
     return cat?.minStockAlert ?? 5;
   }
@@ -64,9 +64,9 @@ export class WarehouseEngine {
 
   // ─── Stock status logic ───
 
-  static computeStatus(quantity: number, minThreshold: number): WarehouseItem['status'] {
+  static computeStatus(quantity: number, minTHReshold: number): WarehouseItem['status'] {
     if (quantity === 0) return 'OUT_OF_STOCK';
-    if (quantity <= minThreshold) return 'LOW_STOCK';
+    if (quantity <= minTHReshold) return 'LOW_STOCK';
     return 'AVAILABLE';
   }
 

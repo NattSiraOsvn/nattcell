@@ -1,1 +1,2 @@
-export { ThreatEvent, ThreatEventProps } from './ThreatEvent';
+export { THReatEvent } from './ThreatEvent';
+export type { THReatEventProps } from './ThreatEvent';

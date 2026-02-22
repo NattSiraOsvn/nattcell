@@ -1,6 +1,6 @@
 /**
  * Warehouse Application Service
- * Cell: warehouse-cell | Layer: Application
+ * Cell: WAREHOUSE-cell | Layer: Application
  */
 import { ReceiveGoods } from '../use-cases/ReceiveGoods';
 import { ReleaseGoods } from '../use-cases/ReleaseGoods';

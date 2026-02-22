@@ -13,7 +13,7 @@ import { PersonaID } from '@/types';
  * They do NOT represent NATT-OS system states.
  * They do NOT trigger StateManager or Gatekeeper.
  *
- * Constitutional State Transitions MUST go through:
+ * Constitutional State Transitions MUST go tHRough:
  * Cell Intent → StateManager → GatekeeperCore → AuditTrail
  * ============================================================
  */

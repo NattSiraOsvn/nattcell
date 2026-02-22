@@ -1,6 +1,6 @@
 
 import { Certification, PersonaID } from '@/types.ts';
-import { ShardingService } from '@/blockchainservice.ts';
+// TODO: import ShardingService fromts';
 import { NotifyBus } from '@/notificationservice.ts';
 
 class CertificationService {

@@ -1,2 +1,2 @@
-export { HealthReport, HealthReportProps } from './HealthReport';
-export { Alert, AlertProps } from './Alert';
+export type { HealthReport, HealthReportProps } from './HealthReport';
+export type { Alert, AlertProps } from './Alert';

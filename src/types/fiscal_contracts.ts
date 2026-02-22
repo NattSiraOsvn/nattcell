@@ -1,7 +1,7 @@
 
 /**
  * 📜 FISCAL WORKBENCH CONTRACTS (PHASE 2 - ENFORCED)
- * Status: GOLD MASTER CANDIDATE
+ * Status: GOLD ADMIN CANDIDATE
  * 
  * FIX 1: Monetary values MUST be strings (Decimal)
  * FIX 2: Quantity MUST be strings (Decimal for Gold/Gems)

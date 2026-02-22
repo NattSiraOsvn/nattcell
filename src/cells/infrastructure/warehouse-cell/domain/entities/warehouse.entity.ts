@@ -8,7 +8,7 @@ import { WarehouseUnit, WarehouseLocation } from '../value-objects/warehouse-cat
 
 export type WarehouseItemStatus =
   | 'AVAILABLE'     // Sẵn sàng sử dụng
-  | 'LOW_STOCK'     // Sắp hết — dưới minThreshold
+  | 'LOW_STOCK'     // Sắp hết — dưới minTHReshold
   | 'OUT_OF_STOCK'  // Hết hàng
   | 'RESERVED'      // Đã đặt trước
   | 'DAMAGED'       // Hư hỏng
@@ -25,7 +25,7 @@ export interface WarehouseItemProps {
   location: WarehouseLocation;
   locationNote?: string;         // VD: "Két A1 - Tầng 1"
   status: WarehouseItemStatus;
-  minThreshold: number;          // Ngưỡng cảnh báo tồn kho
+  minTHReshold: number;          // Ngưỡng cảnh báo tồn kho
   insuranceStatus: 'COVERED' | 'NOT_COVERED' | 'EXPIRED';
   supplierId?: string;
   lastCountDate?: Date;
@@ -55,7 +55,7 @@ export class WarehouseItem {
   private _location: WarehouseLocation;
   private _locationNote?: string;
   private _status: WarehouseItemStatus;
-  readonly minThreshold: number;
+  readonly minTHReshold: number;
   private _insuranceStatus: WarehouseItemProps['insuranceStatus'];
   readonly supplierId?: string;
   private _lastCountDate?: Date;
@@ -75,7 +75,7 @@ export class WarehouseItem {
     this._location = props.location;
     this._locationNote = props.locationNote;
     this._status = props.status;
-    this.minThreshold = props.minThreshold;
+    this.minTHReshold = props.minTHReshold;
     this._insuranceStatus = props.insuranceStatus;
     this.supplierId = props.supplierId;
     this._lastCountDate = props.lastCountDate;
@@ -157,7 +157,7 @@ export class WarehouseItem {
 
   private _refreshStatus(): void {
     if (this._quantity === 0) { this._status = 'OUT_OF_STOCK'; return; }
-    if (this._quantity <= this.minThreshold) { this._status = 'LOW_STOCK'; return; }
+    if (this._quantity <= this.minTHReshold) { this._status = 'LOW_STOCK'; return; }
     if (this._status === 'OUT_OF_STOCK' || this._status === 'LOW_STOCK') {
       this._status = 'AVAILABLE';
     }
@@ -175,7 +175,7 @@ export class WarehouseItem {
   }
 
   isLowStock(): boolean {
-    return this._quantity <= this.minThreshold && this._quantity > 0;
+    return this._quantity <= this.minTHReshold && this._quantity > 0;
   }
 
   isOutOfStock(): boolean {
@@ -196,7 +196,7 @@ export class WarehouseItem {
       location: this._location,
       locationNote: this._locationNote,
       status: this._status,
-      minThreshold: this.minThreshold,
+      minTHReshold: this.minTHReshold,
       insuranceStatus: this._insuranceStatus,
       supplierId: this.supplierId,
       lastCountDate: this._lastCountDate,

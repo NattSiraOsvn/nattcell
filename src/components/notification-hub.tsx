@@ -89,7 +89,7 @@ const NotificationHub: React.FC<NotificationHubProps> = ({ notifications, onClos
                   </div>
 
                   <div className="flex gap-6 items-start relative z-10 pr-10">
-                     <div className="shrink-0 mt-1">
+                     <div className="sHRink-0 mt-1">
                         {n.persona ? (
                           <div className={isThinking ? 'animate-pulse' : ''}>
                           </div>

@@ -24,7 +24,7 @@ export interface ApplyDiscountCommand {
   transactionId: string;
   discountVND: number;
   reason: string;
-  approvedBy?: string; // Bắt buộc nếu discount > threshold
+  approvedBy?: string; // Bắt buộc nếu discount > tHReshold
 }
 
 export interface CloseSaleCommand {

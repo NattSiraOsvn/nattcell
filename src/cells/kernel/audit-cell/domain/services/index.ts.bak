@@ -1,1 +1,1 @@
-export { AuditChainService, ChainVerificationResult } from './AuditChainService';
+export type { AuditChainService, ChainVerificationResult } from './AuditChainService';

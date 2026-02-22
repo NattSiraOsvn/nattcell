@@ -18,7 +18,7 @@ interface SalesCRMProps {
 
 const SalesCRM: React.FC<SalesCRMProps> = ({ logAction, metrics, updateFinance, currentRole, currentPosition }) => {
   // Fallback defaults for legacy usage
-  const role = currentRole || UserRole.LEVEL_5;
+  const role = currentRole || UserRole.SALES_STAFF;
   const position = currentPosition || { id: 'LEGACY', role: PositionType.CONSULTANT, department: Department.SALES, scope: [] };
 
   return (

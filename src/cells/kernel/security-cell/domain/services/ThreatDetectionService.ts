@@ -1,7 +1,7 @@
-export class ThreatDetectionService {
+export class THReatDetectionService {
   private lockdownActive = false;
 
-  analyzeThreat(type: string, source: string): { shouldAlert: boolean; shouldLockdown: boolean } {
+  analyzeTHReat(type: string, source: string): { shouldAlert: boolean; shouldLockdown: boolean } {
     const criticalTypes = ['INJECTION', 'PRIVILEGE_ESCALATION', 'DATA_EXFILTRATION'];
     return {
       shouldAlert: true,

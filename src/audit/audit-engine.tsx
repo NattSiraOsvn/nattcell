@@ -86,7 +86,7 @@ const AuditTrailModule: React.FC<AuditTrailModuleProps> = ({ actionLogs, current
       <main className="flex-1 flex flex-col lg:flex-row gap-10 min-h-0">
          
          <div className="flex-1 ai-panel overflow-hidden border-white/5 bg-black/40 flex flex-col shadow-2xl relative">
-            <div className="p-6 border-b border-white/5 bg-white/[0.02] flex justify-between items-center shrink-0">
+            <div className="p-6 border-b border-white/5 bg-white/[0.02] flex justify-between items-center sHRink-0">
                <h3 className="text-[10px] font-black text-gray-500 uppercase tracking-[0.4em]">Audit Trail Entries</h3>
                <span className="text-[9px] text-amber-500/50 font-mono">Count: {filteredLogs.length} Records</span>
             </div>
@@ -155,7 +155,7 @@ const AuditTrailModule: React.FC<AuditTrailModuleProps> = ({ actionLogs, current
             </div>
          </div>
 
-         <aside className="w-full lg:w-[400px] flex flex-col gap-8 shrink-0">
+         <aside className="w-full lg:w-[400px] flex flex-col gap-8 sHRink-0">
             <div className="ai-panel p-10 bg-amber-500/[0.03] border-amber-500/20 shadow-2xl relative overflow-hidden">
                <div className="absolute top-0 right-0 p-6 opacity-5 text-8xl">🛡️</div>
                <div className="flex items-center gap-4 mb-8">

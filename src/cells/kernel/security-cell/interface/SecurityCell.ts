@@ -15,9 +15,9 @@ export class SecurityCell {
 
   async shutdown(): Promise<void> { this.service = null; }
 
-  detectThreat = (type: string, severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL', source: string, description: string) => {
+  detectTHReat = (type: string, severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL', source: string, description: string) => {
     if (!this.service) throw new Error('SecurityCell not initialized');
-    return this.service.detectThreat(type, severity, source, description);
+    return this.service.detectTHReat(type, severity, source, description);
   };
 
   isLockdownActive = () => this.service?.isLockdownActive() ?? false;

@@ -53,7 +53,7 @@ export const ProductionGate: React.FC<ProductionGateProps> = ({
             {status === 'PASSED' ? 'ANH NAT DNA DETECTED' : isFailed ? '🚨 SECURITY VIOLATION' : '🔐 PRODUCTION GATE'}
           </h1>
           <p className="text-[10px] text-gray-500 font-black uppercase tracking-[0.6em]">
-            NATT-OS • SIG_BY_MASTER_NAT_2026 • v1.1
+            NATT-OS • SIG_BY_ADMIN_NAT_2026 • v1.1
           </p>
         </div>
 

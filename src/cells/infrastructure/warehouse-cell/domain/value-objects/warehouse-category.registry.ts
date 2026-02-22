@@ -238,4 +238,4 @@ export class WarehouseCategoryRegistry {
 }
 
 // Singleton — dùng chung toàn cell
-export const warehouseCategoryRegistry = new WarehouseCategoryRegistry();
+export const WAREHOUSECategoryRegistry = new WarehouseCategoryRegistry();

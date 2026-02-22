@@ -1,7 +1,9 @@
+import { ShardingService } from '@/services/sharding-service';
+import { QuoteRequest, QuoteResult, LaborRuleResult } from "../../domain/types/pricing.types";
 
-import { QuoteRequest, QuoteResult } from '@/types';
-import { evaluateRules } from './rule-engine';
-import { ShardingService } from '@/blockchainservice';
+
+import { evaluateRules } from '../../domain/services/rule-engine.service';
+// TODO: Import ShardingService from appropriate module
 
 /**
  * 💎 PRICING RUNTIME v1.0 (PRODUCTION)
@@ -62,7 +64,7 @@ export class PricingRuntime {
 
     // 5. Generate Result & Trace
     const result: QuoteResult = {
-      total_price: totalPrice,
+      totalPrice: totalPrice,
       breakdown: { 
         gold_cost: goldCost, 
         labor_cost: laborPrice, 

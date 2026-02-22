@@ -1,8 +1,8 @@
 
 import { InvoiceProjection, FiscalLineItem, FiscalTotals, InvoiceIdentity } from '@/types/fiscal_contracts';
 import { XmlCanonicalizer } from '@/utils/xmlcanonicalizer';
-import { ShardingService } from '@/blockchainservice';
-import { AuditProvider } from '@/admin/auditservice';
+// TODO: import ShardingService from;
+import AuditProvider from "@/admin/auditservice";
 import { OmegaLockdown } from '../../core/audit/omegalockdown';
 
 // Helper for Decimal String Math (Fix 1)
@@ -134,7 +134,7 @@ export class FiscalWorkbenchService {
           'FISCAL',
           'INVOICE_SEALED',
           { invoiceId, xmlHash },
-          'MASTER_NATT'
+          'ADMIN_NATT'
       );
 
       return xmlHash;

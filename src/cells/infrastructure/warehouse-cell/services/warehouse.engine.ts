@@ -1,6 +1,6 @@
 export class WarehouseEngine {
-  static calculateAvailableSpace(warehouse: { capacity: number; currentStock: number }): number {
-    return warehouse.capacity - warehouse.currentStock;
+  static calculateAvailableSpace(WAREHOUSE: { capacity: number; currentStock: number }): number {
+    return WAREHOUSE.capacity - WAREHOUSE.currentStock;
   }
 
   static validateNewItem(
@@ -21,12 +21,12 @@ export class WarehouseEngine {
     return errors;
   }
 
-  static suggestMinThreshold(categoryCode: string, registry: any): number {
+  static suggestMinTHReshold(categoryCode: string, registry: any): number {
     const cat = registry.findByCode(categoryCode);
     return cat?.isConsumable ? 10 : 5;
   }
 
-  static computeStatus(stock: number, threshold?: number): string { 
+  static computeStatus(stock: number, tHReshold?: number): string { 
     return stock > 0 ? 'IN_STOCK' : 'OUT_OF_STOCK'; 
   }
 

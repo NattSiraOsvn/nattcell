@@ -1,6 +1,6 @@
 /**
  * InMemory Warehouse Repository
- * Cell: warehouse-cell | Layer: Infrastructure
+ * Cell: WAREHOUSE-cell | Layer: Infrastructure
  */
 import { IWarehouseRepository } from '../../ports/WarehouseRepository';
 import { WarehouseItem } from '../../domain/entities/WarehouseEntity';

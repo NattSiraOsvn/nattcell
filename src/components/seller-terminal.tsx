@@ -11,7 +11,7 @@ interface SellerTerminalProps {
 }
 
 const SellerTerminal: React.FC<SellerTerminalProps> = ({ currentRole, currentPosition, logAction }) => {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'leads' | 'order_engine' | 'manager_hub' | 'hidebox'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'DASHBOARD' | 'leads' | 'order_engine' | 'manager_hub' | 'hidebox'>('DASHBOARD');
   const [reports, setReports] = useState<SellerReport[]>([]);
   const [leads, setLeads] = useState<CustomerLead[]>([
      { id: 'L-001', name: 'NGUYỄN VĂN A', phone: '0901234567', source: 'Facebook Ads', ownerId: 'S-007', assignedDate: Date.now() - (10 * 86400000), expiryDate: Date.now() + (80 * 86400000), status: 'WARM', lastInteraction: Date.now() },
@@ -45,7 +45,7 @@ const SellerTerminal: React.FC<SellerTerminalProps> = ({ currentRole, currentPos
   const [simulatedComm, setSimulatedComm] = useState<any>(null);
 
   const [hideBoxMsg, setHideBoxMsg] = useState('');
-  const isManager = currentRole === UserRole.LEVEL_2 || currentRole === UserRole.LEVEL_3;
+  const isManager = currentRole === UserRole.SENIOR_STAFF || currentRole === UserRole.STAFF;
 
   useEffect(() => {
     if (formData.shellVal > 0 || formData.stoneVal > 0) {
@@ -95,7 +95,7 @@ const SellerTerminal: React.FC<SellerTerminalProps> = ({ currentRole, currentPos
        setLeads(prev => prev.map(l => l.id === lead.id ? { ...l, status: 'CONVERTED' } : l));
     }
 
-    setActiveTab('dashboard');
+    setActiveTab('DASHBOARD');
     NotifyBus.push({ type: 'SUCCESS', title: 'Đã ghi nhận đơn hàng', content: `Hoa hồng tạm tính: ${commission.total.toLocaleString()} đ`, persona: PersonaID.CAN });
   };
 
@@ -147,8 +147,8 @@ const SellerTerminal: React.FC<SellerTerminalProps> = ({ currentRole, currentPos
         </div>
       </header>
 
-      <nav className="flex bg-black/40 p-1.5 rounded-2xl border border-white/10 w-fit shrink-0 overflow-x-auto no-scrollbar">
-        <button onClick={() => setActiveTab('dashboard')} className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all whitespace-nowrap ${activeTab === 'dashboard' ? 'bg-amber-500 text-black shadow-lg' : 'text-gray-500 hover:text-white'}`}>Tổng quan & Thu nhập</button>
+      <nav className="flex bg-black/40 p-1.5 rounded-2xl border border-white/10 w-fit sHRink-0 overflow-x-auto no-scrollbar">
+        <button onClick={() => setActiveTab('DASHBOARD')} className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all whitespace-nowrap ${activeTab === 'DASHBOARD' ? 'bg-amber-500 text-black shadow-lg' : 'text-gray-500 hover:text-white'}`}>Tổng quan & Thu nhập</button>
         <button onClick={() => setActiveTab('leads')} className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all whitespace-nowrap ${activeTab === 'leads' ? 'bg-blue-600 text-white shadow-lg' : 'text-gray-500 hover:text-white'}`}>Timeline Lead (90 Ngày)</button>
         <button onClick={() => setActiveTab('order_engine')} className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all whitespace-nowrap ${activeTab === 'order_engine' ? 'bg-indigo-600 text-white shadow-lg' : 'text-gray-500 hover:text-white'}`}>Tạo Đơn & Tính HH</button>
         {isManager && <button onClick={() => setActiveTab('manager_hub')} className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all whitespace-nowrap ${activeTab === 'manager_hub' ? 'bg-purple-600 text-white shadow-lg' : 'text-gray-500 hover:text-white'}`}>Quản Lý Team</button>}
@@ -156,7 +156,7 @@ const SellerTerminal: React.FC<SellerTerminalProps> = ({ currentRole, currentPos
       </nav>
 
       <main className="flex-1">
-        {activeTab === 'dashboard' && (
+        {activeTab === 'DASHBOARD' && (
           <div className="space-y-8 animate-in fade-in">
              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="ai-panel p-8 bg-green-500/5 border-green-500/20">

@@ -1,6 +1,6 @@
 /**
  * Warehouse Repository Port
- * Cell: warehouse-cell | Layer: Ports
+ * Cell: WAREHOUSE-cell | Layer: Ports
  */
 import { WarehouseItem } from '../domain/entities/WarehouseEntity';
 

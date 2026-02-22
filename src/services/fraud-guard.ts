@@ -62,7 +62,7 @@ export class FraudGuardService {
         const isSameStaff = match.staffId === staffId;
         
         // So sánh hash định danh (Giả sử so sánh chuỗi hash)
-        // Trong thực tế sẽ cần ngưỡng tương đồng (Similarity Threshold) cho Face Hash
+        // Trong thực tế sẽ cần ngưỡng tương đồng (Similarity THReshold) cho Face Hash
         const isDifferentIdentity = match.identityHash && match.identityHash !== inputIdentityHash;
 
         // --- RULE 1: GIAN LẬN CỐ Ý (FATAL) ---

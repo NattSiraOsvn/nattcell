@@ -19,7 +19,7 @@ export class StateRegistryService {
       stateEvidence: {
         constitutionHash: 'CONSTITUTION-v3.1-FINAL-20260208-GK-APPROVED',
         kernelCells: [],
-        infrastructureCells: ['warehouse-cell'], // From audit
+        infrastructureCells: ['WAREHOUSE-cell'], // From audit
         auditEnabled: false,
         omegaActive: false
       },

@@ -115,3 +115,9 @@ class DictionaryApprovalService {
 }
 
 export const DictApproval = DictionaryApprovalService.getInstance();
+
+export class DictApprovalService {
+  static getPendingProposals(): unknown[] { return []; }
+  static reviewChange(_id: string, _decision: string, _reviewer: string): void {}
+}
+export default DictApprovalService;

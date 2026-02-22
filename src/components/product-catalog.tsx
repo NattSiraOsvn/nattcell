@@ -36,7 +36,7 @@ const adaptProduct = (sp: ShowroomProduct): Product => ({
   tags: [],
   specifications: sp.specs.reduce((acc, s) => ({ ...acc, [s.key]: s.value }), {}),
   leadTime: 7,
-  supplier: { id: 's1', maNhaCungCap: 'TL-MASTER', tenNhaCungCap: 'Tam Luxury Master', diaChi: 'HCMC', maSoThue: '0300000001' },
+  supplier: { id: 's1', maNhaCungCap: 'TL-ADMIN', tenNhaCungCap: 'Tam Luxury Master', diaChi: 'HCMC', maSoThue: '0300000001' },
   rating: 5,
   reviews: 0,
   isVerifiedSupplier: true,
@@ -179,7 +179,7 @@ const ProductCatalog: React.FC<ProductCatalogProps> = ({ logAction, updateFinanc
     <div className="flex h-full">
       <FilterPanel filters={filters} onFilterChange={setFilters} />
       <div className="flex-1 p-8 overflow-y-auto no-scrollbar pb-40 relative flex flex-col">
-        <header className="mb-10 flex justify-between items-end shrink-0">
+        <header className="mb-10 flex justify-between items-end sHRink-0">
           <div className="space-y-2">
             <h1 className="ai-headline text-6xl uppercase italic tracking-tighter leading-none">Luxury Storefront</h1>
             <p className="ai-sub-headline text-gray-500 font-black tracking-[0.5em] ml-1">Omega Unified Showroom</p>

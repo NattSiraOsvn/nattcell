@@ -12,7 +12,7 @@ export interface StockAlert {
   name: string;
   categoryCode: string;
   currentQty: number;
-  minThreshold: number;
+  minTHReshold: number;
   severity: 'OUT_OF_STOCK' | 'LOW_STOCK';
 }
 
@@ -64,7 +64,7 @@ export class WarehouseDomainService {
         name: i.name,
         categoryCode: i.categoryCode,
         currentQty: i.quantity,
-        minThreshold: i.minThreshold,
+        minTHReshold: i.minTHReshold,
         severity: i.isOutOfStock() ? 'OUT_OF_STOCK' : 'LOW_STOCK',
       }));
   }

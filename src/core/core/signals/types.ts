@@ -4,7 +4,7 @@ export type OverlayType = 'LENS' | 'DRAWER' | 'VOID' | 'NONE';
 
 export interface QuantumSignal {
   id: string;
-  source: string; // 'FINANCE', 'SALES', etc.
+  source: string; // 'ACCOUNTING', 'SALES', etc.
   type: 'INTENT' | 'ALERT' | 'OPPORTUNITY';
   intensity: number; // 0.0 - 1.0
   content: any; // Flexible payload

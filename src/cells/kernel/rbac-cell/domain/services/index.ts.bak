@@ -1,1 +1,1 @@
-export { RBACValidationService, AccessCheckResult } from './RBACValidationService';
+export type { RBACValidationService, AccessCheckResult } from './RBACValidationService';

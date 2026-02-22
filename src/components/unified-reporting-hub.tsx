@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { TeamPerformance, PersonaID } from '@/types';
 import { AnalyticsProvider } from '@/services/analytics/analyticsapi';
-import GovernanceKPIBoard from './analytics/governancekpiboard.tsx';
+import GovernanceKPIBoard from './analytics/governance-kpiboard';
 import { 
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, Legend
@@ -34,7 +34,7 @@ const UnifiedReportingHub: React.FC = () => {
           <p className="ai-sub-headline text-cyan-300/40 ml-1 italic font-black tracking-[0.4em]">Tổng hợp Shard đa chiều • Team 4 Analytics Core</p>
         </div>
         
-        <nav className="flex bg-black/40 p-1.5 rounded-2xl border border-white/10 shrink-0">
+        <nav className="flex bg-black/40 p-1.5 rounded-2xl border border-white/10 sHRink-0">
            {[
              { id: 'GOVERNANCE', label: 'Quản trị (KPI)', icon: <LayoutDashboard size={14}/> },
              { id: 'TEAMS', label: 'Tải trọng AI Team', icon: <Users size={14}/> },

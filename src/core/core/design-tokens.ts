@@ -1,6 +1,6 @@
 
 /**
- * 🎨 NATT-OS DESIGN TOKENS v1.0.0 (GOLD MASTER)
+ * 🎨 NATT-OS DESIGN TOKENS v1.0.0 (GOLD ADMIN)
  * "DATA IS SACRED" - Single Source of Truth cho toàn bộ hệ thống UI.
  */
 

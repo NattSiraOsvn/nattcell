@@ -2,7 +2,7 @@
 import { AuditProvider } from '@/services/admin/audit-service';
 
 // 🔱 CHỦ QUYỀN TỐI CAO: ANH NAT
-const MASTER_SIGNATURE = 'SIG_BY_MASTER_NAT_2026';
+const ADMIN_SIGNATURE = 'SIG_BY_ADMIN_NAT_2026';
 
 export interface BootstrapResult {
   success: boolean;
@@ -29,7 +29,7 @@ export class OmegaBootstrap {
     try {
       // 1. Xác thực ADN Master
       checks[0].status = 'PASS';
-      checks[0].details = { owner: 'ANH_NAT', sig: MASTER_SIGNATURE };
+      checks[0].details = { owner: 'ANH_NAT', sig: ADMIN_SIGNATURE };
 
       // 2. Quét 128 Shards
       console.log(`[BOOT] Initiating deep scan of 128 shards for owner: ANH_NAT`);
@@ -42,7 +42,7 @@ export class OmegaBootstrap {
       checks[3].status = 'PASS';
 
       // Ghi nhật ký khởi động Gold Master
-      await AuditProvider.logAction('SYSTEM', 'GOLD_MASTER_BOOT_SUCCESS', { 
+      await AuditProvider.logAction('SYSTEM', 'GOLD_ADMIN_BOOT_SUCCESS', { 
         shards: 128, 
         owner: 'ANH_NAT' 
       }, 'ANH_NAT');

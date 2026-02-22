@@ -10,7 +10,7 @@ export interface AccessContext {
 }
 
 // Giả lập đọc Registry (Phase 1 sẽ đọc file thật)
-const QUARANTINED_CELLS = ['warehouse-cell'];
+const QUARANTINED_CELLS = ['WAREHOUSE-cell'];
 
 export class SecurityKernel {
     static validateAccess(ctx: AccessContext): boolean {

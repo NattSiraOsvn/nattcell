@@ -20,6 +20,7 @@ export const IngestStatus = {
   COMMITTED: 'COMMITTED',
   FAILED: 'FAILED',
   QUARANTINED: 'QUARANTINED',
+  QUEUED: 'QUEUED',
 } as const;
 export type IngestStatus = typeof IngestStatus[keyof typeof IngestStatus];
 
@@ -53,7 +54,7 @@ export const ModuleID = {
   ANALYTICS: 'ANALYTICS',
   GOVERNANCE: 'GOVERNANCE',
 } as const;
-export type ModuleID = typeof ModuleID[keyof typeof ModuleID];
+export type ModuleID = typeof ModuleID[keyof typeof ModuleID] | string;
 
 export const PersonaID = {
   THIEN: 'THIEN',
@@ -101,12 +102,7 @@ export const UserRole = {
   AUDITOR: 'AUDITOR',
   VIEWER: 'VIEWER',
   STAFF: 'STAFF',
-  MASTER: 'MASTER',
-  LEVEL_1: 'LEVEL_1',
-  LEVEL_2: 'LEVEL_2',
-  LEVEL_3: 'LEVEL_3',
-  LEVEL_5: 'LEVEL_5',
-  LEVEL_8: 'LEVEL_8',
+  SENIOR_STAFF: 'SENIOR_STAFF',
 } as const;
 export type UserRole = typeof UserRole[keyof typeof UserRole];
 
@@ -131,6 +127,7 @@ export const Department = {
   HR: 'HR',
   IT: 'IT',
   LEGAL: 'LEGAL',
+  HEADQUARTER: 'HEADQUARTER',
 } as const;
 export type Department = typeof Department[keyof typeof Department];
 
@@ -419,6 +416,7 @@ export type EmergencyToken = {
 };
 
 export interface StateChange {
+  changedAt?: Date | number;
   domain: string;
   entityId: string;
   fromState: string;
@@ -435,6 +433,8 @@ export interface StateChange {
   tenantId?: string;
 
   entityType?: string;
+
+  changedBy?: string;
 }
 
 export type StateRegistry = {
@@ -442,6 +442,7 @@ export type StateRegistry = {
 };
 
 export interface Product {
+  image?: string;
   id: string;
   name: string;
   sku: string;
@@ -493,13 +494,14 @@ export interface Warehouse {
 
 export interface WarehouseLocationDetail {
   id: string;
-  warehouseId: string;
+  WAREHOUSEId: string;
   zone: string;
   shelf: string;
   position: string;
 }
 
 export interface CustomerLead {
+  ownerId?: string;
   id: string;
   name: string;
   phone: string;
@@ -508,6 +510,8 @@ export interface CustomerLead {
   source: string;
   assignedTo?: string;
   createdAt: number;
+
+  assignedDate?: number;
 }
 
 export interface ApprovalRequest {
@@ -527,6 +531,7 @@ export interface ApprovalRequest {
 }
 
 export interface ApprovalTicket {
+  workflowStep?: number;
   requestedAt?: number;
   id: string;
   approvalRequestId: string;
@@ -540,6 +545,8 @@ export interface ApprovalTicket {
   rejectionReason?: string;
 
   status?: string;
+
+  totalSteps?: number;
 }
 
 export interface SyncJob {
@@ -588,26 +595,32 @@ export interface FileMetadata {
 }
 
 export interface QuantumState {
+  energyLevel?: number;
+  entanglementCount?: number;
   id: string;
   coherence: number;
   entropy: number;
   superpositionCount: number;
-  waveFunction: { amplitude: number; frequency: number; phase: number };
+  waveFunction: { amplitude: number; frequency: number; phase: number 
+  lastCollapse?: number;
+};
   lastCollapse: number;
 }
 
 export interface ConsciousnessField {
+  focusPoints?: string[];
   awarenessLevel: number;
-  mood: 'OPTIMAL' | 'CAUTIOUS' | 'CRITICAL';
+  mood: 'OPTIMAL' | 'CAUTIOUS' | 'CRITICAL' | 'STABLE';
   lastCollapse: number;
   activeDomains: string[];
 }
 
 export interface QuantumEvent {
+  probability?: number;
   id: string;
   type: string;
   status: 'SUPERPOSITION' | 'COLLAPSED';
-  sensitivityVector: { risk: number; financial: number; temporal: number };
+  sensitivityVector: { risk: number; financial: number; temporal: number; operational?: number };
   decision?: string;
   timestamp: number;
 }
@@ -646,6 +659,8 @@ export interface ActionPlan {
 }
 
 export interface AccountingEntry {
+  status?: string;
+  journalType?: string;
   transactionDate?: number;
   id: string;
   type: 'DEBIT' | 'CREDIT';
@@ -654,10 +669,17 @@ export interface AccountingEntry {
   account: string;
   description: string;
   timestamp: number;
-  reference?: string;
+  reference?: unknown;
 }
 
 export interface AccountingMappingRule {
+  name?: string;
+  enabled?: boolean;
+  source?: { system: string; [key: string]: unknown };
+  destination?: string;
+  priority?: number;
+  transformation?: (value: unknown, context?: unknown) => unknown;
+  autoPost?: boolean;
   destination?: any;
   id: string;
   eventType: string;
@@ -739,9 +761,19 @@ export interface TaxCalculationResult {
 }
 
 export interface EInvoice {
+  orderId?: string;
+  createdAt?: number;
+  customerName?: string;
+  customerTaxId?: string;
+  taxAmount?: number;
+  xmlPayload?: string;
+  signatureHash?: string;
+  taxCode?: string;
   id: string;
   invoiceNumber: string;
-  buyer: { name: string; taxCode: string; address: string };
+  buyer: { name: string; taxCode: string; address: string 
+  vatRate?: number;
+};
   seller: { name: string; taxCode: string; address: string };
   items: EInvoiceItem[];
   totalAmount: number;
@@ -751,11 +783,20 @@ export interface EInvoice {
 }
 
 export interface EInvoiceItem {
+  id?: string;
+  name?: string;
+  totalBeforeTax?: number;
+  taxRate?: number;
   description: string;
   quantity: number;
   unitPrice: number;
   amount: number;
   vatRate: number;
+
+  goldWeight?: number;
+  goldPrice?: number;
+  stonePrice?: number;
+  laborPrice?: number;
 }
 
 export interface EmployeePayroll {
@@ -775,6 +816,7 @@ export interface EmployeePayroll {
 }
 
 export interface TeamPerformance {
+  tasks_in_progress?: number;
   tasks_completed?: number;
   total_tasks?: number;
   teamId: string;
@@ -785,6 +827,10 @@ export interface TeamPerformance {
   actuals: Record<string, number>;
 
   team_name?: string;
+
+  tasks_blocked?: number;
+  load_percentage?: number;
+  completion_rate?: number;
 }
 
 export interface LaborRuleResult {
@@ -803,11 +849,14 @@ export interface SellerIdentity {
 }
 
 export interface SellerReport {
+  id?: string;
   sellerId: string;
   period: string;
   totalSales: number;
   totalCommission: number;
   transactionCount: number;
+
+  sellerName?: string;
 }
 
 export interface BusinessMetrics {
@@ -819,6 +868,7 @@ export interface BusinessMetrics {
 }
 
 export interface GovernanceKPI {
+  category?: string;
   kpi_name?: string;
   auditScore: number;
   complianceRate: number;
@@ -826,14 +876,19 @@ export interface GovernanceKPI {
   period: string;
 
   kpi_id?: string;
+
+  period_date?: number;
 }
 
 export interface HUDMetric {
+  id?: string;
   label: string;
   value: number | string;
   unit?: string;
   trend?: 'UP' | 'DOWN' | 'STABLE';
   alert?: AlertLevel;
+
+  name?: string;
 }
 
 export interface RealTimeUpdate {
@@ -847,7 +902,7 @@ export interface ScannerState {
   id: string;
   isActive: boolean;
   lastScan: number;
-  threatsFound: number;
+  tHReatsFound: number;
   status: 'CLEAN' | 'SCANNING' | 'THREAT_DETECTED';
   last_scan_time: number;
   last_scan_head: number;
@@ -870,28 +925,41 @@ export interface FraudCheckResult {
 }
 
 export interface Certification {
+  description?: string;
   id: string;
   type: string;
   issuedBy: string;
   issuedAt: number;
   expiresAt?: number;
-  status: 'ACTIVE' | 'VALID' | 'EXPIRED' | 'REVOKED';
+  status: 'ACTIVE' | 'VALID' | 'EXPIRED' | 'REVOKED' | 'PENDING' | 'ARCHIVED';
 
   expiryDate?: number;
   certificateNumber?: string;
   title?: string;
   verificationStatus?: string;
+
+  issuingBody?: number | string;
+  createdAt?: number | string;
+  updatedAt?: number | string;
 }
 
 export interface ModuleConfig {
+  title?: string;
   id: ModuleID;
   name: string;
   isEnabled: boolean;
   version: string;
   dependencies: ModuleID[];
+
+  icon?: string;
+  group?: string;
+  componentName?: string;
+  active?: boolean;
 }
 
 export interface OperationRecord {
+  type?: string;
+  error?: string;
   id: string;
   operation: string;
   actor: string;
@@ -902,17 +970,21 @@ export interface OperationRecord {
   hash?: string;
   timestamp: number;
   status: 'SUCCESS' | 'FAILURE' | 'PENDING';
+
+  params?: unknown;
 }
 
 export interface Checkpoint {
+  moduleState?: Record<string, unknown>;
+  name?: string;
+  state?: unknown;
+  isValid?: boolean;
   id: string;
-  name: string;
   timestamp: number;
-  state: unknown;
-  isValid: boolean;
 }
 
 export interface DictionaryVersion {
+  status?: string;
   version: string;
   publishedAt: number;
   publishedBy: string;
@@ -925,6 +997,10 @@ export interface DictionaryVersion {
   termsCount?: number;
   dictionaryId?: string;
   data?: any;
+
+  createdAt?: unknown;
+  changes?: unknown;
+  previousVersionId?: unknown;
 }
 
 export interface QuoteRequest {
@@ -1006,6 +1082,8 @@ export interface OrderItem {
 }
 
 export interface OrderPricing {
+  exchangeRate?: number;
+  discountPercentage?: number;
   taxAmount?: number;
   costOfGoods?: number;
   subtotal: number;
@@ -1016,6 +1094,8 @@ export interface OrderPricing {
   totalAmount: number;
   breakdown?: Record<string, number>;
   depositVND?: number;
+
+  promotionDiscount?: number;
 }
 
 export interface CommissionInfo {
@@ -1062,7 +1142,7 @@ export interface SalesOrder {
     currency: string;
   };
   status: OrderStatus;
-  warehouse: WarehouseLocation;
+  WAREHOUSE: WarehouseLocation;
   salesPerson: SalesPerson;
   commission: CommissionInfo;
   createdAt: number;
@@ -1095,10 +1175,14 @@ export interface RuntimeInput {
   identity?: any;
   traceId?: string; operation: string; userId: string; domain: string; tenantId: string; correlationId: string; payload: any; }
 
-export interface RuntimeOutput { success: boolean; data?: any; error?: string; 
+export interface RuntimeOutput {
+  ok?: boolean;
+  metadata?: Record<string, unknown>; success: boolean; data?: any; error?: string; 
   tenantId?: string;
 
   correlationId?: string;
+
+  trace?: string;
 }
 
 export interface RuntimeState {
@@ -1122,7 +1206,7 @@ export enum InputPersona {
   DATA_ENTRY = 'DATA_ENTRY (Nhập liệu chuyên nghiệp)',
   PHARMACY = 'PHARMACY (Nhập số thành thuốc)',
   EXPERT = 'EXPERT (Thợ kim hoàn rành tay)',
-  MASTER = 'MASTER (Anh Natt)'
+  ADMIN = 'ADMIN (Anh Natt)'
 }
 
 export interface CalibrationData {
@@ -1187,3 +1271,5 @@ export interface PersonnelProfile {
   lastRating: string;
   bio: string;
 }
+
+export interface LearnedTemplate { id: string; name: string; content: string; position?: string; [key: string]: unknown; }

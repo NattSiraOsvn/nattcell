@@ -1,3 +1,3 @@
 export interface WarehouseInterface {
-  // warehouse-cell ACTIVE — Wave 4
+  // WAREHOUSE-cell ACTIVE — Wave 4
 }

@@ -52,7 +52,7 @@ export class ApprovalWorkflowService {
         },
         status: ApprovalStatus.APPROVED,
         requestedAt: Date.now() - 86400000,
-        approvedBy: 'MASTER_NATT',
+        approvedBy: 'ADMIN_NATT',
         approvedAt: Date.now() - 43200000,
         workflowStep: 1,
         totalSteps: 1

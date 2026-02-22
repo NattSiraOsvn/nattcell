@@ -60,7 +60,7 @@ export class EInvoiceService {
     await new Promise(r => setTimeout(r, 1200));
     return ShardingService.generateShardHash({
       invoiceId,
-      signer: 'TAM_LUXURY_MASTER_TOKEN',
+      signer: 'TAM_LUXURY_ADMIN_TOKEN',
       timestamp: Date.now()
     });
   }

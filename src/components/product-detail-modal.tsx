@@ -28,7 +28,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({ product, onClos
                </div>
                <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">
                   {product.images.map((img, i) => (
-                    <button key={i} onClick={() => setActiveImg(i)} className={`w-24 h-24 rounded-2xl overflow-hidden border-2 transition-all shrink-0 ${activeImg === i ? 'border-amber-500 scale-105' : 'border-white/5 opacity-40'}`}>
+                    <button key={i} onClick={() => setActiveImg(i)} className={`w-24 h-24 rounded-2xl overflow-hidden border-2 transition-all sHRink-0 ${activeImg === i ? 'border-amber-500 scale-105' : 'border-white/5 opacity-40'}`}>
                       <img src={img} className="w-full h-full object-cover" />
                     </button>
                   ))}

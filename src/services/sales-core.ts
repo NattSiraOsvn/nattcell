@@ -132,7 +132,7 @@ export class SalesCoreEngine {
     customer: Customer,
     salesPerson: SalesPerson,
     items: OrderItem[],
-    warehouse: WarehouseLocation = WarehouseLocation.HCM_HEADQUARTER
+    WAREHOUSE: WarehouseLocation = WarehouseLocation.HCM_HEADQUARTER
   ): SalesOrder {
     const pricing = this.calculatePricing(items, 0, 0, customer.tier);
     const commission = this.calculateCommission(salesPerson, pricing, items);
@@ -152,7 +152,7 @@ export class SalesCoreEngine {
       },
       // Fixed: OrderStatus.DRAFT is now part of the consolidated enum member list
       status: OrderStatus.DRAFT,
-      warehouse,
+      WAREHOUSE,
       salesPerson,
       commission,
       createdAt: Date.now(),

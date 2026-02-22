@@ -42,7 +42,7 @@ class PolicyEngine {
     const isOwner = dataOwnershipId === input.tenantId;
     
     // 2. Kiểm tra Attribute-Based Access Control
-    const canWrite = input.identity.roles.some(role => ['ADMIN', 'OPERATOR', 'MASTER'].includes(role));
+    const canWrite = input.identity.roles.some(role => ['ADMIN', 'OPERATOR', 'ADMIN'].includes(role));
     
     // Đảm bảo dữ liệu thuộc đúng phòng ban
     const isCorrectDept = input.identity.attributes.department_id === input.payload.department_id;

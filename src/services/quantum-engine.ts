@@ -135,7 +135,7 @@ export class QuantumFlowEngine {
     // 3. Entanglement Logic (Tạo mối liên kết)
     if (eventType === 'SALES_ORDER_CREATED') {
        this.createEntanglement('SALES', 'INVENTORY', 0.8);
-       this.createEntanglement('SALES', 'FINANCE', 0.9);
+       this.createEntanglement('SALES', 'ACCOUNTING', 0.9);
     }
 
     // 4. Wave Function Collapse Check (Quyết định sụp đổ hay giữ chồng chập)

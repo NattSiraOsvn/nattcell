@@ -14,12 +14,12 @@ export const CELL_LAYER_REGISTRY: Record<string, CellLayer> = {
   'cell:sync': CellLayer.INFRASTRUCTURE,
   'cell:smartlink': CellLayer.INFRASTRUCTURE,
   'cell:api': CellLayer.INFRASTRUCTURE,
-  'cell:warehouse': CellLayer.INFRASTRUCTURE,
+  'cell:WAREHOUSE': CellLayer.INFRASTRUCTURE,
   'cell:sales': CellLayer.BUSINESS,
   'cell:finance': CellLayer.BUSINESS,
-  'cell:hr': CellLayer.BUSINESS,
+  'cell:HR': CellLayer.BUSINESS,
   'cell:production': CellLayer.BUSINESS,
-  'cell:dashboard': CellLayer.PRESENTATION,
+  'cell:DASHBOARD': CellLayer.PRESENTATION,
   'cell:reports': CellLayer.PRESENTATION,
 };
 

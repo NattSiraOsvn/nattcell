@@ -20,12 +20,12 @@ export class DictionaryService {
     // Version 1 (Initial)
     this.versions.push({
       id: 'VER-001',
-      version: 1, // Fixed: changed from string to number
+      version: "1.0.0", // string
       versionNumber: 1,
       status: 'ARCHIVED',
       isFrozen: true,
       termsCount: 10,
-      dictionaryId: 'MASTER_DICT',
+      dictionaryId: 'ADMIN_DICT',
       data: { SKUList: ['NNA-01'], ValidSuppliers: ['Tâm Luxury'] },
       changes: { added: 10, removed: 0, modified: 0, diffSummary: ['Initial load'] },
       createdBy: 'SYSTEM_INIT',
@@ -37,16 +37,16 @@ export class DictionaryService {
     // Version 2 (Current)
     this.versions.push({
       id: 'VER-002',
-      version: 2, // Fixed: changed from string to number
+      version: "2.0.0", // string
       versionNumber: 2,
       status: 'ACTIVE',
       isFrozen: false,
       termsCount: 12,
-      dictionaryId: 'MASTER_DICT',
+      dictionaryId: 'ADMIN_DICT',
       previousVersionId: 'VER-001',
       data: { SKUList: ['NNA-01', 'NNU-02'], ValidSuppliers: ['Tâm Luxury', 'Gia Công A'] },
       changes: { added: 2, removed: 0, modified: 1, diffSummary: ['Added SKU NNU-02', 'Added Supplier'] },
-      createdBy: 'MASTER_NATT',
+      createdBy: 'ADMIN_NATT',
       createdAt: Date.now() - 5000000,
       metadata: { reason: 'Update Q1/2026' },
       type: 'UPDATE' 
@@ -69,7 +69,7 @@ export class DictionaryService {
 
     const newVersion: DictionaryVersion = {
       id: `VER-ROLLBACK-${Date.now()}`,
-      version: (this.getCurrentVersion().versionNumber || 0) + 1, // Fixed: string to number
+      version: String((this.getCurrentVersion().versionNumber || 0) + 1),
       versionNumber: (this.getCurrentVersion().versionNumber || 0) + 1,
       status: 'ACTIVE',
       isFrozen: false,
@@ -81,7 +81,7 @@ export class DictionaryService {
         added: 0, removed: 0, modified: 0, 
         diffSummary: [`Rollback to v${target.versionNumber}`] 
       },
-      createdBy: 'MASTER_NATT',
+      createdBy: 'ADMIN_NATT',
       createdAt: Date.now(),
       metadata: { reason: `Emergency Rollback to v${target.versionNumber}` },
       type: 'ROLLBACK' 
@@ -93,3 +93,5 @@ export class DictionaryService {
 }
 
 export const DictService = DictionaryService.getInstance();
+
+export default DictionaryService;

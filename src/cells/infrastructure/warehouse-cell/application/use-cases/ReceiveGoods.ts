@@ -1,6 +1,6 @@
 /**
  * ReceiveGoods Use Case
- * Cell: warehouse-cell | Layer: Application
+ * Cell: WAREHOUSE-cell | Layer: Application
  */
 import { IWarehouseRepository } from '../../ports/WarehouseRepository';
 import { WarehouseItem } from '../../domain/entities/WarehouseEntity';

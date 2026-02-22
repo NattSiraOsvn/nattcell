@@ -49,7 +49,7 @@ const DataSyncEngine: React.FC = () => {
           const p2: DataPoint = { id: 'D2', source: 'OMEGA_OCR', payload: { val: 105 }, confidence: 0.85, timestamp: Date.now() };
           
           // 🛠️ Fix: Added missing priorityModule to satisfy ResolutionContext interface
-          const resolution = await ConflictEngine.resolveConflicts([p1, p2], { businessType: 'FINANCE', priorityModule: 'ACCOUNTING' });
+          const resolution = await ConflictEngine.resolveConflicts([p1, p2], { businessType: 'ACCOUNTING', priorityModule: 'ACCOUNTING' });
           
           if (resolution.isAutoResolved) {
              addLog(`✅ CRP Tự động giải quyết: Winner [${resolution.winner.source}] (Method: ${resolution.methodUsed})`, 'SUCCESS');
@@ -196,7 +196,7 @@ const DataSyncEngine: React.FC = () => {
 
            <div className="ai-panel p-0 bg-black border-white/10 flex flex-col h-[400px] overflow-hidden shadow-2xl font-mono">
               <div className="p-4 border-b border-white/10 bg-white/[0.02] flex justify-between items-center">
-                 <span className="text-[10px] text-gray-400 uppercase tracking-widest">CRP Synchronization Console</span>
+                 <span className="text-[10px] text-gray-400 uppercase tracking-widest">CRP SyncHRonization Console</span>
               </div>
               <div ref={logContainerRef} className="flex-1 p-6 overflow-y-auto no-scrollbar font-mono text-[10px] space-y-1.5 bg-black">
                  {logs.map((log) => (

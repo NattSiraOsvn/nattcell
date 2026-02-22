@@ -26,11 +26,11 @@ class HRService {
   
   private employees: DetailedPersonnel[] = [
     { 
-        id: 'e1', employeeCode: 'TL-M001', fullName: 'MASTER NATT', email: 'natt@luxurytam.com', 
-        position: { id: 'pos-1', role: PositionType.CFO, department: Department.FINANCE, scope: ['ALL'] },
-        role: UserRole.MASTER,
+        id: 'e1', employeeCode: 'TL-M001', fullName: 'ADMIN NATT', email: 'natt@luxurytam.com', 
+        position: { id: 'pos-1', role: PositionType.CFO, department: Department.ACCOUNTING, scope: ['ALL'] },
+        role: UserRole.ADMIN,
         status: 'ACTIVE', baseSalary: 0, 
-        startDate: '2020-01-01', kpiPoints: 999, tasksCompleted: 450, lastRating: 'MASTER',
+        startDate: '2020-01-01', kpiPoints: 999, tasksCompleted: 450, lastRating: 'ADMIN',
         bankAccountNo: '0071001234567',
         allowanceLunch: 0, allowancePosition: 0, actualWorkDays: 22,
         bio: 'Kiểm toán độc lập, Tổng tham mưu chiến lược.'
@@ -38,7 +38,7 @@ class HRService {
     { 
         id: 'e2', employeeCode: 'TL-S007', fullName: 'LÊ TRỌNG KHÔI', email: 'khoi.lt@luxurytam.com', 
         position: { id: 'pos-2', role: PositionType.CONSULTANT, department: Department.SALES, scope: ['CLIENTS'] },
-        role: UserRole.LEVEL_5,
+        role: UserRole.SALES_STAFF,
         status: 'ACTIVE', baseSalary: 15000000, 
         startDate: '2023-05-12', kpiPoints: 105, tasksCompleted: 120, lastRating: 'OPTIMAL',
         bankAccountNo: '1903001234567',
@@ -84,8 +84,8 @@ class HRService {
 
   async getDepartments(): Promise<HRDepartment[]> {
       return [
-          { id: 'd1', code: 'HQ', name: 'Ban Giám Đốc', is_active: true, description: 'Lõi chỉ huy' },
-          { id: 'd2', code: 'FINANCE', name: 'Phòng Tài Chính', is_active: true, description: 'Quản trị dòng tiền' },
+          { id: 'd1', code: 'HEADQUARTER', name: 'Ban Giám Đốc', is_active: true, description: 'Lõi chỉ huy' },
+          { id: 'd2', code: 'ACCOUNTING', name: 'Phòng Tài Chính', is_active: true, description: 'Quản trị dòng tiền' },
           { id: 'd3', code: 'PRODUCTION', name: 'Khối Sản Xuất', is_active: true, description: 'Chế tác' }
       ];
   }

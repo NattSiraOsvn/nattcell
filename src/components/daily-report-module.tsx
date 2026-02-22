@@ -1,5 +1,5 @@
 /**
- * 👑 NATT-OS GOLD MASTER: DAILY ACTIVE PROTOCOL
+ * 👑 NATT-OS GOLD ADMIN: DAILY ACTIVE PROTOCOL
  * AUTHORIZED BY: ANH_NAT (SOVEREIGN)
  * STATUS: 100% TYPE-SAFE | CONSTITUTIONAL ALIGNMENT
  */
@@ -30,7 +30,7 @@ const DailyReportModule: React.FC<DailyReportModuleProps> = ({
 
   // Guard Rail: Kiểm tra quyền phê duyệt thực tế (Audit-by-default)
   const canActuallyApprove = useMemo(() => {
-    return [UserRole.MASTER, UserRole.LEVEL_1, UserRole.LEVEL_2, UserRole.LEVEL_3].includes(currentRole);
+    return [UserRole.ADMIN, UserRole.MANAGER, UserRole.SENIOR_STAFF, UserRole.STAFF].includes(currentRole);
   }, [currentRole]);
 
   useEffect(() => {
@@ -134,7 +134,7 @@ const DailyReportModule: React.FC<DailyReportModuleProps> = ({
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-1">
                         {t.isCritical && <span className="px-2 py-0.5 bg-red-600 text-white text-[7px] font-black rounded uppercase">Trọng yếu</span>}
-                        <h4 className={`text-sm font-bold uppercase ${isCompleted ? 'text-green-400 line-through' : 'text-white'}`}>{t.task}</h4>
+                        <h4 className={`text-sm font-bold uppercase ${isCompleted ? 'text-green-400 line-tHRough' : 'text-white'}`}>{t.task}</h4>
                       </div>
                       <p className="text-[11px] text-gray-500 italic">{isDisabled ? "Chỉ dành cho Quản lý." : t.description}</p>
                     </div>

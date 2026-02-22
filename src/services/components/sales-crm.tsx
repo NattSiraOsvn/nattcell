@@ -205,7 +205,7 @@ const SalesCRM: React.FC<SalesCRMProps> = ({ logAction, updateFinance, metrics }
 
         {checkoutStep === 'processing' && (
           <div className="max-w-md mx-auto text-center ai-panel p-12 animate-in zoom-in-95 border-cyan-500/30 bg-cyan-500/5">
-             <h4 className="ai-headline text-3xl mb-8 uppercase italic tracking-tighter">Node Synchronization</h4>
+             <h4 className="ai-headline text-3xl mb-8 uppercase italic tracking-tighter">Node SyncHRonization</h4>
              <div className="bg-white p-6 rounded-[2.5rem] mb-10 shadow-2xl relative group overflow-hidden">
                 {activePayment ? <img src={activePayment.qrCodeUrl} className="w-full grayscale group-hover:grayscale-0 transition-all duration-500" alt="QR" /> : <div className="h-64 flex items-center justify-center text-black font-black animate-pulse">GENERATING NODE...</div>}
                 <div className="absolute top-0 left-0 w-full h-1 bg-cyan-500/20 group-hover:bg-cyan-500/80 transition-colors"></div>

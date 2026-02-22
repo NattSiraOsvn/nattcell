@@ -69,7 +69,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     stock: 5,
     isCustomizable: true,
     leadTime: 14,
-    supplier: { id: 's1', maNhaCungCap: 'TL-MASTER', tenNhaCungCap: 'Tam Luxury Master', diaChi: 'HCMC', maSoThue: '0300000001' },
+    supplier: { id: 's1', maNhaCungCap: 'TL-ADMIN', tenNhaCungCap: 'Tam Luxury Master', diaChi: 'HCMC', maSoThue: '0300000001' },
     rating: 5,
     reviews: 12,
     isVerifiedSupplier: true,
@@ -92,7 +92,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
     stock: 10,
     isCustomizable: false,
     leadTime: 7,
-    supplier: { id: 's1', maNhaCungCap: 'TL-MASTER', tenNhaCungCap: 'Tam Luxury Master', diaChi: 'HCMC', maSoThue: '0300000001' },
+    supplier: { id: 's1', maNhaCungCap: 'TL-ADMIN', tenNhaCungCap: 'Tam Luxury Master', diaChi: 'HCMC', maSoThue: '0300000001' },
     rating: 4.8,
     reviews: 8,
     isVerifiedSupplier: true,
@@ -104,7 +104,7 @@ export const SAMPLE_PRODUCTS: Product[] = [
 ];
 
 export const CUSTOMER_SEED_DATA = [
-  { id: 'C-998', name: 'ANH NATT MASTER', phone: '0901234567', tier: 'S-VIP' }
+  { id: 'C-998', name: 'ANH NATT ADMIN', phone: '0901234567', tier: 'S-VIP' }
 ];
 
 export const PRODUCT_SEED_DATA = SAMPLE_PRODUCTS;

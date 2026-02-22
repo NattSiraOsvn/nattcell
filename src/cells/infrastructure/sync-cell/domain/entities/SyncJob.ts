@@ -1,5 +1,5 @@
 /**
- * SyncJob Entity - Represents a data synchronization job
+ * SyncJob Entity - Represents a data syncHRonization job
  */
 
 export type SyncStatus = 'PENDING' | 'RUNNING' | 'COMPLETED' | 'FAILED' | 'CANCELLED';

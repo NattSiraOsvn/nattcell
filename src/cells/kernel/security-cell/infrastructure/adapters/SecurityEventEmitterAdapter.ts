@@ -1,8 +1,8 @@
 import { SecurityEventEmitter } from '../../ports/SecurityEventEmitter';
 
 export class SecurityEventEmitterAdapter implements SecurityEventEmitter {
-  async emitThreatDetected(threatId: string, severity: string, type: string) {
-    console.log('[SECURITY-CELL] security.threat.detected:', { threatId, severity, type });
+  async emitTHReatDetected(tHReatId: string, severity: string, type: string) {
+    console.log('[SECURITY-CELL] security.tHReat.detected:', { tHReatId, severity, type });
   }
   async emitLockdownInitiated(reason: string) {
     console.log('[SECURITY-CELL] security.lockdown.initiated:', { reason });

@@ -38,8 +38,8 @@ export const EVENT_VERSION_REGISTRY: Record<string, EventVersionInfo> = {
     change_type: 'MAJOR',
     compatibility: { backward: true, breaking: false },
   },
-  'security.threat.detected': {
-    event_type: 'security.threat.detected',
+  'security.tHReat.detected': {
+    event_type: 'security.tHReat.detected',
     version: '1.0.0',
     change_type: 'MAJOR',
     compatibility: { backward: true, breaking: false },

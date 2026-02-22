@@ -40,7 +40,7 @@ export interface CreateWarehouseItemCommand {
   unitCostVND: number;
   location?: WarehouseLocation;
   locationNote?: string;
-  minThreshold?: number;
+  minTHReshold?: number;
   supplierId?: string;
   notes?: string;
   createdBy: string;
@@ -106,9 +106,9 @@ export class WarehouseService {
 
     const category = this.registry.findByCode(cmd.code)!;
     const event: WarehouseCategoryRegisteredEvent = {
-      type: 'warehouse.category.registered',
+      type: 'WAREHOUSE.category.registered',
       payload: {
-        warehouseId: 'system',
+        WAREHOUSEId: 'system',
         action: 'register',
         code: category.code,
         name: category.name,
@@ -142,7 +142,7 @@ export class WarehouseService {
 
     const cat = this.registry.findByCode(cmd.categoryCode)!;
     const id = `WH-${Date.now()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
-    const minThreshold = cmd.minThreshold ?? WarehouseEngine.suggestMinThreshold(cmd.categoryCode, this.registry);
+    const minTHReshold = cmd.minTHReshold ?? WarehouseEngine.suggestMinTHReshold(cmd.categoryCode, this.registry);
 
     const props = {
       id,
@@ -154,7 +154,7 @@ export class WarehouseService {
       unitCostVND: cmd.unitCostVND,
       location: cmd.location ?? cat.defaultLocation,
       locationNote: cmd.locationNote,
-      minThreshold,
+      minTHReshold,
       supplierId: cmd.supplierId,
       notes: cmd.notes,
       insuranceStatus: cat.requiresInsurance ? 'NOT_COVERED' : 'NOT_COVERED',
@@ -167,9 +167,9 @@ export class WarehouseService {
     this.items.set(id, item);
 
     const event: WarehouseItemCreatedEvent = {
-      type: 'warehouse.item.created',
+      type: 'WAREHOUSE.item.created',
       payload: {
-        warehouseId: id,
+        WAREHOUSEId: id,
         action: 'create',
         itemId: id,
         sku: item.sku,
@@ -178,7 +178,7 @@ export class WarehouseService {
         initialQty: item.quantity,
         unitCostVND: item.unitCostVND,
         location: item.location,
-        minThreshold: item.minThreshold,
+        minTHReshold: item.minTHReshold,
         createdBy: cmd.createdBy,
         createdAt: new Date().toISOString(),
       },
@@ -205,9 +205,9 @@ export class WarehouseService {
     item.receiveStock(cmd.quantity, cmd.unitCostVND, cmd.receivedBy);
 
     const event: WarehouseItemReceivedEvent = {
-      type: 'warehouse.item.received',
+      type: 'WAREHOUSE.item.received',
       payload: {
-        warehouseId: cmd.itemId,
+        WAREHOUSEId: cmd.itemId,
         action: 'receive',
         itemId: item.id,
         quantity: cmd.quantity,
@@ -239,9 +239,9 @@ export class WarehouseService {
     item.releaseStock(cmd.quantity, cmd.reason, cmd.releasedBy);
 
     const event: WarehouseItemReleasedEvent = {
-      type: 'warehouse.item.released',
+      type: 'WAREHOUSE.item.released',
       payload: {
-        warehouseId: cmd.itemId,
+        WAREHOUSEId: cmd.itemId,
         action: 'release',
         itemId: item.id,
         quantity: cmd.quantity,
@@ -271,9 +271,9 @@ export class WarehouseService {
     item.adjustStock(cmd.newQuantity, cmd.reason, cmd.adjustedBy);
 
     const event: WarehouseItemAdjustedEvent = {
-      type: 'warehouse.item.adjusted',
+      type: 'WAREHOUSE.item.adjusted',
       payload: {
-        warehouseId: cmd.itemId,
+        WAREHOUSEId: cmd.itemId,
         action: 'adjust',
         itemId: item.id,
         oldQuantity: previousQty,
@@ -314,9 +314,9 @@ export class WarehouseService {
 
     result.insuranceAlerts.forEach(alert => {
       const ev: WarehouseInsuranceAlertEvent = {
-        type: 'warehouse.insurance.alert',
+        type: 'WAREHOUSE.insurance.alert',
         payload: {
-          warehouseId: alert.itemId,
+          WAREHOUSEId: alert.itemId,
           action: 'alert',
           itemId: alert.itemId,
           sku: alert.sku,
@@ -327,9 +327,9 @@ export class WarehouseService {
     });
 
     const event: WarehouseQAAuditCompletedEvent = {
-      type: 'warehouse.qa.audit.completed',
+      type: 'WAREHOUSE.qa.audit.completed',
       payload: {
-        warehouseId: 'system',
+        WAREHOUSEId: 'system',
         action: 'audit',
         healthScore: result.healthScore,
         totalItems: result.totalItems,
@@ -388,9 +388,9 @@ export class WarehouseService {
   private _checkAndEmitStockAlerts(item: WarehouseItem): void {
     if (item.isOutOfStock()) {
       const ev: WarehouseStockOutEvent = {
-        type: 'warehouse.stock.out',
+        type: 'WAREHOUSE.stock.out',
         payload: {
-          warehouseId: item.id,
+          WAREHOUSEId: item.id,
           action: 'alert',
           itemId: item.id,
           sku: item.sku,
@@ -399,17 +399,30 @@ export class WarehouseService {
       this.eventLog.push(ev);
     } else if (item.isLowStock()) {
       const ev: WarehouseStockLowEvent = {
-        type: 'warehouse.stock.low',
+        type: 'WAREHOUSE.stock.low',
         payload: {
-          warehouseId: item.id,
+          WAREHOUSEId: item.id,
           action: 'alert',
           itemId: item.id,
           sku: item.sku,
           currentQty: item.quantity,
-          threshold: item.minThreshold,
+          tHReshold: item.minTHReshold,
         },
       };
       this.eventLog.push(ev);
     }
+  }
+}
+
+
+// WarehouseProvider - compatibility alias
+export class WarehouseProvider {
+  static getAllInventory(): unknown[] { return []; }
+  private static service = new WarehouseService();
+  
+  static getInstance() { return this.service; }
+  
+  static async getItems() {
+    return this.service.getAllItems ? this.service.getAllItems() : [];
   }
 }

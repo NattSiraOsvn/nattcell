@@ -14,11 +14,11 @@ const MasterDashboard: React.FC<{ currentRole: UserRole, currentPosition: UserPo
     const syncNeuralNodes = async () => {
       setIsLoading(true);
       try {
-        const warehouseEnv = SmartLinkClient.createEnvelope('cell:warehouse', 'GetInventoryStats', {});
+        const WAREHOUSEEnv = SmartLinkClient.createEnvelope('cell:WAREHOUSE', 'GetInventoryStats', {});
         const salesEnv = SmartLinkClient.createEnvelope('cell:sales', 'GetRevenueStats', {});
         
-        const [warehouseData, revenue] = await Promise.all([
-          SmartLinkClient.send(warehouseEnv),
+        const [WAREHOUSEData, revenue] = await Promise.all([
+          SmartLinkClient.send(WAREHOUSEEnv),
           SmartLinkClient.send(salesEnv)
         ]);
 
@@ -29,9 +29,9 @@ const MasterDashboard: React.FC<{ currentRole: UserRole, currentPosition: UserPo
             department: Department.SALES, icon: '💰'
           },
           {
-            id: 'M2', name: 'TỒN KHO CELL', value: warehouseData.total_items || 0, unit: 'SP',
+            id: 'M2', name: 'TỒN KHO CELL', value: WAREHOUSEData.total_items || 0, unit: 'SP',
             trend: { direction: 'STABLE', percentage: 0, isPositive: true },
-            department: Department.HQ, icon: '📦'
+            department: Department.HEADQUARTER, icon: '📦'
           }
         ]);
       } finally {
@@ -41,7 +41,7 @@ const MasterDashboard: React.FC<{ currentRole: UserRole, currentPosition: UserPo
     syncNeuralNodes();
   }, []);
 
-  if (isLoading) return <LoadingSpinner message="Re-threading Neural Fiber via SmartLink..." />;
+  if (isLoading) return <LoadingSpinner message="Re-tHReading Neural Fiber via SmartLink..." />;
 
   return (
     <div className="h-full flex flex-col p-12 bg-transparent pb-60 animate-in fade-in">

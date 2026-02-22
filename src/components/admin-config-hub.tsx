@@ -8,7 +8,7 @@ import {
   ResponsiveContainer, Tooltip
 } from 'recharts';
 import { RecoverySystem } from '@/services/recoveryengine';
-import ApprovalDashboard from './approval/approvaldashboard';
+import ApprovalDashboard from './approval/approvalDASHBOARD';
 import { DictApproval, ChangeProposal } from '@/services/dictionaryapprovalservice';
 import { DictService } from '@/services/dictionaryservice';
 
@@ -21,7 +21,7 @@ const AdminConfigHub: React.FC = () => {
     systemName: 'Natt-OS Unified',
     version: '3.1.26',
     autoLockDelay: 300000,
-    confidenceThreshold: 75,
+    confidenceTHReshold: 75,
     allowGuest: false
   });
 
@@ -74,7 +74,7 @@ const AdminConfigHub: React.FC = () => {
   };
 
   const handleReview = async (id: string, decision: 'APPROVE' | 'REJECT') => {
-      await DictApproval.reviewChange(id, decision, 'MASTER_NATT');
+      await DictApproval.reviewChange(id, decision, 'ADMIN_NATT');
       setProposals(DictApproval.getPendingProposals());
   };
 
@@ -108,7 +108,7 @@ const AdminConfigHub: React.FC = () => {
     <div className="h-full bg-[#020202] flex flex-col overflow-hidden animate-in fade-in duration-700">
       
       {/* HEADER */}
-      <header className="p-8 border-b border-white/5 flex flex-col lg:flex-row justify-between items-end bg-black/40 backdrop-blur-xl shrink-0 gap-4">
+      <header className="p-8 border-b border-white/5 flex flex-col lg:flex-row justify-between items-end bg-black/40 backdrop-blur-xl sHRink-0 gap-4">
         <div>
            <div className="flex items-center gap-4 mb-2">
               <h2 className="ai-headline text-4xl italic uppercase tracking-tighter">Admin Core Hub</h2>
@@ -216,7 +216,7 @@ const AdminConfigHub: React.FC = () => {
                                             {op.error}
                                         </div>
                                     </div>
-                                    <div className="flex flex-col gap-3 shrink-0">
+                                    <div className="flex flex-col gap-3 sHRink-0">
                                         <button onClick={() => handleReplay(op.id)} className="px-10 py-5 bg-white text-black font-black text-[10px] uppercase tracking-[0.3em] rounded-2xl hover:bg-green-400 shadow-2xl transition-all active:scale-95">
                                             REPLAY SHARD
                                         </button>

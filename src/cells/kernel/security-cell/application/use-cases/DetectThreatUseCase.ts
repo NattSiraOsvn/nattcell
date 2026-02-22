@@ -1,28 +1,28 @@
-import { ThreatEvent } from '../../domain/entities';
-import { ThreatDetectionService } from '../../domain/services';
+import { THReatEvent } from '../../domain/entities';
+import { THReatDetectionService } from '../../domain/services';
 import { SecurityRepository } from '../../ports/SecurityRepository';
 import { SecurityEventEmitter } from '../../ports/SecurityEventEmitter';
 
-export class DetectThreatUseCase {
+export class DetectTHReatUseCase {
   constructor(
     private readonly repository: SecurityRepository,
     private readonly eventEmitter: SecurityEventEmitter,
-    private readonly detectionService: ThreatDetectionService
+    private readonly detectionService: THReatDetectionService
   ) {}
 
   async execute(type: string, severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL', source: string, description: string) {
-    const threat = ThreatEvent.create(type, severity, source, description);
-    await this.repository.logThreat(threat);
+    const tHReat = THReatEvent.create(type, severity, source, description);
+    await this.repository.logTHReat(tHReat);
 
-    const analysis = this.detectionService.analyzeThreat(type, source);
+    const analysis = this.detectionService.analyzeTHReat(type, source);
     if (analysis.shouldAlert) {
-      await this.eventEmitter.emitThreatDetected(threat.id, severity, type);
+      await this.eventEmitter.emitTHReatDetected(tHReat.id, severity, type);
     }
     if (analysis.shouldLockdown) {
       this.detectionService.activateLockdown();
-      await this.eventEmitter.emitLockdownInitiated(`Threat: ${type}`);
+      await this.eventEmitter.emitLockdownInitiated(`THReat: ${type}`);
     }
 
-    return { threat, analysis };
+    return { tHReat, analysis };
   }
 }

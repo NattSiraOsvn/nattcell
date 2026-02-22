@@ -1,5 +1,5 @@
 /**
- * 👑 NATT-OS GOLD MASTER: SYSTEM MONITORING CORE
+ * 👑 NATT-OS GOLD ADMIN: SYSTEM MONITORING CORE
  * AUTHORIZED BY: ANH_NAT (SOVEREIGN)
  * STATUS: 100% CONSTITUTIONAL | 0 ERRORS
  */
@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 // Import từ Shared Kernel (Điều 7)
 import { BusinessMetrics, PersonaID, OperationRecord } from '@/types';
-import ThreatDetectionService, { SecurityThreat, SystemHealth } from '@/services/threatdetectionservice';
+import THReatDetectionService, { SecurityTHReat, SystemHealth } from '@/services/threatdetectionservice';
 import { RecoverySystem } from '@/services/recoveryengine';
 import { NotifyBus } from '@/services/notificationservice';
 
@@ -37,8 +37,8 @@ const SystemMonitor: React.FC<SystemMonitorProps> = () => {
   const [scanProgress, setScanProgress] = useState(0);
   const [, setDeadLetter] = useState<OperationRecord[]>([]);
   
-  const [, setThreats] = useState<SecurityThreat[]>([]);
-  const [healthMetrics, setHealthMetrics] = useState<SystemHealth>(ThreatDetectionService.getHealth());
+  const [, setTHReats] = useState<SecurityTHReat[]>([]);
+  const [healthMetrics, setHealthMetrics] = useState<SystemHealth>(THReatDetectionService.getHealth());
 
   const logContainerRef = useRef<HTMLDivElement>(null);
 
@@ -64,16 +64,16 @@ const SystemMonitor: React.FC<SystemMonitorProps> = () => {
     setModules(initialModules);
     setDeadLetter(RecoverySystem.getDeadLetterQueue());
 
-    const unsubThreats = ThreatDetectionService.subscribe((threat) => {
-      setThreats(prev => [threat, ...prev].slice(0, 50));
+    const unsubTHReats = THReatDetectionService.subscribe((tHReat) => {
+      setTHReats(prev => [tHReat, ...prev].slice(0, 50));
     });
 
     const interval = setInterval(() => {
-      setHealthMetrics(ThreatDetectionService.getHealth());
+      setHealthMetrics(THReatDetectionService.getHealth());
     }, 2000);
 
     return () => {
-      unsubThreats();
+      unsubTHReats();
       clearInterval(interval);
     };
   }, []);

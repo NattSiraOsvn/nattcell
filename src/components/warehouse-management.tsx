@@ -21,7 +21,7 @@ const WarehouseManagement: React.FC<{ currentRole: UserRole }> = ({ currentRole 
       // Mock branching logic for Phase 4 visualization
       const branchedData = rawInventory.flatMap(({ product, status }) => [
           { product, status, location: WarehouseLocation.HCM_HEADQUARTER },
-          { product: { ...product, id: product.id + '_HN' }, status: { ...status, total: Math.floor(status.total * 0.3) }, location: WarehouseLocation.HANOI_BRANCH }
+          { product: { ...product, id: product.id + '_HN' }, status: { ...status, total: Math.floor(status.total * 0.3) }, location: WarehouseLocation.HN_BRANCH }
       ]);
       
       setInventory(branchedData);
@@ -46,7 +46,7 @@ const WarehouseManagement: React.FC<{ currentRole: UserRole }> = ({ currentRole 
         </div>
         
         <div className="flex items-center gap-6">
-           <div className="flex bg-black/60 p-1.5 rounded-2xl border border-white/10 shrink-0">
+           <div className="flex bg-black/60 p-1.5 rounded-2xl border border-white/10 sHRink-0">
               <button 
                 onClick={() => setActiveBranch('ALL')}
                 className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all ${activeBranch === 'ALL' ? 'bg-white text-black shadow-xl' : 'text-gray-500'}`}
@@ -57,11 +57,11 @@ const WarehouseManagement: React.FC<{ currentRole: UserRole }> = ({ currentRole 
                 onClick={() => setActiveBranch(WarehouseLocation.HCM_HEADQUARTER)}
                 className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all ${activeBranch === WarehouseLocation.HCM_HEADQUARTER ? 'bg-cyan-600 text-white shadow-xl' : 'text-gray-500'}`}
               >
-                HCMC (MASTER)
+                HCMC (ADMIN)
               </button>
               <button 
-                onClick={() => setActiveBranch(WarehouseLocation.HANOI_BRANCH)}
-                className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all ${activeBranch === WarehouseLocation.HANOI_BRANCH ? 'bg-amber-600 text-black shadow-xl' : 'text-gray-500'}`}
+                onClick={() => setActiveBranch(WarehouseLocation.HN_BRANCH)}
+                className={`px-8 py-3 rounded-xl text-[10px] font-black uppercase transition-all ${activeBranch === WarehouseLocation.HN_BRANCH ? 'bg-amber-600 text-black shadow-xl' : 'text-gray-500'}`}
               >
                 HANOI (NORTH)
               </button>
@@ -173,7 +173,7 @@ const WarehouseManagement: React.FC<{ currentRole: UserRole }> = ({ currentRole 
                 </p>
              </div>
           </div>
-          <button className="px-12 py-5 bg-white text-black font-black text-xs uppercase tracking-[0.4em] rounded-2xl hover:bg-cyan-500 transition-all active:scale-95 shadow-2xl shrink-0">
+          <button className="px-12 py-5 bg-white text-black font-black text-xs uppercase tracking-[0.4em] rounded-2xl hover:bg-cyan-500 transition-all active:scale-95 shadow-2xl sHRink-0">
              Audit Shard Logistics
           </button>
       </footer>

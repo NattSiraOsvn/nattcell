@@ -8,7 +8,7 @@ export interface WarehouseItemProps {
   unitCostVND: number;
   location: string;
   locationNote?: string;
-  minThreshold: number;
+  minTHReshold: number;
   supplierId?: string;
   notes?: string;
   insuranceStatus: 'COVERED' | 'NOT_COVERED' | 'EXPIRED';
@@ -27,7 +27,7 @@ export class WarehouseItem {
   private _unitCostVND: number;
   public readonly location: string;
   public readonly locationNote?: string;
-  public readonly minThreshold: number;
+  public readonly minTHReshold: number;
   public readonly supplierId?: string;
   public readonly notes?: string;
   private _insuranceStatus: 'COVERED' | 'NOT_COVERED' | 'EXPIRED';
@@ -53,7 +53,7 @@ export class WarehouseItem {
     this._unitCostVND = props.unitCostVND;
     this.location = props.location;
     this.locationNote = props.locationNote;
-    this.minThreshold = props.minThreshold;
+    this.minTHReshold = props.minTHReshold;
     this.supplierId = props.supplierId;
     this.notes = props.notes;
     this._insuranceStatus = props.insuranceStatus;
@@ -100,7 +100,7 @@ export class WarehouseItem {
   }
 
   isLowStock(): boolean {
-    return this._quantity > 0 && this._quantity <= this.minThreshold;
+    return this._quantity > 0 && this._quantity <= this.minTHReshold;
   }
 
   isOutOfStock(): boolean {

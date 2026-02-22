@@ -32,8 +32,8 @@ export class AnalyticsAPI {
         change_percent: 9.5,
         status: 'OK',
         owner_team: 'Bối Bối',
-        threshold_warning: 400000000,
-        threshold_critical: 300000000
+        tHReshold_warning: 400000000,
+        tHReshold_critical: 300000000
       },
       {
         kpi_id: 'KPI-002',
@@ -46,8 +46,8 @@ export class AnalyticsAPI {
         change_percent: 50,
         status: 'WARNING',
         owner_team: 'Bối Bối',
-        threshold_warning: 1.1,
-        threshold_critical: 1.5
+        tHReshold_warning: 1.1,
+        tHReshold_critical: 1.5
       },
       {
         kpi_id: 'KPI-003',
@@ -60,8 +60,8 @@ export class AnalyticsAPI {
         change_percent: -20,
         status: 'OK',
         owner_team: 'KIM',
-        threshold_warning: 100,
-        threshold_critical: 500
+        tHReshold_warning: 100,
+        tHReshold_critical: 500
       }
     ];
   }

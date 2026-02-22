@@ -26,7 +26,7 @@ const SalesTaxModule: React.FC<SalesTaxModuleProps> = ({ logAction, metrics, cur
     const initialInv: EInvoice = {
       id: 'INV-2026-0001',
       orderId: 'ORD-9988',
-      customerName: 'ANH NATT MASTER',
+      customerName: 'ANH NATT ADMIN',
       items: mockItems,
       totalAmount: 379000000,
       taxAmount: 37900000,

@@ -1,3 +1,6 @@
-export { Role, RoleProps } from './Role';
-export type { Permission, PermissionProps } from './Permission';
-export { UserRole, UserRoleProps } from './UserRole';
+export { Role } from './Role';
+export type { RoleProps } from './Role';
+export { Permission } from './Permission';
+export type { PermissionProps } from './Permission';
+export { UserRole } from './UserRole';
+export type { UserRoleProps } from './UserRole';

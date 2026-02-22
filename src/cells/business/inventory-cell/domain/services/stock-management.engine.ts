@@ -70,7 +70,7 @@ export interface ReceiveItemInput {
   notes?: string;
 }
 
-// --- Thresholds & Constants ---
+// --- THResholds & Constants ---
 
 /** Ngưỡng cảnh báo tồn kho thấp theo hạng mục */
 const LOW_STOCK_THRESHOLDS: Record<string, number> = {
@@ -255,13 +255,13 @@ export class StockManagementEngine {
         i => branchCodes.includes(i.locationCode) && i.status === 'AVAILABLE'
       );
 
-      for (const [category, threshold] of Object.entries(LOW_STOCK_THRESHOLDS)) {
+      for (const [category, tHReshold] of Object.entries(LOW_STOCK_THRESHOLDS)) {
         const count = branchItems.filter(i => i.categoryCode === category).length;
-        if (count < threshold) {
+        if (count < tHReshold) {
           alerts.push({
             type: 'LOW_STOCK',
             severity: count === 0 ? 'CRITICAL' : 'WARNING',
-            message: `${branch}: ${category} còn ${count}/${threshold} items`,
+            message: `${branch}: ${category} còn ${count}/${tHReshold} items`,
             locationCode: branch,
           });
         }

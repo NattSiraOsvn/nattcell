@@ -11,7 +11,7 @@ export class CalibrationEngine {
     [InputPersona.DATA_ENTRY]: 450,
     [InputPersona.PHARMACY]: 300,
     [InputPersona.EXPERT]: 350,
-    [InputPersona.MASTER]: 500
+    [InputPersona.ADMIN]: 500
   };
 
   public static getInstance(): CalibrationEngine {
@@ -64,9 +64,9 @@ export class CalibrationEngine {
   }
 
   /**
-   * Tính toán ngưỡng linh hoạt (Adaptive Threshold)
+   * Tính toán ngưỡng linh hoạt (Adaptive THReshold)
    */
-  public calculateAdaptiveThreshold(userId: string, currentIntensity: number): number {
+  public calculateAdaptiveTHReshold(userId: string, currentIntensity: number): number {
     const profile = this.getProfile(userId);
     if (!profile) return 200; // Default CPM limit
 

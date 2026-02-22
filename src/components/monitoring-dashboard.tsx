@@ -18,7 +18,7 @@
    const [healthStates, setHealthStates] = useState<CellHealthState[]>([
      { cell_id: 'cell:sales', status: 'HEALTHY', uptime: 99.98, last_heartbeat: Date.now() },
      { cell_id: 'cell:finance', status: 'HEALTHY', uptime: 100, last_heartbeat: Date.now() },
-     { cell_id: 'cell:warehouse', status: 'DEGRADED', uptime: 85.4, last_heartbeat: Date.now(), message: 'Syncing Branch: HANOI...' },
+     { cell_id: 'cell:WAREHOUSE', status: 'DEGRADED', uptime: 85.4, last_heartbeat: Date.now(), message: 'Syncing Branch: HANOI...' },
      { cell_id: 'cell:uei_hub', status: 'HEALTHY', uptime: 99.99, last_heartbeat: Date.now() },
    ]);
 

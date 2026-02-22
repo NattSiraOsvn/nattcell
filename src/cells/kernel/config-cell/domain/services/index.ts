@@ -1,1 +1,2 @@
-export { ConfigValidationService, ValidationResult } from './ConfigValidationService';
+export { ConfigValidationService } from './ConfigValidationService';
+export type { ValidationResult } from './ConfigValidationService';

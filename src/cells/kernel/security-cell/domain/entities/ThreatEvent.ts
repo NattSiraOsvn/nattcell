@@ -1,4 +1,4 @@
-export interface ThreatEventProps {
+export interface THReatEventProps {
   id: string;
   type: string;
   severity: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
@@ -8,14 +8,14 @@ export interface ThreatEventProps {
   resolved: boolean;
 }
 
-export class ThreatEvent {
-  private readonly props: ThreatEventProps;
+export class THReatEvent {
+  private readonly props: THReatEventProps;
 
-  private constructor(props: ThreatEventProps) { this.props = props; }
+  private constructor(props: THReatEventProps) { this.props = props; }
 
-  static create(type: string, severity: ThreatEventProps['severity'], source: string, description: string): ThreatEvent {
-    return new ThreatEvent({
-      id: `threat_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+  static create(type: string, severity: THReatEventProps['severity'], source: string, description: string): THReatEvent {
+    return new THReatEvent({
+      id: `tHReat_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
       type, severity, source, description,
       timestamp: new Date(),
       resolved: false,
@@ -24,12 +24,12 @@ export class ThreatEvent {
 
   get id(): string { return this.props.id; }
   get type(): string { return this.props.type; }
-  get severity(): ThreatEventProps['severity'] { return this.props.severity; }
+  get severity(): THReatEventProps['severity'] { return this.props.severity; }
   get source(): string { return this.props.source; }
   get resolved(): boolean { return this.props.resolved; }
 
-  resolve(): ThreatEvent {
-    return new ThreatEvent({ ...this.props, resolved: true });
+  resolve(): THReatEvent {
+    return new THReatEvent({ ...this.props, resolved: true });
   }
 
   toJSON() { return { ...this.props, timestamp: this.props.timestamp.toISOString() }; }

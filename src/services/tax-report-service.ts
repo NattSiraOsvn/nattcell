@@ -15,7 +15,7 @@ export class TaxReportService {
     return {
       taxableIncome,
       rate: standardRate * 100,
-      incentives: incentiveAmount,
+      incentives: { default: incentiveAmount },
       amount: taxAmount - incentiveAmount
     };
   }

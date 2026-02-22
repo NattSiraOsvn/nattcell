@@ -27,7 +27,7 @@ export class IntegrityScanner {
          id: this.SCANNER_ID,
          isActive: false,
          lastScan: 0,
-         threatsFound: 0,
+         tHReatsFound: 0,
          status: 'CLEAN',
          last_scan_time: 0,
          last_scan_head: 0,
@@ -82,7 +82,7 @@ export class IntegrityScanner {
           id: this.SCANNER_ID,
           isActive: true,
           lastScan: Date.now(),
-          threatsFound: errorCount,
+          tHReatsFound: errorCount,
           status: errorCount > 0 ? 'THREAT_DETECTED' : 'CLEAN',
           last_scan_time: Date.now(),
           last_scan_head: 0, // chưa có giá trị cụ thể

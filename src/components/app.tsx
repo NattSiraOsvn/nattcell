@@ -62,7 +62,7 @@ const App = () => {
   const [activeBlock, setActiveBlock] = useState(0);
   const [activeCluster, setActiveCluster] = useState(0);
   const [mounted, setMounted] = useState(false);
-  const [activeView, setActiveView] = useState<ViewType>(ViewType.dashboard); 
+  const [activeView, setActiveView] = useState<ViewType>(ViewType.DASHBOARD); 
   const [showAiModal, setShowAiModal] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [mousePos, setMousePos] = useState({ x: 0, y: 0, clientX: 0, clientY: 0 });
@@ -84,7 +84,7 @@ const App = () => {
           ux: "Commerce Quantum: Luồng tiền kim loại nóng. Định danh khách hàng 11 chiều.",
           screens: [
             { name: "Retail Operations", view: ViewType.sales_terminal, detail: "POS Terminal Omega, bóc tách hóa đơn chuẩn RSA.", icon: <ShoppingCart size={24}/> },
-            { name: "Warehouse Shard", view: ViewType.warehouse, detail: "Quản lý tồn kho đa điểm, băm Hash vật tư real-time.", icon: <Box size={24}/> },
+            { name: "Warehouse Shard", view: ViewType.WAREHOUSE, detail: "Quản lý tồn kho đa điểm, băm Hash vật tư real-time.", icon: <Box size={24}/> },
             { name: "Customer CRM", view: ViewType.chat, detail: "Hồ sơ Identity, phân nhóm RFM tự động qua AI.", icon: <Users size={24}/> }
           ],
           dataPoints: [
@@ -107,7 +107,7 @@ const App = () => {
       clusters: [
         {
           id: 11, name: "COMMAND", icon: <Crown size={18} />, themeColor: "from-yellow-600/20 to-amber-950/10", role: "heavy",
-          ux: "The Throne of Oversight: Quyền lực tuyệt đối. Mật lệnh niêm phong.",
+          ux: "The THRone of Oversight: Quyền lực tuyệt đối. Mật lệnh niêm phong.",
           aiFeature: { label: "✨ Kịch bản 2027", prompt: "Xây dựng dự thảo chiến lược tăng trưởng 2027 dựa trên 19TB dữ liệu bóc tách." },
           screens: [
             { name: "War Room", view: ViewType.command, detail: "Chỉ số sinh tồn chiến lược, giám sát Shard rủi ro.", icon: <Crown size={24}/> },
@@ -185,7 +185,7 @@ const App = () => {
       </div>
 
       {/* 📁 SIDEBAR (72 WIDTH) */}
-      <aside className={`w-72 h-full border-r border-white/5 flex flex-col z-50 bg-black/60 backdrop-blur-3xl transition-all duration-700 ${activeView !== ViewType.dashboard ? 'translate-x-[-100%] opacity-0' : 'translate-x-0 opacity-100'}`}>
+      <aside className={`w-72 h-full border-r border-white/5 flex flex-col z-50 bg-black/60 backdrop-blur-3xl transition-all duration-700 ${activeView !== ViewType.DASHBOARD ? 'translate-x-[-100%] opacity-0' : 'translate-x-0 opacity-100'}`}>
           <div className="p-8 flex items-center gap-5 border-b border-white/5">
              <div 
               className="w-12 h-12 rounded-2xl bg-amber-500 flex items-center justify-center text-black font-black text-2xl shadow-[0_0_30px_rgba(245,158,11,0.2)] icon-alive icon-heavy"
@@ -201,7 +201,7 @@ const App = () => {
             {systemStructure.map((block, idx) => (
               <button
                 key={block.id}
-                onClick={() => { setActiveBlock(idx); setActiveCluster(0); setActiveView(ViewType.dashboard); HapticEngine.vibrate('click'); }}
+                onClick={() => { setActiveBlock(idx); setActiveCluster(0); setActiveView(ViewType.DASHBOARD); HapticEngine.vibrate('click'); }}
                 className={`w-full text-left p-5 rounded-[2rem] group flex items-start gap-4 border transition-all duration-500 ${
                   activeBlock === idx ? 'bg-white/5 border-white/10 shadow-2xl' : 'hover:bg-white/5 border-transparent'
                 }`}
@@ -228,7 +228,7 @@ const App = () => {
             {currentBlock.clusters.map((cluster, idx) => (
               <button
                 key={cluster.id}
-                onClick={() => { setActiveCluster(idx); setActiveView(ViewType.dashboard); HapticEngine.vibrate('click'); }}
+                onClick={() => { setActiveCluster(idx); setActiveView(ViewType.DASHBOARD); HapticEngine.vibrate('click'); }}
                 className={`group relative px-6 py-2.5 rounded-xl transition-all duration-700 ${
                   activeCluster === idx ? 'text-white' : 'text-stone-500 hover:text-stone-300'
                 }`}
@@ -255,7 +255,7 @@ const App = () => {
 
         <main className="flex-1 overflow-y-auto p-12 lg:p-14 custom-scrollbar relative">
           <div className="max-w-7xl mx-auto">
-            {activeView === ViewType.dashboard ? (
+            {activeView === ViewType.DASHBOARD ? (
               <div className="space-y-16">
                 {/* 🏰 BREAKTHROUGH HERO */}
                 <section className="relative p-16 lg:p-20 rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_80px_160px_rgba(0,0,0,0.7)] bg-black/40 group">
@@ -317,14 +317,14 @@ const App = () => {
             ) : (
               <div className="animate-spatial-in">
                  <div className="flex justify-between items-center mb-10">
-                    <button onClick={() => { setActiveView(ViewType.dashboard); HapticEngine.vibrate('confirm'); }} className="px-10 py-4 bg-white/5 hover:bg-white/10 text-white rounded-2xl border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] transition-all">← Back to Resonance Hub</button>
+                    <button onClick={() => { setActiveView(ViewType.DASHBOARD); HapticEngine.vibrate('confirm'); }} className="px-10 py-4 bg-white/5 hover:bg-white/10 text-white rounded-2xl border border-white/10 text-[10px] font-black uppercase tracking-[0.4em] transition-all">← Back to Resonance Hub</button>
                  </div>
                  <div className="ai-panel p-1 rounded-[3.5rem] border border-white/5 shadow-2xl overflow-hidden bg-black/20">
                     <DynamicModuleRenderer 
                        view={activeView}
                        setActiveView={setActiveView}
-                       currentRole={UserRole.MASTER}
-                       currentPosition={{ id: 'MASTER', role: PositionType.CHAIRMAN, department: Department.HQ, scope: ['ALL'] }}
+                       currentRole={UserRole.ADMIN}
+                       currentPosition={{ id: 'ADMIN', role: PositionType.CHAIRMAN, department: Department.HEADQUARTER, scope: ['ALL'] }}
                        metrics={{ revenue: 449120, revenue_pending: 0, goldInventory: 850, productionProgress: 96, invoicesIssued: 156, riskScore: 12, lastUpdate: Date.now(), totalTaxDue: 0, totalPayroll: 0, currentOperatingCost: 0, importVolume: 0, pendingApprovals: 0, cadPending: 0, totalCogs: 0, totalOperating: 0 }}
                        actionLogs={[]}
                        logAction={() => {}}
@@ -365,7 +365,7 @@ const App = () => {
       )}
 
       {/* 🚀 TASKBAR */}
-      <footer className={`fixed bottom-10 left-1/2 -translate-x-1/2 h-20 px-10 bg-[#0c0c0e]/60 backdrop-blur-3xl border border-white/10 rounded-[48px] flex items-center gap-12 z-[500] shadow-[0_40px_80px_rgba(0,0,0,0.8)] transition-all duration-1000 hover:scale-[1.02] ${activeView !== ViewType.dashboard ? 'opacity-20 scale-95 blur-sm translate-y-24' : ''}`}>
+      <footer className={`fixed bottom-10 left-1/2 -translate-x-1/2 h-20 px-10 bg-[#0c0c0e]/60 backdrop-blur-3xl border border-white/10 rounded-[48px] flex items-center gap-12 z-[500] shadow-[0_40px_80px_rgba(0,0,0,0.8)] transition-all duration-1000 hover:scale-[1.02] ${activeView !== ViewType.DASHBOARD ? 'opacity-20 scale-95 blur-sm translate-y-24' : ''}`}>
           <div className="flex items-center gap-8">
             {[LayoutDashboard, Terminal, MessageSquare, Monitor, Settings].map((Icon, i) => (
               <div key={i} onClick={() => HapticEngine.vibrate('click')} className="group relative p-4 rounded-[1.5rem] hover:bg-white/10 cursor-pointer transition-all duration-700 hover:scale-125 hover:-translate-y-6 active:scale-90">
@@ -376,7 +376,7 @@ const App = () => {
           </div>
           <div className="h-10 w-[2px] bg-white/10 rounded-full"></div>
           <div className="flex flex-col items-end min-w-[180px]">
-             <span className="text-[9px] font-black text-stone-600 tracking-[0.4em] uppercase mb-1">Quantum_Chronos</span>
+             <span className="text-[9px] font-black text-stone-600 tracking-[0.4em] uppercase mb-1">Quantum_CHRonos</span>
              <span className="text-3xl font-black text-white tracking-tighter font-mono leading-none">
                {currentTime.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false })}
              </span>

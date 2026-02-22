@@ -5,7 +5,7 @@
 
 export type Domain = 
   | 'GOVERNANCE'
-  | 'FINANCE'
+  | 'ACCOUNTING'
   | 'HR'
   | 'SALES'
   | 'WAREHOUSE'
@@ -91,6 +91,6 @@ export function createBaseEvent<T>(
     correlation_id: correlation_id || createCorrelationId(),
     causation_id,
     payload,
-    audit_required: domain === 'GOVERNANCE' || domain === 'FINANCE',
+    audit_required: domain === 'GOVERNANCE' || domain === 'ACCOUNTING',
   };
 }

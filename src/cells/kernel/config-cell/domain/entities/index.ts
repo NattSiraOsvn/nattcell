@@ -1,2 +1,4 @@
-export { ConfigEntry, ConfigEntryProps } from './ConfigEntry';
-export { ConfigSnapshot, ConfigSnapshotProps } from './ConfigSnapshot';
+export { ConfigEntry } from './ConfigEntry';
+export type { ConfigEntryProps } from './ConfigEntry';
+export { ConfigSnapshot } from './ConfigSnapshot';
+export type { ConfigSnapshotProps } from './ConfigSnapshot';

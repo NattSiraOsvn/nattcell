@@ -76,26 +76,26 @@ function calcDayChuyen(E: number, N: number, H: string, isCurban: boolean): Labo
   if (requiresCustomQuote(H)) return { type: 'CUSTOM_QUOTE', reason: 'Dây chuyền đặc biệt' };
 
   let base: number;
-  let threshold: number;
+  let tHReshold: number;
 
   // Curban special condition
   if (isCurban && E >= 15 && E <= 25 && N > 200_000_000) {
-    base = 50_000_000; threshold = 200_000_000;
+    base = 50_000_000; tHReshold = 200_000_000;
   } else if (E > 15 && E <= 25) {
-    base = 35_000_000; threshold = 200_000_000;
+    base = 35_000_000; tHReshold = 200_000_000;
   } else if (E >= 12 && E <= 15) {
-    base = 32_000_000; threshold = 100_000_000;
+    base = 32_000_000; tHReshold = 100_000_000;
   } else if (E >= 8 && E < 12) {
-    base = 30_000_000; threshold = 100_000_000;
+    base = 30_000_000; tHReshold = 100_000_000;
   } else if (E > 5 && E < 8) {
-    base = 28_000_000; threshold = 60_000_000;
+    base = 28_000_000; tHReshold = 60_000_000;
   } else if (E > 2.5 && E <= 5) {
-    base = 27_000_000; threshold = 30_000_000;
+    base = 27_000_000; tHReshold = 30_000_000;
   } else {
-    base = 25_000_000; threshold = 20_000_000;
+    base = 25_000_000; tHReshold = 20_000_000;
   }
 
-  const amount = Math.round(base * (1 + Math.max(0, N / threshold - 1) * 0.4));
+  const amount = Math.round(base * (1 + Math.max(0, N / tHReshold - 1) * 0.4));
   return { type: 'CALCULATED', amount };
 }
 
@@ -105,30 +105,30 @@ function calcMatDay(E: number, N: number, H: string): LaborCostResult {
   if (requiresCustomQuote(H)) return { type: 'CUSTOM_QUOTE', reason: 'Mặt dây đặc biệt' };
 
   let base: number;
-  let threshold: number;
+  let tHReshold: number;
 
   // Priority: H có "chữ" và E ≤ 3
   if (H.includes('chữ') && E <= 3) {
-    base = 3_000_000; threshold = 30_000_000;
+    base = 3_000_000; tHReshold = 30_000_000;
   } else if (E > 10) {
-    base = 12_000_000; threshold = 70_000_000;
+    base = 12_000_000; tHReshold = 70_000_000;
   } else if (E > 7) {
-    base = 8_000_000; threshold = 70_000_000;
+    base = 8_000_000; tHReshold = 70_000_000;
   } else if (E > 5) {
-    base = 6_000_000; threshold = 50_000_000;
+    base = 6_000_000; tHReshold = 50_000_000;
   } else if (E > 4) {
-    base = 5_000_000; threshold = 50_000_000;
+    base = 5_000_000; tHReshold = 50_000_000;
   } else if (E > 3) {
-    base = 4_000_000; threshold = 40_000_000;
+    base = 4_000_000; tHReshold = 40_000_000;
   } else if (E > 2.5) {
-    base = 3_000_000; threshold = 30_000_000;
+    base = 3_000_000; tHReshold = 30_000_000;
   } else if (E > 1) {
-    base = 2_500_000; threshold = 20_000_000;
+    base = 2_500_000; tHReshold = 20_000_000;
   } else {
-    base = 2_000_000; threshold = 10_000_000;
+    base = 2_000_000; tHReshold = 10_000_000;
   }
 
-  const amount = Math.round(base * Math.max(1, N / threshold));
+  const amount = Math.round(base * Math.max(1, N / tHReshold));
   return { type: 'CALCULATED', amount };
 }
 
@@ -138,17 +138,17 @@ function calcVongTay(E: number, N: number, H: string): LaborCostResult {
   if (requiresCustomQuote(H)) return { type: 'CUSTOM_QUOTE', reason: 'Vòng tay đặc biệt' };
 
   let base: number;
-  let threshold: number;
+  let tHReshold: number;
 
   if (E > 5) {
-    base = 20_000_000; threshold = 50_000_000;
+    base = 20_000_000; tHReshold = 50_000_000;
   } else if (E >= 3) {
-    base = 8_000_000; threshold = 30_000_000;
+    base = 8_000_000; tHReshold = 30_000_000;
   } else {
-    base = 5_000_000; threshold = 20_000_000;
+    base = 5_000_000; tHReshold = 20_000_000;
   }
 
-  const amount = Math.round(base * Math.max(1, N / threshold));
+  const amount = Math.round(base * Math.max(1, N / tHReshold));
   return { type: 'CALCULATED', amount };
 }
 
@@ -158,19 +158,19 @@ function calcLacTay(E: number, N: number, H: string): LaborCostResult {
   if (requiresCustomQuote(H)) return { type: 'CUSTOM_QUOTE', reason: 'Lắc tay đặc biệt' };
 
   let base: number;
-  let threshold: number;
+  let tHReshold: number;
 
   if (E > 10) {
-    base = 15_000_000; threshold = 80_000_000;
+    base = 15_000_000; tHReshold = 80_000_000;
   } else if (E > 5) {
-    base = 10_000_000; threshold = 50_000_000;
+    base = 10_000_000; tHReshold = 50_000_000;
   } else if (E >= 3) {
-    base = 7_000_000; threshold = 30_000_000;
+    base = 7_000_000; tHReshold = 30_000_000;
   } else {
-    base = 5_000_000; threshold = 20_000_000;
+    base = 5_000_000; tHReshold = 20_000_000;
   }
 
-  const amount = Math.round(base * Math.max(1, N / threshold));
+  const amount = Math.round(base * Math.max(1, N / tHReshold));
   return { type: 'CALCULATED', amount };
 }
 
@@ -199,19 +199,19 @@ function calcNhanKet(E: number, N: number, H: string): LaborCostResult {
   if (requiresCustomQuote(H)) return { type: 'CUSTOM_QUOTE', reason: 'Nhẫn kết đặc biệt' };
 
   let base: number;
-  let threshold: number;
+  let tHReshold: number;
 
   if (E > 5) {
-    base = 8_000_000; threshold = 80_000_000;
+    base = 8_000_000; tHReshold = 80_000_000;
   } else if (E > 3) {
-    base = 5_000_000; threshold = 50_000_000;
+    base = 5_000_000; tHReshold = 50_000_000;
   } else if (E > 1.5) {
-    base = 3_000_000; threshold = 30_000_000;
+    base = 3_000_000; tHReshold = 30_000_000;
   } else {
-    base = 2_000_000; threshold = 20_000_000;
+    base = 2_000_000; tHReshold = 20_000_000;
   }
 
-  const amount = Math.round(base * Math.max(1, N / threshold));
+  const amount = Math.round(base * Math.max(1, N / tHReshold));
   return { type: 'CALCULATED', amount };
 }
 
@@ -221,19 +221,19 @@ function calcNhanNam(E: number, N: number, H: string): LaborCostResult {
   if (requiresCustomQuote(H)) return { type: 'CUSTOM_QUOTE', reason: 'Nhẫn nam đặc biệt' };
 
   let base: number;
-  let threshold: number;
+  let tHReshold: number;
 
   if (E > 8) {
-    base = 10_000_000; threshold = 80_000_000;
+    base = 10_000_000; tHReshold = 80_000_000;
   } else if (E > 5) {
-    base = 7_000_000; threshold = 50_000_000;
+    base = 7_000_000; tHReshold = 50_000_000;
   } else if (E > 3) {
-    base = 5_000_000; threshold = 40_000_000;
+    base = 5_000_000; tHReshold = 40_000_000;
   } else {
-    base = 3_000_000; threshold = 20_000_000;
+    base = 3_000_000; tHReshold = 20_000_000;
   }
 
-  const amount = Math.round(base * Math.max(1, N / threshold));
+  const amount = Math.round(base * Math.max(1, N / tHReshold));
   return { type: 'CALCULATED', amount };
 }
 
