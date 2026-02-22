@@ -1,8 +1,8 @@
 {
   "meta": {
-    "version": "BUSINESS_LOCK_v2",
-    "generated_at": "2026-02-22T23:41:34.013Z",
-    "generated_by": "bang-goldmaster-v2",
+    "version": "BUSINESS_LOCK_v2.1",
+    "generated_at": "2026-02-22T23:49:36.169Z",
+    "generated_by": "bang-goldmaster-v2.1",
     "principle": "FILESYSTEM_GROUND_TRUTH",
     "locked_layers": [
       "domain",
