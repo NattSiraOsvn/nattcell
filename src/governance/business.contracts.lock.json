@@ -1,0 +1,484 @@
+{
+  "meta": {
+    "version": "BUSINESS_LOCK_v2",
+    "generated_at": "2026-02-22T23:24:29.887Z",
+    "generated_by": "bang-goldmaster-v2",
+    "principle": "FILESYSTEM_GROUND_TRUTH",
+    "locked_layers": [
+      "domain",
+      "application",
+      "ports"
+    ],
+    "note": "domain+application=business logic core. ports=public API."
+  },
+  "business_cells": {
+    "buyback-cell": {
+      "cell": "buyback-cell",
+      "path": "src/cells/business/buyback-cell",
+      "files": [
+        {
+          "path": "src/cells/business/buyback-cell/cell.manifest.json",
+          "sha256": "7a5d4e58fb84a712fee2005499a65dcb241d48948d635782f94dacd50d40b56a"
+        },
+        {
+          "path": "src/cells/business/buyback-cell/domain/entities/buyback-transaction.entity.ts",
+          "sha256": "c4349a2f6e581aca8e63e2b08e5cd2a5a4eb248c457fd39d461e2f5ab6adef54"
+        },
+        {
+          "path": "src/cells/business/buyback-cell/domain/services/buyback.engine.ts",
+          "sha256": "51ab26f3b90cad7515eea7fb652dc067ee7715072b2441ff252b59440d7f20d6"
+        },
+        {
+          "path": "src/cells/business/buyback-cell/domain/value-objects/buyback-rules.ts",
+          "sha256": "80571df3c3aa189540f2a1a84727bc796c3146c497390a4a1c4bcd255e4a9b59"
+        },
+        {
+          "path": "src/cells/business/buyback-cell/domain/value-objects/exchange-policy.ts",
+          "sha256": "24a21c0f95abd935e78e29f9500e7c50ca37db5ca58023f16f9394cd2d10dbaf"
+        },
+        {
+          "path": "src/cells/business/buyback-cell/application/services/buyback.service.ts",
+          "sha256": "fb39a17f92c0a74d7ba76781e3981165fbd82e78e3d0fc7fe684e5de409b344c"
+        },
+        {
+          "path": "src/cells/business/buyback-cell/ports/buyback.contract.ts",
+          "sha256": "2e83d9e943404c703e1b0365b3192bfece165eff6905be5d435e590adeec89e6"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "customer-cell": {
+      "cell": "customer-cell",
+      "path": "src/cells/business/customer-cell",
+      "files": [
+        {
+          "path": "src/cells/business/customer-cell/cell.manifest.json",
+          "sha256": "f7ff75b963b3a2b5f3be3e614025cae372e96e68f0b6ae151db5648e79432d37"
+        },
+        {
+          "path": "src/cells/business/customer-cell/domain/entities/customer.entity.ts",
+          "sha256": "8d870dcda36451270f81a3a522c9efa448ebfb16ca9d9e1c74f7575db3f646ee"
+        },
+        {
+          "path": "src/cells/business/customer-cell/domain/services/customer.engine.ts",
+          "sha256": "50ec138b59b54ffc652374d132bceb5dba35e1ccf2462d62bb6ef8b366a632a9"
+        },
+        {
+          "path": "src/cells/business/customer-cell/domain/value-objects/customer-tier.ts",
+          "sha256": "f03ba64ad85eaa976e32c5356bea74f4f3ef7e76241225e503539d0c45a51615"
+        },
+        {
+          "path": "src/cells/business/customer-cell/application/services/customer.service.ts",
+          "sha256": "2a4f92b7d005925d8dd2bee200e25b3aa6173311b08efea6469d5daf470652db"
+        },
+        {
+          "path": "src/cells/business/customer-cell/ports/customer.contract.ts",
+          "sha256": "782c9540b52213417e7eeede1b7ebe3c69b34fd0cd12e51a760f210e9a192f1d"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "inventory-cell": {
+      "cell": "inventory-cell",
+      "path": "src/cells/business/inventory-cell",
+      "files": [
+        {
+          "path": "src/cells/business/inventory-cell/cell.manifest.json",
+          "sha256": "5afe94f38056aa7c1080aea63d1338d18220165ea201de1d62c3868bd09689c8"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/domain/entities/inventory-item.entity.ts",
+          "sha256": "819e99d1c318bd62f6d5fe3b4671b86f0ef3b8041ff3f568bc41019e6eef96ec"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/domain/services/reservation.engine.ts",
+          "sha256": "78cee08e3c85cc5e1ea576d58103f3d9d7fc388d42a150402726fffe151659c1"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/domain/services/stock-management.engine.ts",
+          "sha256": "539be5907f6ccdf2acc3690bb2f7fd3e9610bf3ac44a1949d3f732869dcb25bc"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/domain/value-objects/item-status.ts",
+          "sha256": "f78da01c0f8b288d5bd920c39148583135dc9fb30109f6d23f714a080bee99be"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/domain/value-objects/location-codes.ts",
+          "sha256": "a89c8ac120324207a2b8c597c56cb5b15d1511ce47c56f92db95a4c484dfa18e"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/domain/value-objects/reservation-rules.ts",
+          "sha256": "f007f9e8eeb015d9a5d67c243fb82e435bb502d685988a5cf8fb3b30598ea5ef"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/application/services/inventory.service.ts",
+          "sha256": "8917849ac6ec3c9cdbf59706b1ee36c235a4333c609b5c327cc1c06fb0c6bf19"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/application/use-cases/check-availability.ts",
+          "sha256": "8c57f33f1577b6cbe8148a7cdef99cfd764a5e787db6664b818a68149cc229bb"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/application/use-cases/deduct-item.ts",
+          "sha256": "7cf1c3ccca7ac47835d61ff19ff578644abc163c371937d6ecfe87112d0505cb"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/application/use-cases/release-reservation.ts",
+          "sha256": "592b2f761b192b35c4882713ab1a097227d4141f27df9c2e37604b81caa645c3"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/application/use-cases/reserve-item.ts",
+          "sha256": "c77c1336c5c9c866ad03bfcb02c3004ec29de56e4abd8b13267fae81d7ecb9ff"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/ports/index.ts",
+          "sha256": "97d311179229603863b08b77cdf600028ebf6bd09f545fcc449b58238ad80f1b"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/ports/inventory.contract.ts",
+          "sha256": "8e0f869f2321aeb7fed80357c2b6e31ac9310765981370a4d823eb7f5813b354"
+        },
+        {
+          "path": "src/cells/business/inventory-cell/ports/inventory.port.ts",
+          "sha256": "902b8e14a62947b955aad75bd7566eae073796f29ef4c262af446fe2c87c111e"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "order-cell": {
+      "cell": "order-cell",
+      "path": "src/cells/business/order-cell",
+      "files": [
+        {
+          "path": "src/cells/business/order-cell/cell.manifest.json",
+          "sha256": "f2212a858c2d99ee40f7ca4257e128e1e7c728fd2c3c4a009518d92e44684b4c"
+        },
+        {
+          "path": "src/cells/business/order-cell/domain/entities/order.entity.ts",
+          "sha256": "795328b44535cc7301ba68918b9ba5ffb4ef81ce460b72732a349f4f89f4d382"
+        },
+        {
+          "path": "src/cells/business/order-cell/domain/services/order.engine.ts",
+          "sha256": "8b0e52641424dee7cba2296d47f0a1ad4c5f65b97d83398fd3a8c280a743caac"
+        },
+        {
+          "path": "src/cells/business/order-cell/domain/value-objects/order-status.ts",
+          "sha256": "8a4b03745b003ab43eea9e80c686e30100a62d197fee8f06aaaafc6f2ae3dd91"
+        },
+        {
+          "path": "src/cells/business/order-cell/application/services/order.service.ts",
+          "sha256": "fd415047aad4d4848b642ab1422e1f524466284d618db0fbc19b4c0e9b8ce213"
+        },
+        {
+          "path": "src/cells/business/order-cell/ports/order.contract.ts",
+          "sha256": "ae27f9dff338089cce084c52b9a438bef9970ebe026cd1fd8202f767cd6f8d33"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "pricing-cell": {
+      "cell": "pricing-cell",
+      "path": "src/cells/business/pricing-cell",
+      "files": [
+        {
+          "path": "src/cells/business/pricing-cell/cell.manifest.json",
+          "sha256": "b5500b3dd9438d170a4b343b28d0e4110173135e23c71c62a23e1bcad400e0dc"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/domain/entities/pricing-calculator.ts",
+          "sha256": "67144e7e61e2a7394a8cf5d2eb8f42c9d4836e7cedeb392a47ffa61f387136cf"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/domain/index.ts",
+          "sha256": "61a0ac829251b71ddd1137e1128b38e4b563760e01aa6fd02017b72afdffde1a"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/domain/services/labor-cost.engine.ts",
+          "sha256": "252a8c0d4d37b2cde4a169ff673788ee9ae260a4ce0814382f37a20d7ff64132"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/domain/services/rule-engine.service.ts",
+          "sha256": "a590b285f5446a49c8bf23ef94093072e5b2864f49cf63bcd2ec1c3b6b42e886"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/domain/types/pricing.types.ts",
+          "sha256": "25e0f7dfe0bf394820926b8555e79bb26bfc971045a7bcbe67ae427c6f1c2e65"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/domain/value-objects/gold-types.ts",
+          "sha256": "369aeaade666835a389aef8baa43b73dd4c788a2e5d916f30fd58844f25aadd1"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/domain/value-objects/markup-tiers.ts",
+          "sha256": "7feffe1eb43e6ac9d4640f78ec55235cda8ed13c0608214683e016259b68475c"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/domain/value-objects/product-categories.ts",
+          "sha256": "ddc3c0770612674ae19b3b8c6e3efdf141c360ac1f451fa26c3d64f90fa9535f"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/application/services/pricing-runtime.service.ts",
+          "sha256": "1baec5de3a34c34bbfd1eb511d10c7768533a52f52a37e603756a3ac448db175"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/application/services/pricing.service.ts",
+          "sha256": "f8db122c16549f21ba9ea5a066c2e772aaffd49b97b91d6e02d977aed26f09fd"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/application/use-cases/calculate-product-price.ts",
+          "sha256": "0a9005738cb026c4d7d415bcc7a8277dd66ee156375bc3bcd96317e28935de8a"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/application/use-cases/update-gold-market-price.ts",
+          "sha256": "37762a2bdb9137945211d4d1d5959905064ebba5a00aca69aea5b97223e46c56"
+        },
+        {
+          "path": "src/cells/business/pricing-cell/ports/pricing.contract.ts",
+          "sha256": "ffd44d8e94a9ced392f1520bce709f245e87b52e23754088ea20df54c87f19e6"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "promotion-cell": {
+      "cell": "promotion-cell",
+      "path": "src/cells/business/promotion-cell",
+      "files": [
+        {
+          "path": "src/cells/business/promotion-cell/cell.manifest.json",
+          "sha256": "ed37823083ae2392a5d72f8ac5ea795e5aba0b9a395a185ba1548a733c680fd0"
+        },
+        {
+          "path": "src/cells/business/promotion-cell/domain/entities/promotion.entity.ts",
+          "sha256": "02d3e4bebe4d0d450200afb529df8bc836d81f0fe85812e68dd8817039b612cd"
+        },
+        {
+          "path": "src/cells/business/promotion-cell/domain/services/promotion.engine.ts",
+          "sha256": "86209e988fb661bc2ee5d6f83027518bf033e65d04c352dc56b542151a51bd2b"
+        },
+        {
+          "path": "src/cells/business/promotion-cell/domain/value-objects/promotion-types.ts",
+          "sha256": "2324cb04d4ad836f5fe47ceafb02e7ed38994cf5932e1dcd314b15ec416095cf"
+        },
+        {
+          "path": "src/cells/business/promotion-cell/application/services/promotion.service.ts",
+          "sha256": "d9488fbcc7d22bfd87fe4c8c5a389351cc9895f226873cd687d06f0c2aa47429"
+        },
+        {
+          "path": "src/cells/business/promotion-cell/ports/promotion.contract.ts",
+          "sha256": "6c75093da24a43e85b65ab961b0855641e1ad0720b612d3afd4d49cbd9d76c31"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "sales-cell": {
+      "cell": "sales-cell",
+      "path": "src/cells/business/sales-cell",
+      "files": [
+        {
+          "path": "src/cells/business/sales-cell/cell.manifest.json",
+          "sha256": "b62264510c8b9a0ec09c61a22e13b45c2e0d514a4514752f370ac90f22a27899"
+        },
+        {
+          "path": "src/cells/business/sales-cell/domain/entities/sales-transaction.entity.ts",
+          "sha256": "93f3f63bd6fb3fada47fd8cf78d1f32ee2d5421f3d3adb69999dee8319b5740d"
+        },
+        {
+          "path": "src/cells/business/sales-cell/domain/services/sales.engine.ts",
+          "sha256": "7c9daa45417cec459b41108d3648757f7ef40fb9ce92dc809f4c5bd7169f0d72"
+        },
+        {
+          "path": "src/cells/business/sales-cell/domain/value-objects/sales-channel.ts",
+          "sha256": "4a4b5d8e221ee2e5bb6d15f9c9a8d8fbaeeef815c52d18966b527ec301440304"
+        },
+        {
+          "path": "src/cells/business/sales-cell/application/services/sales.service.ts",
+          "sha256": "c117e1ec68d330f3547102abb1c2ed962b072a05ab9f9744bd1f092b435fe4d5"
+        },
+        {
+          "path": "src/cells/business/sales-cell/ports/sales.contract.ts",
+          "sha256": "3af2526ae833e5d705ef2ecf8201099060819bfbbff3312425d8a79dcaff5086"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "showroom-cell": {
+      "cell": "showroom-cell",
+      "path": "src/cells/business/showroom-cell",
+      "files": [
+        {
+          "path": "src/cells/business/showroom-cell/cell.manifest.json",
+          "sha256": "9157716c906e046c88abdf7e1112aea6426d0d5a5902b2e8b52e89537a9a8879"
+        },
+        {
+          "path": "src/cells/business/showroom-cell/domain/entities/appointment.entity.ts",
+          "sha256": "f4420954c96628d0f339cd91c8beb6de0b704968a1d6f25d7404d7e812fb6b8f"
+        },
+        {
+          "path": "src/cells/business/showroom-cell/domain/services/showroom.engine.ts",
+          "sha256": "b9a601c70555dc632546be969b9242a5049955d6c378e45e4fdb232d6c817896"
+        },
+        {
+          "path": "src/cells/business/showroom-cell/domain/value-objects/display-zone.ts",
+          "sha256": "32223e3a09e385e34b276296f6932ed9de1ff3139e4fae749c0fd3ef85f55dae"
+        },
+        {
+          "path": "src/cells/business/showroom-cell/application/services/showroom.service.ts",
+          "sha256": "3c5dafc80a0318b861724750f6fee7d2eb5f77e1089b369c199e7671f71e7d5a"
+        },
+        {
+          "path": "src/cells/business/showroom-cell/ports/showroom.contract.ts",
+          "sha256": "dbdbc4b9ff0171ec8f1f0d6351acfa28145f607b612864d3ed342088ac007ac5"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "warranty-cell": {
+      "cell": "warranty-cell",
+      "path": "src/cells/business/warranty-cell",
+      "files": [
+        {
+          "path": "src/cells/business/warranty-cell/cell.manifest.json",
+          "sha256": "507dde9a86d1a4fba379ea732189b3dc5af0f7b75d653cde7badcd692b974854"
+        },
+        {
+          "path": "src/cells/business/warranty-cell/domain/entities/warranty-claim.entity.ts",
+          "sha256": "659b3204e56779292d7dd05f188553767ed62f9366311607e4a2d33c306175bb"
+        },
+        {
+          "path": "src/cells/business/warranty-cell/domain/services/warranty.engine.ts",
+          "sha256": "7c31d6e730f7db89c21b85b2bece5e87be7547c96346b14399eb71595a6965f2"
+        },
+        {
+          "path": "src/cells/business/warranty-cell/domain/value-objects/claim-status.ts",
+          "sha256": "6c785e14075617cd417c7fd8b4c48d0866397609382ea5af17ca4b47b647d20e"
+        },
+        {
+          "path": "src/cells/business/warranty-cell/domain/value-objects/warranty-policy.ts",
+          "sha256": "c9aeef245ac981d8c67b9f9baf10ea2ebab3db4a795c5d6b52aa9de45a75c9f3"
+        },
+        {
+          "path": "src/cells/business/warranty-cell/application/services/warranty.service.ts",
+          "sha256": "e84bca6855752689f094a29f0d518346ae8a5c958714c21d01b6fc36f2a09f91"
+        },
+        {
+          "path": "src/cells/business/warranty-cell/ports/warranty.contract.ts",
+          "sha256": "80ed05bc36522b544afce0420447aaa147540fdf6dd6f1e3c31baa6b2375fa02"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    }
+  },
+  "summary": {
+    "total_cells": 9,
+    "total_locked_files": 73,
+    "quarantined": 0
+  }
+}

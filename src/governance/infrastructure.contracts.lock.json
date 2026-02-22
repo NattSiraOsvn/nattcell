@@ -1,0 +1,275 @@
+{
+  "meta": {
+    "version": "INFRA_LOCK_v2",
+    "generated_at": "2026-02-22T23:24:29.871Z",
+    "generated_by": "bang-goldmaster-v2",
+    "principle": "FILESYSTEM_GROUND_TRUTH",
+    "locked_layers": [
+      "domain",
+      "application",
+      "ports"
+    ],
+    "note": "infrastructure/ excluded — DB adapters high churn"
+  },
+  "infrastructure_cells": {
+    "shared-contracts-cell": {
+      "cell": "shared-contracts-cell",
+      "path": "src/cells/infrastructure/shared-contracts-cell",
+      "files": [
+        {
+          "path": "src/cells/infrastructure/shared-contracts-cell/domain/contract.types.ts",
+          "sha256": "e2c1826a46643779f5aaa4eeb18dac2d318ac3d4e0efdf6c1c6f8f9e7c45c940"
+        },
+        {
+          "path": "src/cells/infrastructure/shared-contracts-cell/application/contract.registry.ts",
+          "sha256": "b372c6f06215b150d3de3d0d0f3b2a8bc2dacfb4159896f4ce0d5468011c8881"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application"
+      ],
+      "status": "NO_MANIFEST"
+    },
+    "smartlink-cell": {
+      "cell": "smartlink-cell",
+      "path": "src/cells/infrastructure/smartlink-cell",
+      "files": [
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/cell.manifest.json",
+          "sha256": "d3bda38718911fc53296af97d00456602e4dd51718fe332f5b6acf31562d7f41"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/domain/entities/SmartLink.ts",
+          "sha256": "6eb93e6415150f2f943806680fb7c3f657c9d7db783d4e594099c68fa117b592"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/domain/entities/index.ts",
+          "sha256": "832043e6eac0d290283920739e267c9b8a8a9c04da1db2e24a96dc514b0b470f"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/domain/services/LinkResolver.ts",
+          "sha256": "ed48d6448a62473fb2595cda4cccc5e8d6c2ca1d58737e0e8563ada74ad8def0"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/domain/services/index.ts",
+          "sha256": "3332ffcea2e4cb6d0dc6f3da494f2d6b5984f08c7ebddc91cb100155a3e0f0c5"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/application/services/SmartLinkApplicationService.ts",
+          "sha256": "f77f71b9eaafd0ea6e77cba04d5fcc136fb620b835971ce617785ebcbf60bf7f"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/application/services/index.ts",
+          "sha256": "d678ad281a51aaeb384b2814666a63e4bd8684d007bae6451d1b8875b70b8325"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/application/use-cases/CreateLinkUseCase.ts",
+          "sha256": "c67022ea81ca87f4b2e989b9b174960c919c4a1bed9ed9e1447f6d304703ac2a"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/application/use-cases/ResolveLinkUseCase.ts",
+          "sha256": "ef352c4dbc62bb7fb83ed7595a37e3259117f76da23d29c9d3de6432d3255c16"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/application/use-cases/index.ts",
+          "sha256": "b8230e5447a3e772798d1707d7180e4bec514a7f02b936c5359b23d96bda638b"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/ports/SmartLinkEventEmitter.ts",
+          "sha256": "4681ced65afb5c38a1f4644a2087d54d1ab9e9ce5f3502c75645544d316f3375"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/ports/SmartLinkRepository.ts",
+          "sha256": "e770dd5aa6f58511bf0fd677be86ddd8f78689a9b0d4fa178f69f6e60c97112a"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/ports/index.ts",
+          "sha256": "abb86d5a95b1d25c97b6d1a27c772ff094bbfe327aff82f9d891153df28aed96"
+        },
+        {
+          "path": "src/cells/infrastructure/smartlink-cell/ports/smartlink-cell.contract.ts",
+          "sha256": "b646c6ebcfd1d0d89ef384a17072b58f21b1918eaaa43603b6718eca22605108"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "sync-cell": {
+      "cell": "sync-cell",
+      "path": "src/cells/infrastructure/sync-cell",
+      "files": [
+        {
+          "path": "src/cells/infrastructure/sync-cell/cell.manifest.json",
+          "sha256": "77645e98b0c99b803353d1096c9570fa62bcc8247eaeb877b22fa8ce50e7ee24"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/domain/entities/SyncConfig.ts",
+          "sha256": "f7b00c54f99fa6decb49821d221c3667a80340855f17204365a0ab41c9b7d183"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/domain/entities/SyncJob.ts",
+          "sha256": "029b2f46d4654f9ba1fc1bb666cabf938af86b19ea3fb6f3bed8d8092267a74d"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/domain/entities/index.ts",
+          "sha256": "d5d39e0e529f8aef68cdeba01608783c6f179b3c8f3acb823e73338c9dcd1349"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/domain/services/SyncEngine.ts",
+          "sha256": "c9126015d4800ff684872b4259c424e1d92c8223db91b63f82911bd5b8ad533e"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/domain/services/index.ts",
+          "sha256": "7c6550e2f93a46ae085d8a0918db431c30a05507134e65b907f87e6a7fa53f2c"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/application/services/SyncApplicationService.ts",
+          "sha256": "21d0158bd9608943cccf39538763c951eb6dca6df0e8a730ad798326ecf1541d"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/application/services/index.ts",
+          "sha256": "3938b311c6693e0d6b95df69b57db3db7b063c8be5d9404cc39bebed120374a6"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/application/use-cases/StartSyncUseCase.ts",
+          "sha256": "dbb9ca6fc22f4c0dffbdb30a331a41e931911dfaca94fecef7cbc3f619af904a"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/application/use-cases/index.ts",
+          "sha256": "589862e9d7202cd142a18008dd8f0e08c8bd2c03d9424ca116ce9ae9653b05e9"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/ports/SyncEventEmitter.ts",
+          "sha256": "17f2067ec2b40f15bfd2cc2d3dbba7888ab438f4f627eecd414c4d49fb843282"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/ports/SyncRepository.ts",
+          "sha256": "5588b0ab74f39a42c65d48db60ac8ec03cd45a5e287a77509489f948b6c194a9"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/ports/index.ts",
+          "sha256": "9682a4faf6804b7748d5cfa22b67ebe89e8d044ddc6d6d57b99ab097696dcf5f"
+        },
+        {
+          "path": "src/cells/infrastructure/sync-cell/ports/sync-cell.contract.ts",
+          "sha256": "f7c523db4d2a20db7a9d715a7f20e2d15a64e3bab9c729e8482ccb5405cb340d"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    },
+    "warehouse-cell": {
+      "cell": "warehouse-cell",
+      "path": "src/cells/infrastructure/warehouse-cell",
+      "files": [
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/cell.manifest.json",
+          "sha256": "105b0b13c645f3e553e0e538ffe7440c33580353fd94634388706587d1534817"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/domain/entities/WarehouseEntity.ts",
+          "sha256": "d7a6487e07322a9a365386c18f328a1bd4dbd6bce6decec63eab40c2b1db15f4"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/domain/entities/warehouse.entity.ts",
+          "sha256": "04a08c2b0e7a8760822052fad9f52a5aba751401f0113319b7ba18f2ddb1f43f"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/domain/services/WarehouseDomainService.ts",
+          "sha256": "fab3ccac838b0bdabcc7d0f012c6acf442344a17514217c345cbd0b3091f83ab"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/domain/services/warehouse-domain.service.ts",
+          "sha256": "42713ef237b5a933eaa8a17d88df6fa1e204acbe540c16cdb25b8d600099e6a4"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/domain/services/warehouse.engine.ts",
+          "sha256": "b9c4b9683cb751715ded639aa78e0e9e4a760fe8c56c89c061c357fbf5c15cb2"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/domain/value-objects/warehouse-category.registry.ts",
+          "sha256": "1801cc51ae94c6b88b083fbbed827293779c28e91fb7a8bf38859f858d779678"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/application/services/WarehouseApplicationService.ts",
+          "sha256": "1b6f3f727f4e86030a3976d9142a7d0fc033ec4f599f56a226b02ca3d8672c32"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/application/use-cases/ReceiveGoods.ts",
+          "sha256": "1521892bf49ce6cc3e453013fcce2594fb77e62c0fbe02e6d7fd38e974d38e63"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/application/use-cases/ReleaseGoods.ts",
+          "sha256": "bd6392e646e5301f666b7917b7e14177441cbfe3d32a58bbe2362f836b5cc785"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/application/warehouse.service.ts",
+          "sha256": "d2fc6a25464e8febb88c1ee8f68f892e8a9e93913f21bc79863c99b4f35df08a"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/ports/WarehouseEventEmitter.ts",
+          "sha256": "7ec7778939ec9d8c620515375ba2c6a1f2172345b17cd36cc3a286cad4263d77"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/ports/WarehouseRepository.ts",
+          "sha256": "a171ce4063d437888fc209b9f750a7e5f14671f2a05823abf6c457193c293d6e"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/ports/index.ts",
+          "sha256": "ae69496c2c191455870223601fdb3d274ce4f6ac75f19cedc0302b1f38dec83f"
+        },
+        {
+          "path": "src/cells/infrastructure/warehouse-cell/ports/warehouse.contract.ts",
+          "sha256": "cda18703e634a28c3eaae9f0c5242e902f3e5b6a303578474f9e829a18b2568b"
+        }
+      ],
+      "layers": [
+        "domain",
+        "application",
+        "interface",
+        "infrastructure",
+        "ports"
+      ],
+      "locked_layers": [
+        "domain",
+        "application",
+        "ports"
+      ],
+      "status": "ACTIVE"
+    }
+  },
+  "summary": {
+    "total_cells": 4,
+    "total_locked_files": 45,
+    "quarantined": 0
+  }
+}
