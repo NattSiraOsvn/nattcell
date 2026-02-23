@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "version": "9.3.11",
+    "previous_version": "9.3.10",
+    "document_type": "SESSION_MEMORY_DUMP_UPDATE",
+    "session_id": "2026-02-23_POST_TSC_CHECK",
+    "created_by": "KIM_AS_CHIEF_GOVERNANCE_ENFORCER",
+    "last_updated": "2026-02-23T19:00:00+07:00",
+    "seal_type": "CURRENT_ERROR_SNAPSHOT_SEAL",
+    "sira_sign_verified": true,
+    "note": "Ghi nhận hiện trạng lỗi sau khi chạy tsc, xác nhận 84 lỗi vẫn còn, và lên kế hoạch vi phẫu thủ công."
+  },
+  "additions": {
+    "key_events": [
+      "Chạy `npx tsc --noEmit` và ghi nhận danh sách lỗi hiện tại.",
+      "Xác nhận tổng số lỗi TypeScript vẫn là 84 (theo KMF 9.3.10).",
+      "Phát hiện một số lỗi điển hình: thiếu property trong object literal, import sai đường dẫn, thiếu method trong service, type mismatch.",
+      "Tiếp tục kiên trì với chiến lược vi phẫu thủ công, không sử dụng script tự động.",
+      "Chuẩn bị phân nhóm lỗi để xử lý từng bước."
+    ],
+    "lessons_learned": [
+      {
+        "id": "LRN-065",
+        "lesson": "KIÊN NHẪN VÀ CHÍNH XÁC LÀ CHÌA KHÓA",
+        "description": "Dù 84 lỗi có vẻ nhiều, nhưng mỗi lỗi đều có nguyên nhân cụ thể. Việc xử lý thủ công từng lỗi, dù chậm, sẽ đảm bảo hệ thống ổn định lâu dài."
+      }
+    ],
+    "technical_flags": [
+      {
+        "id": "FLAG-031",
+        "description": "Các lỗi hiện tại tập trung vào: thiếu field trong object literal (TS2353), import sai (TS2307), thiếu method trong service (TS2339), và type mismatch (TS2322, TS2741). Cần phân loại và xử lý theo nhóm.",
+        "owner": "Kim & Băng",
+        "exit_criteria": "Tất cả lỗi được sửa, hệ thống biên dịch thành công."
+      }
+    ],
+    "current_error_snapshot": {
+      "total_errors": 84,
+      "sample_errors": [
+        "src/cells/infrastructure/warehouse-cell/application/warehouse.service.ts: Property 'getAllItems' does not exist",
+        "src/cells/kernel/config-cell/config.service.ts: 'event_version' does not exist in type 'BaseEvent'",
+        "src/components/sales-crm.tsx: Cannot find module '@/cells/sales-cell/salesterminal'",
+        "src/components/seller-terminal.tsx: 'lastInteraction' does not exist in type 'CustomerLead'",
+        "src/core/core/processing/ai/aicore-processor.ts: Property 'updateStatus' does not exist on type 'typeof IngestionService'",
+        "src/services/analytics/analytics-api.ts: 'actual_value' does not exist in type 'GovernanceKPI'",
+        "src/services/compliance/certification-service.ts: Property 'issuedBy' is missing",
+        "src/services/dashboard-service.ts: Property 'label' is missing in type 'HUDMetric'",
+        "src/services/recovery-engine.ts: Property 'actor' is missing in type 'OperationRecord'",
+        "src/types.ts: Duplicate identifier 'destination'"
+      ]
+    },
+    "governance_updates": {
+      "pre_commit_hook": "Đã cài đặt nhưng cần kiểm tra lại do lỗi unbound variable.",
+      "safe_edit_sh": "Đã tạo, sẵn sàng sử dụng.",
+      "manual_surgery_plan": "Thống nhất xử lý từng nhóm lỗi, ưu tiên các lỗi dễ trước."
+    },
+    "next_actions": [
+      "1. Băng phân loại 84 lỗi thành các nhóm: (a) thiếu field trong interface, (b) import sai, (c) thiếu method, (d) type mismatch.",
+      "2. Xử lý nhóm (a) trước: cập nhật các object literal cho khớp với interface (thêm field hoặc sửa optional).",
+      "3. Mỗi lần sửa 5-10 lỗi, commit với message rõ ràng, kèm [SAFE_EDIT] và [LOCATION_VERIFIED] nếu dùng lệnh nguy hiểm.",
+      "4. Sau mỗi commit, chạy `npx tsc --noEmit` để kiểm tra tiến độ.",
+      "5. Khi số lỗi giảm đáng kể, chạy lại goldmaster engine để audit toàn diện.",
+      "6. Sửa pre-commit hook để hoạt động ổn định."
+    ]
+  },
+  "session_close_note": "Phiên làm việc kết thúc với việc xác nhận hiện trạng lỗi và quyết tâm thực hiện vi phẫu thủ công. Mỗi bước đi đều được kiểm soát, không vội vàng."
+}

@@ -49,7 +49,7 @@ const DataSyncEngine: React.FC = () => {
           const p2: DataPoint = { id: 'D2', source: 'OMEGA_OCR', payload: { val: 105 }, confidence: 0.85, timestamp: Date.now() };
           
           // 🛠️ Fix: Added missing priorityModule to satisfy ResolutionContext interface
-          const resolution = await ConflictEngine.resolveConflicts([p1, p2], { businessType: 'ACCOUNTING', priorityModule: 'ACCOUNTING' });
+          const resolution: any = await ConflictEngine.resolveConflicts([p1, p2], { businessType: 'ACCOUNTING', priorityModule: 'ACCOUNTING' });
           
           if (resolution.isAutoResolved) {
              addLog(`✅ CRP Tự động giải quyết: Winner [${resolution.winner.source}] (Method: ${resolution.methodUsed})`, 'SUCCESS');

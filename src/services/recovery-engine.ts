@@ -36,7 +36,7 @@ class RecoveryEngine {
     
     // Nếu là Repair Node, đưa vào Dead Letter để User Fix
     if (type === 'REPAIR_NODE') {
-        newOp.status = 'FAILED';
+        newOp.status = 'FAILURE' as any;
         newOp.error = 'SHARD_INTEGRITY_FAIL: Cần Master xác thực bản Backup.';
         this.deadLetterQueue.unshift(newOp);
     }
@@ -54,7 +54,7 @@ class RecoveryEngine {
     const op = this.opLog.find(o => o.id === id);
     if (!op) return;
 
-    op.status = 'FAILED';
+    op.status = 'FAILURE' as any;
     op.error = error.message || String(error);
 
     if (strategy === 'RETRY') {
@@ -71,7 +71,7 @@ class RecoveryEngine {
       await new Promise(r => setTimeout(r, 800));
 
       if (Math.random() > 0.6) {
-          op.status = 'RECOVERED';
+          op.status = 'SUCCESS' as any;
           op.error = undefined;
           return;
       }
@@ -99,7 +99,7 @@ class RecoveryEngine {
      
      // Giả lập logic khôi phục thực tế
      await new Promise(r => setTimeout(r, 1200));
-     op.status = 'RECOVERED';
+     op.status = 'SUCCESS' as any;
      op.error = undefined;
      this.deadLetterQueue = this.deadLetterQueue.filter(o => o.id !== id);
      

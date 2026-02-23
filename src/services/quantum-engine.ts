@@ -20,6 +20,7 @@ export class QuantumFlowEngine {
   
   // Trạng thái hệ thống (System State)
   private state: QuantumState = {
+    id: 'QS-' + Date.now(),
     coherence: 1.0,
     entropy: 10,
     superpositionCount: 0,
@@ -30,6 +31,7 @@ export class QuantumFlowEngine {
 
   // Trường Ý Thức (Consciousness Field)
   private consciousness: ConsciousnessField = {
+    activeDomains: [],
     awarenessLevel: 0.5,
     focusPoints: [],
     mood: 'STABLE',

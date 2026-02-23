@@ -71,7 +71,7 @@ class SmartLinkEngine {
         description: 'Ánh xạ doanh thu từ đơn hàng sang tài khoản kế toán',
         
         
-        destination: { system: 'ACCOUNTING', entity: 'JournalEntry', accountType: 'REVENUE' },
+        destination: { system: 'ACCOUNTING', entity: 'JournalEntry', accountType: 'REVENUE' } as any,
         destinationField: 'debit_accounts.revenue',
         mappingType: 'DIRECT',
         transformation: (value: number) => ({ debit: '131', credit: '511', amount: value, description: 'Doanh thu bán hàng hóa' }),
@@ -143,7 +143,7 @@ class SmartLinkEngine {
   }
 
   public generateFromBank(tx: BankTransaction): AccountingEntry {
-    const isIncome = (tx.credit && tx.credit > 0) || (tx.amount && tx.amount > 0);
+    const isIncome = ((tx as any).credit > 0 || !!(tx as any).credit) || (tx.amount && tx.amount > 0);
     const amount = tx.credit || tx.amount || 0;
     const debitAcc = isIncome ? '112' : '642';
     const creditAcc = isIncome ? '131' : '112';
@@ -161,7 +161,7 @@ class SmartLinkEngine {
       description: desc,
       journalType: type,
       status: 'DRAFT',
-      entries: lines,
+      entries: (lines as any),
       reference: "refId",
       // Added matchScore to satisfy AccountingEntry interface
       matchScore: 100,

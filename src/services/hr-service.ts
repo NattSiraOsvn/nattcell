@@ -9,18 +9,7 @@ import {
  * 🛡️ @RequirePermission Stub Decorator Simulation
  * Trong môi trường Frontend, Thiên mô phỏng ranh giới này để chuẩn bị cho Backend.
  */
-function RequirePermission(permission: string) {
-    return function (_target: any, _propertyKey: string, descriptor: PropertyDescriptor) {
-        const originalMethod = descriptor.value;
-        descriptor.value = function (...args: any[]) {
-            console.log(`[RBAC_GATE] Checking authorization for: ${permission}`);
-            // Logic check quyền thực tế sẽ bind tại đây
-            return originalMethod.apply(this, args);
-        };
-        return descriptor;
-    };
-}
-
+function RequirePermission(_p: string) { return (_t: any, _k: string): void => {}; }
 class HRService {
   private static instance: HRService;
   
@@ -67,16 +56,16 @@ class HRService {
       const mockSources: Array<'MACHINE' | 'OMEGA_SYNC' | 'HR_ADJUSTED'> = ['MACHINE', 'OMEGA_SYNC', 'HR_ADJUSTED'];
       
       return Array.from({ length: 5 }).map((_, i) => ({
-          id: `att-${i}`,
-          employee_id: employeeId,
-          date: `2026-01-0${i+1}`,
+          id: 'att-' + i,
+          employeeId: employeeId,
+          date: '2026-01-0' + (i+1),
           checkIn: Date.now() - (i * 86400000),
           total_hours: 8,
           status: 'PRESENT',
           source: {
               type: mockSources[i % 3],
               deviceId: 'CAM-OMEGA-01',
-              hash: `0x${Math.random().toString(16).slice(2, 40)}`,
+              hash: '0x' + Math.random().toString(16).slice(2, 40),
               adjustedBy: i % 3 === 2 ? 'HR_MANAGER_01' : undefined
           }
       }));

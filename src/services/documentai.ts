@@ -2,6 +2,10 @@
 export const documentai = {};
 
 export class Utilities {
+  static documentAI = {
+    getConfig: (): any => ({ threshold: 0.7, model: "default" }),
+    updateConfig: (_config: any): void => {},
+  };
   static parse(_data: unknown): unknown { return {}; }
   static format(_data: unknown): string { return ''; }
 }

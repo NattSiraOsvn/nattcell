@@ -21,6 +21,9 @@ export const IngestStatus = {
   FAILED: 'FAILED',
   QUARANTINED: 'QUARANTINED',
   QUEUED: 'QUEUED',
+  EXTRACTING: 'EXTRACTING',
+  MAPPING: 'MAPPING',
+  PENDING_APPROVAL: 'PENDING_APPROVAL',
 } as const;
 export type IngestStatus = typeof IngestStatus[keyof typeof IngestStatus];
 
@@ -291,12 +294,12 @@ export type SealingLevel = typeof SealingLevel[keyof typeof SealingLevel];
 export interface BaseEvent<T = unknown> {
   event_id: string;
   event_type: string;
-  event_version: string;
+  event_version?: string;
   source_cell: string;
   source_module: string;
   actor: { persona?: string; user_id?: string; persona_id?: string };
-  domain: string;
-  timestamp: number;
+  domain?: string;
+  timestamp?: number;
   correlation_id: string;
   payload: T;
   audit_required: boolean;
@@ -306,7 +309,7 @@ export interface Event {
   id: string;
   type: string;
   payload: unknown;
-  timestamp: number;
+  timestamp?: number;
   source: string;
   correlationId?: string;
   tenantId?: string;
@@ -325,7 +328,7 @@ export interface EventMetadata {
   version: string;
   correlationId: string;
   causationId?: string;
-  publishedAt: number;
+  publishedAt?: number;
 }
 
 export type EventHandler = (event: BaseEvent) => Promise<void>;
@@ -383,14 +386,14 @@ export interface IntegrityState {
 export interface ActionLog {
   id: string;
   action: string;
-  actor: string;
+  actor?: string;
   userId?: string;
   details?: string;
   userPosition?: string;
   module?: string;
   hash?: string;
   timestamp: number;
-  result: 'SUCCESS' | 'FAILURE' | 'PENDING';
+  result: 'SUCCESS' | 'FAILURE' | 'PENDING' | 'FAILED' | 'RECOVERED';
 }
 
 export type GatekeeperDecision = {
@@ -421,7 +424,7 @@ export interface StateChange {
   entityId: string;
   fromState: string;
   toState: string;
-  actor: string;
+  actor?: string;
   userId?: string;
   details?: string;
   userPosition?: string;
@@ -435,6 +438,8 @@ export interface StateChange {
   entityType?: string;
 
   changedBy?: string;
+
+  causationId?: string;
 }
 
 export type StateRegistry = {
@@ -512,6 +517,9 @@ export interface CustomerLead {
   createdAt: number;
 
   assignedDate?: number;
+
+  expiryDate?: number;
+  status?: string;
 }
 
 export interface ApprovalRequest {
@@ -534,9 +542,9 @@ export interface ApprovalTicket {
   workflowStep?: number;
   requestedAt?: number;
   id: string;
-  approvalRequestId: string;
-  assignedTo: string;
-  priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+  approvalRequestId?: string;
+  assignedTo?: string;
+  priority?: 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
   dueAt?: number;
 
   request?: any;
@@ -597,14 +605,13 @@ export interface FileMetadata {
 export interface QuantumState {
   energyLevel?: number;
   entanglementCount?: number;
-  id: string;
+  id?: string;
   coherence: number;
   entropy: number;
   superpositionCount: number;
-  waveFunction: { amplitude: number; frequency: number; phase: number 
+  waveFunction: { amplitude: number; frequency: number; phase: number };
   lastCollapse?: number;
-};
-  lastCollapse: number;
+  lastCollapse_legacy?: number;
 }
 
 export interface ConsciousnessField {
@@ -612,7 +619,7 @@ export interface ConsciousnessField {
   awarenessLevel: number;
   mood: 'OPTIMAL' | 'CAUTIOUS' | 'CRITICAL' | 'STABLE';
   lastCollapse: number;
-  activeDomains: string[];
+  activeDomains?: string[];
 }
 
 export interface QuantumEvent {
@@ -670,6 +677,9 @@ export interface AccountingEntry {
   description: string;
   timestamp: number;
   reference?: unknown;
+  matchScore?: number;
+  entries?: unknown[];
+  journalId?: string;
 }
 
 export interface AccountingMappingRule {
@@ -680,6 +690,9 @@ export interface AccountingMappingRule {
   priority?: number;
   transformation?: (value: unknown, context?: unknown) => unknown;
   autoPost?: boolean;
+  mappingType?: string;
+  sourceField?: string;
+  destinationField?: string;
   destination?: any;
   id: string;
   eventType: string;
@@ -690,7 +703,7 @@ export interface AccountingMappingRule {
 
 export interface BankTransaction {
   description?: string;
-  credit?: boolean;
+  credit?: boolean | number;
   id: string;
   amount: number;
   currency: string;
@@ -819,12 +832,12 @@ export interface TeamPerformance {
   tasks_in_progress?: number;
   tasks_completed?: number;
   total_tasks?: number;
-  teamId: string;
-  period: string;
-  kpiScore: number;
-  revenue: number;
-  targets: Record<string, number>;
-  actuals: Record<string, number>;
+  teamId?: string;
+  period?: string;
+  kpiScore?: number;
+  revenue?: number;
+  targets?: Record<string, number>;
+  actuals?: Record<string, number>;
 
   team_name?: string;
 
@@ -857,6 +870,9 @@ export interface SellerReport {
   transactionCount: number;
 
   sellerName?: string;
+
+  customerName?: string;
+  customerPhone?: string;
 }
 
 export interface BusinessMetrics {
@@ -878,11 +894,14 @@ export interface GovernanceKPI {
   kpi_id?: string;
 
   period_date?: number;
+  target_value?: number;
 }
 
 export interface HUDMetric {
   id?: string;
   label: string;
+  icon?: string;
+  department?: unknown;
   value: number | string;
   unit?: string;
   trend?: 'UP' | 'DOWN' | 'STABLE';
@@ -941,6 +960,9 @@ export interface Certification {
   issuingBody?: number | string;
   createdAt?: number | string;
   updatedAt?: number | string;
+
+  issueDate?: number;
+  renewalOf?: string;
 }
 
 export interface ModuleConfig {
@@ -955,13 +977,15 @@ export interface ModuleConfig {
   group?: string;
   componentName?: string;
   active?: boolean;
+
+  allowedRoles?: unknown[];
 }
 
 export interface OperationRecord {
   type?: string;
   error?: string;
   id: string;
-  operation: string;
+  operation?: string;
   actor: string;
   userId?: string;
   details?: string;
@@ -969,7 +993,7 @@ export interface OperationRecord {
   module?: string;
   hash?: string;
   timestamp: number;
-  status: 'SUCCESS' | 'FAILURE' | 'PENDING';
+  status: 'SUCCESS' | 'FAILURE' | 'PENDING' | 'FAILED' | 'RECOVERED';
 
   params?: unknown;
 }
@@ -987,8 +1011,8 @@ export interface DictionaryVersion {
   status?: string;
   version: string;
   publishedAt: number;
-  publishedBy: string;
-  changeLog: string[];
+  publishedBy?: string;
+  changeLog?: string[];
   id?: string;
   isFrozen?: boolean;
   type?: string;
@@ -1096,6 +1120,10 @@ export interface OrderPricing {
   depositVND?: number;
 
   promotionDiscount?: number;
+
+  shippingFee?: number;
+  insuranceFee?: number;
+  grossProfit?: number;
 }
 
 export interface CommissionInfo {
@@ -1273,3 +1301,9 @@ export interface PersonnelProfile {
 }
 
 export interface LearnedTemplate { id: string; name: string; content: string; position?: string; [key: string]: unknown; }
+
+
+export interface DetailedPersonnel { id: string; name?: string; fullName?: string; employeeCode?: string; email?: string; department?: string; position: unknown; role?: string; status?: string; baseSalary?: number; startDate?: string; kpiPoints?: number; tasksCompleted?: number; lastRating?: string; bankAccountNo?: string; allowanceLunch?: number; allowancePosition?: number; actualWorkDays?: number; bio?: string; [key: string]: unknown; }
+export type HRDepartment = unknown;
+export type HRPosition = unknown;
+export interface HRAttendance { employeeId: string; employee_id?: string; date: string; status: string; hoursWorked?: number; total_hours?: number; checkIn?: number; source?: unknown; [key: string]: unknown; }

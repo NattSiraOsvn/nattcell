@@ -1,7 +1,7 @@
 
 import { Certification, PersonaID } from '@/types';
 // TODO: import ShardingService fromts';
-import { NotifyBus } from '@/notificationservice';
+import { NotifyBus } from '../notificationservice';
 
 class CertificationService {
   private static instance: CertificationService;
@@ -29,7 +29,7 @@ class CertificationService {
         description: 'Chứng chỉ giám định kim cương thiên nhiên từ GIA.',
         type: 'QUALITY',
         issuingBody: 'Gemological Institute of America',
-        issueDate: now - (90 * 86400000),
+        issuedAt: now - (90 * 86400000),
         expiryDate: now + (15 * 86400000), // Sắp hết hạn trong 15 ngày
         status: 'VALID',
         verificationStatus: 'VERIFIED',
@@ -107,7 +107,7 @@ class CertificationService {
     return newCert;
   }
 
-  async renewCertification(certId: string, renewalData: { issueDate: number; expiryDate: number }) {
+  async renewCertification(certId: string, renewalData: { issuedAt: number; expiryDate: number }) {
     const now = Date.now();
     const oldCert = this.certs.find(c => c.id === certId);
     if (!oldCert) throw new Error("Certification not found");
@@ -115,7 +115,7 @@ class CertificationService {
     // 1. Tạo bản gia hạn mới
     const renewed = await this.createCertification({
       ...oldCert,
-      issueDate: renewalData.issueDate,
+      issuedAt: renewalData.issueDate,
       expiryDate: renewalData.expiryDate,
       status: 'PENDING',
       verificationStatus: 'PENDING',

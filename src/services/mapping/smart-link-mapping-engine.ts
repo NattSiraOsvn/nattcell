@@ -53,7 +53,7 @@ export class SmartLinkMappingEngine extends SimpleEventEmitter {
         description: 'Ánh xạ doanh thu từ đơn hàng sang tài khoản kế toán',
         source: { system: 'SALES', entity: 'SalesOrder', eventType: 'ORDER_CREATED' },
         sourceField: 'pricing.totalAmount',
-        destination: { system: 'ACCOUNTING', entity: 'JournalEntry', accountType: 'REVENUE' },
+        destination: ({ system: 'ACCOUNTING', entity: 'JournalEntry', accountType: 'REVENUE' } as any),
         destinationField: 'debit_accounts.revenue',
         mappingType: 'DIRECT',
         // 🛠️ Fixed: Added optional context parameter to satisfy AccountingMappingRule's transformation type
@@ -76,7 +76,7 @@ export class SmartLinkMappingEngine extends SimpleEventEmitter {
         description: 'Giá vốn hàng bán',
         source: { system: 'INVENTORY', entity: 'StockOut', eventType: 'ORDER_FULFILLED' },
         sourceField: 'pricing.costOfGoods',
-        destination: { system: 'ACCOUNTING', entity: 'JournalEntry', accountType: 'COGS' },
+        destination: ({ system: 'ACCOUNTING', entity: 'JournalEntry', accountType: 'COGS' } as any),
         destinationField: 'accounts.cogs',
         mappingType: 'DIRECT',
         // 🛠️ Fixed: Added optional context parameter to satisfy AccountingMappingRule's transformation type
@@ -164,8 +164,8 @@ export class SmartLinkMappingEngine extends SimpleEventEmitter {
     const journalId = `JRN-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
     
     return {
-      journalId,
-      transactionDate: new Date(),
+      journalId: (journalId as any),
+      transactionDate: Date.now(),
       description: data.description || `Auto-mapped from ${event.type}`,
       entries: [{
         accountNumber: data.debit || '',

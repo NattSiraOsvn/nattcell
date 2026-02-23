@@ -1,4 +1,4 @@
-import { IngestStatus, FileMetadata } from "../../../types";
+import { IngestStatus, FileMetadata } from "@/types";
 import { GoogleGenAI } from "@google/genai";
 import { Ingestion } from "../../ingestion/ingestion-service";
 

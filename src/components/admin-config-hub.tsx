@@ -53,7 +53,7 @@ const AdminConfigHub: React.FC = () => {
     const list = newKeywords.split(',').map(k => k.trim()).filter(k => k);
     setScoringConfig(prev => ({
       ...prev,
-      keywords: { ...prev.keywords, [context]: list }
+      keywords: { ...prev.keywords, [context as string]: list }
     }));
   };
 
@@ -161,7 +161,7 @@ const AdminConfigHub: React.FC = () => {
                              <span>{key}</span>
                              <span className="text-amber-500">{((val as number) * 100).toFixed(0)}%</span>
                           </div>
-                          <input type="range" min="0" max="1" step="0.05" value={val as number} onChange={(e) => handleWeightChange(key as any, parseFloat(e.target.value))} className="w-full accent-amber-500" />
+                          <input type="range" min="0" max="1" step="0.05" value={val as number} onChange={(e) => handleWeightChange(key as string, parseFloat(e.target.value))} className="w-full accent-amber-500" />
                        </div>
                     ))}
                  </div>

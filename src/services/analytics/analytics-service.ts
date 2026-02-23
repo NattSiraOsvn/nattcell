@@ -1,6 +1,6 @@
 
 import { EventEnvelope, PersonaID } from '@/types';
-import { EventBridge } from '../../eventbridge';
+import { EventBridge } from '../../event-bridge';
 import { AuditProvider } from '../../admin/auditservice';
 
 /**

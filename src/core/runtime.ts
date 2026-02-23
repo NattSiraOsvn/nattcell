@@ -44,7 +44,7 @@ export class NATTOS_Runtime {
             entityType: input.domain,
             fromState: transition.fromState,
             toState: transition.toState,
-            changedAt: new Date(),
+            changedAt: Date.now(),
             changedBy: input.userId,
             causationId: input.correlationId
           });

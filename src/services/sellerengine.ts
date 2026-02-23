@@ -1,21 +1,22 @@
-// Stub for sellerengine - will be implemented later
+// SellerEngine — Commission calculation
 export const sellerengine = {};
 
 export class SellerEngine {
   static calculateCommission(params: {
-    saleAmount: number;
-    sellerLevel?: string;
-    productType?: string;
-    [key: string]: unknown;
-  }): number {
-    const base = params.saleAmount || 0;
-    return base * 0.02; // 2% default commission
+    saleAmount?: number; shellRevenue?: number; stoneRevenue?: number;
+    stoneType?: string; isReportedWithin24h?: boolean;
+    kpiPoints?: number; [key: string]: unknown;
+  }): { total: number; shell: number; stone: number; policyId: string; baseRate: number; kpiFactor: number; estimatedAmount: number; finalAmount: number; status: string } {
+    const shellRev = (params.shellRevenue ?? params.saleAmount) || 0;
+    const stoneRev = params.stoneRevenue || 0;
+    const rate = 0.02;
+    const shell = Math.round(shellRev * rate);
+    const stone = Math.round(stoneRev * rate);
+    const total = shell + stone;
+    return { total, shell, stone, policyId: 'DEFAULT', baseRate: rate, kpiFactor: 1, estimatedAmount: total, finalAmount: total, status: 'CALCULATED' };
   }
-
   static check24hRule(timestamp: number): boolean {
-    const now = Date.now();
-    const diff = now - timestamp;
-    return diff <= 24 * 60 * 60 * 1000;
+    return (Date.now() - timestamp) <= 86400000;
   }
 }
 

@@ -264,7 +264,7 @@ const App = () => {
                   {/* Data Points 3D Injection */}
                   <div className="absolute inset-0 pointer-events-none">
                     {currentCluster.dataPoints?.map((dp, i) => (
-                      <DataPoint3D key={i} {...dp} />
+                      <DataPoint3D key={i} {...dp as any} />
                     ))}
                   </div>
 

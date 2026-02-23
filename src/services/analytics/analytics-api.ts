@@ -19,7 +19,7 @@ export class AnalyticsAPI {
    * Lấy danh sách KPI quản trị (Thien Command Center)
    */
   public async getGovernanceKPIs(): Promise<GovernanceKPI[]> {
-    const now = new Date().toISOString().split('T')[0];
+    const now = Date.now();
     return [
       {
         kpi_id: 'KPI-001',

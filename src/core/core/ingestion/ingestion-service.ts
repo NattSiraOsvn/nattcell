@@ -48,3 +48,5 @@ export class IngestionService {
     return Array.from(this.fileRegistry.values()).sort((a, b) => b.uploadedAt - a.uploadedAt);
   }
 }
+
+export { IngestionService as Ingestion };

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { EInvoice, EInvoiceStatus, BusinessMetrics, UserRole, PersonaID, EInvoiceItem } from '@/types';
-import { EInvoiceEngine } from '@/services/einvoiceservice';
+import EInvoiceEngine from '@/services/einvoiceservice';
 import { NotifyBus } from '@/services/notificationservice';
 import { FileCode, ShieldCheck, Send, CheckCircle2, Receipt, Cpu, Database, ChevronRight, Zap } from 'lucide-react';
 
@@ -19,7 +19,7 @@ const SalesTaxModule: React.FC<SalesTaxModuleProps> = ({ logAction, metrics, cur
 
   useEffect(() => {
     // Khởi tạo một số hóa đơn mẫu để bóc tách
-    const mockItems: EInvoiceItem[] = [
+    const mockItems: any[] = [
       { id: 'it1', name: 'Nhẫn Nam Rolex 18K', goldWeight: 3.5, goldPrice: 24000000, stonePrice: 350000000, laborPrice: 5000000, taxRate: 10, totalBeforeTax: 379000000 }
     ];
     
